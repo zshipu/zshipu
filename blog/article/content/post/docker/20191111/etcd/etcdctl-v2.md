@@ -1,3 +1,15 @@
+---
+categories:
+- Docker
+tags:
+- Docker  
+keywords: 知识铺,Docker
+date: 2019-11-11T22:27:21+08:00
+title: Docker 从入门到实践 - 使用 etcdctl v2
+author: 知识铺
+weight: -1
+---
+
 ## 使用 etcdctl v2
 
 `etcdctl` 是一个命令行客户端，它能提供一些简洁的命令，供用户直接跟 `etcd` 服务打交道，而无需基于 `HTTP API` 方式。这在某些情况下将很方便，例如用户对服务进行测试或者手动修改数据库内容。我们也推荐在刚接触 `etcd` 时通过 `etcdctl` 命令来熟悉相关的操作，这些操作跟 `HTTP API` 实际上是对应的。

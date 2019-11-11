@@ -1,3 +1,15 @@
+---
+categories:
+- Docker
+tags:
+- Docker  
+keywords: 知识铺,Docker
+date: 2019-11-11T22:27:21+08:00
+title: Docker 从入门到实践 - 安装
+author: 知识铺
+weight: -1
+---
+
 ## 安装
 
 Docker Machine 可以在多种操作系统平台上安装，包括 Linux、macOS，以及 Windows。

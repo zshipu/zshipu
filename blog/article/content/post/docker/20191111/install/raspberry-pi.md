@@ -1,3 +1,15 @@
+---
+categories:
+- Docker
+tags:
+- Docker  
+keywords: 知识铺,Docker
+date: 2019-11-11T22:27:21+08:00
+title: Docker 从入门到实践 - 树莓派卡片电脑安装 Docker CE
+author: 知识铺
+weight: -1
+---
+
 ## 树莓派卡片电脑安装 Docker CE
 
 >警告：切勿在没有配置 Docker APT 源的情况下直接使用 apt 命令安装 Docker.

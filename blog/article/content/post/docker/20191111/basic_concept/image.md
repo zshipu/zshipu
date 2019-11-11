@@ -1,3 +1,15 @@
+---
+categories:
+- Docker
+tags:
+- Docker  
+keywords: 知识铺,Docker
+date: 2019-11-11T22:27:21+08:00
+title: Docker 从入门到实践 - Docker 镜像
+author: 知识铺
+weight: -1
+---
+
 # Docker 镜像
 
 我们都知道，操作系统分为内核和用户空间。对于 Linux 而言，内核启动后，会挂载 `root` 文件系统为其提供用户空间支持。而 Docker 镜像（Image），就相当于是一个 `root` 文件系统。比如官方镜像 `ubuntu:18.04` 就包含了完整的一套 Ubuntu 18.04 最小系统的 `root` 文件系统。

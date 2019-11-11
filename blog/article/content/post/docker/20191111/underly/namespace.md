@@ -1,3 +1,15 @@
+---
+categories:
+- Docker
+tags:
+- Docker  
+keywords: 知识铺,Docker
+date: 2019-11-11T22:27:22+08:00
+title: Docker 从入门到实践 - 命名空间
+author: 知识铺
+weight: -1
+---
+
 ## 命名空间
 命名空间是 Linux 内核一个强大的特性。每个容器都有自己单独的命名空间，运行在其中的应用都像是在独立的操作系统中运行一样。命名空间保证了容器之间彼此互不影响。
 

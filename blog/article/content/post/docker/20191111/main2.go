@@ -71,12 +71,12 @@ func dealpath(photoFolder string) {
 
 				prx :=`---
 categories:
-- gulp
+- Docker
 tags:
-- gulp  
-keywords: 知识铺,gulp
+- Docker  
+keywords: 知识铺,Docker
 date: `+formattimestr+`
-title: Gulp 入门指南 `+"-"+title+`
+title: Docker 从入门到实践 `+"-"+title+`
 author: 知识铺
 weight: -1
 ---

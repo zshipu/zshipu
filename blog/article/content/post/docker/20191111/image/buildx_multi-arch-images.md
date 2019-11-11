@@ -1,3 +1,15 @@
+---
+categories:
+- Docker
+tags:
+- Docker  
+keywords: 知识铺,Docker
+date: 2019-11-11T22:27:21+08:00
+title: Docker 从入门到实践 - 使用 buildx 构建多种系统架构支持的 Docker 镜像
+author: 知识铺
+weight: -1
+---
+
 # 使用 buildx 构建多种系统架构支持的 Docker 镜像
 
 在之前的版本中构建多种系统架构支持的 Docker 镜像，要想使用统一的名字必须使用 [`$ docker manifest`](manifest.md) 命令。

@@ -1,3 +1,15 @@
+---
+categories:
+- Docker
+tags:
+- Docker  
+keywords: 知识铺,Docker
+date: 2019-11-11T22:27:21+08:00
+title: Docker 从入门到实践 - 使用 `BuildKit` 构建镜像
+author: 知识铺
+weight: -1
+---
+
 ## 使用 `BuildKit` 构建镜像
 
 **BuildKit** 是下一代的镜像构建组件，在 https://github.com/moby/buildkit 开源。

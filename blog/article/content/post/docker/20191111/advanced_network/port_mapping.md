@@ -1,3 +1,15 @@
+---
+categories:
+- Docker
+tags:
+- Docker  
+keywords: 知识铺,Docker
+date: 2019-11-11T22:27:21+08:00
+title: Docker 从入门到实践 - 映射容器端口到宿主主机的实现
+author: 知识铺
+weight: -1
+---
+
 ## 映射容器端口到宿主主机的实现
 
 默认情况下，容器可以主动访问到外部网络的连接，但是外部网络无法访问到容器。

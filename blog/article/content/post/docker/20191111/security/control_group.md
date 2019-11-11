@@ -1,3 +1,15 @@
+---
+categories:
+- Docker
+tags:
+- Docker  
+keywords: 知识铺,Docker
+date: 2019-11-11T22:27:21+08:00
+title: Docker 从入门到实践 - 控制组
+author: 知识铺
+weight: -1
+---
+
 ## 控制组
 控制组是 Linux 容器机制的另外一个关键组件，负责实现资源的审计和限制。
 

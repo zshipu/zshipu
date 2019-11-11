@@ -1,3 +1,15 @@
+---
+categories:
+- Docker
+tags:
+- Docker  
+keywords: 知识铺,Docker
+date: 2019-11-11T22:27:21+08:00
+title: Docker 从入门到实践 - 常见应用框架
+author: 知识铺
+weight: -1
+---
+
 ## 常见应用框架
 
 应用框架是实际干活的，可以理解为 Mesos 之上跑的 `应用`。应用框架注册到 Mesos master 服务上即可使用。

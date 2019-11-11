@@ -1,3 +1,15 @@
+---
+categories:
+- Docker
+tags:
+- Docker  
+keywords: 知识铺,Docker
+date: 2019-11-11T22:27:21+08:00
+title: Docker 从入门到实践 - 开源的内存 Key-Value 数据库
+author: 知识铺
+weight: -1
+---
+
 ## [Redis](https://hub.docker.com/_/redis/)
 
 ### 基本信息

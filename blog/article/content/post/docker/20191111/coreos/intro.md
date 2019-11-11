@@ -1,3 +1,15 @@
+---
+categories:
+- Docker
+tags:
+- Docker  
+keywords: 知识铺,Docker
+date: 2019-11-11T22:27:21+08:00
+title: Docker 从入门到实践 - CoreOS 介绍
+author: 知识铺
+weight: -1
+---
+
 # CoreOS 介绍
 
 [CoreOS](https://coreos.com/) 对 Docker 甚至容器技术的发展都带来了巨大的推动作用。其提供了运行现代基础设施的特性，支持大规模服务部署，使得在基于最小化的现代操作系统上构建规模化的计算仓库成为了可能。

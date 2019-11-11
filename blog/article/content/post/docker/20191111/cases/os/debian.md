@@ -1,3 +1,15 @@
+---
+categories:
+- Docker
+tags:
+- Docker  
+keywords: 知识铺,Docker
+date: 2019-11-11T22:27:21+08:00
+title: Docker 从入门到实践 - Debian/Ubuntu
+author: 知识铺
+weight: -1
+---
+
 ## Debian/Ubuntu
 `Debian` 和 `Ubuntu` 都是目前较为流行的 **Debian 系** 的服务器操作系统，十分适合研发场景。`Docker Hub` 上提供了官方镜像，国内各大容器云服务也基本都提供了相应的支持。
 

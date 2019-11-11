@@ -1,3 +1,15 @@
+---
+categories:
+- Docker
+tags:
+- Docker  
+keywords: 知识铺,Docker
+date: 2019-11-11T22:27:21+08:00
+title: Docker 从入门到实践 - 构建多种系统架构支持的 Docker 镜像 -- docker manifest 命令详解
+author: 知识铺
+weight: -1
+---
+
 ## 构建多种系统架构支持的 Docker 镜像 -- docker manifest 命令详解
 
 我们知道使用镜像创建一个容器，该镜像必须与 Docker 宿主机系统架构一致，例如 `Linux x86_64` 架构的系统中只能使用 `Linux x86_64` 的镜像创建容器。

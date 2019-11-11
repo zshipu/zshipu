@@ -1,3 +1,15 @@
+---
+categories:
+- Docker
+tags:
+- Docker  
+keywords: 知识铺,Docker
+date: 2019-11-11T22:27:21+08:00
+title: Docker 从入门到实践 - LinuxKit
+author: 知识铺
+weight: -1
+---
+
 ## LinuxKit
 
 `LinuxKit` 这个工具可以将多个 Docker 镜像组成一个最小化、可自由定制的 Linux 系统，最后的生成的系统只有几十 M 大小，可以很方便的在云端进行部署。

@@ -1,3 +1,15 @@
+---
+categories:
+- Docker
+tags:
+- Docker  
+keywords: 知识铺,Docker
+date: 2019-11-11T22:27:21+08:00
+title: Docker 从入门到实践 - 部署服务
+author: 知识铺
+weight: -1
+---
+
 ## 部署服务
 
 我们使用 `docker service` 命令来管理 `Swarm` 集群中的服务，该命令只能在管理节点运行。

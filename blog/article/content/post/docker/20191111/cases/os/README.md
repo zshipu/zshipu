@@ -1,3 +1,15 @@
+---
+categories:
+- Docker
+tags:
+- Docker  
+keywords: 知识铺,Docker
+date: 2019-11-11T22:27:21+08:00
+title: Docker 从入门到实践 - 操作系统
+author: 知识铺
+weight: -1
+---
+
 # 操作系统
 
 目前常用的 Linux 发行版主要包括 `Debian/Ubuntu` 系列和 `CentOS/Fedora` 系列。

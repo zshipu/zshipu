@@ -1,3 +1,15 @@
+---
+categories:
+- Docker
+tags:
+- Docker  
+keywords: 知识铺,Docker
+date: 2019-11-11T22:27:21+08:00
+title: Docker 从入门到实践 - CMD 容器启动命令
+author: 知识铺
+weight: -1
+---
+
 ### CMD 容器启动命令
 
 `CMD` 指令的格式和 `RUN` 相似，也是两种格式：

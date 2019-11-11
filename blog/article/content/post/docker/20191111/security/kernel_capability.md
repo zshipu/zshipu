@@ -1,3 +1,15 @@
+---
+categories:
+- Docker
+tags:
+- Docker  
+keywords: 知识铺,Docker
+date: 2019-11-11T22:27:21+08:00
+title: Docker 从入门到实践 - 内核能力机制
+author: 知识铺
+weight: -1
+---
+
 ## 内核能力机制
 
 能力机制（Capability）是 Linux 内核一个强大的特性，可以提供细粒度的权限访问控制。

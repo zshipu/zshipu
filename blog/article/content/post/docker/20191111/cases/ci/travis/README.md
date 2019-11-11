@@ -1,3 +1,15 @@
+---
+categories:
+- Docker
+tags:
+- Docker  
+keywords: 知识铺,Docker
+date: 2019-11-11T22:27:21+08:00
+title: Docker 从入门到实践 - 在 Travis CI 中使用 Docker
+author: 知识铺
+weight: -1
+---
+
 ## 在 Travis CI 中使用 Docker
 
 当代码提交到 GitHub 时，[Travis CI](https://travis-ci.com/) 会根据项目根目录 `.travis.yml` 文件设置的指令，执行一系列操作。

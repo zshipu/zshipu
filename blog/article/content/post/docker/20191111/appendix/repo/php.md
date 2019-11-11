@@ -1,3 +1,15 @@
+---
+categories:
+- Docker
+tags:
+- Docker  
+keywords: 知识铺,Docker
+date: 2019-11-11T22:27:21+08:00
+title: Docker 从入门到实践 - 可嵌入到 HTML 中，尤其适合 web 开发
+author: 知识铺
+weight: -1
+---
+
 ## [PHP](https://hub.docker.com/_/php/)
 
 ### 基本信息

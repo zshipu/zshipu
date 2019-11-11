@@ -1,3 +1,15 @@
+---
+categories:
+- Docker
+tags:
+- Docker  
+keywords: 知识铺,Docker
+date: 2019-11-11T22:27:21+08:00
+title: Docker 从入门到实践 - 本章小结
+author: 知识铺
+weight: -1
+---
+
 ## 本章小结
 
 本章讲解了 Mesos 的安装使用、基本原理和架构，以及支持 Mesos 的重要应用框架。Mesos 最初设计为资源调度器，然而其灵活的设计和对上层框架的优秀支持，使得它可以很好的支持大规模的分布式应用场景。结合 Docker，Mesos 可以很容易部署一套私有的容器云。

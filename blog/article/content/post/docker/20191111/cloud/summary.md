@@ -1,3 +1,15 @@
+---
+categories:
+- Docker
+tags:
+- Docker  
+keywords: 知识铺,Docker
+date: 2019-11-11T22:27:21+08:00
+title: Docker 从入门到实践 - 本章小结
+author: 知识铺
+weight: -1
+---
+
 ## 本章小结
 
 本章介绍了公有云服务对 Docker 的积极支持，以及新出现的容器云平台。

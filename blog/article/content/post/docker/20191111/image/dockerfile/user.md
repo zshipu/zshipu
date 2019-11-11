@@ -1,3 +1,15 @@
+---
+categories:
+- Docker
+tags:
+- Docker  
+keywords: 知识铺,Docker
+date: 2019-11-11T22:27:21+08:00
+title: Docker 从入门到实践 - USER 指定当前用户
+author: 知识铺
+weight: -1
+---
+
 ### USER 指定当前用户
 
 格式：`USER <用户名>[:<用户组>]`

@@ -1,3 +1,15 @@
+---
+categories:
+- Docker
+tags:
+- Docker  
+keywords: 知识铺,Docker
+date: 2019-11-11T22:27:21+08:00
+title: Docker 从入门到实践 - SWarm mode 与滚动升级
+author: 知识铺
+weight: -1
+---
+
 ## SWarm mode 与滚动升级
 
 在 [部署服务](deploy.md) 一节中我们使用 `nginx:1.13.7-alpine` 镜像部署了一个名为 `nginx` 的服务。

@@ -1,3 +1,15 @@
+---
+categories:
+- Docker
+tags:
+- Docker  
+keywords: 知识铺,Docker
+date: 2019-11-11T22:27:21+08:00
+title: Docker 从入门到实践 - 使用 Docker 镜像
+author: 知识铺
+weight: -1
+---
+
 # 使用 Docker 镜像
 
 在之前的介绍中，我们知道镜像是 Docker 的三大组件之一。

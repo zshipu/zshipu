@@ -1,3 +1,15 @@
+---
+categories:
+- Docker
+tags:
+- Docker  
+keywords: 知识铺,Docker
+date: 2019-11-11T22:27:21+08:00
+title: Docker 从入门到实践 - 本章小结
+author: 知识铺
+weight: -1
+---
+
 # 本章小结
 
 本章讲解了典型操作系统镜像的下载和使用。

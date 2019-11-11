@@ -1,3 +1,15 @@
+---
+categories:
+- Docker
+tags:
+- Docker  
+keywords: 知识铺,Docker
+date: 2019-11-11T22:27:22+08:00
+title: Docker 从入门到实践 - Docker 网络实现
+author: 知识铺
+weight: -1
+---
+
 ## Docker 网络实现
 
 Docker 的网络实现其实就是利用了 Linux 上的网络命名空间和虚拟网络设备（特别是 veth pair）。建议先熟悉了解这两部分的基本概念再阅读本章。
