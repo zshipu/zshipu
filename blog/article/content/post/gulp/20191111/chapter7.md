@@ -658,8 +658,4 @@ gulp.task('default', ['watchjs', 'watchcss', 'watchless', 'watchsass', 'watchima
 
 [完整代码](https://github.com/nimojs/gulp-demo/tree/master/gulpfile.js)
 
-[访问论坛获取帮助](https://github.com/nimojs/gulp-book/issues/16)
 
-你还想了解什么关于 gulp 的什么知识？ [告诉我们](https://github.com/nimojs/gulp-book/issues/8)
-
-后续还会又新章节更新。你可以[订阅本书](https://github.com/nimojs/gulp-book/issues/7) 当有新章节发布时，我们会通过邮件告诉你

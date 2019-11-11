@@ -115,6 +115,5 @@ Sass 代码和编译后的 CSS 代码
   color: red;
 }
 ```
-[访问论坛获取帮助](https://github.com/nimojs/gulp-book/issues/15)
 
 [接着阅读：使用 gulp 开发一个项目](https://blog.zshipu.com/article/post/gulp/20191111/chapter7/)

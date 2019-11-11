@@ -107,6 +107,5 @@ LESS 代码和编译后的CSS代码
 }
 ```
 
-[访问论坛获取帮助](https://github.com/nimojs/gulp-book/issues/14)
 
 [接着阅读：使用 gulp 编译 Sass](https://blog.zshipu.com/article/post/gulp/20191111/chapter5/)

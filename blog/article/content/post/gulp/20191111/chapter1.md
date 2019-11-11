@@ -99,6 +99,5 @@ npm install -g gulp
 
 至此，我们完成了准备工作。接着让 gulp 开始帮我们干活吧！
 
-[访问论坛获取帮助](https://github.com/nimojs/gulp-book/issues/10)
 
 [阅读下一章节：使用 gulp 压缩JS](https://blog.zshipu.com/article/post/gulp/20191111/chapter2/)

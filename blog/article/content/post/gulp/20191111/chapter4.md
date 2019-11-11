@@ -126,6 +126,5 @@ gulp
 [18:10:42] gulp-imagemin: Minified 3 images (saved 25.83 kB - 5.2%)
 ```
 
-[访问论坛获取帮助](https://github.com/nimojs/gulp-book/issues/13)
 
 [接着阅读：使用 gulp 编译 LESS](https://blog.zshipu.com/article/post/gulp/20191111/chapter5/)

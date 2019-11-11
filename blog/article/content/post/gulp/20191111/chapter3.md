@@ -133,6 +133,5 @@ gulp
 gulp 会创建 `dist/css` 目录，并创建 `a.css` 文件，此文件存放压缩后的 css 代码。
 [dist/css/a.css](https://github.com/nimojs/gulp-book/blob/master/demo/chapter3/dist/css/a.css)
 
-[访问论坛获取帮助](https://github.com/nimojs/gulp-book/issues/12)
 
 [接着阅读：使用 gulp 压缩图片](https://blog.zshipu.com/article/post/gulp/20191111/chapter4/)

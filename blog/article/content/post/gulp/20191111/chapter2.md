@@ -303,6 +303,4 @@ gulp.task('default', ['script', 'auto'])
 
 你可以访问 [gulp-uglify](https://github.com/terinjokes/gulp-uglify) 以查看更多用法。
 
-[访问论坛获取帮助](https://github.com/nimojs/gulp-book/issues/11)
-
 [接着阅读：使用 gulp 压缩 CSS](https://blog.zshipu.com/article/post/gulp/20191111/chapter3/)
