@@ -8,6 +8,7 @@ import (
 	"github.com/seefan/gossdb"
 	"github.com/seefan/gossdb/conf"
 	"log"
+	"net/url"
 )
 
 // 参数
@@ -74,6 +75,7 @@ func main() {
 
 func dealCbi(params *ReqUrlParam, c *gossdb.Client) {
 	sourceReferrer := params.Referrer
+	sourceReferrer = url.QueryEscape(sourceReferrer)
 	log.Println("dealCbi:"+sourceReferrer+" begin")
 	score, _ := c.Zget("cbi", sourceReferrer)
 	score = score + 1
@@ -87,6 +89,7 @@ func dealCbi(params *ReqUrlParam, c *gossdb.Client) {
 
 func dealPagePvUv(r *ghttp.Request, c *gossdb.Client, params *ReqUrlParam) {
 	refererstr := r.Header.Get("referer")
+	refererstr = url.QueryEscape(refererstr)
 	//fmt.Println(refererstr)
 	strstr, err := c.Get(refererstr)
 	if err != nil {
