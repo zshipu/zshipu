@@ -61,7 +61,7 @@
             <h2 class="fl"><label></label>特色专题</h2><a href="/special" class="fr rigth-more">查看更多<label></label></a>
         </div>
         <div class="special-content clear">
-            <div class="scroll clear imgScale">
+            <div class="scroll clear imgScale content" >
                 <a class="content" href="https://mp.weixin.qq.com/s?src=11&timestamp=1576991745&ver=2048&signature=iqueE0ahOiD7GYE*5pIAKYcOCpA5bgaw5ccUlJ7c5A-LaXlWfAKJ83Bandn8IEX1BJjsB8iAwoJ090-*XFcCUwpmKSMuKpbIIUQHp7RV8U7XKy61-P8N0z5FN5Il4wGz&new=1" target="_blank">
                     <img onload="setImgWH(this)" src="img/txpzhuanti1.png" alt="淘小铺最全资料，本文以11个点详解淘小铺【收藏版】" title="淘小铺最全资料，本文以11个点详解淘小铺【收藏版】" class="scale_return" style="height: 100%;">
                 </a>
@@ -2266,10 +2266,10 @@
     });
     //图片变大变小
     $(function() {
-        $("#wrapper-hot").on('mouseenter', '.content >a', function() {
+        $("body").on('mouseenter', '.content >a', function() {
             $(this).find("img").addClass("scale").removeClass("scale_return");
         });
-        $("#wrapper-hot").on('mouseleave', '.content >a', function() {
+        $("body").on('mouseleave', '.content >a', function() {
             $(this).find("img").addClass("scale_return").removeClass("scale");
         });
     })
