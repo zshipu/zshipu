@@ -359,7 +359,6 @@ h5 {
         min-width: 992px!important;
     }
 }
-/*! CSS Used from: http://www.alitxp.cn/style/Css/font-awesome.min.css */
 .fa {
     display: inline-block;
     font: normal normal normal 14px/1 FontAwesome;
@@ -408,12 +407,10 @@ h5 {
 .fa-laptop:before {
     content: "\f109";
 }
-/*! CSS Used from: http://www.alitxp.cn/style/Css/magnific-popup.css */
 button::-moz-focus-inner {
     padding: 0;
     border: 0;
 }
-/*! CSS Used from: http://www.alitxp.cn/style/Css/swiper.min.css */
 .swiper-container {
     margin: 0 auto;
     position: relative;
@@ -459,7 +456,6 @@ button::-moz-focus-inner {
     transition-property: transform;
     transition-property: transform,-webkit-transform;
 }
-/*! CSS Used from: http://www.alitxp.cn/style/Css/typography.css */
 body {
     font-family: 'Ubuntu', sans-serif;
 }
@@ -549,7 +545,6 @@ ul {
     margin: 0;
     list-style-type: none;
 }
-/*! CSS Used from: http://www.alitxp.cn/style/Css/default-css.css */
 * {
     margin: 0;
     padding: 0;
@@ -610,7 +605,6 @@ button {
 .bg-gray {
     background-color: #f9f9f9;
 }
-/*! CSS Used from: http://www.alitxp.cn/style/Css/pic_tip.css */
 * {
     margin: 0;
     padding: 0;
@@ -674,7 +668,6 @@ a,img {
     margin: 30px auto 0 auto;
     padding: 27px;
 }
-/*! CSS Used from: http://www.alitxp.cn/style/Css/styles.css */
 .header-area {
     position: absolute;
     left: 0;
@@ -997,7 +990,7 @@ a.scrl_me_down span {
     padding: 150px 0px;
     position: relative;
     z-index: 1;
-    background: url('http://www.alitxp.cn/style/Images/appvideo-bg.jpg') center/cover no-repeat;
+    background: url('../img/appvideo-bg.jpg') center/cover no-repeat;
 }
 
 .testimonial-two:before {
@@ -1150,7 +1143,6 @@ a.scrl_me_down span {
 .faq-left-thumb img {
     max-width: 75%;
 }
-/*! CSS Used from: http://www.alitxp.cn/style/Css/responsive.css */
 @media (min-width: 769px) and (max-width: 1024px) {
     .ptb--100 {
         padding: 90px 0px;
@@ -1446,41 +1438,43 @@ a.scrl_me_down span {
 }
 /*! CSS Used fontfaces */
 @font-face {
-    font-family:'FontAwesome';src:url('http://www.alitxp.cn/style/fonts/fontawesome-webfont.eot?v=4.6.3');src:url('http://www.alitxp.cn/style/fonts/fontawesome-webfont.eot#iefix&v=4.6.3') format('embedded-opentype'),url('http://www.alitxp.cn/style/fonts/fontawesome-webfont.woff2?v=4.6.3') format('woff2'),url('http://www.alitxp.cn/style/fonts/fontawesome-webfont.woff?v=4.6.3') format('woff'),url('http://qiniu.3haa.com/fontawesome-webfont.ttf?v=4.6.3') format('truetype'),url('http://www.alitxp.cn/style/fonts/fontawesome-webfont.svg?v=4.6.3#fontawesomeregular') format('svg');font-weight:normal;font-style:normal;
+    font-family:'FontAwesome';
+    url('fontawesome-webfont.ttf?v=4.6.3') format('truetype');
+    font-weight:normal;font-style:normal;
 }
 
 @font-face {
-    font-family:'Ubuntu';font-style:normal;font-weight:400;src:local('Ubuntu Regular'), local('Ubuntu-Regular'), url(https://fonts.gstatic.com/s/ubuntu/v14/4iCs6KVjbNBYlgoKfw7z.ttf) format('truetype');
+    font-family:'Ubuntu';font-style:normal;font-weight:400;src:local('Ubuntu Regular'), local('Ubuntu-Regular'), url(4iCs6KVjbNBYlgoKfw7z.ttf) format('truetype');
 }
 
 @font-face {
-    font-family:'Ubuntu';font-style:normal;font-weight:500;src:local('Ubuntu Medium'), local('Ubuntu-Medium'), url(https://fonts.gstatic.com/s/ubuntu/v14/4iCv6KVjbNBYlgoCjC3jsGyI.ttf) format('truetype');
+    font-family:'Ubuntu';font-style:normal;font-weight:500;src:local('Ubuntu Medium'), local('Ubuntu-Medium'), url(4iCv6KVjbNBYlgoCjC3jsGyI.ttf) format('truetype');
 }
 
 @font-face {
-    font-family:'Ubuntu';font-style:normal;font-weight:700;src:local('Ubuntu Bold'), local('Ubuntu-Bold'), url(https://fonts.gstatic.com/s/ubuntu/v14/4iCv6KVjbNBYlgoCxCvjsGyI.ttf) format('truetype');
+    font-family:'Ubuntu';font-style:normal;font-weight:700;src:local('Ubuntu Bold'), local('Ubuntu-Bold'), url(4iCv6KVjbNBYlgoCxCvjsGyI.ttf) format('truetype');
 }
 
 @font-face {
-    font-family:'Exo 2';font-style:normal;font-weight:400;src:local('Exo 2 Regular'), local('Exo2-Regular'), url(https://fonts.gstatic.com/s/exo2/v7/7cHmv4okm5zmbtYoK-s.ttf) format('truetype');
+    font-family:'Exo 2';font-style:normal;font-weight:400;src:local('Exo 2 Regular'), local('Exo2-Regular'), url(7cHmv4okm5zmbtYoK-s.ttf) format('truetype');
 }
 
 @font-face {
-    font-family:'Exo 2';font-style:normal;font-weight:500;src:local('Exo 2 Medium'), local('Exo2-Medium'), url(https://fonts.gstatic.com/s/exo2/v7/7cHrv4okm5zmbt7bCPs7wHo.ttf) format('truetype');
+    font-family:'Exo 2';font-style:normal;font-weight:500;src:local('Exo 2 Medium'), local('Exo2-Medium'), url(7cHrv4okm5zmbt7bCPs7wHo.ttf) format('truetype');
 }
 
 @font-face {
-    font-family:'Exo 2';font-style:normal;font-weight:600;src:local('Exo 2 SemiBold'), local('Exo2-SemiBold'), url(https://fonts.gstatic.com/s/exo2/v7/7cHrv4okm5zmbt73D_s7wHo.ttf) format('truetype');
+    font-family:'Exo 2';font-style:normal;font-weight:600;src:local('Exo 2 SemiBold'), local('Exo2-SemiBold'), url(7cHrv4okm5zmbt73D_s7wHo.ttf) format('truetype');
 }
 
 @font-face {
-    font-family:'Exo 2';font-style:normal;font-weight:700;src:local('Exo 2 Bold'), local('Exo2-Bold'), url(https://fonts.gstatic.com/s/exo2/v7/7cHrv4okm5zmbt6TDvs7wHo.ttf) format('truetype');
+    font-family:'Exo 2';font-style:normal;font-weight:700;src:local('Exo 2 Bold'), local('Exo2-Bold'), url(7cHrv4okm5zmbt6TDvs7wHo.ttf) format('truetype');
 }
 
 @font-face {
-    font-family:'Exo 2';font-style:normal;font-weight:800;src:local('Exo 2 ExtraBold'), local('Exo2-ExtraBold'), url(https://fonts.gstatic.com/s/exo2/v7/7cHrv4okm5zmbt6PDfs7wHo.ttf) format('truetype');
+    font-family:'Exo 2';font-style:normal;font-weight:800;src:local('Exo 2 ExtraBold'), local('Exo2-ExtraBold'), url(7cHrv4okm5zmbt6PDfs7wHo.ttf) format('truetype');
 }
 
 @font-face {
-    font-family:'Exo 2';font-style:normal;font-weight:900;src:local('Exo 2 Black'), local('Exo2-Black'), url(https://fonts.gstatic.com/s/exo2/v7/7cHrv4okm5zmbt6rDPs7wHo.ttf) format('truetype');
+    font-family:'Exo 2';font-style:normal;font-weight:900;src:local('Exo 2 Black'), local('Exo2-Black'), url(7cHrv4okm5zmbt6rDPs7wHo.ttf) format('truetype');
 }
