@@ -3,12 +3,49 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes" />
     <title>社交电商主页-社交电商淘小铺商店|社交电商公众号导航</title>
     <meta name="keywords" content="社交电商淘小铺,社交电商公众号,社交电商导航">
     <meta name="description" content="社交电商主页收录最新最全社交电商淘小铺应用和社交电商公众号、淘小铺评测、社交电商公众号热门文章等，致力于为用户提供优质的社交电商淘小铺体验和社交电商公众号导航。">
     <link type="text/css" href="css/index.css" rel="Stylesheet" />
     <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <style type="text/css">
+        @media(max-width:960px)
+        {
+            /* 网页全屏显示 */
+            body {width:100%;}
+
+            /* 正文全屏显示 */
+            #divMain{width:100%}
+
+            /* 为了避免正文图片超出屏幕宽度 */
+            /* 正文图片宽度最多是屏幕宽度的90% */
+            #divMain img{max-width:90%}
+
+            /* 隐藏头部、导航、侧栏、页脚 */
+            .hideHead{display:none}
+
+            .containers {
+                width: auto;
+                margin-left: auto;
+                margin-right: auto;
+                box-sizing: border-box;
+                float: left;
+            }
+
+            .n-top {
+                background: #4b4b4b;
+                width: 100%;
+                left: 0;
+                top: 0;
+                z-index: 999;
+                position: fixed;
+                height: 91px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -21,21 +58,20 @@
         }
     }
 </script>
-<div class="body-container">
-    <div class="n-top">
+<div id="divMain" class="body-container">
+    <div class=" n-top">
         <div class="n-top-center containers clear">
             <a class="logo" href="/">
                 社交电商
             </a>
             <div class="n-nav clear"> <a class="active" href="/">首页</a>
-
                 <a class="" target="_blank" href="https://blog.zshipu.com/txp/">淘小铺专题</a>
-                <a class="" href="/news">资讯</a>
-                <a class="" href="/eva">评测</a>
+                <a class="" href="/">资讯</a>
+                <a class="" href="/">评测</a>
             </div>
         </div>
     </div>
-    <div class="banner">
+    <div class="hideHead banner">
         <div class="left"><a class="b-pre"><i></i></a>
         </div>
         <div class="right"><a class="b-next"><i></i></a>
@@ -56,7 +92,7 @@
             </p>
         </a>
     </div>
-    <div class="specialbox containers">
+    <div class="hideHead specialbox containers">
         <div class="title-common clear">
             <h2 class="fl"><label></label>特色专题</h2><a href="/special" class="fr rigth-more">查看更多<label></label></a>
         </div>
@@ -80,7 +116,7 @@
             </div>
         </div>
     </div>
-    <div style="width:1080px;text-align:center;margin:0 auto;"><span></span>
+    <div class="hideHead " style="width:1080px;text-align:center;margin:0 auto;"><span></span>
 
         <script class="status1">
             var status1 = "1";
@@ -103,7 +139,7 @@
             </a>
         </div>
         <div class="show-content containers clear wrapper">
-            <a class="list" href="" target="_blank">
+            <div class="list" href="" target="_blank">
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/hptxpzt.png">
 							</span>
@@ -133,8 +169,8 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="" target="_blank">
+            </div>
+            <div class="list" href="" target="_blank">
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/5da4647bceb72.jpg" style="width: 100%;">
 							</span>
@@ -164,8 +200,8 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="" target="_blank">
+            </div>
+            <div class="list" href="" target="_blank">
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/5be811579596c.png" style="height: 100%;">
 							</span>
@@ -194,121 +230,10 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
+            </div>
         </div>
     </div>
-    <div class="showbox containers">
-        <div class="title-common clear" style="padding-top: 24px;">
-            <h2 class="fl">
-                <label>
-                </label>
-                公众号精选
-            </h2>
-            <a href="" class="fr rigth-more">
-                查看更多
-                <label>
-                </label>
-            </a>
-        </div>
-        <div class="show-content containers clear wrapper">
-            <a class="list" href="" target="_blank" style="height:160px">
-                <div class="imgLeft">	<span>
-								<img onload="setImgWH(this)" src="img/132" style="width: 100%;">
-							</span>
-                </div>
-                <div class="dataRight">
-                    <div class="title clear">
-                        <h3 class="ellipsis">
-                            周立波语录淘小铺								</h3>
-                        <span class="app-try">
-									购物
-								</span>
-                    </div>
-                    <p class="introduce">海派清口,以一种清新智慧的表现形式，传播一种快乐的思维方式和幽默的人生态度。</p>
-                </div>
-                <div class="list-bottom clear">
-                    <p class="view-count">
-                        <label></label>3190</p>
-                </div>
-                <div class="qrcode" style="display: none;">
-                    <img src="img/hptxp.png">
-                    <p>淘宝扫描</p>
-                </div>
-            </a>
-            <a class="list" href="" target="_blank" style="height:160px">
-                <div class="imgLeft">	<span>
-								<img onload="setImgWH(this)" src="img/1322" style="width: 100%;">
-							</span>
-                </div>
-                <div class="dataRight">
-                    <div class="title clear">
-                        <h3 class="ellipsis">
-                            点点相册淘小铺								</h3>
-                        <span class="app-try">
-									购物
-								</span>
-                    </div>
-                    <p class="introduce">音乐+照片，帮你记录最美生活点滴，分享心情印记。 关注后开始免费制作。</p>
-                </div>
-                <div class="list-bottom clear">
-                    <p class="view-count">
-                        <label></label>2664</p>
-                </div>
-                <div class="qrcode" style="display: none;">
-                    <img src="img/hptxp.png">
-                    <p>淘宝扫描</p>
-                </div>
-            </a>
-            <a class="list" href="" target="_blank" style="height:160px">
-                <div class="imgLeft">	<span>
-								<img onload="setImgWH(this)" src="img/1323" style="width: 100%;">
-							</span>
-                </div>
-                <div class="dataRight">
-                    <div class="title clear">
-                        <h3 class="ellipsis">
-                            生活百科小助手淘小铺								</h3>
-                        <span class="app-try">
-									购物
-								</span>
-                    </div>
-                    <p class="introduce">生活百科小助手每日为您分享小智慧、健康、理财、育儿等生活百科小常识，另外还提供聊天、天气、新闻、快递、解梦、星座、翻译、搞笑、糗事、笑话、菜谱、电影、万年历、百度百科、每日英语、苹果手机序列号等查询服务，生活百科小助手让您生活更美好！</p>
-                </div>
-                <div class="list-bottom clear">
-                    <p class="view-count">
-                        <label></label>2640</p>
-                </div>
-                <div class="qrcode" style="display: none;">
-                    <img src="img/hptxp.png">
-                    <p>淘宝扫描</p>
-                </div>
-            </a>
-            <a class="list" href="" target="_blank" style="height:160px">
-                <div class="imgLeft">	<span>
-								<img onload="setImgWH(this)" src="img/1324" style="width: 100%;">
-							</span>
-                </div>
-                <div class="dataRight">
-                    <div class="title clear">
-                        <h3 class="ellipsis">
-                            城事淘小铺								</h3>
-                        <span class="app-try">
-									购物
-								</span>
-                    </div>
-                    <p class="introduce">丢弃幻想、降低期望、抛弃玻璃心！关注@城事，一起直面世界的残酷和真实。</p>
-                </div>
-                <div class="list-bottom clear">
-                    <p class="view-count">
-                        <label></label>2181</p>
-                </div>
-                <div class="qrcode" style="display: none;">
-                    <img src="img/hptxp.png">
-                    <p>淘宝扫描</p>
-                </div>
-            </a>
-        </div>
-    </div>
+
     <div class="showbox containers">
         <div class="title-common clear">
             <h2 class="fl">
@@ -323,7 +248,7 @@
             </a>
         </div>
         <div id="thelist" class="show-content containers clear">
-            <a class="list" href="">
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/5bdc0f1b64afb.jpg" style="width: 100%;">
 							</span>
@@ -352,8 +277,8 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/5a743e1601fc7.jpg">
 							</span>
@@ -382,8 +307,8 @@
                     <img src="img/5a743e1601fc7.jpg">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/5a743e1601fc7.jpg" style="width: 100%;">
 							</span>
@@ -413,7 +338,7 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
+            </div>
         </div>
     </div>
     <div class="showbox containers">
@@ -430,7 +355,7 @@
             </a>
         </div>
         <div id="thelist" class="show-content containers clear">
-            <a class="list" href="">
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/2688b952bc358e0ct.jpg" style="height: 100%;">
 							</span>
@@ -459,8 +384,8 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/80f567e706a1ac6et.jpg" style="height: 100%;">
 							</span>
@@ -490,8 +415,8 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/1009d96653b99033t.jpg" style="width: 100%;">
 							</span>
@@ -520,7 +445,7 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
+            </div>
         </div>
     </div>
     <div class="showbox containers">
@@ -537,7 +462,7 @@
             </a>
         </div>
         <div id="thelist" class="show-content containers clear">
-            <a class="list" href="">
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/41cd331e5ff1b717t.jpg" style="width: 100%;">
 							</span>
@@ -567,8 +492,8 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/3623609c5c128458t.jpg" style="width: 100%;">
 							</span>
@@ -598,8 +523,8 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/78ae5a7de6f63d11t.jpg" style="width: 100%;">
 							</span>
@@ -629,7 +554,7 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
+            </div>
         </div>
     </div>
     <div class="showbox containers">
@@ -646,7 +571,7 @@
             </a>
         </div>
         <div id="thelist" class="show-content containers clear">
-            <a class="list" href="">
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/aa68efd7fb5c57bbt.jpg" style="width: 100%;">
 							</span>
@@ -676,8 +601,8 @@
                     <img src="img/8deacc6ce23fe11dt.jpg">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/c7c4de612629d367t.jpg" style="width: 100%;">
 							</span>
@@ -707,8 +632,8 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/6aec5111d0057d1bt.jpg" style="width: 100%;">
 							</span>
@@ -738,7 +663,7 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
+            </div>
         </div>
     </div>
     <div class="showbox containers">
@@ -755,7 +680,7 @@
             </a>
         </div>
         <div id="thelist" class="show-content containers clear">
-            <a class="list" href="">
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/986ca393a3e8b118t.jpg" style="width: 100%;">
 							</span>
@@ -785,8 +710,8 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/ef79180bb6bbed50t.jpg" style="width: 100%;">
 							</span>
@@ -816,8 +741,8 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/4fc5bbe5b0e6c745t.jpg" style="width: 100%;">
 							</span>
@@ -847,7 +772,7 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
+            </div>
         </div>
     </div>
     <div class="showbox containers">
@@ -864,7 +789,7 @@
             </a>
         </div>
         <div id="thelist" class="show-content containers clear">
-            <a class="list" href="">
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/e53810ec76c0a21bt.jpg" style="width: 100%;">
 							</span>
@@ -894,8 +819,8 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/e52a3bd9b2bf0bb4t.jpg" style="height: 100%;">
 							</span>
@@ -925,8 +850,8 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/9d211256005ecb06t.jpg" style="width: 100%;">
 							</span>
@@ -955,7 +880,7 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
+            </div>
         </div>
     </div>
     <div class="showbox containers">
@@ -972,7 +897,7 @@
             </a>
         </div>
         <div id="thelist" class="show-content containers clear">
-            <a class="list" href="">
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/4670021ad93ce2f2t.jpg" style="width: 100%;">
 							</span>
@@ -1002,8 +927,8 @@
                     <img src="img/8564b26dcc3d46e8t.jpg">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/5219e5a0ec6d186at.jpg" style="width: 100%;">
 							</span>
@@ -1033,8 +958,8 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/c47a57c6b6f121c9t.jpg" style="width: 100%;">
 							</span>
@@ -1064,7 +989,7 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
+            </div>
         </div>
     </div>
     <div class="showbox containers">
@@ -1081,7 +1006,7 @@
             </a>
         </div>
         <div id="thelist" class="show-content containers clear">
-            <a class="list" href="">
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/5abb0b8388bda.jpg">
 							</span>
@@ -1111,8 +1036,8 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/5a7aaacddcf68.png" style="width: 100%;">
 							</span>
@@ -1141,8 +1066,8 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="/Public/attached/2018/01/10/5a55bc8a87463.JPG" style="height: 100%;">
 							</span>
@@ -1171,7 +1096,7 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
+            </div>
         </div>
     </div>
     <div class="showbox containers">
@@ -1188,7 +1113,7 @@
             </a>
         </div>
         <div id="thelist" class="show-content containers clear">
-            <a class="list" href="">
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/7ccb6ff4e87cad8ct.jpg" style="width: 100%;">
 							</span>
@@ -1218,8 +1143,8 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/58cc6b2267315b85t.jpg" style="width: 100%;">
 							</span>
@@ -1249,8 +1174,8 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/ec3ed8c10d817d47t.jpg" style="width: 100%;">
 							</span>
@@ -1280,7 +1205,7 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
+            </div>
         </div>
     </div>
     <div class="showbox containers">
@@ -1297,7 +1222,7 @@
             </a>
         </div>
         <div id="thelist" class="show-content containers clear">
-            <a class="list" href="">
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="" style="width: 100%;">
 							</span>
@@ -1327,8 +1252,8 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/f222200dd9691b32t.jpg" style="width: 100%;">
 							</span>
@@ -1358,8 +1283,8 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/b58f1df905518db0t.jpg" style="width: 100%;">
 							</span>
@@ -1389,7 +1314,7 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
+            </div>
         </div>
     </div>
     <div class="showbox containers">
@@ -1406,7 +1331,7 @@
             </a>
         </div>
         <div id="thelist" class="show-content containers clear">
-            <a class="list" href="">
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/555b4041fd6f9b4at.jpg" style="width: 100%;">
 							</span>
@@ -1436,8 +1361,8 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/555b4041fd6f9b4at.jpg" style="width: 100%;">
 							</span>
@@ -1467,8 +1392,8 @@
                     <img src="img/fa799c0c44c98a14t.jpg">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/0826d87196c05f73t.jpg" style="width: 100%;">
 							</span>
@@ -1498,7 +1423,7 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
+            </div>
         </div>
     </div>
     <div class="showbox containers">
@@ -1515,7 +1440,7 @@
             </a>
         </div>
         <div id="thelist" class="show-content containers clear">
-            <a class="list" href="">
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/5da4647bceb72.jpg" style="width: 100%;">
 							</span>
@@ -1545,8 +1470,8 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/5be811579596c.png" style="height: 100%;">
 							</span>
@@ -1575,8 +1500,8 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/cf0c3d4112bfcd71t.jpg" style="width: 100%;">
 							</span>
@@ -1606,7 +1531,7 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
+            </div>
         </div>
     </div>
     <div class="showbox containers">
@@ -1623,7 +1548,7 @@
             </a>
         </div>
         <div id="thelist" class="show-content containers clear">
-            <a class="list" href="">
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/5bd97ef8dbd00.png" style="width: 100%;">
 							</span>
@@ -1653,8 +1578,8 @@
                     <img src="img/5bd97baca208e.jpg">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/5bd97ef8dbd00.png">
 							</span>
@@ -1684,8 +1609,8 @@
                     <img src="img/5ac21e265d613.jpg">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/5ab79e1ebd77e.jpg">
 							</span>
@@ -1715,7 +1640,7 @@
                     <img src="img/5ab79e22d2c9c.jpg">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
+            </div>
         </div>
     </div>
     <div class="showbox containers">
@@ -1732,7 +1657,7 @@
             </a>
         </div>
         <div id="thelist" class="show-content containers clear">
-            <a class="list" href="">
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/b53f56259ac419c7t.jpg" style="width: 100%;">
 							</span>
@@ -1762,8 +1687,8 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/e3ab4efd25d26a80t.jpg" style="width: 100%;">
 							</span>
@@ -1793,8 +1718,8 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/5de3ced6728302f7t.jpg" style="width: 100%;">
 							</span>
@@ -1824,7 +1749,7 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
+            </div>
         </div>
     </div>
     <div class="showbox containers">
@@ -1841,7 +1766,7 @@
             </a>
         </div>
         <div id="thelist" class="show-content containers clear">
-            <a class="list" href="">
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/a9b129dcbac46001t.jpg" style="width: 100%;">
 							</span>
@@ -1871,8 +1796,8 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/04b24f078f2eef2ft.jpg" style="width: 100%;">
 							</span>
@@ -1902,8 +1827,8 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/868707cb9bdc415ft.jpg" style="width: 100%;">
 							</span>
@@ -1933,7 +1858,7 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
+            </div>
         </div>
     </div>
     <div class="showbox containers">
@@ -1950,7 +1875,7 @@
             </a>
         </div>
         <div id="thelist" class="show-content containers clear">
-            <a class="list" href="">
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/15baafe92002e541t.jpg" style="width: 100%;">
 							</span>
@@ -1980,8 +1905,8 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/991db6e0e853abeet.jpg" style="width: 100%;">
 							</span>
@@ -2011,8 +1936,8 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
-            <a class="list" href="">
+            </div>
+            <div class="list" >
                 <div class="imgLeft">	<span>
 								<img onload="setImgWH(this)" src="img/0ac1b3c1df0bcaadt.jpg" style="width: 100%;">
 							</span>
@@ -2042,10 +1967,10 @@
                     <img src="img/hptxp.png">
                     <p>淘宝扫描</p>
                 </div>
-            </a>
+            </div>
         </div>
     </div>
-    <div id="wrapper-hot" class="hotbox containers clear">
+    <div id="wrapper-hot" class="hideHead hotbox containers clear">
         <div class="title-common clear">
             <h2 class="fl">
                 <label>
@@ -2177,7 +2102,7 @@
             </div>
         </div>
     </div>
-    <div class="n-foot">
+    <div class="n-foot hideHead ">
         <div class="n-foot-center clear">
             <div class="n-foot-left clear fl">
                 <div class="">
@@ -2230,7 +2155,7 @@
         </div>
     </div>
 
-    <div class="fixed_box" style="bottom: 100px; right: 17.5px;">
+    <div class="fixed_box hideHead " style="bottom: 100px; right: 17.5px;">
         <a class="add-fixed" href="">
             <label></label>
             <p>发布</p>
@@ -2253,16 +2178,12 @@
 </div>
 <script type="text/javascript">
     $(function() {
-        $(".list .app-try").mouseenter(function() {
+        $(".list .app-try").click(function() {
             $index = $(this).parents(".list").find('.qrcode');
             $(".qrcode").hide();
-            $index.stop(true, true).fadeIn();
+            $index.show();
         });
-        $(".list .app-try").mouseleave(function() {
-            $index = $(this).parents(".list").find('.qrcode');
-            $(".qrcode").hide();
-            $index.stop(true, true).fadeOut();
-        });
+
     });
     //图片变大变小
     $(function() {
