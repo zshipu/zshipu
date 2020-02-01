@@ -220,14 +220,14 @@ a:active {
 
 .n-nav {
     float: left;
-    margin-left: 54px;
+    margin-left: 25px;
 }
 
 .n-nav a {
     float: left;
     font-size: 16px;
     color: #FFFFFF;
-    margin-right: 32px;
+    margin-right: 17px;
     height: 46px;
     line-height: 66px;
 }
