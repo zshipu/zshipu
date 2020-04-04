@@ -7,8 +7,10 @@ import (
 	"github.com/gogf/gf/net/ghttp"
 	"github.com/seefan/gossdb"
 	"github.com/seefan/gossdb/conf"
+	"gowww/tongji/common"
 	"log"
 	"net/url"
+	"time"
 )
 
 // 参数
@@ -16,6 +18,7 @@ type ReqUrlParam struct {
 	JsonpCallback  string `params:"jsonpCallback"`
 	ItemTile       string `params:"itemTile"`
 	Referrer       string `params:"referrer"`
+	Localurl	   string `params:"localurl"`
 }
 
 // 页面 pv
@@ -72,10 +75,21 @@ func main() {
 	s.Run()
 
 }
+func parseurl(urls string) string {
+	if len(urls) < 4 {
+		return ""
+	}
+	t := &url.URL{Path: urls}
+	urlstr := t.String()
+	return urlstr[2:]
+}
 
 func dealCbi(params *ReqUrlParam, c *gossdb.Client) {
+
+	defer  common.TimeoutWarning("dealCbi", "dealCbi time ", time.Now(), 1)
+
 	sourceReferrer := params.Referrer
-	sourceReferrer = url.QueryEscape(sourceReferrer)
+	//sourceReferrer = parseurl(sourceReferrer)
 	log.Println("dealCbi:"+sourceReferrer+" begin")
 	score, _ := c.Zget("cbi", sourceReferrer)
 	score = score + 1
@@ -88,13 +102,18 @@ func dealCbi(params *ReqUrlParam, c *gossdb.Client) {
 }
 
 func dealPagePvUv(r *ghttp.Request, c *gossdb.Client, params *ReqUrlParam) {
-	refererstr := r.Header.Get("referer")
-	refererstr = url.QueryEscape(refererstr)
-	//fmt.Println(refererstr)
+
+	defer  common.TimeoutWarning("dealPagePvUv", "dealPagePvUv time ", time.Now(), 10)
+
+	refererstr := params.Localurl
+	log.Println("dealPagePvUv:"+refererstr+" begin1")
+	refererstr = parseurl(refererstr)
+	log.Println("dealPagePvUv:"+refererstr+" begin2")
 	strstr, err := c.Get(refererstr)
 	if err != nil {
 		log.Println(err)
 	}
+
 	if len(strstr) > 0 {
 		//fmt.Println(strstr)
 
@@ -104,6 +123,8 @@ func dealPagePvUv(r *ghttp.Request, c *gossdb.Client, params *ReqUrlParam) {
 		//fmt.Println(pv) //
 
 		pv.PagePv = pv.PagePv + 1
+
+		log.Println("dealPagePvUv:"+refererstr+ " old  " +string(pv.PagePv))
 
 		//Marshal失败时err!=nil
 		marstr, err := json.Marshal(pv)
@@ -134,6 +155,8 @@ func dealPagePvUv(r *ghttp.Request, c *gossdb.Client, params *ReqUrlParam) {
 			SitePv: 1,
 			PagePv: 1,
 		}
+
+		log.Println("dealPagePvUv:"+refererstr+ " new  " +string(pv.PagePv))
 
 		c.Zset("list", refererstr, int64(pv.PagePv))
 		c.Set(refererstr+"content", params.ItemTile)

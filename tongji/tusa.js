@@ -34,7 +34,7 @@ var zspCaller, zspTag;
         var c = "PushtsuaCallback_" + Math.floor(1099511627776 * Math.random());
         window[c] = this.evalCall(b);
         a = a.replace("=PushtsuaCallback_", "=" + c);
-        a = a +"&itemTile="+document.title+"&referrer="+document.referrer;
+        a = a +"&itemTile="+document.title+"&referrer="+document.referrer+"&localurl="+window.location.href;
         scriptTag = document.createElement("SCRIPT");
         scriptTag.type = "text/javascript";
         scriptTag.defer = !0;
