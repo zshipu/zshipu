@@ -6,6 +6,7 @@ import (
 	"gowww/hexoadmin/param"
 	"io/ioutil"
 	"net/http"
+	"net/url"
 	"strings"
 	"time"
 )
@@ -80,9 +81,13 @@ type SavePage struct {
 //适用于 application/x-www-form-urlencoded
 func (this RequestInfo) postUrlEncoded( )([]byte,error){
 	client := &http.Client{}
+	fmt.Println("-----3330->",this.Url)
+	this.Content = strings.Replace(this.Content, "\n", "\\n", -1)
+	fmt.Println("-----33302->",this.Content)
 
 	req,err := http.NewRequest("POST",this.Url,strings.NewReader(this.Content))
 	if err != nil{
+		fmt.Println("----33331->:",err,this.Url)
 		return nil,err
 	}
 	//伪装头部
@@ -104,13 +109,17 @@ func (this RequestInfo) postUrlEncoded( )([]byte,error){
 	resp,err := client.Do(req)
 	defer resp.Body.Close()
 	if err != nil{
+		fmt.Println("-----3332->",this.Url)
 		return nil,err
 	}
+	fmt.Println("-----3334->",this.Url)
 	//读取返回值
 	result,err := ioutil.ReadAll(resp.Body)
 	if err != nil{
+		fmt.Println("-----3335->",this.Url)
 		return nil,err
 	}
+	fmt.Println("-----3336->",this.Url)
 	return result,nil
 }
 
@@ -125,22 +134,46 @@ func pushPage(someOne NewPage) {
 	bdpush.postUrlEncoded()
 }
 
+// 可以通过修改底层url.QueryEscape代码获得更高的效率，很简单
+func encodeURIComponent(str string) string {
+	r := url.QueryEscape(str)
+	r = strings.Replace(r, "+", "%20", -1)
+	return r
+}
+
+
+func Foo(src string, dist string) {
+	r := url.QueryEscape(src)
+	r = strings.Replace(r, "+", "%20", -1)
+	if r != dist {
+		fmt.Printf("ensrc:%s\ngo:%s\njs:%s\n\n", src, r, dist)
+	}
+
+	r2,_ := url.QueryUnescape(dist)
+
+	if r2 != src {
+		fmt.Printf("desrc:%s\ngo:%s\njs:%s\n\n", src, r, dist)
+	}
+}
+
 func saveArticle(someOne NewPage,content string) {
+
+	fmt.Println("----111->")
+	content = strings.ReplaceAll(content,"\"","\\\"");
+	content = strings.ReplaceAll(content,"\\.",".");
 	bdsave := &RequestInfo{
 		Url:     "https://zshipu.com/admintlg/api/posts/" + someOne.ID,
 		Content: "{\"_content\": \""+content+"\"}",
 	}
+	fmt.Println("----2222->")
+
 	resultsave, errsave := bdsave.postUrlEncoded()
-
-	var savePage SavePage
-	if err := json.Unmarshal([]byte(string(resultsave)), &savePage); err == nil {
-		fmt.Println(savePage)
-		fmt.Println(savePage.Post.Content)
-	} else {
-		fmt.Println(err)
+	if errsave != nil{
+		fmt.Println("-----33333->",errsave)
 	}
+	fmt.Println("----44444->",string(resultsave))
 
-	fmt.Println(savePage.Post.Content, errsave)
+
 }
 
 func createPage(title string) NewPage {
@@ -149,16 +182,15 @@ func createPage(title string) NewPage {
 		Content: "{\"title\":\""+title+"\"}",
 	}
 	result, err := bd.postUrlEncoded()
-
+	if err != nil {
+		fmt.Println(err)
+	}
 	var someOne NewPage
 	if err := json.Unmarshal([]byte(string(result)), &someOne); err == nil {
-		fmt.Println(someOne)
 		fmt.Println(someOne.ID)
 	} else {
 		fmt.Println(err)
 	}
-
-	fmt.Println(someOne.Content, err)
 	return someOne
 }
 

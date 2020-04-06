@@ -7,22 +7,21 @@ import (
 	"gowww/hexoadmin/param"
 )
 
-
-
-
-
 func main() {
+
 
 	s := g.Server()
 	s.BindHandler("/createArticle", func(r *ghttp.Request) {
-		params := new(param.ReqUrlParam)
-		r.GetToStruct(params)
+		// 解析参数
+		params := param.ParseParam(r)
 
 		//发布一篇文章
-		articleutil.PostArticle(params)
+		articleutil.PostArticle(&params)
 
 	})
 	s.SetPort(5050)
 	s.Run()
+
 }
+
 

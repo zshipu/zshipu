@@ -7,7 +7,7 @@
 
     <script src="tinymce/tinymce.min.js"></script>
     <script src="js/clipboard.min.js"></script>
-    <script src="js/jquery-3.2.1.slim.min.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/to-markdown.js"></script>
 </head>
 <body>
@@ -15,13 +15,14 @@
 <div class="row cf">
     <div class="col">
         <div class="header">
-            <!-- <h2><a href="https://github.com/zshipu/2md">HTML2MD</a></h2> -->
+            Title:<input type="text" id="articleTitle">
         </div>
         <textarea id="input"></textarea>
     </div>
     <div class="col">
         <div class="header">
-            <button class="btn button" data-clipboard-action="copy" data-clipboard-target="#output">复制</button>
+            <!-- <button class="btn button" data-clipboard-action="copy" data-clipboard-target="#output">复制</button>-->
+            <button class="btn button" onclick="saveArtcile()" >提交</button>
         </div>
         <textarea id="output" rows="25" cols="50"></textarea>
     </div>
@@ -83,8 +84,31 @@
         navigator.clipboard.readText().then(clipText => setContent(clipText)).catch(err=>{console.log(err)})
         flag++
     }
-
   });
 
+
+    function saveArtcile () {
+        var Title = $('#articleTitle').val()
+        var Content = $("#output").val();
+        var JsonData = {
+            Title:Title,
+            Content:Content
+        };
+
+        let jsonstr = JSON.stringify(JsonData);
+
+        $.ajax({
+            type: "POST",
+            url: "https://zshipu.com/createArticle",
+            data:jsonstr,
+            dataType: "json",
+            success:function (message) {
+                alert("提交成功"+JSON.stringify(message));
+            },
+            error:function (message) {
+                alert("提交失败"+JSON.stringify(message));
+            }
+        });
+    }
 </script>
 </html>
