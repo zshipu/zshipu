@@ -81,13 +81,12 @@ type SavePage struct {
 //适用于 application/x-www-form-urlencoded
 func (this RequestInfo) postUrlEncoded( )([]byte,error){
 	client := &http.Client{}
-	fmt.Println("-----3330->",this.Url)
 	this.Content = strings.Replace(this.Content, "\n", "\\n", -1)
 	fmt.Println("-----33302->",this.Content)
 
 	req,err := http.NewRequest("POST",this.Url,strings.NewReader(this.Content))
 	if err != nil{
-		fmt.Println("----33331->:",err,this.Url)
+		fmt.Println("----req,err := http.NewRequest(\"POST\",this.Url,strings.NewReader(this.Content))->:",err,this.Url)
 		return nil,err
 	}
 	//伪装头部
@@ -109,17 +108,13 @@ func (this RequestInfo) postUrlEncoded( )([]byte,error){
 	resp,err := client.Do(req)
 	defer resp.Body.Close()
 	if err != nil{
-		fmt.Println("-----3332->",this.Url)
 		return nil,err
 	}
-	fmt.Println("-----3334->",this.Url)
 	//读取返回值
 	result,err := ioutil.ReadAll(resp.Body)
 	if err != nil{
-		fmt.Println("-----3335->",this.Url)
 		return nil,err
 	}
-	fmt.Println("-----3336->",this.Url)
 	return result,nil
 }
 
@@ -156,22 +151,31 @@ func Foo(src string, dist string) {
 	}
 }
 
+type ContentStruct struct {
+	Content string `json:"_content"`
+}
 func saveArticle(someOne NewPage,content string) {
 
-	fmt.Println("----111->")
-	content = strings.ReplaceAll(content,"\"","\\\"");
-	content = strings.ReplaceAll(content,"\\.",".");
+	con:=&ContentStruct{
+		Content:content,
+	}
+	constr, err := json.Marshal(con);
+	if err != nil {
+		fmt.Println("content to string",err)
+		return
+	}
+	content = string(constr)
+
 	bdsave := &RequestInfo{
 		Url:     "https://zshipu.com/admintlg/api/posts/" + someOne.ID,
-		Content: "{\"_content\": \""+content+"\"}",
+		Content: content,
 	}
-	fmt.Println("----2222->")
 
-	resultsave, errsave := bdsave.postUrlEncoded()
+
+	_, errsave := bdsave.postUrlEncoded()
 	if errsave != nil{
-		fmt.Println("-----33333->",errsave)
+		fmt.Println("resultsave, errsave := bdsave.postUrlEncoded() ",errsave)
 	}
-	fmt.Println("----44444->",string(resultsave))
 
 
 }
