@@ -483,7 +483,9 @@ module.exports = [
       return node.nodeName === 'CODE' && !isCodeBlock
     },
     replacement: function (content) {
-      return '`' + content + '`'
+      return '```' +
+          '' + content + '' +
+          '```'
     }
   },
 
@@ -493,7 +495,7 @@ module.exports = [
     },
     replacement: function (content, node) {
       var titlePart = node.title ? ' "' + node.title + '"' : ''
-      return '[' + content + '](' + node.getAttribute('href') + titlePart + ')'
+      return '[' + content + '](https://zshipu.com/t?url=' + node.getAttribute('href') + titlePart + ')'
     }
   },
 

@@ -15,7 +15,7 @@
 <div class="row cf">
     <div class="col">
         <div class="header">
-            <h2><a href="https://github.com/zshipu/2md">HTML2MD</a></h2>
+            <!-- <h2><a href="https://github.com/zshipu/2md">HTML2MD</a></h2> -->
         </div>
         <textarea id="input"></textarea>
     </div>
@@ -23,17 +23,41 @@
         <div class="header">
             <button class="btn button" data-clipboard-action="copy" data-clipboard-target="#output">复制</button>
         </div>
-        <textarea id="output" rows="25" cols="50"> hello, world</textarea>
+        <textarea id="output" rows="25" cols="50"></textarea>
     </div>
     <a class="Footer-item" target="_blank" rel="noopener noreferrer" href="http://beian.miit.gov.cn">浙 ICP 备19032823号-1</a> |
     <a class="Footer-item" target="_blank" rel="noopener noreferrer" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602010431"><img src="https://zshipu.com/img/ghs.png">浙公网安备 33010602010431号</a>
     | 知识铺
 </div>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5db42fab89870e49"></script>
 </body>
 
 <script>
-  tinymce.init({
+    function setContent(content) {
+        var md = toMarkdown(content, {
+            gfm: true,
+            converters: [{
+                filter: ['pre', 'figure', 'figure', 'figcaption', 'form', 'span', 'header', 'button', 'nav', 'section', 'iframe', 'footer', 'header', 'input', 'aside', 'article', 'time', 'label', 'dd', 'dl'],
+                replacement: function (content) {
+                    return content
+                }
+            }, {
+                filter: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div'],
+
+                replacement: function (innerHTML, node) {
+                    var hLevel = node.tagName.charAt(1);
+                    var hPrefix = '';
+                    for (var i = 0; i < hLevel; i++) {
+                        hPrefix += '#';
+                    }
+                    return '\n' + hPrefix + ' ' + innerHTML + '\n\n';
+                }
+            }]
+        });
+        $("#output").val(md);
+        $("#input").val(content);
+    }
+
+    tinymce.init({
     selector: 'textarea#input',
     height: 500,
     menubar: false,
@@ -47,33 +71,19 @@
     setup: function (editor) {
       editor.on('change', function (e) {
         var content = tinymce.get('input').getContent();
-        var md = toMarkdown(content, {
-          gfm: true,
-          converters: [{
-            filter: ['pre', 'figure', 'figure', 'figcaption', 'form', 'span', 'header', 'button', 'nav', 'section', 'iframe', 'footer', 'header', 'input', 'aside', 'article', 'time', 'label', 'dd', 'dl'],
-            replacement: function (content) {
-              return content
-            }
-          }, {
-            filter: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div'],
-
-            replacement: function(innerHTML, node) {
-              var hLevel = node.tagName.charAt(1);
-              var hPrefix = '';
-              for(var i = 0; i < hLevel; i++) {
-                hPrefix += '#';
-              }
-              return '\n' + hPrefix + ' ' + innerHTML + '\n\n';
-            }
-          }]
-        });
-        $("#output").val(md);
+          setContent(content);
       });
     }
   });
 
+    var flag = 0;
   $('document').ready(function () {
     new Clipboard('.btn');
+    if (flag === 0){
+        navigator.clipboard.readText().then(clipText => setContent(clipText)).catch(err=>{console.log(err)})
+        flag++
+    }
+
   });
 
 </script>
