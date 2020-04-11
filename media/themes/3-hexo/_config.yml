@@ -203,7 +203,7 @@ friends:
 
 ##########评论设置#############
 comment:
-  on: false
+  on: true
   type: gitalk  # 评论系统：gitalk、disqus、gentie、gitment,注意：使用时，在下方对应位置进行配置
   comment_count: true  # 文章标题下方显示评论数
   preload_comment: false  # 预加载评论区
@@ -223,14 +223,15 @@ gentie:
   # 网易云跟帖暂时不支持查询评论数，所以启用时，把评论数关掉，上方comment_count: false。
 
 gitalk:
-  githubID: zshipu
-  repo: zshipu.github.io
-  ClientID:
-  ClientSecret:
-  adminUser: zshipu
+  enable: true
+  githubID: liliang8858
+  repo: zspblogcomment
+  ClientID: ec3adfa1a072fdaa4d91
+  ClientSecret: 7a84a35d6d8bce205398c3d5d7f6ee1ce8e1ab53
+  adminUser: liliang8858
   distractionFreeMode: true
   language: zh-CN
-  perPage: 10
+  perPage: 20
 # gitalk：利用github issue制作的第三方聊天插件
 # https://github.com/gitalk/gitalk
 # 参数介绍：
