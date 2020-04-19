@@ -55,16 +55,17 @@ func  (a *Api)EditItem( edit Item, reply *Item) error {
 	
 }
 
-func (a *Api)DeleteItem(item Item, reply *Item)error  {
+func (a *Api) DeleteItem(item Item, reply *Item) error {
 	var del Item
-	for idx,val := range database  {
+
+	for idx, val := range database {
 		if val.Title == item.Title && val.Body == item.Body {
-			database = append(database[:idx],database[idx+1])
+			database = append(database[:idx], database[idx+1:]...)
 			del = item
 			break
 		}
-
 	}
+
 	*reply = del
 	return nil
 }
