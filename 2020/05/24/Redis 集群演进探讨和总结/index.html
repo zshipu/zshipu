@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Redis 集群演进探讨和总结 - 知识铺</title><meta description="Redis为什么需要集群？ 首先Redis单实例主要有单点，容量有限，流量压力上限的问题。 Redis单点故障，可以通过主从复制replication，和自动故障转移sentinel哨兵机制。 但Redis单Master实例提供读写服务，仍然有容量和压力问题，因此需要数据分区，构建多个Master实例同时提供读写服务（不仅限于从replica节点提供读服务）。 那么就需要一定的机制保证数据分区。"><meta property="og:type" content="blog"><meta property="og:title" content="Redis 集群演进探讨和总结"><meta property="og:url" content="https://zshipu.com/2020/05/24/Redis%20%E9%9B%86%E7%BE%A4%E6%BC%94%E8%BF%9B%E6%8E%A2%E8%AE%A8%E5%92%8C%E6%80%BB%E7%BB%93/"><meta property="og:site_name" content="知识铺"><meta property="og:description" content="Redis为什么需要集群？ 首先Redis单实例主要有单点，容量有限，流量压力上限的问题。 Redis单点故障，可以通过主从复制replication，和自动故障转移sentinel哨兵机制。 但Redis单Master实例提供读写服务，仍然有容量和压力问题，因此需要数据分区，构建多个Master实例同时提供读写服务（不仅限于从replica节点提供读服务）。 那么就需要一定的机制保证数据分区。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://oscimg.oschina.net/oscnet/up-a2062f3eb12e47c26ff1e2905502f37a2c9.png"><meta property="og:image" content="https://oscimg.oschina.net/oscnet/up-57ec053da90569aaf96f9de75ce5a974090.png"><meta property="og:image" content="https://oscimg.oschina.net/oscnet/up-163e9f8b770d23dd7a6f178ee40e0b6731f.JPEG"><meta property="og:image" content="https://oscimg.oschina.net/oscnet/up-75b74b8a629f859f0fd427de0f0edfc061a.JPEG"><meta property="og:image" content="https://oscimg.oschina.net/oscnet/up-4d556aef7eeba8563a2c5b0214d5d3495ab.png"><meta property="og:image" content="https://oscimg.oschina.net/oscnet/up-3fdab20efab5d6cf966ddb0c653c7fa48ab.png"><meta property="og:image" content="https://oscimg.oschina.net/oscnet/up-c115df7e1f5a777f2ab6f036e19bb0e50d7.JPEG"><meta property="article:published_time" content="2020-05-24T10:29:41.000Z"><meta property="article:modified_time" content="2020-09-08T14:03:00.399Z"><meta property="article:author" content="知识铺"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://oscimg.oschina.net/oscnet/up-a2062f3eb12e47c26ff1e2905502f37a2c9.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://zshipu.com/2020/05/24/Redis%20%E9%9B%86%E7%BE%A4%E6%BC%94%E8%BF%9B%E6%8E%A2%E8%AE%A8%E5%92%8C%E6%80%BB%E7%BB%93/"},"headline":"知识铺","image":["https://oscimg.oschina.net/oscnet/up-a2062f3eb12e47c26ff1e2905502f37a2c9.png","https://oscimg.oschina.net/oscnet/up-57ec053da90569aaf96f9de75ce5a974090.png","https://oscimg.oschina.net/oscnet/up-4d556aef7eeba8563a2c5b0214d5d3495ab.png","https://oscimg.oschina.net/oscnet/up-3fdab20efab5d6cf966ddb0c653c7fa48ab.png"],"datePublished":"2020-05-24T10:29:41.000Z","dateModified":"2020-09-08T14:03:00.399Z","author":{"@type":"Person","name":"知识铺"},"description":"Redis为什么需要集群？ 首先Redis单实例主要有单点，容量有限，流量压力上限的问题。 Redis单点故障，可以通过主从复制replication，和自动故障转移sentinel哨兵机制。 但Redis单Master实例提供读写服务，仍然有容量和压力问题，因此需要数据分区，构建多个Master实例同时提供读写服务（不仅限于从replica节点提供读服务）。 那么就需要一定的机制保证数据分区。"}</script><link rel="canonical" href="https://zshipu.com/2020/05/24/Redis%20%E9%9B%86%E7%BE%A4%E6%BC%94%E8%BF%9B%E6%8E%A2%E8%AE%A8%E5%92%8C%E6%80%BB%E7%BB%93/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600&amp;family=Roboto+Mono"><link rel="stylesheet" href="/css/cyberpunk.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><script data-ad-client="2183476622" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><meta name="generator" content="Hexo 5.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="知识铺" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-05-24T10:29:41.000Z" title="2020-05-24T10:29:41.000Z">2020-05-24</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.399Z" title="2020-09-08T14:03:00.399Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">16 分钟读完 (大约2326个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">Redis 集群演进探讨和总结</h1><div class="content"><p> Redis为什么需要集群？</p>
+<p>首先Redis单实例主要有单点，容量有限，流量压力上限的问题。</p>
+<p>Redis单点故障，可以通过主从复制<code>replication</code>，和自动故障转移<code>sentinel</code>哨兵机制。</p>
+<p>但Redis单<code>Master</code>实例提供读写服务，仍然有容量和压力问题，因此需要数据分区，构建多个<code>Master</code>实例同时提供读写服务（不仅限于从<code>replica</code>节点提供读服务）。</p>
+<p>那么就需要一定的机制保证数据分区。这样能充分把容量分摊到多台计算机，或能充分利用多核计算机的性能。</p>
+<p>并且数据在各个主Master节点间不能混乱，当然最好还能支持在线数据热迁移的特性。</p>
+<h2 id="探讨数据分区方案"><a href="#探讨数据分区方案" class="headerlink" title="探讨数据分区方案"></a>探讨数据分区方案</h2><p><img src="https://oscimg.oschina.net/oscnet/up-a2062f3eb12e47c26ff1e2905502f37a2c9.png" alt="file"></p>
+<p>针对数据分区，一般来说，分为两个大类：</p>
+<ul>
+<li>逻辑拆分： 逻辑上能拆分，比如 Redis 中的 M1 节点 存储 A服务需要的业务数据，而 Redis 中的 M2 节点存储 B服务需要的业务数据。</li>
+<li>数据分区： 当逻辑上不能拆分，那么只能按数据来拆分，需要保证客户端读和写数据一致。 因此需要一个高效快速的数据结构来路由对应的<code>Master</code>节点。 最容易想到的就是类比 Java 中的 <code>HashMap</code>， 采用 哈希算法，快速找到，快速设置。 这里有四种方式，分别是固定取模，随机，哈希一致性，哈希槽。</li>
+</ul>
+<h4 id="固定取模"><a href="#固定取模" class="headerlink" title="固定取模"></a>固定取模</h4><p><img src="https://oscimg.oschina.net/oscnet/up-57ec053da90569aaf96f9de75ce5a974090.png" alt="file"></p>
+<p>假设有三个 Master，配置IP 和权重如下：</p>
+<table>
+<thead>
+<tr>
+<th>Real Server IP</th>
+<th>weight</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>10.0.2.21</td>
+<td>1</td>
+</tr>
+<tr>
+<td>10.0.2.22</td>
+<td>2</td>
+</tr>
+<tr>
+<td>10.0.2.23</td>
+<td>3</td>
+</tr>
+</tbody></table>
+<p>那么会根据每一个real Server 及其权重虚拟出对应权重 weight 个的虚拟vritual server节点，映射关系会是：</p>
+<table>
+<thead>
+<tr>
+<th>Real Server IP</th>
+<th>virtual server</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>10.0.2.21</td>
+<td>1</td>
+</tr>
+<tr>
+<td>10.0.2.22</td>
+<td>2,3</td>
+</tr>
+<tr>
+<td>10.0.2.23</td>
+<td>4,5,6</td>
+</tr>
+</tbody></table>
+<p>一个 key 存储在那个虚拟vritual server节点，通过哈希hash算法：</p>
+<p><code class="hljs shell">virtual_server_index = hash(key) % (total_virtual_weight)</code> </p>
+<p>假设某个key，它的 hash 值是 10，那么以上： 10%6=4，将落到 10.0.2.23 这个真实的 Master上。</p>
+<ul>
+<li>缺点 因为取模的模数是固定的，当新增或删除 master节点时，所有的数据几乎要全部洗牌，几乎需要重新迁移数据（而且相当麻烦），无法做到在线数据热迁移。 意味着Redis在此种用法下，只能当缓存，不能当存储数据库！</li>
+</ul>
+<h4 id="随机"><a href="#随机" class="headerlink" title="随机"></a>随机</h4><p><img src="https://oscimg.oschina.net/oscnet/up-163e9f8b770d23dd7a6f178ee40e0b6731f.JPEG" alt="file"></p>
+<p>随机选取一个存储和访问。 一般结合 <code>list</code>，用于非顺序性要求的消息队列场景。</p>
+<ul>
+<li>缺点： 使用场景比较单一。 并且由于随机性问题，导致持久化存在不可靠性。Redis在此种用法下，也只能当缓存，不能当存储数据库！</li>
+</ul>
+<h4 id="一致性哈希"><a href="#一致性哈希" class="headerlink" title="一致性哈希"></a>一致性哈希</h4><p>一致性哈希算法（<code>Consistent Hashing</code>）最早在论文《<a href="https://zshipu.com/t?url=https://dl.acm.org/doi/10.1145/258533.258660">Consistent Hashing and Random Trees: Distributed Caching Protocols for Relieving Hot Spots on the World Wide Web</a>》中被提出。 简单来说，一致性哈希将整个哈希值空间组织成一个虚拟的圆环，如假设某哈希函数H的值空间为0-2^32-1（即哈希值是一个32位无符号整形），整个哈希空间环如下：</p>
+<p><img src="https://oscimg.oschina.net/oscnet/up-75b74b8a629f859f0fd427de0f0edfc061a.JPEG" alt="file"></p>
+<ul>
+<li><p>1.有一个HASH环，环上每个节点都是一个自然数，从0开始顺时针递增，直到2^32-1，最后回到0</p>
+</li>
+<li><p>2.真实节点 M1 M2 M3 通过 hash（IP 或主机名）确定在哈希环上的位置</p>
+</li>
+<li><p>3.当客户端请求时，首先 hash(key) 确定在哈希环上的位置，然后顺时针往后找，找到的第一个真实节点，就是客户端需要请求访问的真实主机</p>
+</li>
+<li><p>优点： 哈希一致性其实是对固定取模的一种优化。</p>
+<ul>
+<li>（1）扩展性：当增加节点时，只会影响顺时针的真实节点（此部分数据比较难迁移），而不是影响全部的节点。</li>
+<li>（2）容错性：当节点宕机或删除节点时，只会影响逆时针的真实节点，而不是影响全部的节点。</li>
+<li>（3）平衡性：当哈希算法的节点过少时，会可能造成某些服务器的数据存储较多，而另外一些存储较少，造成数据倾斜，当节点足够多时，这种现象得以缓解。 因此虚拟节点个数较大的时候，数据的平衡性得以保证。</li>
+</ul>
+</li>
+<li><p>缺点： 因为当增删节点时，需要重新计算受影响部分的节点中的key全部找出来，才能迁移，这个很麻烦！！！ Redis在此种用法下，也只能当缓存，不能当存储数据库！</p>
+</li>
+</ul>
+<h4 id="哈希槽（PreSharding）"><a href="#哈希槽（PreSharding）" class="headerlink" title="哈希槽（PreSharding）"></a>哈希槽（PreSharding）</h4><p>这个跟哈希一致性很相似。 区别在于，它预先分配好真实节点管理的哈希槽（<code>slot</code>），并存储管理起来，我们可以预先知道哪个master主机拥有哪些哈希槽（<code>slot</code>）,这里总数是16384。</p>
+<p><img src="https://oscimg.oschina.net/oscnet/up-4d556aef7eeba8563a2c5b0214d5d3495ab.png" alt="file"></p>
+<p><code class="hljs shell">127.0.0.1:7001> cluster nodes<br>2aaf59558f1b9f493a946a695e51711eb03d15f9 127.0.0.1:7002@17002 master - 0 1590126183862 2 connected 5461-10922<br>6439c3e9468fd2c545a63b3b9bfe658c5fc14287 127.0.0.1:7003@17003 master - 0 1590126181856 3 connected 10923-16383<br>340d985880c23de9816226dff5fd903322e44313 127.0.0.1:7001@17001 myself,master - 0 1590126182000 1 connected 0-5460</code> </p>
+<p>我们可以清晰看到Redis Cluster中的每一个master节点管理的哈希槽。 比如 127.0.0.1:7001 拥有哈希槽 0-5460， 127.0.0.1:7002 拥有哈希槽 5461-10922， 127.0.0.1:7003 拥有哈希槽 10923-16383。</p>
+<p><img src="https://oscimg.oschina.net/oscnet/up-3fdab20efab5d6cf966ddb0c653c7fa48ab.png" alt="file"></p>
+<p><code class="hljs shell">➜  redis-cli -p 7001<br>127.0.0.1:7001> set a 1<br>(error) MOVED 15495 127.0.0.1:7003</p>
+<p>➜  redis-cli -p 7001 -c<br>127.0.0.1:7001&gt; set a 1<br>-&gt; Redirected to slot [15495] located at 127.0.0.1:7003<br>OK</code> </p>
+<ul>
+<li><p>我们看到的是master节点在 Redis Cluster中的实现时，都存有所有的路由信息。 当客户端的key 经过hash运算，发送<code>slot</code> 槽位不在本节点的时候。</p>
+<ul>
+<li>（1）如果是非集群方式连接，则直接报告错误给client，告诉它应该访问集群中那个IP的master主机。</li>
+<li>（2）如果是集群方式连接，则将客户端重定向到正确的节点上。 注意这里并不是127.0.0.1:7001 帮client去连接127.0.0.1:7003获取数据的，而是将客户端请求重定向了。</li>
+</ul>
+</li>
+<li><p>优点： 继承并增强一致性哈希的容错性，扩展性，以及平衡性。 Redis在此种用法下，可以当缓存，也能当存储数据库！</p>
+</li>
+<li><p>这里Redis给出更详细的说明：<a href="https://zshipu.com/t?url=https://redis.io/topics/partitioning">https://redis.io/topics/partitioning</a></p>
+</li>
+</ul>
+<h2 id="具体方案"><a href="#具体方案" class="headerlink" title="具体方案"></a>具体方案</h2><p>以下列表为按照出现的先后顺序排列：</p>
+<table>
+<thead>
+<tr>
+<th>方案</th>
+<th>描述</th>
+<th>数据分区支持策略</th>
+<th>分布式</th>
+<th>在线数据热迁移</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>twemproxy</td>
+<td>twitter 开源的redis代理中间件，不修改redis源码 <a href="https://zshipu.com/t?url=https://github.com/twitter/twemproxy">https://github.com/twitter/twemproxy</a></td>
+<td>存在modula（固定取模）、 random （随机）、ketama（哈希一致性）三种可选的配置</td>
+<td>本身是单点的，可以通过keepalived等保证高可用</td>
+<td>不支持，无法平滑地扩容/缩容</td>
+</tr>
+<tr>
+<td>Redis Cluster</td>
+<td>官方提供的集群方案</td>
+<td>采用预先分片（PreSharding），即哈希槽方式，存储在每一个master节点上</td>
+<td>没有proxy代理层，客户端可以连接集群中的任意master节点</td>
+<td>提供客户端命令<code>redis-cli --cluster reshard ip port</code>按哈希槽迁移指定节点的数据</td>
+</tr>
+<tr>
+<td>codis</td>
+<td>豌豆荚开源的redis代理中间件，修改了redis源码 <a href="https://zshipu.com/t?url=https://github.com/CodisLabs/codis">https://github.com/CodisLabs/codis</a></td>
+<td>采用预先分片（PreSharding），即哈希槽方式，存储在ZooKeeper上</td>
+<td>集群部署，部署相对复杂</td>
+<td>支持数据热迁移</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Redis Cluster ：一般生产环境量不大，且采用 <code>Spring</code> 提供的 <code>RedisTemplate</code> 之类封装好的 fat client ，可以采用</li>
+<li>redis6.0后，官方也推出Redis Cluster的proxy方案 （<a href="https://zshipu.com/t?url=https://github.com/RedisLabs/redis-cluster-proxy%EF%BC%89%EF%BC%8C%E5%8F%AA%E6%98%AF%E5%B0%9A%E4%B8%BA%E6%96%B0%EF%BC%8C%E4%B8%94%E5%A4%84%E4%BA%8Ebeta%E9%98%B6%E6%AE%B5%EF%BC%882020.5%E5%A4%84%E4%BA%8E1.0beta%E7%89%88%E6%9C%AC%EF%BC%89%EF%BC%8C%E4%B8%8D%E6%88%90%E7%86%9F%E3%80%82%E4%BD%86%E6%9C%AA%E6%9D%A5%E5%8F%AF%E6%9C%9F%EF%BC%8C%E6%AF%95%E7%AB%9F%E6%98%AF%E5%AE%98%E6%96%B9%E6%94%AF%E6%8C%81%E7%9A%84%E3%80%82">https://github.com/RedisLabs/redis-cluster-proxy），只是尚为新，且处于beta阶段（2020.5处于1.0beta版本），不成熟。但未来可期，毕竟是官方支持的。</a>)</li>
+<li>目前如果生产环境量大，但尚无研发能力，可以选用 codis</li>
+</ul>
+<blockquote>
+<p>@SvenAugustus(<a href="https://zshipu.com/t?url=https://www.flysium.xyz/">https://www.flysium.xyz/</a>)<br>更多请关注微信公众号【编程不离宗】，专注于分享服务器开发与编程相关的技术干货：<br><img src="https://oscimg.oschina.net/oscnet/up-c115df7e1f5a777f2ab6f036e19bb0e50d7.JPEG"></p>
+</blockquote>
+</div><div class="article-licensing box"><div class="licensing-title"><p>Redis 集群演进探讨和总结</p><p><a href="https://zshipu.com/2020/05/24/Redis%20%E9%9B%86%E7%BE%A4%E6%BC%94%E8%BF%9B%E6%8E%A2%E8%AE%A8%E5%92%8C%E6%80%BB%E7%BB%93/">https://zshipu.com/2020/05/24/Redis%20%E9%9B%86%E7%BE%A4%E6%BC%94%E8%BF%9B%E6%8E%A2%E8%AE%A8%E5%92%8C%E6%80%BB%E7%BB%93/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>知识铺</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2020-05-24</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2020-09-08</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=5f58e448b1477000121881fb&amp;product=inline-share-buttons" defer></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button is-info donate"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="/img/alipay.jpg" alt="支付宝"></span></a><a class="button is-success donate"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="/img/weixin.jpg" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2020/05/24/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%B8%B8%E5%8E%BB%E7%9A%84%E7%BD%91%E7%AB%99/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">程序员常去的网站</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2020/05/24/Bulma%E5%92%8CBuefy%E6%A1%86%E6%9E%B6%E5%A6%82%E4%BD%95%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%BB%E9%A2%98%EF%BC%9F/"><span class="level-item">Bulma和Buefy框架如何自定义主题？</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'https://zshipu.com/2020/05/24/Redis%20%E9%9B%86%E7%BE%A4%E6%BC%94%E8%BF%9B%E6%8E%A2%E8%AE%A8%E5%92%8C%E6%80%BB%E7%BB%93/';
+            this.page.identifier = '2020/05/24/Redis 集群演进探讨和总结/';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');  
+            s.src = '//' + 'zsp' + '.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="https://www.gravatar.com/avatar/2396bdfe5aadb513e676094004dde830?s=128" alt="edwin"></figure><p class="title is-size-4 is-block line-height-inherit">edwin</p><p class="is-size-6 is-block">知识铺</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国 杭州</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">189</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">2</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/liliang8858" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/liliang8858"><i class="Github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="社区"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="设计"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/go/"><span class="level-start"><span class="level-item">go</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:43:02.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Spring%20Cloud%20Gateway+Nacos%EF%BC%8Cyml+properties%E4%B8%A4%E7%A7%8D%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%96%B9%E5%BC%8F%E6%90%AD%E5%BB%BA%E7%BD%91%E5%85%B3%E6%9C%8D%E5%8A%A1/">Spring Cloud Gateway+Nacos，yml+properties两种配置文件方式搭建网关服务</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:39:59.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Spring%20Cloud+nacos+Feign%EF%BC%8C%E5%AE%9E%E7%8E%B0%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%E5%8F%8A%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">Spring Cloud+nacos+Feign，实现注册中心及配置中心</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:32:26.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E6%97%B6%EF%BC%8C%E5%A4%9A%E4%B8%AA%E6%9C%8D%E5%8A%A1%E5%85%B1%E7%94%A8%E4%B8%80%E4%B8%AAdataId%E7%9A%84%E9%85%8D%E7%BD%AE/">Nacos作为配置中心时，多个服务共用一个dataId的配置</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T09:34:29.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/SpringCloudAlibaba(%E4%B8%89)%EF%BC%9A%E4%BD%BF%E7%94%A8Nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">SpringCloudAlibaba(三)：使用Nacos作为配置中心</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T09:31:53.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Nacos%20%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/">Nacos 集群部署</a></p><p class="is-uppercase"></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2020/07/"><span class="level-start"><span class="level-item">七月 2020</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/06/"><span class="level-start"><span class="level-item">六月 2020</span></span><span class="level-end"><span class="level-item tag">37</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/05/"><span class="level-start"><span class="level-item">五月 2020</span></span><span class="level-end"><span class="level-item tag">29</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/04/"><span class="level-start"><span class="level-item">四月 2020</span></span><span class="level-end"><span class="level-item tag">62</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/03/"><span class="level-start"><span class="level-item">三月 2020</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/12/"><span class="level-start"><span class="level-item">十二月 2019</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/11/"><span class="level-start"><span class="level-item">十一月 2019</span></span><span class="level-end"><span class="level-item tag">24</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/go/"><span class="tag">go</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/web/"><span class="tag">web</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button is-primary" type="submit" value="订阅"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="2183476622" data-ad-slot="pub-2874221941555456" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="知识铺" height="28"></a><p class="size-small"><span>&copy; 2020 知识铺</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            site: {
+                url: 'https://zshipu.com',
+                external_link: {"enable":true,"exclude":[]}
+            },
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

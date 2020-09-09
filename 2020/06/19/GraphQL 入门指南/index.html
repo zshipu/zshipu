@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>GraphQL 入门指南 - 知识铺</title><meta description="今天最常讨论的术语之一是 API。很多人不知道 API 的确切内容。基本上，API 代表应用程序编程接口。顾名下，这是一个界面，人们——开发人员、用户、消费者——可以与之交互。 您可以将 API 视为调酒师。你请酒保喝一杯，他们给你你想要的。简单。那么，为什么这是个问题呢？ 自现代网络开始以来，构建 API 并不像听起来那么难。但是，学习和理解 API 是。开发人员组成使用 API 构建某些内容或"><meta property="og:type" content="blog"><meta property="og:title" content="GraphQL 入门指南"><meta property="og:url" content="https://zshipu.com/2020/06/19/GraphQL%20%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/"><meta property="og:site_name" content="知识铺"><meta property="og:description" content="今天最常讨论的术语之一是 API。很多人不知道 API 的确切内容。基本上，API 代表应用程序编程接口。顾名下，这是一个界面，人们——开发人员、用户、消费者——可以与之交互。 您可以将 API 视为调酒师。你请酒保喝一杯，他们给你你想要的。简单。那么，为什么这是个问题呢？ 自现代网络开始以来，构建 API 并不像听起来那么难。但是，学习和理解 API 是。开发人员组成使用 API 构建某些内容或"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--5vvAFZtb--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/2096/1%2AFKJYY9qqg4PLBvziWPlhVg.png"><meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--5ZxE4cuA--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/2000/1%2ANaIPy126r9Ie5NwjS3g-rg.png"><meta property="article:published_time" content="2020-06-19T12:06:53.000Z"><meta property="article:modified_time" content="2020-09-08T14:03:00.346Z"><meta property="article:author" content="知识铺"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--5vvAFZtb--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/2096/1%2AFKJYY9qqg4PLBvziWPlhVg.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://zshipu.com/2020/06/19/GraphQL%20%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/"},"headline":"知识铺","image":["https://res.cloudinary.com/practicaldev/image/fetch/s--5vvAFZtb--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/2096/1%2AFKJYY9qqg4PLBvziWPlhVg.png","https://res.cloudinary.com/practicaldev/image/fetch/s--5ZxE4cuA--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/2000/1%2ANaIPy126r9Ie5NwjS3g-rg.png"],"datePublished":"2020-06-19T12:06:53.000Z","dateModified":"2020-09-08T14:03:00.346Z","author":{"@type":"Person","name":"知识铺"},"description":"今天最常讨论的术语之一是 API。很多人不知道 API 的确切内容。基本上，API 代表应用程序编程接口。顾名下，这是一个界面，人们——开发人员、用户、消费者——可以与之交互。 您可以将 API 视为调酒师。你请酒保喝一杯，他们给你你想要的。简单。那么，为什么这是个问题呢？ 自现代网络开始以来，构建 API 并不像听起来那么难。但是，学习和理解 API 是。开发人员组成使用 API 构建某些内容或"}</script><link rel="canonical" href="https://zshipu.com/2020/06/19/GraphQL%20%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600&amp;family=Roboto+Mono"><link rel="stylesheet" href="/css/cyberpunk.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><script data-ad-client="2183476622" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><meta name="generator" content="Hexo 5.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="知识铺" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-06-19T12:06:53.000Z" title="2020-06-19T12:06:53.000Z">2020-06-19</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.346Z" title="2020-09-08T14:03:00.346Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">28 分钟读完 (大约4130个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">GraphQL 入门指南</h1><div class="content"><p>今天最常讨论的术语之一是 API。很多人不知道 API 的确切内容。基本上，API 代表<strong>应用程序编程接口。</strong>顾名下，这是一个界面，人们——开发人员、用户、消费者——可以与之交互。</p>
+<p>您可以将 API 视为调酒师。你请酒保喝一杯，他们给你你想要的。简单。那么，为什么这是个问题呢？</p>
+<p>自现代网络开始以来，构建 API 并不像听起来那么难。但是，学习和理解 API 是。开发人员组成使用 API 构建某些内容或仅使用数据的用户。因此，您的 API 应该尽可能干净和直观。设计良好的 API 非常容易使用和学习。这也是直观的，在开始设计 API 时要记住这一点。</p>
+<p>长期以来，我们一直在使用 REST 来构建 API。随之而来的是一些问题。使用 REST 设计构建 API 时，您将面临一些问题，例如：</p>
+<p>1） 您将有很多端点</p>
+<p>2） 开发人员将更难学习和了解您的 API</p>
+<p>3） 信息获取过度和不足</p>
+<p>为了解决这些问题，Facebook 创建了 GraphQL。今天，我认为 GraphQL 是构建 API 的最佳方式。本文将告诉您为什么今天应该开始学习它。</p>
+<p>在本文中，您将了解 GraphQL 的工作原理。我将向您展示如何使用 GraphQL 创建设计良好、高效、功能强大的 API。</p>
+<p>您可能已经听说过 GraphQL，因为很多人和公司都在使用它。由于 GraphQL 是开源的，其社区已经变得庞大。</p>
+<p>现在，是时候开始在实践中学习GraphQL是如何工作的，以及所有关于它的魔力。</p>
+<h2 id="什么是GraphQL？"><a href="#什么是GraphQL？" class="headerlink" title="什么是GraphQL？"></a><a href="https://zshipu.com/t?url=#what-is-graphql"></a>什么是GraphQL？</h2><p><a href="https://zshipu.com/t?url=https://graphql.org"><strong>GraphQL</strong></a>是 Facebook 开发的开源查询语言。它为我们提供了一种更有效的方法来设计、创建和使用我们的 API。基本上，它是REST的替代品。</p>
+<p>GraphQL 有很多功能，例如：</p>
+<ol>
+<li><p>编写所需的数据，并准确获取所需的数据。不再像我们习惯的 REST 那样<strong>过度提取信息</strong>。</p>
+</li>
+<li><p>它为我们提供了一<strong>个终结点</strong>，没有更多的版本2或版本3为相同的API。</p>
+</li>
+<li><p>GraphQL 是<strong>强类型</strong>，因此可以在执行之前验证 GraphQL 类型系统中的查询。它帮助我们构建更强大的 API。</p>
+</li>
+</ol>
+<p>这是 GraphQL 的基本介绍 - 为什么它如此强大，为什么它现在越来越受欢迎。如果你想了解更多关于它，我建议你去<a href="https://zshipu.com/t?url=https://graphql.org/">GraphQL网站</a>，并检查出来。</p>
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a><a href="https://zshipu.com/t?url=#getting-started"></a>开始</h2><p>本文的主要目标是学习如何设置 GraphQL 服务器，因此我们目前不会深入探讨这一点。目标是了解 GraphQL 在实践中是如何工作的，因此我们将使用称为 ☄️ <a href="https://zshipu.com/t?url=https://github.com/glennreyes/graphpack">Graphpack</a>的零配置 GraphQL 服务器。</p>
+<p>为了开始我们的项目，我们将创建一个新文件夹，您可以随心所欲地命名它。我要命名它：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">graphql-server</span><br></pre></td></tr></table></figure>
+
+
+<p>打开终端并键入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">mkdir graphql-server</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>现在，您应该在机器中安装或安装。如果您不知道这些是什么，并且是 JavaScript 编程语言的包管理器。对于 Node.js，默认包管理器为 。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p>在创建的文件夹中键入以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">npm init -y</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>或者，如果您使用 ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">yarn init</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>将为你创建一个文件，并且您安装的所有依赖项和命令都将在那里。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">package.json</span><br></pre></td></tr></table></figure>
+
+
+<p>因此，现在，我们将安装我们将使用<strong>的唯一依赖项</strong>。</p>
+<p>☄️<a href="https://zshipu.com/t?url=https://github.com/glennreyes/graphpack">图形包</a>允许您创建<strong>具有零配置的</strong>GraphQL 服务器。由于我们刚刚开始使用 GraphQL，这将帮助我们继续前进并学习更多，而不必担心服务器配置。</p>
+<p>在终端中，在根文件夹中，安装它像这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">npm install --save-dev graphpack</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>或者，如果您使用 ，则应如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">yarn add --dev graphpack</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>安装_Graphpack_后，转到文件中的脚本，并将以下代码放在其中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">package.json</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">   &quot;dev&quot;: &quot;graphpack&quot;,</span><br><span class="line">   &quot;build&quot;: &quot;graphpack build&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>我们将创建一个名为 的文件夹，它将是我们整个服务器中唯一的文件夹。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src</span><br></pre></td></tr></table></figure>
+
+
+<p>在文件夹内创建一个名为 “之后”的文件夹，我们将仅创建三个文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src</span><br></pre></td></tr></table></figure>
+
+
+<p>在我们的文件夹中创建一个名为 的文件。在此第一个文件中，放置以下代码：   </p>
+<p>src   </p>
+<p>schema.graphql   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> type Query &#123;    </span><br><span class="line">    hello: String    </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>在此文件中将是我们的整个 GraphQL 架构。如果你不知道它是什么，我稍后会解释——别担心。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">schema.graphql</span><br></pre></td></tr></table></figure>
+
+
+<p>现在，在我们的文件夹中，创建第二个文件。调用它，并在此第二个文件中放置以下代码：   </p>
+<p>src   </p>
+<p>resolvers.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> import &#123; users &#125; from &quot;.&#x2F;db&quot;;</span><br><span class="line"></span><br><span class="line">const resolvers &#x3D; &#123;    </span><br><span class="line">    Query: &#123;    </span><br><span class="line">        hello: () &#x3D;&gt; &quot;Hello World!&quot;    </span><br><span class="line">    &#125;    </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">export default resolvers;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>此文件将是我们提供将 GraphQL 操作转换为数据的说明的方式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">resolvers.js</span><br></pre></td></tr></table></figure>
+
+
+<p>最后，在_src_文件夹中创建第三个文件。调用此，并在此第三个文件中放置以下代码：   </p>
+<p>db.js   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> export let users &#x3D; [    </span><br><span class="line">    &#123; id: 1, name: &quot;John Doe&quot;, email: &quot;john@gmail.com&quot;, age: 22 &#125;,    </span><br><span class="line">    &#123; id: 2, name: &quot;Jane Doe&quot;, email: &quot;jane@gmail.com&quot;, age: 23 &#125;    </span><br><span class="line">];</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>在本教程中，我们不使用真实数据库。因此，此文件将模拟数据库，只是为了学习目的。<br>db.js   </p>
+<p>现在，我们的文件夹应该如下所示：   </p>
+<p>src</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">src</span><br><span class="line"> |--db.js</span><br><span class="line"> |--resolvers.js</span><br><span class="line"> |--schema.graphql</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>现在，如果您运行该命令，或者，如果您使用的 是 ，则应在终端中看到此输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn dev</span><br></pre></td></tr></table></figure>
+
+
+<p><a href="https://zshipu.com/t?url=https://res.cloudinary.com/practicaldev/image/fetch/s--5vvAFZtb--/c_limit,f_auto,fl_progressive,q_auto,w_880/https://cdn-images-1.medium.com/max/2096/1*FKJYY9qqg4PLBvziWPlhVg.png"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--5vvAFZtb--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/2096/1%2AFKJYY9qqg4PLBvziWPlhVg.png"></a></p>
+<p>您现在可以转到 。这意味着我们已经准备好开始编写 GraphQL 中的第一个查询、突变和订阅。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localhost:4000</span><br></pre></td></tr></table></figure>
+
+
+<p>您将看到 GraphQL 游乐场，这是一款功能强大的 GraphQL IDE，用于更好的开发工作流。如果您想了解有关 GraphQL 游乐场的更多信息，<a href="https://zshipu.com/t?url=https://www.prisma.io/blog/introducing-graphql-playground-f1e0a018f05d/">请单击此处</a>。</p>
+<h2 id="模式"><a href="#模式" class="headerlink" title="模式"></a><a href="https://zshipu.com/t?url=#schema"></a>模式</h2><p>GraphQL 有它自己的语言类型，用于编写架构。这是一种称为<strong>架构定义语言 （SDL）</strong>的人类可读架构语法。无论您使用何种技术，SDL 都将相同 ， 您可以将其用于所需的任何语言或框架。</p>
+<p>这种架构语言非常有用，因为它很容易理解 API 将具有哪些类型。你可以理解它，只是看对了它。</p>
+<h2 id="类型"><a href="#类型" class="headerlink" title="类型"></a><a href="https://zshipu.com/t?url=#types"></a>类型</h2><p>类型是 GraphQL 最重要的特征之一。类型是表示 API 外观的自定义对象。例如，如果要构建社交媒体应用程序，您的 API 应具有帖子、用户、赞、组等类型。</p>
+<p>类型具有字段，这些字段返回特定类型的数据。例如，我们将创建一个用户类型，我们应该有一些名称、电子邮件和年龄字段。类型字段可以是任何内容，并且始终返回数据类型为 Int、Float、字符串、布尔、ID、对象类型列表或自定义对象类型。</p>
+<p>因此，现在编写我们的第一个类型，转到您的文件，并将已经存在的类型查询替换为以下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">schema.graphql</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> type User &#123;    </span><br><span class="line">    id: ID!    </span><br><span class="line">    name: String!    </span><br><span class="line">    email: String!    </span><br><span class="line">    age: Int    </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>每个用户都有一个 ID，所以我们给它一个 ID 类型。用户也将有一个名称和电子邮件，所以我们给它一个字符串类型，和一个年龄，我们给了一个Int类型。很简单，对吧？</p>
+<p>但是，那些呢！在每行的末尾？感叹号表示字段<strong>是不可空的</strong>，这意味着每个字段都必须返回每个查询中的一些数据。我们将在 User 类型中具有的唯一<strong>空</strong>字段是年龄。</p>
+<p>在 GraphQL 中，您将处理三个主要概念：</p>
+<ol>
+<li><p><strong>查询</strong>- 从服务器获取数据的方式。</p>
+</li>
+<li><p><strong>突变</strong>- 修改服务器上的数据并恢复更新数据（创建、更新、删除）的方式。</p>
+</li>
+<li><p><strong>订阅</strong>- 保持与服务器的实时连接的方式。</p>
+</li>
+</ol>
+<p>我要向你解释所有。让我们从查询开始。</p>
+<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a><a href="https://zshipu.com/t?url=#queries"></a>查询</h2><p>为了简单解释这一点，GraphQL 中的查询是获取数据的方式。在 GraphQL 中查询最美丽的事情之一是，您只是要获得所需的确切数据。没有更多，没有更少。这在我们的 API 中产生了巨大的积极影响 - 不再像使用 REST API 那样过度获取或获取不足的信息。</p>
+<p>我们将在 GraphQL 中创建第一个类型查询。我们所有的查询都将在此类类型内结束。因此，首先，我们将转到我们并编写一个名为 Query 的新类型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">schema.graphql</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> type Query &#123;    </span><br><span class="line">    users: [User!]!    </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>很简单：用户查询<strong>将返回给我们一个或多个用户的数组</strong>。它不返回 null，因为我们放入<strong>！</strong>， 这意味着它是一个不可空的查询。它应该总是返回的东西。</p>
+<p>但是，我们也可以返回特定的用户。为此，我们将创建一个名为”用户”的新查询。在我们的查询类型中，放置以下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">user(id: ID!): User!</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>现在，我们的查询类型应如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> type Query &#123;    </span><br><span class="line">    users: [User!]!    </span><br><span class="line">    user(id: ID!): User!    </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>如您所见，在 GraphQL 中查询时，我们还可以传递参数。在这种情况下，要查询特定用户，我们将传递其 ID。</p>
+<p>但是，您可能想知道：GraphQL 如何知道数据从何处获取？这就是为什么我们应该有一个文件。该文件告诉 GraphQL 如何以及从何处获取数据。</p>
+<p>resolvers.js</p>
+<p>首先，转到我们的文件并导入我们刚刚创建的文件。您的文件应如下所示：</p>
+<p>resolvers.js</p>
+<p>db.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> import &#123; users &#125; from &quot;.&#x2F;db&quot;;</span><br><span class="line"></span><br><span class="line">const resolvers &#x3D; &#123;    </span><br><span class="line">    Query: &#123;    </span><br><span class="line">        hello: () &#x3D;&gt; &quot;Hello World!&quot;    </span><br><span class="line">    &#125;    </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">export default resolvers;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>现在，我们将创建第一个查询。转到您的文件并替换 hello 函数。现在，查询类型应如下所示：</p>
+<p>resolvers.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> import &#123; users &#125; from &quot;.&#x2F;db&quot;;</span><br><span class="line"></span><br><span class="line">const resolvers &#x3D; &#123;    </span><br><span class="line">    Query: &#123;    </span><br><span class="line">        user: (parent, &#123; id &#125;, context, info) &#x3D;&gt; &#123;    </span><br><span class="line">        return users.find(user &#x3D;&gt; user.id &#x3D;&#x3D; id);    </span><br><span class="line">        &#125;,    </span><br><span class="line">        users: (parent, args, context, info) &#x3D;&gt; &#123;    </span><br><span class="line">            return users;    </span><br><span class="line">        &#125;    </span><br><span class="line">    &#125;    </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">export default resolvers;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>现在，要解释它是如何工作的：</p>
+<p>每个查询解析器有四个参数。在用户函数中，我们将将 ID 作为参数传递，然后返回与传递的 ID 匹配的特定用户。很简单</p>
+<p>在用户函数中，我们只需返回已存在的用户数组。它总是会回到我们所有的用户。</p>
+<p>现在，我们将测试我们的查询是否正常工作。转到并放入以下代码：   </p>
+<p>localhost:4000</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> query &#123;    </span><br><span class="line">    users &#123;    </span><br><span class="line">        id    </span><br><span class="line">        name    </span><br><span class="line">        email    </span><br><span class="line">        age    </span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>它应该返回到我们所有的用户。</p>
+<p>或者，如果要返回特定用户：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> query &#123;    </span><br><span class="line">    user(id: 1) &#123;    </span><br><span class="line">        id    </span><br><span class="line">        name    </span><br><span class="line">        email    </span><br><span class="line">        age    </span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>现在，我们将开始学习<strong>突变</strong>，这是GraphQL中最重要的特征之一。</p>
+<h2 id="突变"><a href="#突变" class="headerlink" title="突变"></a><a href="https://zshipu.com/t?url=#mutations"></a>突变</h2><p>在 GraphQL 中，突变是修改服务器上的数据并恢复更新数据的方式。您可以像 REST 的 CUD（创建、更新、删除）一样思考。</p>
+<p>我们将在 GraphQL 中创建我们的第一个类型突变，并且我们所有的突变都将在这种类型的类型中结束。所以，首先，去我们的，并写一个新的类型称为突变：</p>
+<p>schema.graphql</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> type Mutation &#123;    </span><br><span class="line">    createUser(id: ID!, name: String!, email: String!, age: Int): User!    </span><br><span class="line">    updateUser(id: ID!, name: String, email: String, age: Int): User!    </span><br><span class="line">    deleteUser(id: ID!): User!    </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>正如您所看到的，我们将有三个突变：</p>
+<p><strong>创建用户</strong>：我们应该传递 ID、姓名、电子邮件和年龄。它应该将新用户返回给我们。</p>
+<p><strong>更新用户</strong>：我们应该传递一个ID，以及一个新的名称，电子邮件，或年龄。它应该将新用户返回给我们。</p>
+<p><strong>删除用户</strong>：我们应该传递一个ID。它应该将删除的用户退还给我们。</p>
+<p>现在，转到我们的文件和查询对象<strong>下方</strong>，创建一个新的突变对象，如下所示：</p>
+<p>resolvers.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> Mutation: &#123;    </span><br><span class="line">    createUser: (parent, &#123; id, name, email, age &#125;, context, info) &#x3D;&gt; &#123;    </span><br><span class="line">        const newUser &#x3D; &#123; id, name, email, age &#125;;    </span><br><span class="line">        users.push(newUser);    </span><br><span class="line">        return newUser;    </span><br><span class="line">&#125;,   </span><br><span class="line">    updateUser: (parent, &#123; id, name, email, age &#125;, context, info) &#x3D;&gt; &#123;    </span><br><span class="line">        let newUser &#x3D; users.find(user &#x3D;&gt; user.id &#x3D;&#x3D; id);    </span><br><span class="line">        newUser.name &#x3D; name;    </span><br><span class="line">        newUser.email &#x3D; email;    </span><br><span class="line">        newUser.age &#x3D; age;</span><br><span class="line"></span><br><span class="line">        return newUser;</span><br><span class="line">    &#125;,    </span><br><span class="line">    deleteUser: (parent, &#123; id &#125;, context, info) &#x3D;&gt; &#123;    </span><br><span class="line">        const userIndex &#x3D; users.findIndex(user &#x3D;&gt; user.id &#x3D;&#x3D; id);</span><br><span class="line"></span><br><span class="line">        if (userIndex &#x3D;&#x3D;&#x3D; -1) throw new Error(&quot;User not found.&quot;);</span><br><span class="line"></span><br><span class="line">        const deletedUsers &#x3D; users.splice(userIndex, 1);</span><br><span class="line"></span><br><span class="line">        return deletedUsers[0];     </span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>现在，我们的文件应该如下所示：</p>
+<p>resolvers.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> import &#123; users &#125; from &quot;.&#x2F;db&quot;;</span><br><span class="line"></span><br><span class="line">const resolvers &#x3D; &#123;    </span><br><span class="line">    Query: &#123;        </span><br><span class="line">        user: (parent, &#123; id &#125;, context, info) &#x3D;&gt; &#123;      </span><br><span class="line">            return users.find(user &#x3D;&gt; user.id &#x3D;&#x3D; id);       </span><br><span class="line">        &#125;,      </span><br><span class="line">        users: (parent, args, context, info) &#x3D;&gt; &#123;       </span><br><span class="line">            return users;       </span><br><span class="line">        &#125;       </span><br><span class="line">    &#125;,    </span><br><span class="line">    Mutation: &#123;    </span><br><span class="line">        createUser: (parent, &#123; id, name, email, age &#125;, context, info) &#x3D;&gt; &#123;    </span><br><span class="line">            const newUser &#x3D; &#123; id, name, email, age &#125;;    </span><br><span class="line">            users.push(newUser);    </span><br><span class="line">            return newUser;    </span><br><span class="line">    &#125;,   </span><br><span class="line">        updateUser: (parent, &#123; id, name, email, age &#125;, context, info) &#x3D;&gt; &#123;    </span><br><span class="line">            let newUser &#x3D; users.find(user &#x3D;&gt; user.id &#x3D;&#x3D; id);    </span><br><span class="line">            newUser.name &#x3D; name;    </span><br><span class="line">            newUser.email &#x3D; email;    </span><br><span class="line">            newUser.age &#x3D; age;</span><br><span class="line"></span><br><span class="line">            return newUser;</span><br><span class="line">        &#125;,    </span><br><span class="line">        deleteUser: (parent, &#123; id &#125;, context, info) &#x3D;&gt; &#123;    </span><br><span class="line">            const userIndex &#x3D; users.findIndex(user &#x3D;&gt; user.id &#x3D;&#x3D;&#x3D; id);</span><br><span class="line"></span><br><span class="line">            if (userIndex &#x3D;&#x3D;&#x3D; -1) throw new Error(&quot;User not found.&quot;);</span><br><span class="line"></span><br><span class="line">            const deletedUsers &#x3D; users.splice(userIndex, 1);</span><br><span class="line"></span><br><span class="line">            return deletedUsers[0];         </span><br><span class="line">        &#125;    </span><br><span class="line">    &#125;    </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">export default resolvers;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>现在，我们将测试我们的突变是否正常。转到并放入以下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localhost:4000</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> mutation &#123;    </span><br><span class="line">    createUser(id: 3, name: &quot;Robert&quot;, email: &quot;robert@gmail.com&quot;, age: 21) &#123;    </span><br><span class="line">        id    </span><br><span class="line">        name    </span><br><span class="line">        email    </span><br><span class="line">        age    </span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>它应将新用户返回给您。如果你想尝试制造新的突变，我建议你自己尝试一下！尝试删除您创建的同一用户，以查看其是否正常工作。</p>
+<p>最后，我们将开始了解<strong>订阅</strong>，以及为什么它们如此强大。</p>
+<h2 id="订阅"><a href="#订阅" class="headerlink" title="订阅"></a><a href="https://zshipu.com/t?url=#subscriptions"></a>订阅</h2><p>正如我以前说过的，订阅是您与服务器保持实时连接的方式。这意味着，每当服务器中发生事件，并且每当调用该事件时，服务器都会向客户端发送相应的数据。</p>
+<p>通过使用订阅，可以使应用更新到不同用户之间的最新更改。</p>
+<p><a href="https://zshipu.com/t?url=https://res.cloudinary.com/practicaldev/image/fetch/s--5ZxE4cuA--/c_limit,f_auto,fl_progressive,q_auto,w_880/https://cdn-images-1.medium.com/max/2000/1*NaIPy126r9Ie5NwjS3g-rg.png"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--5ZxE4cuA--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/2000/1%2ANaIPy126r9Ie5NwjS3g-rg.png"></a></p>
+<p>基本订阅如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> subscription &#123;    </span><br><span class="line">    users &#123;    </span><br><span class="line">        id    </span><br><span class="line">        name    </span><br><span class="line">        email    </span><br><span class="line">        age    </span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>你会说它非常类似于查询，是的。但它的工作方式不同。</p>
+<p>在服务器中更新某些内容时，服务器将运行订阅中指定的 GraphQL 查询，并将新更新的结果发送到客户端。</p>
+<p>我们不会在本文中使用订阅，但如果您想阅读有关订阅的更多信息，<a href="https://zshipu.com/t?url=https://hackernoon.com/from-zero-to-graphql-subscriptions-416b9e0284f3">请单击此处</a>。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a><a href="https://zshipu.com/t?url=#conclusion"></a>结论</h2><p>正如您所看到的，GraphQL 是一项非常强大的新技术。它为我们提供了构建更好且设计良好的 API 的真正能力。这就是为什么我建议你现在开始学习它。对我来说，它最终将取代REST。</p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>GraphQL 入门指南</p><p><a href="https://zshipu.com/2020/06/19/GraphQL%20%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/">https://zshipu.com/2020/06/19/GraphQL%20%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>知识铺</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2020-06-19</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2020-09-08</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=5f58e448b1477000121881fb&amp;product=inline-share-buttons" defer></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button is-info donate"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="/img/alipay.jpg" alt="支付宝"></span></a><a class="button is-success donate"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="/img/weixin.jpg" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2020/06/20/%E5%88%9D%E5%88%9B%E5%9B%A2%E9%98%9F%E9%80%89%E6%8B%A9%20Vert.x%20/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">初创团队选择 Vert.x</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2020/06/17/Linux%E7%9A%84du%E7%94%A8%E6%B3%95%E6%8E%92%E9%99%A4%E6%9F%90%E4%B8%AA%E7%9B%AE%E5%BD%95/"><span class="level-item">Linux的du用法排除某个目录</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'https://zshipu.com/2020/06/19/GraphQL%20%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/';
+            this.page.identifier = '2020/06/19/GraphQL 入门指南/';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');  
+            s.src = '//' + 'zsp' + '.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="https://www.gravatar.com/avatar/2396bdfe5aadb513e676094004dde830?s=128" alt="edwin"></figure><p class="title is-size-4 is-block line-height-inherit">edwin</p><p class="is-size-6 is-block">知识铺</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国 杭州</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">189</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">2</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/liliang8858" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/liliang8858"><i class="Github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="社区"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="设计"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/go/"><span class="level-start"><span class="level-item">go</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:43:02.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Spring%20Cloud%20Gateway+Nacos%EF%BC%8Cyml+properties%E4%B8%A4%E7%A7%8D%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%96%B9%E5%BC%8F%E6%90%AD%E5%BB%BA%E7%BD%91%E5%85%B3%E6%9C%8D%E5%8A%A1/">Spring Cloud Gateway+Nacos，yml+properties两种配置文件方式搭建网关服务</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:39:59.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Spring%20Cloud+nacos+Feign%EF%BC%8C%E5%AE%9E%E7%8E%B0%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%E5%8F%8A%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">Spring Cloud+nacos+Feign，实现注册中心及配置中心</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:32:26.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E6%97%B6%EF%BC%8C%E5%A4%9A%E4%B8%AA%E6%9C%8D%E5%8A%A1%E5%85%B1%E7%94%A8%E4%B8%80%E4%B8%AAdataId%E7%9A%84%E9%85%8D%E7%BD%AE/">Nacos作为配置中心时，多个服务共用一个dataId的配置</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T09:34:29.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/SpringCloudAlibaba(%E4%B8%89)%EF%BC%9A%E4%BD%BF%E7%94%A8Nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">SpringCloudAlibaba(三)：使用Nacos作为配置中心</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T09:31:53.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Nacos%20%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/">Nacos 集群部署</a></p><p class="is-uppercase"></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2020/07/"><span class="level-start"><span class="level-item">七月 2020</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/06/"><span class="level-start"><span class="level-item">六月 2020</span></span><span class="level-end"><span class="level-item tag">37</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/05/"><span class="level-start"><span class="level-item">五月 2020</span></span><span class="level-end"><span class="level-item tag">29</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/04/"><span class="level-start"><span class="level-item">四月 2020</span></span><span class="level-end"><span class="level-item tag">62</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/03/"><span class="level-start"><span class="level-item">三月 2020</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/12/"><span class="level-start"><span class="level-item">十二月 2019</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/11/"><span class="level-start"><span class="level-item">十一月 2019</span></span><span class="level-end"><span class="level-item tag">24</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/go/"><span class="tag">go</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/web/"><span class="tag">web</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button is-primary" type="submit" value="订阅"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="2183476622" data-ad-slot="pub-2874221941555456" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="知识铺" height="28"></a><p class="size-small"><span>&copy; 2020 知识铺</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            site: {
+                url: 'https://zshipu.com',
+                external_link: {"enable":true,"exclude":[]}
+            },
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

@@ -1,0 +1,1163 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Vue手册：Vue.js的完整介绍 - 知识铺</title><meta description="Vue是一种非常流行的JavaScript前端框架，正在经历巨大的增长。 它很简单，很小（〜24KB），并且性能很高。感觉与所有其他JavaScript前端框架和视图库不同。让我们找出原因。 首先，什么是JavaScript前端框架？如果不确定什么是JavaScript框架，那么Vue是一个完美的初体验。 JavaScript框架可帮助我们创建现代应用程序。现代JavaScript应用程序主要在W"><meta property="og:type" content="blog"><meta property="og:title" content="Vue手册：Vue.js的完整介绍"><meta property="og:url" content="https://zshipu.com/2019/11/29/Vue%E6%89%8B%E5%86%8C%EF%BC%9AVue-js%E7%9A%84%E5%AE%8C%E6%95%B4%E4%BB%8B%E7%BB%8D/"><meta property="og:site_name" content="知识铺"><meta property="og:description" content="Vue是一种非常流行的JavaScript前端框架，正在经历巨大的增长。 它很简单，很小（〜24KB），并且性能很高。感觉与所有其他JavaScript前端框架和视图库不同。让我们找出原因。 首先，什么是JavaScript前端框架？如果不确定什么是JavaScript框架，那么Vue是一个完美的初体验。 JavaScript框架可帮助我们创建现代应用程序。现代JavaScript应用程序主要在W"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/Qa8s2ayB3DhhE3dRKv4SFowGd8xHDvEeSlL4"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/ZWfaVoQWEm4HzD0RNcS2osp8NpIPz-G5Vq5P"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/F1uuQW81iw1WZNOiUn0xnLOagFi637vPDUfd"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/FL4mTLZqzhKkAYL2FB507Tx1Hkdtnl0y5cgu"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/mkF3jMMCGluqmQ3hX3bGbCxhfXcwvWVNjWLi"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/bYwN2mfgTuJNxiiHBSNjnJQADZQvFR0TErhK"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/dcQmjoykCaJG7pevG5Yc-6A43eVYUkCbTxn7"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/lIdwYkOgcllnAJRVZOoKIxZ49ikNFoQjYtSV"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/dN4W4ZALKh7Xz1D8ac7ebXpGdTPVGpzdujcc"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/X6rbmBloyRnQbdwrFQwtYeChdqxzQRpOJYfl"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/vbEmq0oYaGFjDtjL9D2QaUZ6t5omf0fjZTJM"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/Q52LD-RGQm9dHXMyWikiI5fMyESB7vRJqe1h"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/iegqNiWWJaunJi-KFTV93EKuODc4njdfLRuf"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/FuI7nmJ2NAtesloTZrh3eJL-aa0ceCCr68wQ"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/4IHrGo6U-xkz4aeVXf3S06AYzIk0lAZJ6t6y"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/pp3QTRAMwLtOnkhazBRgRrjYKnMEbnm1CbWL"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/dGT6I8Uq75505tD1Xj8wR-h7rO9ZvRby80cH"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/J-LJE-u3DphYF8pOpMnkCX9KoNz3fGp4OPea"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/uh0CFZPRsdnKFOY-OWWvQCN3UVcnh-0KXpfh"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/hAQZpBESrlkCeLeLJpzeiPdJs12mmFHLRq9s"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/TaZntVatyBmsqqKsMjbGKn5nIuJikKLOJJyt"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/xPbOBNuLCdCE28QiFevAcqFb06Oqk8tB31Zy"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/td1gw01JZxVxAkHLGg9FKzIHz8UFhMhvr3gG"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/y-G2Zcw62ZrkjMOe6ottwLy-z6onBxnZzOXm"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/LQCCB8c2g0OsUmJZ20fYJBPbampJudlIPocv"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/jFYMTGNEhrkxzzC6Grdb7zgXrnHrwuR-0AiI"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/ANnfWmlscUkP0RN9Pn-hSABLCOxzMJYvtuqw"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/r4URIzj-Mm92WTnnl9iXMK18f8cIwmyICQ0m"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/h55RK1azzd7gjON36Da9HdY-tpu8cuVMBs-3"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/9fi396qPj8ajABDLnAoB77AkjDtLEJu-2okG"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/IdqSWwFMpvHVN125f7uIxue0Xp0ic-HJmBzX"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/RE969Y8eHdDn1rqHvj2OGfnEqthwHMVy37A-"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/YKTlyULN-MDOAg3R1KPA3tI27IqX5Q9ckIH4"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/OOfHNunbiMBxokJsrmdrvWixSoDmaDdPRzxK"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/hskNZD-byUAunDSOjCdPXPMIb9v3rBPSlOvf"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/xbOVISLaIuAgHHvD4gKVFb0Lg9R1f5R5Jowk"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/JTZ9KScP0WTtr-4cCvjvQJKkGwlA4EW9KIf3"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/c5wC-aTwknyXUSjqq9gbr-EqFbSDXSewix-N"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/3KtNeQR4W8HVg-JVT0kmu33sL79xlWIT0KtY"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/R7Q4k9hsI0yzBe-xaVIMxdBMukjQWzzIw-FG"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/j1mnYvPYhNPWM00V0lDdxCwb5ZidBzG0Djtn"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/5Z2hR9l8ARVe3uucCT4iPzTsDZRuEh0gZSs8"><meta property="og:image" content="https://cdn-media-1.freecodecamp.org/images/hoB1Mu8Q1Py50t5Es5EKze26BsJOApMhEWVh"><meta property="article:published_time" content="2019-11-29T05:34:21.000Z"><meta property="article:modified_time" content="2020-09-08T14:03:00.414Z"><meta property="article:author" content="知识铺"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://cdn-media-1.freecodecamp.org/images/Qa8s2ayB3DhhE3dRKv4SFowGd8xHDvEeSlL4"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://zshipu.com/2019/11/29/Vue%E6%89%8B%E5%86%8C%EF%BC%9AVue-js%E7%9A%84%E5%AE%8C%E6%95%B4%E4%BB%8B%E7%BB%8D/"},"headline":"知识铺","image":[],"datePublished":"2019-11-29T05:34:21.000Z","dateModified":"2020-09-08T14:03:00.414Z","author":{"@type":"Person","name":"知识铺"},"description":"Vue是一种非常流行的JavaScript前端框架，正在经历巨大的增长。 它很简单，很小（〜24KB），并且性能很高。感觉与所有其他JavaScript前端框架和视图库不同。让我们找出原因。 首先，什么是JavaScript前端框架？如果不确定什么是JavaScript框架，那么Vue是一个完美的初体验。 JavaScript框架可帮助我们创建现代应用程序。现代JavaScript应用程序主要在W"}</script><link rel="canonical" href="https://zshipu.com/2019/11/29/Vue%E6%89%8B%E5%86%8C%EF%BC%9AVue-js%E7%9A%84%E5%AE%8C%E6%95%B4%E4%BB%8B%E7%BB%8D/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600&amp;family=Roboto+Mono"><link rel="stylesheet" href="/css/cyberpunk.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><script data-ad-client="2183476622" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><meta name="generator" content="Hexo 5.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="知识铺" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2019-11-29T05:34:21.000Z" title="2019-11-29T05:34:21.000Z">2019-11-29</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.414Z" title="2020-09-08T14:03:00.414Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">2 小时读完 (大约21751个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">Vue手册：Vue.js的完整介绍</h1><div class="content"><p>Vue是一种非常流行的JavaScript前端框架，正在经历巨大的增长。</p>
+<p>它很简单，很小（〜24KB），并且性能很高。感觉与所有其他JavaScript前端框架和视图库不同。让我们找出原因。</p>
+<h3 id="首先，什么是JavaScript前端框架？"><a href="#首先，什么是JavaScript前端框架？" class="headerlink" title="首先，什么是JavaScript前端框架？"></a>首先，什么是JavaScript前端框架？</h3><p>如果不确定什么是JavaScript框架，那么Vue是一个完美的初体验。</p>
+<p>JavaScript框架可帮助我们创建现代应用程序。现代JavaScript应用程序主要在Web上使用，但也为许多桌面和移动应用程序提供支持。</p>
+<p>直到2000年代初，浏览器才拥有现在所没有的功能。它们的功能要弱得多，并且在它们内部构建复杂的应用程序在性能上并不可行。人们甚至都没有想到过这种工具。</p>
+<p>当Google推出浏览器中运行的两个应用程序<a target="_blank" rel="noopener" href="https://www.google.com/maps">Google Maps</a>和<a target="_blank" rel="noopener" href="https://www.google.com/gmail">GMail时</a>，一切都发生了变化。<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started">Ajax</a>使异步网络请求成为可能。随着时间的流逝，开发人员开始在Web平台之上进行构建，而工程师在该平台本身上进行工作-浏览器，Web标准，浏览器API和JavaScript语言。</p>
+<p>像<a target="_blank" rel="noopener" href="https://jquery.com/">jQuery</a>和<a target="_blank" rel="noopener" href="https://mootools.net/">Mootools</a>这样的库是第一个基于JavaScript的大型项目，并在一段时间内大受欢迎。他们基本上提供了一个更好的API与浏览器进行交互，并提供了各种浏览器之间的错误和不一致的解决方法。</p>
+<p>诸如<a target="_blank" rel="noopener" href="http://backbonejs.org/">Backbone</a>，<a target="_blank" rel="noopener" href="https://www.emberjs.com/">Ember</a>，<a target="_blank" rel="noopener" href="http://knockoutjs.com/">Knockout</a>和<a target="_blank" rel="noopener" href="https://angularjs.org/">AngularJS之</a>类的框架是现代JavaScript框架的第一波潮流。</p>
+<p>第二波是当前波，其主要参与者是<a target="_blank" rel="noopener" href="https://reactjs.org/">React</a>，<a target="_blank" rel="noopener" href="https://angular.io/">Angular</a>和<a target="_blank" rel="noopener" href="https://vuejs.org/">Vue</a>。</p>
+<p>请注意，jQuery，Ember和我提到的其他项目仍在大量使用，积极维护和数百万个网站依赖它们。</p>
+<p>也就是说，技术和工具不断发展，作为JavaScript开发人员，您现在可能需要了解React，Angular或Vue，而不是那些较旧的框架。</p>
+<p>框架抽象了与浏览器和DOM的交互。我们不是在DOM中通过引用元素来操作元素，而是在更高的级别上以<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Declarative_programming">声明方式</a>定义它们并与之交互。</p>
+<p>使用框架就像使用<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/C_(programming_language)">C编程语言</a>而不是使用<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Assembly_language">汇编语言</a>编写系统程序一样。就像使用计算机来编写文档而不是使用打字机一样。这就像拥有自动驾驶汽车，而不是自己驾驶汽车。</p>
+<p>好吧，不是很远，但是您知道了。您不必使用由浏览器提供的低级API来操纵元素，而是使用非常聪明的人构建的工具来使我们的生活更轻松，这些工具可以构建非常复杂的系统来编写应用程序。</p>
+<h3 id="Vue的受欢迎程度"><a href="#Vue的受欢迎程度" class="headerlink" title="Vue的受欢迎程度"></a>Vue的受欢迎程度</h3><p>Vue.js的受欢迎程度如何？</p>
+<p>Vue有：</p>
+<ul>
+<li>2016年在GitHub上获得7,600星</li>
+<li>2017年在GitHub上有36,700星</li>
+</ul>
+<p>截至2018年6月，它在GitHub上拥有超过100,000个星星。</p>
+<p>它的<a target="_blank" rel="noopener" href="https://www.npmjs.com/">npm</a>下载数量每天都在增长，现在每周大约有350,000次下载。</p>
+<p>鉴于这些数字，我会说Vue非常受欢迎。</p>
+<p>相对而言，它的GitHub星星数量与几年前诞生的React大致相同。</p>
+<p>当然，数字并不是万能的。我对Vue的印象是开发人员<strong>喜欢</strong>它。</p>
+<p>Vue兴起的关键时刻是在Laravel生态系统中的采用，Laravel生态系统是一种非常流行的PHP Web应用程序框架。但是从那以后，它已经在许多其他开发社区中广泛传播。</p>
+<h4 id="为什么开发人员喜欢Vue"><a href="#为什么开发人员喜欢Vue" class="headerlink" title="为什么开发人员喜欢Vue"></a>为什么开发人员喜欢Vue</h4><p>首先，Vue被称为渐进框架。</p>
+<p>这意味着它可以适应开发人员的需求。其他框架则需要开发人员或团队的全面支持，并且由于它们需要某些特定的约定集，因此常常希望您重写现有的应用程序。Vue从一个简单的<code>script</code>标签开始就很高兴地落在您的应用程序内部，它可以随着您的需求而增长，从3行扩展到管理整个视图层。</p>
+<p>您不需要了解<a target="_blank" rel="noopener" href="https://webpack.js.org/">webpack</a>，<a target="_blank" rel="noopener" href="https://babeljs.io/">Babel</a>，npm或任何有关Vue入门的知识。但是，当您准备就绪时，Vue使您可以轻松依赖它们。</p>
+<p>这是一个很大的卖点，尤其是在当前的JavaScript前端框架和库生态系统中，这些生态系统倾向于疏远新手和经验丰富的开发人员，他们迷失在可能性和选择的海洋中。</p>
+<p>Vue.js可能是最容易接近的前端框架。有人称Vue为<strong>新的jQuery</strong>，因为它很容易通过script标签进入应用程序，并从那里逐渐获得空间。自从jQuery在过去几年中统治了Web以来，它一直是一种赞美，现在它仍然在大量站点上发挥作用。</p>
+<p>Vue的构建是通过选择Angular，React和Knockout等框架的最佳思想，并挑选这些框架的最佳选择来完成的。通过排除一些不太出色的产品，它开始成为“最佳”产品，并从那里发展起来。</p>
+<h4 id="Vue-js在框架环境中的什么位置？"><a href="#Vue-js在框架环境中的什么位置？" class="headerlink" title="Vue.js在框架环境中的什么位置？"></a>Vue.js在框架环境中的什么位置？</h4><p>在谈论Web开发时，会议室中的两个大象是React和Angular。Vue如何相对于这两个流行的大型框架定位自己？</p>
+<p>Vue由Evan You在Google上使用AngularJS（Angular 1.0）应用程序创建时创建。它是出于创建更多高性能应用程序的需要而诞生的。Vue选择了一些Angular模板语法，但删除了Angular所需的，自以为是的复杂堆栈，并使其表现出色。</p>
+<p>新的Angular（Angular 2.0）也解决了许多AngularJS问题，但是方式却截然不同。它还需要<a target="_blank" rel="noopener" href="https://www.typescriptlang.org/">TypeScript的支持</a>，并非所有开发人员都喜欢使用（或想学习）。</p>
+<p>那React呢？Vue从React获得了很多好主意，最重要的是虚拟DOM。但是Vue通过某种自动依赖管理来实现它。这跟踪状态更改影响哪些组件，以便在状态属性更改时仅重新呈现那些组件。</p>
+<p>另一方面，在React中，当影响组件的一部分状态发生变化时，组件将被重新渲染。默认情况下，其所有子级也会重新渲染。为避免这种情况，您需要使用<code>shouldComponentUpdate</code>每个组件的方法并确定是否应重新渲染该组件。在易用性和开箱即用的性能方面，这给Vue带来了一些优势。</p>
+<p>与React的一大不同是<a target="_blank" rel="noopener" href="https://reactjs.org/docs/introducing-jsx.html">JSX</a>。尽管您可以在Vue中使用JSX，但它不是一种流行的方法，而是使用了<a target="_blank" rel="noopener" href="https://vuejs.org/v2/guide/syntax.html">模板系统</a>。任何HTML文件都是有效的Vue模板。JSX与HTML截然不同，它为团队中的人员提供了学习曲线，他们可能只需要使用应用程序的HTML部分，例如设计师。</p>
+<p>Vue模板与<a target="_blank" rel="noopener" href="http://mustache.github.io/">Moustache</a>和<a target="_blank" rel="noopener" href="https://handlebarsjs.com/">Handlebars</a>非常相似（尽管它们在灵活性方面有所不同）。因此，对于已经使用Angular和Ember等框架的开发人员来说，它们更加熟悉。</p>
+<p>官方状态管理库<a target="_blank" rel="noopener" href="https://vuex.vuejs.org/">Vuex</a>遵循Flux架构，其概念在某种程度上类似于<a target="_blank" rel="noopener" href="https://redux.js.org/">Redux</a>。再次，这是关于Vue的积极事情的一部分，Vue在React中看到了这种良好模式，并将其借用于其生态系统。尽管可以将Redux与Vue结合使用，但Vuex是专门为Vue及其内部功能量身定制的。</p>
+<p>Vue非常灵活，但是核心团队维护着两个对任何Web应用都非常重要的软件包（例如路由和状态管理），这一事实使得它比React更加零碎。例如：<code>vue-router</code>和<code>vuex</code>是Vue成功的关键。</p>
+<p>您无需选择或担心您将来选择的库是否将要维护，并会跟上框架更新的步伐。由于它们是官方的，因此它们是其利基市场的规范性去库（但您当然可以选择使用喜欢的库）。</p>
+<p>与React和Angular相比，使Vue处于不同的类别的一件事是，Vue是一个<strong>独立</strong>项目：它没有像Facebook或Google这样的大型公司的支持。</p>
+<p>相反，它得到了社区的完全支持，该社区通过捐赠和赞助者促进发展。这可以确保Vue的路线图不受单个公司议程的驱动。</p>
+<h3 id="您的第一个Vue应用"><a href="#您的第一个Vue应用" class="headerlink" title="您的第一个Vue应用"></a>您的第一个Vue应用</h3><p>如果您从未创建过Vue.js应用程序，那么我将指导您完成创建应用程序的任务，以便您了解其工作方式。</p>
+<h4 id="第一个例子"><a href="#第一个例子" class="headerlink" title="第一个例子"></a>第一个例子</h4><p>首先，我将介绍使用Vue的最基本示例。</p>
+<p>您创建一个HTML文件，其中包含：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;example&quot;&gt;</span><br><span class="line">      &lt;p&gt;&#123;.&#123; hello &#125;&#125;&lt;&#x2F;p&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;https:&#x2F;&#x2F;unpkg.com&#x2F;vue&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        new Vue(&#123;</span><br><span class="line">            el: &#39;#example&#39;,</span><br><span class="line">            data: &#123; hello: &#39;Hello World!&#39; &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>然后在浏览器中打开它。这是您的第一个Vue应用！该页面应显示“ Hello World！”消息。</p>
+<p>我将脚本标签放在正文的末尾，以便在加载DOM之后按顺序执行它们。</p>
+<p>该代码的作用是实例化一个新的Vue应用程序，该应用程序链接到该<code>#example</code>元素作为其模板。通常是使用CSS选择器定义的，但您也可以传入<code>HTMLElement</code>。</p>
+<p>然后，它将模板与<code>data</code>对象相关联。这是一个特殊的对象，用于承载我们希望Vue呈现的数据。</p>
+<p>在模板中，特殊<code>&#123;.&#123; &#125;&#125;</code>标记表示这是动态模板的一部分，应在Vue应用程序数据中查找其内容。</p>
+<p>您可以在<a target="_blank" rel="noopener" href="https://codepen.io/flaviocopes/pen/YLoLOp">CodePen</a>上看到此示例。</p>
+<p>CodePen与使用纯HTML文件有点不同，您需要对其进行配置以指向Pen设置中的Vue库位置：</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/Qa8s2ayB3DhhE3dRKv4SFowGd8xHDvEeSlL4"></p>
+<h4 id="第二个示例：Vue-CLI默认应用"><a href="#第二个示例：Vue-CLI默认应用" class="headerlink" title="第二个示例：Vue CLI默认应用"></a>第二个示例：Vue CLI默认应用</h4><p>让我们稍微升级一下游戏。我们将要构建的下一个应用程序已经完成，它是Vue CLI的默认应用程序。</p>
+<p>什么是Vue CLI？它是一个命令行实用程序，通过安装适当的示例应用程序来为您架设一个应用程序框架，从而有助于加快开发速度。</p>
+<p>有两种方法可以获取此应用程序：</p>
+<p><strong>在本地使用Vue CLI</strong></p>
+<p>首先是在计算机上安装Vue CLI并运行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue create &lt;enter the app name&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>使用CodeSandbox</strong></p>
+<p>一个简单的方法（无需安装任何软件）是转到<a target="_blank" rel="noopener" href="https://codesandbox.io/s/vue">CodeSandbox</a>。该链接将打开Vue CLI默认应用程序。</p>
+<p>CodeSandbox是一个很棒的代码编辑器，可让您在云中构建应用程序。您可以使用任何npm软件包，并且可以轻松地与<a target="_blank" rel="noopener" href="https://zeit.co/now">Zeit Now</a>集成以实现轻松部署，并可以与<a target="_blank" rel="noopener" href="https://github.com/">GitHub</a>集成以管理版本控制。</p>
+<p>无论您是选择在本地使用Vue CLI还是通过CodeSandbox，我们都将详细检查该Vue应用程序。</p>
+<h3 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h3><p>在旁边<code>package.json</code>，其中包含配置，这些是初始项目结构中包含的文件：</p>
+<ul>
+<li><code>index.html</code></li>
+<li><code>src/App.vue</code></li>
+<li><code>src/main.js</code></li>
+<li><code>src/assets/logo.png</code></li>
+<li><code>src/components/HelloWorld.vue</code></li>
+</ul>
+<h4 id="index-html"><a href="#index-html" class="headerlink" title="index.html"></a><code>index.html</code></h4><p>该<code>index.html</code>文件是主应用程序文件。</p>
+<p>在主体中，它仅包含一个简单元素：<code>&lt;div id=&quot;app&quot;&gt;</code>&lt;/ div&gt;。这是我们将用于附加到DOM的Vue应用程序的元素。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;utf-8&quot;&gt;</span><br><span class="line">  &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width,initial-scale&#x3D;1.0&quot;&gt;</span><br><span class="line">  &lt;title&gt;CodeSandbox Vue&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;div id&#x3D;&quot;app&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">  &lt;!-- built files will be auto injected --&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="src-main-js"><a href="#src-main-js" class="headerlink" title="src/main.js"></a><code>src/main.js</code></h4><p>这是驱动我们的应用程序的主要JavaScript文件。</p>
+<p>我们首先从中导入Vue库和App组件<code>App.vue</code>。</p>
+<p>我们设置<code>productionTip</code>为<code>false</code>，以避免Vue在控制台中输出“您处于开发模式”提示。</p>
+<p>接下来，我们通过将Vue实例分配给在中<code>#app</code>定义的标识的DOM元素来创建Vue实例，<code>index.html</code>并告诉它使用App组件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">import Vue from &#39;vue&#39;</span><br><span class="line">import App from &#39;.&#x2F;App&#39;</span><br><span class="line"></span><br><span class="line">Vue.config.productionTip &#x3D; false</span><br><span class="line"></span><br><span class="line">&#x2F;* eslint-disable no-new *&#x2F;</span><br><span class="line">new Vue(&#123;</span><br><span class="line">  el: &#39;#app&#39;,</span><br><span class="line">  components: &#123; App &#125;,</span><br><span class="line">  template: &#39;&lt;App&#x2F;&gt;&#39;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="src-App-vue"><a href="#src-App-vue" class="headerlink" title="src/App.vue"></a><code>src/App.vue</code></h4><p><code>App.vue</code>是单个文件组件。它包含三个代码块：HTML，CSS和JavaScript。</p>
+<p>乍一看似乎很奇怪，但是“单个文件组件”是一种创建独立组件的好方法，这些组件可以在单个文件中包含所有需要的组件。</p>
+<p>我们具有标记，将要与之交互的JavaScript以及应用于该标记的样式，可以对其范围进行限制。在这种情况下，它没有作用域，只是输出了像常规CSS一样应用到页面的CSS。</p>
+<p>有趣的部分在于<code>script</code>标签。</p>
+<p>我们从<code>components/HelloWorld.vue</code>文件中导入一个组件，我们将在后面描述。</p>
+<p>该组件将在我们的组件中引用。这是一个依赖关系。我们将输出此代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">  &lt;img width&#x3D;&quot;25%&quot; src&#x3D;&quot;.&#x2F;assets&#x2F;logo.png&quot;&gt;</span><br><span class="line">  &lt;HelloWorld&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>从该组件中，您将看到该<code>HelloWorld</code>组件。Vue会自动将该组件插入此占位符。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">    &lt;img width&#x3D;&quot;25%&quot; src&#x3D;&quot;.&#x2F;assets&#x2F;logo.png&quot;&gt;</span><br><span class="line">    &lt;HelloWorld&#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import HelloWorld from &#39;.&#x2F;components&#x2F;HelloWorld&#39;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#39;App&#39;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    HelloWorld</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">#app &#123;</span><br><span class="line">  font-family: &#39;Avenir&#39;, Helvetica, Arial, sans-serif;</span><br><span class="line">  -webkit-font-smoothing: antialiased;</span><br><span class="line">  -moz-osx-font-smoothing: grayscale;</span><br><span class="line">  text-align: center;</span><br><span class="line">  color: #2c3e50;</span><br><span class="line">  margin-top: 60px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="src-components-HelloWorld-vue"><a href="#src-components-HelloWorld-vue" class="headerlink" title="src/components/HelloWorld.vue"></a><code>src/components/HelloWorld.vue</code></h4><p>这是<code>HelloWorld</code>组件，它包含在App组件中。</p>
+<p>该组件输出一组链接以及一条消息。</p>
+<p>还记得上面我们讨论过App.vue中的CSS，但没有作用域吗？该<code>HelloWorld</code>组件的作用域为CSS。</p>
+<p>您可以通过查看<code>style</code>标签轻松地确定它。如果具有<code>scoped</code>属性，则其作用域为：<code>&lt;style scop</code>ed&gt;</p>
+<p>这意味着生成的CSS将通过Vue透明应用的类来唯一地定位组件。您无需为此担心，并且知道CSS不会<strong>泄漏</strong>到页面的其他部分。</p>
+<p>组件输出的消息存储在<code>data</code>Vue实例的属性中，并在模板中输出<code>&#123;.&#123; msg &#125;&#125;</code>。</p>
+<p><code>data</code>可以使用自己的名称直接在模板中访问存储在其中的任何内容。我们不必说<code>data.msg</code>了<code>msg</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class&#x3D;&quot;hello&quot;&gt;</span><br><span class="line">    &lt;h1&gt;&#123;.&#123; msg &#125;&#125;&lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;h2&gt;Essential Links&lt;&#x2F;h2&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">      &lt;li&gt;</span><br><span class="line">        &lt;a</span><br><span class="line">          href&#x3D;&quot;https:&#x2F;&#x2F;vuejs.org&quot;</span><br><span class="line">          target&#x3D;&quot;_blank&quot;</span><br><span class="line">        &gt;</span><br><span class="line">          Core Docs</span><br><span class="line">        &lt;&#x2F;a&gt;</span><br><span class="line">      &lt;&#x2F;li&gt;</span><br><span class="line">      &lt;li&gt;</span><br><span class="line">        &lt;a</span><br><span class="line">          href&#x3D;&quot;https:&#x2F;&#x2F;forum.vuejs.org&quot;</span><br><span class="line">          target&#x3D;&quot;_blank&quot;</span><br><span class="line">        &gt;</span><br><span class="line">          Forum</span><br><span class="line">        &lt;&#x2F;a&gt;</span><br><span class="line">      &lt;&#x2F;li&gt;</span><br><span class="line">      &lt;li&gt;</span><br><span class="line">        &lt;a</span><br><span class="line">          href&#x3D;&quot;https:&#x2F;&#x2F;chat.vuejs.org&quot;</span><br><span class="line">          target&#x3D;&quot;_blank&quot;</span><br><span class="line">        &gt;</span><br><span class="line">          Community Chat</span><br><span class="line">        &lt;&#x2F;a&gt;</span><br><span class="line">      &lt;&#x2F;li&gt;</span><br><span class="line">      &lt;li&gt;</span><br><span class="line">        &lt;a</span><br><span class="line">          href&#x3D;&quot;https:&#x2F;&#x2F;twitter.com&#x2F;vuejs&quot;</span><br><span class="line">          target&#x3D;&quot;_blank&quot;</span><br><span class="line">        &gt;</span><br><span class="line">          Twitter</span><br><span class="line">        &lt;&#x2F;a&gt;</span><br><span class="line">      &lt;&#x2F;li&gt;</span><br><span class="line">      &lt;br&gt;</span><br><span class="line">      &lt;li&gt;</span><br><span class="line">        &lt;a</span><br><span class="line">          href&#x3D;&quot;http:&#x2F;&#x2F;vuejs-templates.github.io&#x2F;webpack&#x2F;&quot;</span><br><span class="line">          target&#x3D;&quot;_blank&quot;</span><br><span class="line">        &gt;</span><br><span class="line">          Docs for This Template</span><br><span class="line">        &lt;&#x2F;a&gt;</span><br><span class="line">      &lt;&#x2F;li&gt;</span><br><span class="line">    &lt;&#x2F;ul&gt;</span><br><span class="line">    &lt;h2&gt;Ecosystem&lt;&#x2F;h2&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">      &lt;li&gt;</span><br><span class="line">        &lt;a</span><br><span class="line">          href&#x3D;&quot;http:&#x2F;&#x2F;router.vuejs.org&#x2F;&quot;</span><br><span class="line">          target&#x3D;&quot;_blank&quot;</span><br><span class="line">        &gt;</span><br><span class="line">          vue-router</span><br><span class="line">        &lt;&#x2F;a&gt;</span><br><span class="line">      &lt;&#x2F;li&gt;</span><br><span class="line">      &lt;li&gt;</span><br><span class="line">        &lt;a</span><br><span class="line">          href&#x3D;&quot;http:&#x2F;&#x2F;vuex.vuejs.org&#x2F;&quot;</span><br><span class="line">          target&#x3D;&quot;_blank&quot;</span><br><span class="line">        &gt;</span><br><span class="line">          vuex</span><br><span class="line">        &lt;&#x2F;a&gt;</span><br><span class="line">      &lt;&#x2F;li&gt;</span><br><span class="line">      &lt;li&gt;</span><br><span class="line">        &lt;a</span><br><span class="line">          href&#x3D;&quot;http:&#x2F;&#x2F;vue-loader.vuejs.org&#x2F;&quot;</span><br><span class="line">          target&#x3D;&quot;_blank&quot;</span><br><span class="line">        &gt;</span><br><span class="line">          vue-loader</span><br><span class="line">        &lt;&#x2F;a&gt;</span><br><span class="line">      &lt;&#x2F;li&gt;</span><br><span class="line">      &lt;li&gt;</span><br><span class="line">        &lt;a</span><br><span class="line">          href&#x3D;&quot;https:&#x2F;&#x2F;github.com&#x2F;vuejs&#x2F;awesome-vue&quot;</span><br><span class="line">          target&#x3D;&quot;_blank&quot;</span><br><span class="line">        &gt;</span><br><span class="line">          awesome-vue</span><br><span class="line">        &lt;&#x2F;a&gt;</span><br><span class="line">      &lt;&#x2F;li&gt;</span><br><span class="line">    &lt;&#x2F;ul&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#39;HelloWorld&#39;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      msg: &#39;Welcome to Your Vue.js App&#39;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">h1,</span><br><span class="line">h2 &#123;</span><br><span class="line">  font-weight: normal;</span><br><span class="line">&#125;</span><br><span class="line">ul &#123;</span><br><span class="line">  list-style-type: none;</span><br><span class="line">  padding: 0;</span><br><span class="line">&#125;</span><br><span class="line">li &#123;</span><br><span class="line">  display: inline-block;</span><br><span class="line">  margin: 0 10px;</span><br><span class="line">&#125;</span><br><span class="line">a &#123;</span><br><span class="line">  color: #42b983;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="运行应用"><a href="#运行应用" class="headerlink" title="运行应用"></a>运行应用</h4><p>CodeSandbox具有很酷的预览功能。您可以运行该应用程序并编辑源代码中的任何内容，以使其立即反映在预览中。</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/ZWfaVoQWEm4HzD0RNcS2osp8NpIPz-G5Vq5P"></p>
+<h3 id="Vue-CLI"><a href="#Vue-CLI" class="headerlink" title="Vue CLI"></a>Vue CLI</h3><p>CodeSandbox非常适合在线编码和工作，而无需在本地设置Vue。在本地工作的一种好方法是设置Vue CLI（命令行界面）。让我们进一步了解它。</p>
+<p>在上一个示例中，我介绍了一个基于Vue CLI的示例项目。Vue CLI到底是什么，它如何适合Vue生态系统？另外，我们如何在本地设置基于Vue CLI的项目？让我们找出答案！</p>
+<p><strong>注意：</strong>从版本2到版本3，现在正在对CLI进行大量修改。虽然尚不稳定，但我将介绍版本3，因为它是对版本2的巨大改进，并且有很大的不同。</p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>Vue CLI是一个命令行实用程序，您可以使用npm在全球范围内安装它：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g @vue&#x2F;cli</span><br></pre></td></tr></table></figure>
+
+<p>或使用纱线：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn global add @vue&#x2F;cli</span><br></pre></td></tr></table></figure>
+
+<p>完成后，您可以调用该<code>vue</code>命令。</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/F1uuQW81iw1WZNOiUn0xnLOagFi637vPDUfd"></p>
+<h4 id="Vue-CLI提供了什么？"><a href="#Vue-CLI提供了什么？" class="headerlink" title="Vue CLI提供了什么？"></a>Vue CLI提供了什么？</h4><p>CLI对于快速Vue.js开发至关重要。</p>
+<p>它的主要目标是确保所需的所有工具都可以正常工作，执行所需的工作，并抽象出单独使用每种工具所需的所有细节。</p>
+<p>它可以执行初始项目设置和脚手架。</p>
+<p>这是一个灵活的工具。使用CLI创建项目后，您可以进行配置调整，而不必<strong>退出</strong>应用程序（就像使用一样<code>create-react-app</code>）。</p>
+<p>从中弹出时，<code>create-react-app</code>可以更新和调整所需的内容，但不能依赖所提供的出色功能<code>create-react-app</code>。</p>
+<p>您可以配置任何内容，但仍然可以轻松升级。</p>
+<p>创建和配置应用程序后，它充当基于Webpack的运行时依赖工具。</p>
+<p>与CLI的第一次接触是在创建新的Vue项目时。</p>
+<h4 id="如何使用CLI创建新的Vue项目"><a href="#如何使用CLI创建新的Vue项目" class="headerlink" title="如何使用CLI创建新的Vue项目"></a>如何使用CLI创建新的Vue项目</h4><p>使用CLI要做的第一件事是创建一个Vue应用程序：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue create example</span><br></pre></td></tr></table></figure>
+
+<p>最酷的是，这是一个交互式过程。您需要选择一个预设。默认情况下，有一个预设可提供Babel和<a target="_blank" rel="noopener" href="https://eslint.org/">ESLint</a>集成：</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/FL4mTLZqzhKkAYL2FB507Tx1Hkdtnl0y5cgu"></p>
+<p>我将按向下箭头⬇️并手动选择所需的功能：</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/mkF3jMMCGluqmQ3hX3bGbCxhfXcwvWVNjWLi"></p>
+<p>按<code>space</code>启用您需要的其中一项，然后按<code>enter</code>继续。由于选择<code>Linter / Formatter</code>，因此Vue CLI会提示我进行配置。我选择了，<code>ESLint + Prettier</code>因为这是我最喜欢的设置：</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/bYwN2mfgTuJNxiiHBSNjnJQADZQvFR0TErhK"></p>
+<p>接下来的事情是选择如何应用棉绒。我选择<code>Lint on save</code>。</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/dcQmjoykCaJG7pevG5Yc-6A43eVYUkCbTxn7"></p>
+<p>接下来：测试。Vue CLI让我在两种最受欢迎​​的单元测试解决方案之间进行选择：<a target="_blank" rel="noopener" href="https://mochajs.org/">Mocha + Chai</a>和<a target="_blank" rel="noopener" href="https://jestjs.io/">Jest</a>。</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/lIdwYkOgcllnAJRVZOoKIxZ49ikNFoQjYtSV"></p>
+<p>Vue CLI询问我将所有配置放在何处：在<code>package.json</code>文件或专用配置文件中，每个工具一个。我选择了后者。</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/dN4W4ZALKh7Xz1D8ac7ebXpGdTPVGpzdujcc"></p>
+<p>接下来，Vue CLI询问我是否要保存这些预设，并允许我下次使用Vue CLI创建新应用时选择它们。这是一个非常方便的功能，因为根据我的喜好进行快速设置可以减轻复杂性：</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/X6rbmBloyRnQbdwrFQwtYeChdqxzQRpOJYfl"></p>
+<p>然后，Vue CLI询问我是否更喜欢使用<a target="_blank" rel="noopener" href="https://yarnpkg.com/lang/en/">Yarn</a>或NPM：</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/vbEmq0oYaGFjDtjL9D2QaUZ6t5omf0fjZTJM"></p>
+<p>这是它问我的最后一件事，然后继续下载依赖项并创建Vue应用程序：</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/Q52LD-RGQm9dHXMyWikiI5fMyESB7vRJqe1h"></p>
+<h4 id="如何启动新创建的Vue-CLI应用程序"><a href="#如何启动新创建的Vue-CLI应用程序" class="headerlink" title="如何启动新创建的Vue CLI应用程序"></a>如何启动新创建的Vue CLI应用程序</h4><p>Vue CLI已为我们创建了该应用程序，我们可以进入该<code>example</code>文件夹并运行<code>yarn serve</code>以在开发模式下启动我们的第一个应用程序：</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/iegqNiWWJaunJi-KFTV93EKuODc4njdfLRuf"></p>
+<p>入门示例应用程序源包含一些文件，包括<code>package.json</code>：</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/FuI7nmJ2NAtesloTZrh3eJL-aa0ceCCr68wQ"></p>
+<p>这是定义所有CLI命令的地方，其中包括<code>yarn serve</code>我们刚才使用的。其他命令是</p>
+<ul>
+<li><code>yarn build</code>，开始生产构建</li>
+<li><code>yarn lint</code>，运行lint</li>
+<li><code>yarn test:unit</code>，运行单元测试</li>
+</ul>
+<p>我将在单独的教程中描述由Vue CLI生成的示例应用程序。</p>
+<h4 id="Git仓库"><a href="#Git仓库" class="headerlink" title="Git仓库"></a>Git仓库</h4><p>注意<code>master</code>VS Code左下角的单词吗？这是因为Vue CLI自动创建存储库并进行第一次提交。这样我们就可以跳进去，进行更改，然后我们知道更改了什么：</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/4IHrGo6U-xkz4aeVXf3S06AYzIk0lAZJ6t6y"></p>
+<p>这很酷。您投入了多少次并进行了更改，才意识到，当您要提交结果时，您没有提交初始状态？</p>
+<h4 id="从命令行使用预设"><a href="#从命令行使用预设" class="headerlink" title="从命令行使用预设"></a>从命令行使用预设</h4><p>您可以跳过交互式面板，并指示Vue CLI使用特定的预设：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue create -p favourite example-2</span><br></pre></td></tr></table></figure>
+<h4 id="预设存储在哪里"><a href="#预设存储在哪里" class="headerlink" title="预设存储在哪里"></a>预设存储在哪里</h4><p>预设存储在<code>.vuejs</code>主目录中的文件中。创建第一个“收藏夹”预设后，这是我的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;useTaobaoRegistry&quot;: false,</span><br><span class="line">  &quot;packageManager&quot;: &quot;yarn&quot;,</span><br><span class="line">  &quot;presets&quot;: &#123;</span><br><span class="line">    &quot;favourite&quot;: &#123;</span><br><span class="line">      &quot;useConfigFiles&quot;: true,</span><br><span class="line">      &quot;plugins&quot;: &#123;</span><br><span class="line">        &quot;@vue&#x2F;cli-plugin-babel&quot;: &#123;&#125;,</span><br><span class="line">        &quot;@vue&#x2F;cli-plugin-eslint&quot;: &#123;</span><br><span class="line">          &quot;config&quot;: &quot;prettier&quot;,</span><br><span class="line">          &quot;lintOn&quot;: [</span><br><span class="line">            &quot;save&quot;</span><br><span class="line">          ]</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;@vue&#x2F;cli-plugin-unit-jest&quot;: &#123;&#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;router&quot;: true,</span><br><span class="line">      &quot;vuex&quot;: true</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="外挂程式"><a href="#外挂程式" class="headerlink" title="外挂程式"></a>外挂程式</h4><p>从阅读配置可以看到，预设基本上是插件的集合，带有一些可选配置。</p>
+<p>创建项目后，您可以使用来添加更多插件<code>vue add</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue add @vue&#x2F;cli-plugin-babel</span><br></pre></td></tr></table></figure>
+
+<p>所有这些插件均以可用的最新版本使用。您可以通过传递version属性来强制Vue CLI使用特定版本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;@vue&#x2F;cli-plugin-eslint&quot;: &#123;</span><br><span class="line">  &quot;version&quot;: &quot;^3.0.0&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果新版本具有重大更改或错误，并且您需要稍等片刻才能使用它，这将很有用。</p>
+<h4 id="远程存储预设"><a href="#远程存储预设" class="headerlink" title="远程存储预设"></a>远程存储预设</h4><p>通过创建包含<code>preset.json</code>文件的存储库，可以将预设存储在GitHub（或其他服务）中，该文件包含单个预设配置。</p>
+<p>从以上摘录中，我制作了一个包含以下配置的示例<a target="_blank" rel="noopener" href="https://github.com/flaviocopes/vue-cli-preset/blob/master/preset.json">预设</a>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;  &quot;useConfigFiles&quot;: true,  &quot;plugins&quot;: &#123;    &quot;@vue&#x2F;cli-plugin-babel&quot;: &#123;&#125;,    &quot;@vue&#x2F;cli-plugin-eslint&quot;: &#123;      &quot;config&quot;: &quot;prettier&quot;,      &quot;lintOn&quot;: [        &quot;save&quot;      ]    &#125;,    &quot;@vue&#x2F;cli-plugin-unit-jest&quot;: &#123;&#125;  &#125;,  &quot;router&quot;: true,  &quot;vuex&quot;: true&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以使用以下命令来引导新应用程序：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue create --preset flaviocopes&#x2F;vue-cli-preset example3</span><br></pre></td></tr></table></figure>
+<h3 id="Vue-CLI的另一种用法：快速原型制作"><a href="#Vue-CLI的另一种用法：快速原型制作" class="headerlink" title="Vue CLI的另一种用法：快速原型制作"></a>Vue CLI的另一种用法：快速原型制作</h3><p>到现在为止，我已经解释了如何使用Vue CLI从头开始创建所有项目。但是对于真正快速的原型制作，您可以创建一个非常简单的Vue应用程序（甚至是一个包含在单个.vue文件中的应用程序）并提供该服务，而不必下载<code>node_modules</code>文件夹中的所有依赖项。</p>
+<p>怎么样？首先安装<code>cli-service-global</code>全局软件包：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g @vue&#x2F;cli-service-global</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;or</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn global add @vue&#x2F;cli-service-global</span><br></pre></td></tr></table></figure>
+
+<p>创建一个app.vue文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;    &lt;div&gt;        &lt;h2&gt;Hello world!&lt;&#x2F;h2&gt;        &lt;marquee&gt;Heyyy&lt;&#x2F;marquee&gt;    &lt;&#x2F;div&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+
+<p>然后运行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue serve app.vue</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/pp3QTRAMwLtOnkhazBRgRrjYKnMEbnm1CbWL">独立应用</p>
+<p>您还可以提供由JavaScript和HTML文件组成的更有条理的项目。默认情况下，Vue CLI使用Vue CLI <code>main.js / index.js </code>作为其入口点，并且您可以<code>package.json</code>设置和任何工具配置。<code>vue serve</code>会捡起来。</p>
+<p>由于这使用了全局依赖关系，因此除了演示或快速测试之外，它不是最佳方法。</p>
+<p>运行<code>vue build</code>将准备在中部署项目<code>dist/</code>，并将生成所有相应的代码（也用于供应商依赖性）。</p>
+<h4 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a>Webpack</h4><p>在内部，Vue CLI使用Webpack，但是配置是抽象的，我们甚至在文件夹中都看不到配置文件。您仍然可以通过以下方式访问它<code>vue inspect</code>：</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/dGT6I8Uq75505tD1Xj8wR-h7rO9ZvRby80cH"></p>
+<h3 id="Vue开发工具"><a href="#Vue开发工具" class="headerlink" title="Vue开发工具"></a>Vue开发工具</h3><p>首次尝试使用Vue时，如果打开浏览器开发人员工具，则会发现以下消息：“下载Vue Devtools扩展以获得更好的开发体验：<a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-devtools">https</a> : <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-devtools">//github.com/vuejs/vue-devtools</a> ”</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/J-LJE-u3DphYF8pOpMnkCX9KoNz3fGp4OPea">提示安装Vue devtools</p>
+<p>这是一个友好的提醒，请安装Vue Devtools Extension。那是什么？任何流行的框架都有其自己的devtools扩展名，该扩展名通常会向浏览器开发人员工具添加一个新面板，该面板比浏览器默认提供的工具更加专业。在这种情况下，面板将使我们检查Vue应用程序并与之交互。</p>
+<p>构建Vue应用程序时，此工具将为您提供惊人的帮助。开发人员工具只能在处于开发模式时检查Vue应用程序。这样可以确保没有人可以使用它们与您的生产应用程序进行交互，并且可以使Vue的性能更高，因为它不必关心开发工具。</p>
+<p>让我们安装它！</p>
+<p>有3种安装Vue Dev Tools的方法：</p>
+<ul>
+<li>在Chrome上</li>
+<li>在Firefox上</li>
+<li>作为独立的应用程序</li>
+</ul>
+<p>自定义扩展不支持Safari，Edge和其他浏览器，但是使用独立应用程序，您可以调试在任何浏览器中运行的Vue.js应用程序。</p>
+<h4 id="在Chrome上安装"><a href="#在Chrome上安装" class="headerlink" title="在Chrome上安装"></a>在Chrome上安装</h4><p>转到Google Chrome <a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd">商店中的</a>此页面，然后单击<code>**Add to Chrome**</code>。</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/uh0CFZPRsdnKFOY-OWWvQCN3UVcnh-0KXpfh"></p>
+<p>完成安装过程：</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/hAQZpBESrlkCeLeLJpzeiPdJs12mmFHLRq9s"></p>
+<p>Vue.js devtools图标显示在工具栏中。如果页面没有正在运行的Vue.js实例，则该页面显示为灰色。</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/TaZntVatyBmsqqKsMjbGKn5nIuJikKLOJJyt"></p>
+<p>如果检测到Vue.js，则图标具有Vue徽标的颜色。</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/xPbOBNuLCdCE28QiFevAcqFb06Oqk8tB31Zy"></p>
+<p>图标什么也不做只是告诉我们，有<strong>是</strong>一个Vue.js实例。要使用devtools，我们必须使用“查看→开发人员→开发人员工具”打开“开发人员工具”面板，或者<code>Cmd-Alt-i</code></p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/td1gw01JZxVxAkHLGg9FKzIHz8UFhMhvr3gG"></p>
+<h4 id="在Firefox上安装"><a href="#在Firefox上安装" class="headerlink" title="在Firefox上安装"></a>在Firefox上安装</h4><p>您可以在Mozilla附加组件<a target="_blank" rel="noopener" href="https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/">商店中</a>找到Firefox开发工具扩展。</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/y-G2Zcw62ZrkjMOe6ottwLy-z6onBxnZzOXm"></p>
+<p>单击“添加到Firefox”，将安装扩展名。与Chrome一样，工具栏中会显示灰色图标</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/LQCCB8c2g0OsUmJZ20fYJBPbampJudlIPocv"></p>
+<p>当您访问正在运行Vue实例的站点时，它将变为绿色，并且当我们打开开发工具时，我们将看到一个“ Vue”面板：</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/jFYMTGNEhrkxzzC6Grdb7zgXrnHrwuR-0AiI"></p>
+<h4 id="安装独立应用"><a href="#安装独立应用" class="headerlink" title="安装独立应用"></a>安装独立应用</h4><p>或者，您可以使用DevTools独立应用程序。</p>
+<p>只需使用以下命令安装它：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g @vue&#x2F;devtools</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;or</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn global add @vue&#x2F;devtools</span><br></pre></td></tr></table></figure>
+
+<p>并通过调用来运行它：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue-devtools</span><br></pre></td></tr></table></figure>
+
+<p>这将打开独立的基于电子的应用程序。</p>
+<p>现在，粘贴显示给您的脚本标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src&#x3D;&quot;http:&#x2F;&#x2F;localhost:8098&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在项目<code>index.html</code>文件中，然后等待应用程序重新加载。它将自动连接到应用程序。</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/ANnfWmlscUkP0RN9Pn-hSABLCOxzMJYvtuqw"></p>
+<h4 id="如何使用开发人员工具"><a href="#如何使用开发人员工具" class="headerlink" title="如何使用开发人员工具"></a>如何使用开发人员工具</h4><p>如前所述，可以通过在浏览器中打开开发人员工具并移至Vue面板来激活Vue DevTools。</p>
+<p>另一个选项是右键单击页面中的任何元素，然后选择“检查Vue组件”：</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/r4URIzj-Mm92WTnnl9iXMK18f8cIwmyICQ0m"></p>
+<p>打开Vue DevTools面板后，我们可以导航组件树。当我们从左侧的列表中选择一个组件时，右侧面板将显示其持有的道具和数据：</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/h55RK1azzd7gjON36Da9HdY-tpu8cuVMBs-3"></p>
+<p>在顶部有四个按钮：</p>
+<ul>
+<li><strong>组件</strong>（当前面板），其中列出了当前页面中运行的所有组件实例。Vue可以同时运行多个实例。例如，它可以使用单独的轻型应用程序管理购物车小部件和幻灯片。</li>
+<li><strong>在Vuex</strong>中，您可以检查通过Vuex管理的状态。</li>
+<li><strong>事件</strong>显示所有发出的事件。</li>
+<li><strong>刷新将</strong>重新加载devtools面板。</li>
+</ul>
+<p>注意<code>= $vm0</code>组件旁边的小文本吗？这是使用控制台检查组件的便捷方法。按下“ esc”键将在devtools底部显示控制台，您可以键入<code>$vm0</code>以访问Vue组件：</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/9fi396qPj8ajABDLnAoB77AkjDtLEJu-2okG"></p>
+<p>检查组件并与之交互非常酷，而不必在代码中将它们分配给全局变量。</p>
+<h4 id="过滤组件"><a href="#过滤组件" class="headerlink" title="过滤组件"></a>过滤组件</h4><p>开始输入组件名称，组件树将过滤出不匹配的组件。</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/IdqSWwFMpvHVN125f7uIxue0Xp0ic-HJmBzX"></p>
+<h4 id="在页面中选择一个组件"><a href="#在页面中选择一个组件" class="headerlink" title="在页面中选择一个组件"></a>在页面中选择一个组件</h4><p>点击<code>**Select component in the page**</code>按钮。</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/RE969Y8eHdDn1rqHvj2OGfnEqthwHMVy37A-">在页面中选择组件</p>
+<p>您可以用鼠标悬停在页面上的任何组件上，单击它，然后它将在devtools中打开。</p>
+<h4 id="格式化组件名称"><a href="#格式化组件名称" class="headerlink" title="格式化组件名称"></a>格式化组件名称</h4><p>您可以选择在camelCase中显示组件或使用破折号。</p>
+<h4 id="筛选检查的数据"><a href="#筛选检查的数据" class="headerlink" title="筛选检查的数据"></a>筛选检查的数据</h4><p>在右侧面板上，您可以输入任何单词来过滤与之不匹配的属性。</p>
+<h4 id="检查DOM"><a href="#检查DOM" class="headerlink" title="检查DOM"></a>检查DOM</h4><p>单击“检查DOM”按钮，将其带到DevTools Elements检查器中，该DOM元素由组件生成：</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/YKTlyULN-MDOAg3R1KPA3tI27IqX5Q9ckIH4">检查DOM</p>
+<h4 id="在编辑器中打开"><a href="#在编辑器中打开" class="headerlink" title="在编辑器中打开"></a>在编辑器中打开</h4><p>任何用户组件（不是框架级组件）都有一个按钮，可在默认编辑器中将其打开。非常便利。</p>
+<h3 id="设置VS-Code以与Vue一起使用"><a href="#设置VS-Code以与Vue一起使用" class="headerlink" title="设置VS Code以与Vue一起使用"></a>设置VS Code以与Vue一起使用</h3><p><a target="_blank" rel="noopener" href="https://code.visualstudio.com/">Visual Studio Code</a>是目前世界上最常用的代码编辑器之一。像许多软件产品一样，编辑器有一个循环。一旦<a target="_blank" rel="noopener" href="https://macromates.com/">TextMate</a>成为开发人员的最爱，那么它就是<a target="_blank" rel="noopener" href="https://www.sublimetext.com/">Sublime Text</a>，现在是VS Code。</p>
+<p>受欢迎的有趣之处在于，人们花了很多时间来为他们可以想象的一切构建插件。</p>
+<p>一个这样的插件是一个很棒的工具，可以帮助我们Vue.js开发人员。</p>
+<h4 id="威图"><a href="#威图" class="headerlink" title="威图"></a>威图</h4><p>它叫做Vetur，非常受欢迎（下载量超过300万），您可以<a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=octref.vetur">在Visual Studio Marketplace上</a>找到它。</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/OOfHNunbiMBxokJsrmdrvWixSoDmaDdPRzxK"></p>
+<h4 id="安装Vetur"><a href="#安装Vetur" class="headerlink" title="安装Vetur"></a>安装Vetur</h4><p>单击“安装”按钮将在VS Code中触发安装面板：</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/hskNZD-byUAunDSOjCdPXPMIb9v3rBPSlOvf"></p>
+<p>您也可以简单地在VS Code中打开扩展，然后搜索“ vetur”：</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/xbOVISLaIuAgHHvD4gKVFb0Lg9R1f5R5Jowk"></p>
+<p>此扩展程序提供什么？</p>
+<h4 id="语法高亮"><a href="#语法高亮" class="headerlink" title="语法高亮"></a>语法高亮</h4><p>Vetur为所有Vue源代码文件提供语法高亮显示。</p>
+<p>如果没有Vetur，<code>.vue</code>VS Code将以这种方式显示文件：</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/JTZ9KScP0WTtr-4cCvjvQJKkGwlA4EW9KIf3"></p>
+<p>安装了Vetur时：</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/c5wC-aTwknyXUSjqq9gbr-EqFbSDXSewix-N"></p>
+<p>VS Code能够从其扩展名识别文件中包含的代码类型。</p>
+<p>使用单个文件组件，您可以在同一文件中混合使用不同类型的代码，从CSS到JavaScript到HTML。</p>
+<p>默认情况下，VS Code无法识别这种情况，而Vetur为您使用的每种代码提供语法高亮显示。</p>
+<p>Vetur支持以下方面的支持：</p>
+<ul>
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+<li>Pug</li>
+<li>Haml</li>
+<li>SCSS</li>
+<li>PostCSS</li>
+<li>Sass</li>
+<li>Stylus</li>
+<li>TypeScript</li>
+</ul>
+<h4 id="片段"><a href="#片段" class="headerlink" title="片段"></a>片段</h4><p>与语法突出显示一样，由于VS Code无法确定<code>.vue</code>文件一部分中包含的代码种类，因此无法提供我们都喜欢的代码段。代码片段是我们可以添加到文件中的代码片段，由专用插件提供。</p>
+<p>Vetur使VS Code能够在单个文件组件中使用您喜欢的代码段。</p>
+<h4 id="智能感知"><a href="#智能感知" class="headerlink" title="智能感知"></a>智能感知</h4><p>Vetur还为每种不同的语言启用了<a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/editor/intellisense">IntelliSense</a>，并具有自动完成功能：</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/3KtNeQR4W8HVg-JVT0kmu33sL79xlWIT0KtY"></p>
+<h4 id="脚手架"><a href="#脚手架" class="headerlink" title="脚手架"></a>脚手架</h4><p>除了启用自定义片段外，Vetur还提供了自己的片段集。每个人都使用自己的语言创建一个特定的标签（模板，脚本或样式）：</p>
+<ul>
+<li><code>scaffold</code></li>
+<li><code>template with html</code></li>
+<li><code>template with pug</code></li>
+<li><code>script with JavaScript</code></li>
+<li><code>script with TypeScript</code></li>
+<li><code>style with CSS</code></li>
+<li><code>style with CSS (scoped)</code></li>
+<li><code>style with scss</code></li>
+<li><code>style with scss (scoped)</code></li>
+<li><code>style with less</code></li>
+<li><code>style with less (scoped)</code></li>
+<li><code>style with sass</code></li>
+<li><code>style with sass (scoped)</code></li>
+<li><code>style with postcss</code></li>
+<li><code>style with postcss (scoped)</code></li>
+<li><code>style with stylus</code></li>
+<li><code>style with stylus (scoped)</code></li>
+</ul>
+<p>如果输入<code>scaffold</code>，您将获得单个文件组件的入门包：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>其他的是特定的，并创建单个代码块。</p>
+<p><strong>注意：</strong>上面列表中的（作用域）意味着它仅适用于当前组件。</p>
+<h4 id="Emmet"><a href="#Emmet" class="headerlink" title="Emmet"></a>Emmet</h4><p>默认情况下，<a target="_blank" rel="noopener" href="https://emmet.io/">Emmet</a>是流行的HTML / CSS缩写引擎。您可以键入Emmet的缩写之一，然后按<code>tab</code>VS Code将自动将其扩展为等效的HTML：</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/R7Q4k9hsI0yzBe-xaVIMxdBMukjQWzzIw-FG"></p>
+<h4 id="整理和错误检查"><a href="#整理和错误检查" class="headerlink" title="整理和错误检查"></a>整理和错误检查</h4><p>Vetur通过<a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint">VS Code ESLint插件</a>与ESLint集成。</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/j1mnYvPYhNPWM00V0lDdxCwb5ZidBzG0Djtn"><img src="https://cdn-media-1.freecodecamp.org/images/5Z2hR9l8ARVe3uucCT4iPzTsDZRuEh0gZSs8"></p>
+<h4 id="代码格式化"><a href="#代码格式化" class="headerlink" title="代码格式化"></a>代码格式化</h4><p>Vetur与<code>&quot;editor.formatOnSave&quot;</code>VS Code设置结合使用，为代码格式化提供自动支持，以在保存时格式化整个文件。</p>
+<p>您可以通过在VS Code设置中将设置为<code>vetur.format.defaultFormatter.XXXXX</code>来选择禁用某些特定语言的自动格式<code>none</code>设置。要更改这些设置之一，只需开始搜索字符串，然后在右侧面板的用户设置中覆盖所需的内容即可。</p>
+<p>支持的大多数语言都使用<a target="_blank" rel="noopener" href="https://prettier.io/">Prettier</a>进行自动格式化，该工具已成为行业标准。它使用您的Prettier配置来确定您的首选项。</p>
+<h3 id="介绍Vue组件"><a href="#介绍Vue组件" class="headerlink" title="介绍Vue组件"></a>介绍Vue组件</h3><p>组件是接口的单个​​独立单元。他们可以具有自己的状态，标记和样式。</p>
+<h4 id="如何使用组件"><a href="#如何使用组件" class="headerlink" title="如何使用组件"></a>如何使用组件</h4><p>Vue组件可以通过四种主要方式进行定义。让我们谈谈代码。</p>
+<p>第一个是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new Vue(&#123;  &#x2F;* options *&#x2F;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>第二个是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&#39;component-name&#39;, &#123;  &#x2F;* options *&#x2F;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>第三是通过使用本地组件。这些是只能由特定组件访问的组件，而在其他地方则不可用（非常适合封装）。</p>
+<p>第四个在<code>.vue</code>文件中，也称为“单个文件组件”。</p>
+<p>让我们详细介绍前三种方式。</p>
+<p>在构建不是单页应用程序（SPA）的应用程序时，使用<code>new Vue()</code>或是<code>Vue.component()</code>使用Vue的标准方法。相反，当您仅在某些页面中使用Vue.js（例如在联系表单或购物车中）时，就使用此方法。也许在所有页面中都使用了Vue，但是服务器正在渲染布局，然后您将HTML提供给客户端，然后客户端将加载您构建的Vue应用程序。</p>
+<p>在SPA中，是由Vue构建HTML的，使用单文件组件更为方便，因此更为常见。</p>
+<p>您可以通过将Vue安装在DOM元素上来实例化Vue。如果您有<code>&lt;div id=&quot;app&quot;&gt;</code>&lt;/ div&gt;标签，则将使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new Vue(&#123; el: &#39;#app&#39; &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>使用初始化的组件<code>new Vue</code>没有相应的标签名称，因此通常是主要的容器组件。</p>
+<p>使用初始化应用程序中使用的其他组件<code>Vue.component()</code>。这样的组件允许您定义一个标记-您可以使用该标记在应用程序中多次嵌入该组件-并在<code>template</code>属性中指定该组件的输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;app&quot;&gt;  &lt;user-name name&#x3D;&quot;Flavio&quot;&gt;&lt;&#x2F;user-name&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&#39;user-name&#39;, &#123;  props: [&#39;name&#39;],  template: &#39;&lt;p&gt;Hi &#123;.&#123; name &#125;&#125;&lt;&#x2F;p&gt;&#39;&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new Vue(&#123;  el: &#39;#app&#39;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://jsfiddle.net/flaviocopes/nvgedhq4/">在JSFiddle上查看</a></p>
+<p>我们在做什么？我们正在上初始化一个Vue根组件<code>#app</code>，在其中，我们使用Vue组件<code>user-name</code>，它向用户抽象了问候语。</p>
+<p>该组件接受一个prop，这是我们用来将数据向下传递给子组件的属性。</p>
+<p>在<code>Vue.component()</code>调用中，我们将其<code>user-name</code>作为第一个参数传递。这为组件命名。您可以在此处以两种方式输入名称。第一个是我们使用的那个，叫做kebab-case。第二个称为PascalCase，类似于camelCase，但首字母大写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&#39;UserName&#39;, &#123;  &#x2F;* ... *&#x2F;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>Vue的自动创建从内部的别名<code>user-name</code>来<code>UserName</code>，反之亦然，所以你可以使用任何你喜欢的。通常最好<code>UserName</code>在JavaScript和<code>user-name</code>模板中使用。</p>
+<h4 id="本地组件"><a href="#本地组件" class="headerlink" title="本地组件"></a>本地组件</h4><p>使用创建的任何组件<code>Vue.component()</code>都是全局注册的。您无需将其分配给变量或将其传递以在模板中重复使用。</p>
+<p>您可以通过将定义组件对象的对象分配给变量来在本地封装组件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const Sidebar &#x3D; &#123;  template: &#39;&lt;aside&gt;Sidebar&lt;&#x2F;aside&gt;&#39;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后使用该<code>components</code>属性使其在另一个组件内可用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new Vue(&#123;  el: &#39;#app&#39;,  components: &#123;    Sidebar  &#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>您可以在同一文件中编写组件，但是一种很好的方法是使用JavaScript模块：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import Sidebar from &#39;.&#x2F;Sidebar&#39;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;  el: &#39;#app&#39;,  components: &#123;    Sidebar  &#125;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="重用组件"><a href="#重用组件" class="headerlink" title="重用组件"></a>重用组件</h4><p>子组件可以添加多次。每个单独的实例都独立于其他实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;app&quot;&gt;  &lt;user-name name&#x3D;&quot;Flavio&quot;&gt;&lt;&#x2F;user-name&gt;  &lt;user-name name&#x3D;&quot;Roger&quot;&gt;&lt;&#x2F;user-name&gt;  &lt;user-name name&#x3D;&quot;Syd&quot;&gt;&lt;&#x2F;user-name&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&#39;user-name&#39;, &#123;  props: [&#39;name&#39;],  template: &#39;&lt;p&gt;Hi &#123;.&#123; name &#125;&#125;&lt;&#x2F;p&gt;&#39;&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new Vue(&#123;  el: &#39;#app&#39;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://jsfiddle.net/flaviocopes/3kebv908/">在JSFiddle上查看</a></p>
+<h4 id="组件的组成部分"><a href="#组件的组成部分" class="headerlink" title="组件的组成部分"></a>组件的组成部分</h4><p>到目前为止，我们已经看到了一个组件如何接受<code>el</code>，<code>props</code>并且<code>template</code>性能。</p>
+<ul>
+<li><code>el</code>仅在使用初始化的根组件中使用<code>new Vue(&#123;&#125;)</code>，并标识组件将安装在其上的DOM元素。</li>
+<li><code>props</code> 列出了我们可以传递给子组件的所有属性</li>
+<li><code>template</code> 我们可以在其中设置组件模板，该模板将负责定义组件生成的输出。</li>
+</ul>
+<p>组件接受其他属性：</p>
+<ul>
+<li><code>data</code> 组件本地状态</li>
+<li><code>methods</code>：组成方法</li>
+<li><code>computed</code>：与组件关联的计算属性</li>
+<li><code>watch</code>：组件观察者</li>
+</ul>
+<h3 id="单个文件组件"><a href="#单个文件组件" class="headerlink" title="单个文件组件"></a>单个文件组件</h3><p>可以在JavaScript文件（<code>.js</code>）中声明Vue组件，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&#39;component-name&#39;, &#123;  &#x2F;* options *&#x2F;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>或者：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new Vue(&#123;  &#x2F;* options *&#x2F;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>或者可以在<code>.vue</code>文件中指定。</p>
+<p>该<code>.vue</code>文件非常酷，因为它允许您定义：</p>
+<ul>
+<li>JavaScript logic</li>
+<li>HTML code template</li>
+<li>CSS styling</li>
+</ul>
+<p>全部都在一个文件中。因此，它的名称为“单个文件组件”。</p>
+<p>这是一个例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;p&gt;&#123;.&#123; hello &#125;&#125;&lt;&#x2F;p&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  data() &#123;    return &#123;      hello: &#39;Hello World!&#39;    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;style scoped&gt;  p &#123;    color: blue;  &#125;&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>由于使用了Webpack，所有这些都是可能的。Vue CLI使得此操作非常容易，并且开箱即用。<code>.vue</code>如果没有Webpack设置，则无法使用这些文件，因此，它们非常不适合仅在页面上使用Vue而又不是完整的单页面应用程序（SPA）的应用程序。</p>
+<p>由于单个文件组件依赖Webpack，因此我们免费获得了使用现代Web功能的功能。</p>
+<p>您可以使用SCSS或Stylus定义CSS，可以使用Pug构建模板，而要做的就是向Vue声明要使用哪种语言预处理器。</p>
+<p>支持的预处理器列表包括</p>
+<ul>
+<li>TypeScript</li>
+<li>SCSS</li>
+<li>Sass</li>
+<li>Less</li>
+<li>PostCSS</li>
+<li>Pug</li>
+</ul>
+<p>无论使用Babel集成的目标浏览器是什么，我们都可以使用现代JavaScript（ES6-7-8），并且ES模块也是如此，因此我们可以使用<code>import/export</code>语句。</p>
+<p>我们可以使用CSS模块来定义CSS范围。</p>
+<p>说到对CSS进行范围界定，通过使用ed&gt;标签，单个文件组件使编写不会<strong>泄漏</strong>到其他组件的CSS绝对容易<code>&lt;style scop</code>。</p>
+<p>如果省略<code>scoped</code>，则定义的CSS将是全局的。但是添加<code>scoped</code>标签后，Vue会自动向组件添加特定于您的应用程序的特定类，因此可以确保CSS不会泄漏到其他组件。</p>
+<p>也许您的JavaScript非常庞大，因为您需要注意一些逻辑。如果要为JavaScript使用单独的文件怎么办？</p>
+<p>您可以使用<code>src</code>属性将其外部化：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;p&gt;&#123;.&#123; hello &#125;&#125;&lt;&#x2F;p&gt;&lt;&#x2F;template&gt;&lt;script src&#x3D;&quot;.&#x2F;hello.js&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这也适用于您的CSS：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;p&gt;&#123;.&#123; hello &#125;&#125;&lt;&#x2F;p&gt;&lt;&#x2F;template&gt;&lt;script src&#x3D;&quot;.&#x2F;hello.js&quot;&gt;&lt;&#x2F;script&gt;&lt;style src&#x3D;&quot;.&#x2F;hello.css&quot;&gt;&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>注意我如何使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;  data() &#123;    return &#123;      hello: &#39;Hello World!&#39;    &#125;  &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在组件的JavaScript中设置数据。</p>
+<p>您将看到的其他常见方式是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;  data: function() &#123;    return &#123;      name: &#39;Flavio&#39;    &#125;  &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上等同于我们之前所做的工作。</p>
+<p>要么：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;  data: () &#x3D;&gt; &#123;    return &#123;      name: &#39;Flavio&#39;    &#125;  &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这是不同的，因为它使用箭头功能。箭头函数很好，直到我们需要访问组件方法为止。如果我们需要使用，这是一个问题<code>this</code>，并且使用箭头功能未将此类属性绑定到组件。因此，必须使用<strong>常规</strong>函数而不是箭头函数。</p>
+<p>您可能还会看到：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">module.exports &#x3D; &#123;  data: () &#x3D;&gt; &#123;    return &#123;      name: &#39;Flavio&#39;    &#125;  &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这使用<a target="_blank" rel="noopener" href="http://requirejs.org/docs/commonjs.html">CommonJS</a>语法，并且也可以正常工作。但是我建议使用ES模块语法，因为这是JavaScript标准。</p>
+<h3 id="Vue模板"><a href="#Vue模板" class="headerlink" title="Vue模板"></a>Vue模板</h3><p>Vue.js使用的模板语言是HTML的超集。</p>
+<p>任何HTML都是有效的Vue.js模板。除此之外，Vue.js还提供了两个强大的功能：插值和指令。</p>
+<p>这是有效的Vue.js模板：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span&gt;Hello!&lt;&#x2F;span&gt;</span><br></pre></td></tr></table></figure>
+
+<p>可以将该模板放入显式声明的Vue组件中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new Vue(&#123;  template: &#39;&lt;span&gt;Hello!&lt;&#x2F;span&gt;&#39;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>或者可以将其放入单个文件组件中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;span&gt;Hello!&lt;&#x2F;span&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+
+<p>第一个示例非常基础。下一步是使其输出部分组件状态，例如名称。</p>
+<p>这可以使用插值来完成。首先，我们向组件添加一些数据：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">new Vue(&#123;  </span><br><span class="line">  data: &#123;    </span><br><span class="line">    name: &#39;Flavio&#39;  </span><br><span class="line">  &#125;,  </span><br><span class="line">  template: &#39;&lt;span&gt;Hello!&lt;&#x2F;span&gt;&#39;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>然后我们可以使用双括号语法将其添加到模板中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new Vue(&#123;  data: &#123;    name: &#39;Flavio&#39;  &#125;,  template: &#39;&lt;span&gt;Hello &#123;.&#123;name&#125;&#125;!&lt;&#x2F;span&gt;&#39;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>这里一件有趣的事。看看我们是怎么<code>name</code>代替的<code>this.data.name</code>？</p>
+<p>这是因为Vue.js进行了一些内部绑定，并允许模板像使用本地属性一样使用该属性。很方便。</p>
+<p>在单个文件组件中，将是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;span&gt;Hello &#123;.&#123;name&#125;&#125;!&lt;&#x2F;span&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  data() &#123;    return &#123;      name: &#39;Flavio&#39;    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>我在导出中使用了常规函数。为什么不使用箭头功能？</p>
+<p>这是因为在这种情况下，<code>data</code>我们可能需要访问组件实例中的方法，并且如果<code>this</code>未绑定到组件，则无法执行该操作，因此无法使用箭头功能。</p>
+<p>请注意，我们可以使用箭头功能，但是如果我使用，则需要记住切换到常规功能<code>this</code>。我认为最好安全一点。</p>
+<p>现在，回到插值。</p>
+<p><code>&#123;.&#123; name &#125;&#125;</code> 应该使您想起Mustache / Handlebars模板插值，但这只是视觉上的提醒。</p>
+<p>尽管在那些模板引擎中它们是“哑巴”，但在Vue中，您可以做更多的事情，并且更加灵活。</p>
+<p>您可以在插值中使用任何JavaScript表达式，但仅限于一个表达式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;.&#123; name.reverse() &#125;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;.&#123; name &#x3D;&#x3D;&#x3D; &#39;Flavio&#39; ? &#39;Flavio&#39; : &#39;stranger&#39; &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Vue提供对模板中某些全局对象的访问，包括Math和Date，因此您可以使用它们：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;.&#123; Math.sqrt(16) * Math.random() &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最好避免向模板添加复杂的逻辑，但是Vue允许这样做的事实为我们提供了更大的灵活性，尤其是在尝试时。</p>
+<p>我们可以先尝试将表达式放入模板中，然后再将其移动到计算的属性或方法中。</p>
+<p>任何插值中包含的值将在其依赖的任何数据属性发生更改时进行更新。</p>
+<p>您可以通过使用<code>v-once</code>指令来避免这种反应。</p>
+<p>结果总是转义的，因此输出中不能包含HTML。</p>
+<p>如果需要HTML片段，则需要使用<code>v-html</code>指令。</p>
+<h3 id="使用CSS样式化组件"><a href="#使用CSS样式化组件" class="headerlink" title="使用CSS样式化组件"></a>使用CSS样式化组件</h3><p>将CSS添加到Vue.js组件的最简单选择是使用<code>style</code>标签，就像在HTML中一样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;p style&#x3D;&quot;text-decoration: underline&quot;&gt;Hi!&lt;&#x2F;p&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  data() &#123;    return &#123;      decoration: &#39;underline&#39;    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这是尽可能静态的。如果要<code>underline</code>在组件数据中定义怎么办？您可以按照以下方法进行操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;p :style&#x3D;&quot;&#123;&#39;text-decoration&#39;: decoration&#125;&quot;&gt;Hi!&lt;&#x2F;p&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  data() &#123;    return &#123;      decoration: &#39;underline&#39;    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p><code>:style</code>是的简写<code>v-bind:style</code>。在本教程中，我将使用此速记。</p>
+<p>注意我们必须如何<code>text-decoration</code>用引号引起来。这是因为破折号不是有效的JavaScript标识符的一部分。</p>
+<p>您可以使用Vue.js启用的特殊camelCase语法并将其重写为<code>textDecoration</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;p :style&#x3D;&quot;&#123;textDecoration: decoration&#125;&quot;&gt;Hi!&lt;&#x2F;p&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+
+<p>除了<code>style</code>可以将对象绑定到之外，您还可以引用计算属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;p :style&#x3D;&quot;styling&quot;&gt;Hi!&lt;&#x2F;p&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  data() &#123;    return &#123;      textDecoration: &#39;underline&#39;,      textWeight: &#39;bold&#39;    &#125;  &#125;,  computed: &#123;    styling: function() &#123;      return &#123;        textDecoration: this.textDecoration,        textWeight: this.textWeight      &#125;    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Vue组件生成纯HTML，因此您可以选择向每个元素添加一个类，并添加具有样式设置其属性的相应CSS选择器：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;p class&#x3D;&quot;underline&quot;&gt;Hi!&lt;&#x2F;p&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;.underline &#123; text-decoration: underline; &#125;&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>您可以像这样使用SCSS：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;p class&#x3D;&quot;underline&quot;&gt;Hi!&lt;&#x2F;p&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;style lang&#x3D;&quot;scss&quot;&gt;body &#123;  .underline &#123; text-decoration: underline; &#125;&#125;&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>您可以像上面的示例一样对类进行硬编码。或者，您可以将类绑定到组件属性，以使其具有动态性，并且仅在data属性为true时才应用于该类：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;p :class&#x3D;&quot;&#123;underline: isUnderlined&#125;&quot;&gt;Hi!&lt;&#x2F;p&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  data() &#123;    return &#123;      isUnderlined: true    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;.underline &#123; text-decoration: underline; &#125;&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+
+<p><code>&lt;p :class=&quot;&#123;text: isText&#125;&quot;&gt;H</code>您可以直接绑定一个字符串，而不是像我们对i！那样将对象绑定到类！&lt;/ p&gt;，它将引用一个数据属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;p :class&#x3D;&quot;paragraphClass&quot;&gt;Hi!&lt;&#x2F;p&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  data() &#123;    return &#123;      paragraphClass: &#39;underline&#39;    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;.underline &#123; text-decoration: underline; &#125;&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>您可以分配多个类，<code>paragraphClass</code>在这种情况下，可以添加两个类，也可以使用数组：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;p :class&#x3D;&quot;[decoration, weight]&quot;&gt;Hi!&lt;&#x2F;p&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  data() &#123;    return &#123;      decoration: &#39;underline&#39;,      weight: &#39;weight&#39;,    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;.underline &#123; text-decoration: underline; &#125;.weight &#123; font-weight: bold; &#125;&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>使用类绑定中内联的对象可以完成相同的操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;p :class&#x3D;&quot;&#123;underline: isUnderlined, weight: isBold&#125;&quot;&gt;Hi!&lt;&#x2F;p&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  data() &#123;    return &#123;      isUnderlined: true,      isBold: true    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;.underline &#123; text-decoration: underline; &#125;.weight &#123; font-weight: bold; &#125;&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>您可以结合以下两个语句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;p :class&#x3D;&quot;[decoration, &#123;weight: isBold&#125;]&quot;&gt;Hi!&lt;&#x2F;p&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  data() &#123;    return &#123;      decoration: &#39;underline&#39;,      isBold: true    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;.underline &#123; text-decoration: underline; &#125;.weight &#123; font-weight: bold; &#125;&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>您还可以使用返回对象的计算属性，当您将多个CSS类添加到同一元素时，该属性最有效：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;p :class&#x3D;&quot;paragraphClasses&quot;&gt;Hi!&lt;&#x2F;p&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  data() &#123;    return &#123;      isUnderlined: true,      isBold: true    &#125;  &#125;,  computed: &#123;    paragraphClasses: function() &#123;      return &#123;        underlined: this.isUnderlined,        bold: this.isBold      &#125;    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;.underlined &#123; text-decoration: underline; &#125;.bold &#123; font-weight: bold; &#125;&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>请注意，在计算属性中，您需要使用来引用组件数据<code>this.[propertyName]</code>，而在模板数据中，属性可以方便地放置为第一级属性。</p>
+<p>Vue将处理任何未像第一个示例中那样进行硬编码的CSS，Vue会为我们自动为CSS加上前缀。这使我们可以编写干净的CSS，同时仍可以针对较旧的浏览器（这仍然意味着Vue支持的浏览器，因此是IE9 +）。</p>
+<h3 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h3><p>我们在Vue.js模板和插值中看到了如何将数据嵌入Vue模板。</p>
+<p>本节说明Vue.js在模板中提供的另一种技术：指令。</p>
+<p>指令基本上类似于添加在模板内部的HTML属性。它们都以开头<code>v-</code>，以表示这是Vue的特殊属性。</p>
+<p>让我们详细了解每个Vue指令。</p>
+<h4 id="v-text"><a href="#v-text" class="headerlink" title="v-text"></a><code>v-text</code></h4><p>代替使用插值，可以使用<code>v-text</code>指令。它执行相同的工作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span v-text&#x3D;&quot;name&quot;&gt;&lt;&#x2F;span&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="v-once"><a href="#v-once" class="headerlink" title="v-once"></a><code>v-once</code></h4><p>您知道如何<code>&#123;.&#123; name &#125;&#125;</code>绑定到<code>name</code>组件数据的属性。</p>
+<p>每当<code>name</code>您的组件数据发生更改时，Vue都会更新浏览器中表示的值。</p>
+<p>除非使用<code>v-once</code>伪指令，否则伪指令基本上类似于HTML属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span v-once&gt;&#123;.&#123; name &#125;&#125;&lt;&#x2F;span&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="v-html"><a href="#v-html" class="headerlink" title="v-html"></a><code>v-html</code></h4><p>使用插值打印数据属性时，将转义HTML。这是Vue自动防御XSS攻击的一种好方法。</p>
+<p>但是，在某些情况下，您想输出HTML并让浏览器解释它。您可以使用<code>v-html</code>指令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span v-html&#x3D;&quot;someHtml&quot;&gt;&lt;&#x2F;span&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a><code>v-bind</code></h4><p>插值仅适用于标签内容。您不能在属性上使用它。</p>
+<p>属性必须使用<code>v-bind</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a v-bind:href&#x3D;&quot;url&quot;&gt;&#123;.&#123; linkText &#125;&#125;&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
+
+<p><code>v-bind</code> 非常普遍，以至于它有一个简写语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a v-bind:href&#x3D;&quot;url&quot;&gt;&#123;.&#123; linkText &#125;&#125;&lt;&#x2F;a&gt;&lt;a :href&#x3D;&quot;url&quot;&gt;&#123;.&#123; linkText &#125;&#125;&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="双向绑定使用-v-model"><a href="#双向绑定使用-v-model" class="headerlink" title="双向绑定使用 v-model"></a>双向绑定使用 <code>v-model</code></h4><p>例如 <code>v-model</code> ，让我们绑定一个表单输入元素，并在用户更改字段内容时使它更改Vue数据属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input v-model&#x3D;&quot;message&quot; placeholder&#x3D;&quot;Enter a message&quot;&gt;&lt;p&gt;Message is: &#123;.&#123; message &#125;&#125;&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;select v-model&#x3D;&quot;selected&quot;&gt;  &lt;option disabled value&#x3D;&quot;&quot;&gt;Choose a fruit&lt;&#x2F;option&gt;  &lt;option&gt;Apple&lt;&#x2F;option&gt;  &lt;option&gt;Banana&lt;&#x2F;option&gt;  &lt;option&gt;Strawberry&lt;&#x2F;option&gt;&lt;&#x2F;select&gt;&lt;span&gt;Fruit chosen: &#123;.&#123; selected &#125;&#125;&lt;&#x2F;span&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="使用表达式"><a href="#使用表达式" class="headerlink" title="使用表达式"></a>使用表达式</h4><p>您可以在指令内使用任何JavaScript表达式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span v-text&#x3D;&quot;&#39;Hi, &#39; + name + &#39;!&#39;&quot;&gt;&lt;&#x2F;span&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a v-bind:href&#x3D;&quot;&#39;https:&#x2F;&#x2F;&#39; + domain + path&quot;&gt;&#123;.&#123; linkText &#125;&#125;&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
+
+<p>指令中使用的任何变量都引用相应的data属性。</p>
+<h4 id="有条件的"><a href="#有条件的" class="headerlink" title="有条件的"></a>有条件的</h4><p>在指令内部，您可以使用三元运算符执行条件检查，因为这是一个表达式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span v-text&#x3D;&quot;name &#x3D;&#x3D; Flavio ? &#39;Hi Flavio!&#39; : &#39;Hi&#39; + name + &#39;!&#39;&quot;&gt;&lt;&#x2F;span&gt;</span><br></pre></td></tr></table></figure>
+
+<p>有专门的指令，让您执行更为有组织的条件句：<code>v-if</code>，<code>v-else</code>和<code>v-else-if</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p v-if&#x3D;&quot;shouldShowThis&quot;&gt;Hey!&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>
+
+<p><code>shouldShowThis</code> 是包含在组件数据中的布尔值。</p>
+<h4 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h4><p><code>v-for</code>允许您呈现项目列表。结合使用<code>v-bind</code>可以设置列表中每个项目的属性。</p>
+<p>您可以迭代一个简单的值数组：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;ul&gt;    &lt;li v-for&#x3D;&quot;item in items&quot;&gt;&#123;.&#123; item &#125;&#125;&lt;&#x2F;li&gt;  &lt;&#x2F;ul&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  data() &#123;    return &#123;      items: [&#39;car&#39;, &#39;bike&#39;, &#39;dog&#39;]    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>或在一组对象上：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;div&gt;    &lt;!-- using interpolation --&gt;    &lt;ul&gt;      &lt;li v-for&#x3D;&quot;todo in todos&quot;&gt;&#123;.&#123; todo.title &#125;&#125;&lt;&#x2F;li&gt;    &lt;&#x2F;ul&gt;    &lt;!-- using v-text --&gt;    &lt;ul&gt;      &lt;li v-for&#x3D;&quot;todo in todos&quot; v-text&#x3D;&quot;todo.title&quot;&gt;&lt;&#x2F;li&gt;    &lt;&#x2F;ul&gt;  &lt;&#x2F;div&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  data() &#123;    return &#123;      todos: [        &#123; id: 1, title: &#39;Do something&#39; &#125;,        &#123; id: 2, title: &#39;Do something else&#39; &#125;      ]    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p><code>v-for</code> 可以使用以下方式为您提供索引：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;li v-for&#x3D;&quot;(todo, index) in todos&quot;&gt;&lt;&#x2F;li&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="大事记"><a href="#大事记" class="headerlink" title="大事记"></a>大事记</h4><p><code>v-on</code>允许您侦听DOM事件，并在事件发生时触发方法。在这里，我们监听点击事件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;a v-on:click&#x3D;&quot;handleClick&quot;&gt;Click me!&lt;&#x2F;a&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  methods: &#123;    handleClick: function() &#123;      alert(&#39;test&#39;)    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>您可以将参数传递给任何事件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;a v-on:click&#x3D;&quot;handleClick(&#39;test&#39;)&quot;&gt;Click me!&lt;&#x2F;a&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  methods: &#123;    handleClick: function(value) &#123;      alert(value)    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>少量的JavaScript（单个表达式）可以直接放入模板中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;a v-on:click&#x3D;&quot;counter &#x3D; counter + 1&quot;&gt;&#123;.&#123;counter&#125;&#125;&lt;&#x2F;a&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  data: function() &#123;    return &#123;      counter: 0    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p><code>click</code>只是一种事件。一个常见的事件是<code>submit</code>，您可以使用绑定该事件<code>v-on:submit</code>。</p>
+<p><code>v-on</code>非常普遍，以至于它有一个简写语法<code>@</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a v-on:click&#x3D;&quot;handleClick&quot;&gt;Click me!&lt;&#x2F;a&gt;&lt;a @click&#x3D;&quot;handleClick&quot;&gt;Click me!&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="显示或隐藏"><a href="#显示或隐藏" class="headerlink" title="显示或隐藏"></a>显示或隐藏</h4><p>如果Vue实例的特定属性评估为true，则可以选择仅在DOM中显示元素，方法是<code>v-show</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p v-show&#x3D;&quot;isTrue&quot;&gt;Something&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>
+
+<p>元素仍插入DOM中，但<code>display: none</code>如果不满足条件则设置为。</p>
+<h4 id="事件指令修饰符"><a href="#事件指令修饰符" class="headerlink" title="事件指令修饰符"></a>事件指令修饰符</h4><p>Vue提供了一些可选的事件修饰符，您可以将它们与结合使用<code>v-on</code>，这些修饰符会自动使事件执行某些操作，而无需在事件处理程序中对其进行显式编码。</p>
+<p>一个很好的例子是<code>.prevent</code>，它会自动调用<code>preventDefault()</code>该事件。</p>
+<p>在这种情况下，该表单不会导致页面被重新加载，这是默认行为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;form v-on:submit.prevent&#x3D;&quot;formSubmitted&quot;&gt;&lt;&#x2F;form&gt;</span><br></pre></td></tr></table></figure>
+
+<p>其它调节剂包括<code>.stop</code>，<code>.capture</code>，<code>.self</code>，<code>.once</code>，<code>.passive</code>和他们<a target="_blank" rel="noopener" href="https://vuejs.org/v2/guide/events.html#Event-Modifiers">详细的官方文档描述</a>。</p>
+<h4 id="自定义指令"><a href="#自定义指令" class="headerlink" title="自定义指令"></a>自定义指令</h4><p>Vue默认指令已经可以完成很多工作，但是如果需要，您可以随时添加新的自定义指令。</p>
+<p>如果您有兴趣了解更多信息，请阅读<a target="_blank" rel="noopener" href="https://vuejs.org/v2/guide/custom-directive.html">此处</a>。</p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><h4 id="什么是Vue-js方法？"><a href="#什么是Vue-js方法？" class="headerlink" title="什么是Vue.js方法？"></a>什么是Vue.js方法？</h4><p>Vue方法是与Vue实例关联的函数。</p>
+<p>方法在<code>methods</code>属性内定义：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new Vue(&#123;  methods: &#123;    handleClick: function() &#123;      alert(&#39;test&#39;)    &#125;  &#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>或对于单个文件组件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  methods: &#123;    handleClick: function() &#123;      alert(&#39;test&#39;)    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>当您需要执行操作并将<code>v-on</code>指令附加到元素上以处理事件时，方法特别有用。像这样，<code>handleClick</code>当元素被点击时调用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;a @click&#x3D;&quot;handleClick&quot;&gt;Click me!&lt;&#x2F;a&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="将参数传递给Vue-js方法"><a href="#将参数传递给Vue-js方法" class="headerlink" title="将参数传递给Vue.js方法"></a>将参数传递给Vue.js方法</h4><p>方法可以接受参数。</p>
+<p>在这种情况下，您只需在模板中传递参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;a @click&#x3D;&quot;handleClick(&#39;something&#39;)&quot;&gt;Click me!&lt;&#x2F;a&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new Vue(&#123;  methods: &#123;    handleClick: function(text) &#123;      alert(text)    &#125;  &#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>或对于单个文件组件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  methods: &#123;    handleClick: function(text) &#123;      alert(text)    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="如何从方法访问数据"><a href="#如何从方法访问数据" class="headerlink" title="如何从方法访问数据"></a>如何从方法访问数据</h4><p>您可以使用以下命令访问Vue组件的任何数据属性<code>this.propertyName</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;a @click&#x3D;&quot;handleClick()&quot;&gt;Click me!&lt;&#x2F;a&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  data() &#123;    return &#123;      name: &#39;Flavio&#39;    &#125;  &#125;,  methods: &#123;    handleClick: function() &#123;      console.log(this.name)    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>我们不必使用<code>this.data.name</code>，只是<code>this.name</code>。Vue确实为我们提供了透明的绑定。使用<code>this.data.name</code>将引发错误。</p>
+<p>如您在<strong>事件</strong>描述中之前所看到的，方法与事件紧密关联，因为它们被用作事件处理程序。每次事件发生时，都会调用该方法。</p>
+<h3 id="观察者"><a href="#观察者" class="headerlink" title="观察者"></a>观察者</h3><p>监视程序是Vue.js的一项特殊功能，它使您可以监视组件状态的一个属性，并在该属性值更改时运行一个函数。</p>
+<p>这是一个例子。我们有一个显示名称的组件，并允许您通过单击按钮进行更改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;p&gt;My name is &#123;.&#123;name&#125;&#125;&lt;&#x2F;p&gt;  &lt;button @click&#x3D;&quot;changeName()&quot;&gt;Change my name!&lt;&#x2F;button&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  data() &#123;    return &#123;      name: &#39;Flavio&#39;    &#125;  &#125;,  methods: &#123;    changeName: function() &#123;      this.name &#x3D; &#39;Flavius&#39;    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>名称更改后，我们想做一些事情，例如打印控制台日志。</p>
+<p>我们可以通过在<code>watch</code>对象上添加一个名为data属性的属性来实现此目的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  data() &#123;    return &#123;      name: &#39;Flavio&#39;    &#125;  &#125;,  methods: &#123;    changeName: function() &#123;      this.name &#x3D; &#39;Flavius&#39;    &#125;  &#125;,  watch: &#123;    name: function() &#123;      console.log(this.name)    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>分配给的功能<code>watch.name</code>可以选择接受2个参数。首先是新的属性值。第二个是旧的属性值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  &#x2F;* ... *&#x2F;  watch: &#123;    name: function(newValue, oldValue) &#123;      console.log(newValue, oldValue)    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>无法像使用计算属性一样从模板中查找观察者。</p>
+<h3 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h3><h4 id="什么是计算属性"><a href="#什么是计算属性" class="headerlink" title="什么是计算属性"></a>什么是计算属性</h4><p>在Vue.js中，您可以使用括号输出任何数据值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;p&gt;&#123;.&#123; count &#125;&#125;&lt;&#x2F;p&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  data() &#123;    return &#123;      count: 1    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>此属性可以托管一些小的计算。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &#123;.&#123; count * 10 &#125;&#125;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+
+<p>但是您只能使用一个JavaScript <strong>表达式</strong>。</p>
+<p>除此技术限制外，您还需要考虑模板应仅与向用户显示数据有关，而不应执行逻辑计算。</p>
+<p>若要执行多个操作而不是单个表达式，并具有更多的声明性模板，请使用计算属性。</p>
+<p>计算属性是在<code>computed</code>Vue组件的属性中定义的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  computed: &#123;</span><br><span class="line">&#96;&#96;&#96; &#96;&#96;&#96;</span><br><span class="line">&#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="计算属性的示例"><a href="#计算属性的示例" class="headerlink" title="计算属性的示例"></a>计算属性的示例</h4><p>这是一个使用计算属性<code>count</code>计算输出的示例。</p>
+<p>注意：</p>
+<ol>
+<li>我不必打电话<code>&#123;.&#123; count() &#125;&#125;</code>。Vue.js自动调用该函数</li>
+<li>我使用常规函数（而不是箭头函数）来定义<code>count</code>计算所得的属性，因为我需要能够通过来访问组件实例<code>this</code>。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;p&gt;&#123;.&#123; count &#125;&#125;&lt;&#x2F;p&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  data() &#123;    return &#123;      items: [1, 2, 3]    &#125;  &#125;,  computed: &#123;    count: function() &#123;      return &#39;The count is &#39; + this.items.length * 10    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="计算属性与方法"><a href="#计算属性与方法" class="headerlink" title="计算属性与方法"></a>计算属性与方法</h4><p>如果您已经了解Vue方法，您可能会想知道有什么区别。</p>
+<p>首先，必须调用方法，而不仅仅是引用方法，因此您需要执行以下操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;p&gt;&#123;.&#123; count() &#125;&#125;&lt;&#x2F;p&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  data() &#123;    return &#123;      items: [1, 2, 3]    &#125;  &#125;,  methods: &#123;    count: function() &#123;      return &#39;The count is &#39; + this.items.length * 10    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>但是主要区别在于，已计算的属性已缓存。</p>
+<p><code>count</code>计算属性的结果在内部缓存，直到<code>items</code>数据属性更改。</p>
+<p><strong>重要：</strong>仅当反应性源更新时，才会更新计算属性。常规JavaScript方法不是被动的，因此一个常见的示例是使用<code>Date.now()</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;p&gt;&#123;.&#123; now &#125;&#125;&lt;&#x2F;p&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  computed: &#123;    now: function () &#123;      return Date.now()    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>它只会渲染一次，即使重新渲染组件也不会更新。当Vue组件退出并重新初始化时，它仅在页面刷新时更新。</p>
+<p>在这种情况下，一种方法更适合您的需求。</p>
+<h3 id="方法与观察者与计算属性"><a href="#方法与观察者与计算属性" class="headerlink" title="方法与观察者与计算属性"></a>方法与观察者与计算属性</h3><p>既然您知道方法，观察者和计算属性，那么您可能想知道什么时候应该使用一种方法。</p>
+<p>这是这个问题的细分。</p>
+<h4 id="何时使用方法"><a href="#何时使用方法" class="headerlink" title="何时使用方法"></a>何时使用方法</h4><ul>
+<li>对DOM中发生的某些事件做出反应</li>
+<li>当组件中发生某些事情时调用函数。<br>您可以从计算的属性或观察程序中调用方法。</li>
+</ul>
+<h4 id="何时使用计算属性"><a href="#何时使用计算属性" class="headerlink" title="何时使用计算属性"></a>何时使用计算属性</h4><ul>
+<li>您需要从现有数据源中组合新数据</li>
+<li>您有一个在模板中使用的变量，该变量是根据一个或多个数据属性构建的</li>
+<li>您希望将复杂的嵌套属性名称简化为更易读和易于使用的名称（但是在原始属性更改时进行更新）</li>
+<li>您需要从模板中引用一个值。在这种情况下，最好创建一个计算属性，因为它已缓存。</li>
+<li>您需要聆听多个数据属性的更改</li>
+</ul>
+<h4 id="何时使用观察者"><a href="#何时使用观察者" class="headerlink" title="何时使用观察者"></a>何时使用观察者</h4><ul>
+<li>您想在数据属性更改时进行监听，并执行一些操作</li>
+<li>您想听听道具价值的变化</li>
+<li>您只需要听一个特定的属性（您不能同时观看多个属性）</li>
+<li>您要监视一个数据属性，直到达到某个特定值，然后再执行某些操作</li>
+</ul>
+<h3 id="道具：将数据传递给子组件"><a href="#道具：将数据传递给子组件" class="headerlink" title="道具：将数据传递给子组件"></a>道具：将数据传递给子组件</h3><p>道具是组件可以从包含它们的组件（父组件）接受数据的方式。</p>
+<p>当组件需要一个或多个道具时，必须在其<code>props</code>属性中定义它们：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&#39;user-name&#39;, &#123;  props: [&#39;name&#39;],  template: &#39;&lt;p&gt;Hi &#123;.&#123; name &#125;&#125;&lt;&#x2F;p&gt;&#39;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>或者，在Vue单个文件组件中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;p&gt;&#123;.&#123; name &#125;&#125;&lt;&#x2F;p&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  props: [&#39;name&#39;]&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="接受多个道具"><a href="#接受多个道具" class="headerlink" title="接受多个道具"></a>接受多个道具</h4><p>您可以通过简单地将它们附加到数组来获得多个props：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&#39;user-name&#39;, &#123;  props: [&#39;firstName&#39;, &#39;lastName&#39;],  template: &#39;&lt;p&gt;Hi &#123;.&#123; firstName &#125;&#125; &#123;.&#123; lastName &#125;&#125;&lt;&#x2F;p&gt;&#39;&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="设置道具类型"><a href="#设置道具类型" class="headerlink" title="设置道具类型"></a>设置道具类型</h4><p>您可以使用对象而不是数组，使用属性名称作为每个属性的键，并使用类型作为值来非常简单地指定道具的类型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&#39;user-name&#39;, &#123;  props: &#123;    firstName: String,    lastName: String  &#125;,  template: &#39;&lt;p&gt;Hi &#123;.&#123; firstName &#125;&#125; &#123;.&#123; lastName &#125;&#125;&lt;&#x2F;p&gt;&#39;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>您可以使用的有效类型是：</p>
+<ul>
+<li>String</li>
+<li>Number</li>
+<li>Boolean</li>
+<li>Array</li>
+<li>Object</li>
+<li>Date</li>
+<li>Function</li>
+<li>Symbol</li>
+</ul>
+<p>当类型不匹配时，Vue会在控制台中以警告方式警告您（处于开发模式）。</p>
+<p>道具类型可以更清晰地表达。</p>
+<p>您可以允许多种不同的值类型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">props: &#123;  firstName: [String, Number]&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="将道具设置为强制性"><a href="#将道具设置为强制性" class="headerlink" title="将道具设置为强制性"></a>将道具设置为强制性</h4><p>您可以要求道具是强制性的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">props: &#123;  firstName: &#123;    type: String,    required: true  &#125;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="设置道具的默认值"><a href="#设置道具的默认值" class="headerlink" title="设置道具的默认值"></a>设置道具的默认值</h4><p>您可以指定一个默认值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">props: &#123;  firstName: &#123;    type: String,    default: &#39;Unknown person&#39;  &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于对象：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">props: &#123;  name: &#123;    type: Object,    default: &#123;      firstName: &#39;Unknown&#39;,      lastName: &#39;&#39;    &#125;  &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>default</code> 也可以是返回适当值的函数，而不是实际值。</p>
+<p>您甚至可以构建一个自定义验证器，该验证器对复杂数据很酷：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">props: &#123;  name: &#123;    validator: name &#x3D;&gt; &#123;      return name &#x3D;&#x3D;&#x3D; &#39;Flavio&#39;     &#125;  &#125;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="将道具传递到组件"><a href="#将道具传递到组件" class="headerlink" title="将道具传递到组件"></a>将道具传递到组件</h4><p>您使用语法将prop传递给组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;ComponentName color&#x3D;&quot;white&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>如果您传递的是静态值。</p>
+<p>如果它是数据属性，则使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;ComponentName :color&#x3D;color &#x2F;&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;...export default &#123;  &#x2F;&#x2F;...  data: function() &#123;    return &#123;      color: &#39;white&#39;    &#125;  &#125;,  &#x2F;&#x2F;...&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>您可以在prop值内使用三元运算符来检查真实条件并传递依赖于该条件的值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;ComponentName :colored&#x3D;&quot;color &#x3D;&#x3D; &#39;white&#39; ? true : false&quot; &#x2F;&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;...export default &#123;  &#x2F;&#x2F;...  data: function() &#123;    return &#123;      color: &#39;white&#39;    &#125;  &#125;,  &#x2F;&#x2F;...&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="在Vue中处理事件"><a href="#在Vue中处理事件" class="headerlink" title="在Vue中处理事件"></a>在Vue中处理事件</h3><h4 id="什么是Vue-js事件？"><a href="#什么是Vue-js事件？" class="headerlink" title="什么是Vue.js事件？"></a>什么是Vue.js事件？</h4><p>Vue.js允许我们通过使用<code>v-on</code>元素上的指令来拦截任何DOM事件。</p>
+<p>如果我们想在此元素中发生点击事件时采取措施：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;a&gt;Click me!&lt;&#x2F;a&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+
+<p>我们添加一条<code>v-on</code>指令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;a v-on:click&#x3D;&quot;handleClick&quot;&gt;Click me!&lt;&#x2F;a&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Vue还为此提供了一种非常方便的替代语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;a @click&#x3D;&quot;handleClick&quot;&gt;Click me!&lt;&#x2F;a&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+
+<p>您可以选择是否使用括号。<code>@click=&quot;handleClick&quot;</code>等同于<code>@click=&quot;handleClick()&quot;</code>。</p>
+<p><code>handleClick</code> 是附加到组件的方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  methods: &#123;    handleClick: function(event) &#123;      console.log(event)    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>您需要在这里知道的是，您可以通过事件传递参数：<code>@click=&quot;handleClick(param)&quot;</code>它们将在方法内部接收。</p>
+<h4 id="访问原始事件对象"><a href="#访问原始事件对象" class="headerlink" title="访问原始事件对象"></a>访问原始事件对象</h4><p>在许多情况下，您将要对事件对象执行操作或在其中查找某些属性。您如何访问它？</p>
+<p>使用特殊<code>$event</code>指令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;a @click&#x3D;&quot;handleClick($event)&quot;&gt;Click me!&lt;&#x2F;a&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  methods: &#123;    handleClick: function(event) &#123;      console.log(event)    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>并且如果您已经传递了变量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;a @click&#x3D;&quot;handleClick(&#39;something&#39;, $event)&quot;&gt;Click me!&lt;&#x2F;a&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  methods: &#123;    handleClick: function(text, event) &#123;      console.log(text)      console.log(event)    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>从那里可以调用<code>event.preventDefault()</code>，但是有一个更好的方法：事件修饰符。</p>
+<h4 id="事件修饰符"><a href="#事件修饰符" class="headerlink" title="事件修饰符"></a>事件修饰符</h4><p>告诉Vue为您处理事情，而不是弄乱方法中的DOM“事物”：</p>
+<ul>
+<li><code>@click.prevent</code> 呼叫 <code>event.preventDefault()</code></li>
+<li><code>@click.stop</code> 呼叫 <code>event.stopPropagation()</code></li>
+<li><code>@click.passive</code>利用<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameters">addEventListener</a>的<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameters">被动选项</a></li>
+<li><code>@click.capture</code> 使用事件捕获而不是事件冒泡</li>
+<li><code>@click.self</code> 确保click事件没有从子事件中冒出，而是直接发生在该元素上</li>
+<li><code>@click.once</code> 事件只会被触发一次</li>
+</ul>
+<p>所有这些选项可以通过在一个修饰符之后附加一个修饰符来组合。</p>
+<p>有关传播，冒泡和捕获的更多信息，请参阅我的<a target="_blank" rel="noopener" href="https://flaviocopes.com/javascript-events">JavaScript事件指南</a>。</p>
+<h3 id="使用广告位注入内容"><a href="#使用广告位注入内容" class="headerlink" title="使用广告位注入内容"></a>使用广告位注入内容</h3><p>组件可以选择完全定义其内容，例如在这种情况下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&#39;user-name&#39;, &#123;  props: [&#39;name&#39;],  template: &#39;&lt;p&gt;Hi &#123;.&#123; name &#125;&#125;&lt;&#x2F;p&gt;&#39;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>或者，它也可以让父组件通过使用插槽将任何种类的内容注入其中。</p>
+<p>什么是插槽？</p>
+<p>您可以通过将<code>&lt;slot&gt;&amp;</code>lt; / slot&gt;放在组件模板中来定义它：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&#39;user-information&#39;, &#123;  template: &#39;&lt;div class&#x3D;&quot;user-information&quot;&gt;&lt;slot&gt;&lt;&#x2F;slot&gt;&lt;&#x2F;div&gt;&#39;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>使用此组件时，在开始和结束标记之间添加的所有内容都将添加到广告位占位符内：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;user-information&gt;  &lt;h2&gt;Hi!&lt;&#x2F;h2&gt;  &lt;user-name name&#x3D;&quot;Flavio&quot;&gt;&lt;&#x2F;user-information&gt;</span><br></pre></td></tr></table></figure>
+
+<p>如果将任何内容放在<code>&lt;slot&gt;&amp;</code>lt; / slot&gt;标记旁边，这将作为默认内容，以防万一。</p>
+<p>复杂的组件布局可能需要更好的方式来组织内容。</p>
+<p>输入<strong>命名的插槽</strong>。</p>
+<p>使用命名插槽，可以将插槽的各个部分分配到组件模板布局中的特定位置，并且可以<code>slot</code>对任何标签使用属性，以将内容分配给该插槽。</p>
+<p>模板标签之外的所有内容都会添加到main中<code>slot</code>。</p>
+<p>为了方便起见，<code>page</code>在此示例中，我使用单个文件组件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;div&gt;    &lt;main&gt;      &lt;slot&gt;&lt;&#x2F;slot&gt;    &lt;&#x2F;main&gt;    &lt;sidebar&gt;      &lt;slot name&#x3D;&quot;sidebar&quot;&gt;&lt;&#x2F;slot&gt;    &lt;&#x2F;sidebar&gt;  &lt;&#x2F;div&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;page&gt;  &lt;ul slot&#x3D;&quot;sidebar&quot;&gt;    &lt;li&gt;Home&lt;&#x2F;li&gt;    &lt;li&gt;Contact&lt;&#x2F;li&gt;  &lt;&#x2F;ul&gt;</span><br><span class="line">&#96;&#96;&#96; &#96;&#96;&#96;</span><br><span class="line">&lt;h2&gt;Page title&lt;&#x2F;h2&gt;  &lt;p&gt;Page content&lt;&#x2F;p&gt;&lt;&#x2F;page&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="筛选器，模板的帮手"><a href="#筛选器，模板的帮手" class="headerlink" title="筛选器，模板的帮手"></a>筛选器，模板的帮手</h3><p>过滤器是Vue组件提供的功能，可让您将格式设置和转换应用于模板动态数据的任何部分。</p>
+<p>它们不会更改组件的数据或其他任何内容，而只会影响输出。</p>
+<p>假设您正在打印名称：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;p&gt;Hi &#123;.&#123; name &#125;&#125;!&lt;&#x2F;p&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  data() &#123;    return &#123;      name: &#39;Flavio&#39;    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>如果要检查<code>name</code>实际上是否包含一个值，如果不打印，则该怎么办，以便我们的模板将打印“嗨，那里！”？</p>
+<p>输入过滤器：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;p&gt;Hi &#123;.&#123; name | fallback &#125;&#125;!&lt;&#x2F;p&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  data() &#123;    return &#123;      name: &#39;Flavio&#39;    &#125;  &#125;,  filters: &#123;    fallback: function(name) &#123;      return name ? name : &#39;there&#39;    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>请注意，应用过滤器的语法为<code>| filterName</code>。如果您熟悉Unix，那就是Unix管道运算符，用于将操作的输出作为输入传递给下一个操作。</p>
+<p><code>filters</code>组件的属性是一个对象。单个过滤器是一个接受一个值并返回另一个值的函数。</p>
+<p>返回的值是Vue.js模板中实际打印的值。</p>
+<p>过滤器当然可以访问组件数据和方法。</p>
+<p>过滤器的好用例是什么？</p>
+<ul>
+<li>转换字符串，例如大写或将其小写</li>
+<li>格式化价格</li>
+</ul>
+<p>在上方，您看到了一个简单的过滤器示例：<code>&#123;.&#123; name | fallback &#125;&#125;</code>。</p>
+<p>通过重复管道语法，可以链接过滤器：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;.&#123; name | fallback | capitalize &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>首先应用<code>fallback</code>过滤器，然后应用过滤<code>capitalize</code>器（我们没有定义，但尝试创建一个！）。</p>
+<p>高级过滤器还可以使用常规函数参数语法接受参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;p&gt;Hello &#123;.&#123; name | prepend(&#39;Dr.&#39;) &#125;&#125;&lt;&#x2F;p&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  data() &#123;    return &#123;      name: &#39;House&#39;    &#125;  &#125;,  filters: &#123;    prepend: (name, prefix) &#x3D;&gt; &#123;      return &#96;$&#123;prefix&#125; $&#123;name&#125;&#96;    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>如果将参数传递给过滤器，则传递给过滤器函数的第一个参数始终是模板插值中的项（<code>name</code>在这种情况下），然后是传递的显式参数。</p>
+<p>您可以通过使用逗号分隔多个参数来使用它们。</p>
+<p>注意，我使用了箭头功能。通常，我们避免在方法和计算属性中使用箭头函数，因为它们几乎总是引用<code>this</code>来访问组件数据。但是在这种情况下，过滤器不需要访问，<code>this</code>而是通过参数接收它需要的所有数据，并且我们可以安全地使用更简单的箭头函数语法。</p>
+<p><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/vue2-filters">这个包</a>有很多预先制成的过滤器，为您的模板，其中包括直接使用<code>capitalize</code>，<code>uppercase</code>，<code>lowercase</code>，<code>placeholder</code>，<code>truncate</code>，<code>currency</code>，<code>pluralize</code>等等。</p>
+<h3 id="组件之间的通讯"><a href="#组件之间的通讯" class="headerlink" title="组件之间的通讯"></a>组件之间的通讯</h3><p>Vue中的组件可以通过各种方式进行通信。</p>
+<h4 id="使用道具"><a href="#使用道具" class="headerlink" title="使用道具"></a>使用道具</h4><p>第一种方法是使用道具。</p>
+<p>父级通过在组件声明中添加参数来“传递”数据：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;div&gt;    &lt;Car color&#x3D;&quot;green&quot; &#x2F;&gt;  &lt;&#x2F;div&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;import Car from &#39;.&#x2F;components&#x2F;Car&#39;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;  name: &#39;App&#39;,  components: &#123;    Car  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>道具是单向的：从父母到孩子。每当父母更改道具时，新值就会发送给孩子并重新渲染。</p>
+<p>反之则不成立，您永远都不应在子组件内部变异道具。</p>
+<h4 id="使用事件从孩子与父母沟通"><a href="#使用事件从孩子与父母沟通" class="headerlink" title="使用事件从孩子与父母沟通"></a>使用事件从孩子与父母沟通</h4><p>通过事件，您可以从孩子到父母进行交流：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  name: &#39;Car&#39;,  methods: &#123;    handleClick: function() &#123;      this.$emit(&#39;clickedSomething&#39;)    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p><code>v-on</code>当组件在其模板中包含组件时，父级可以使用指令截获此消息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;div&gt;    &lt;Car v-on:clickedSomething&#x3D;&quot;handleClickInParent&quot; &#x2F;&gt;    &lt;!-- or --&gt;    &lt;Car @clickedSomething&#x3D;&quot;handleClickInParent&quot; &#x2F;&gt;  &lt;&#x2F;div&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  name: &#39;App&#39;,  methods: &#123;    handleClickInParent: function() &#123;      &#x2F;&#x2F;...    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>您当然可以传递参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  name: &#39;Car&#39;,  methods: &#123;    handleClick: function() &#123;      this.$emit(&#39;clickedSomething&#39;, param1, param2)    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>并从父级检索它们：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;div&gt;    &lt;Car v-on:clickedSomething&#x3D;&quot;handleClickInParent&quot; &#x2F;&gt;    &lt;!-- or --&gt;    &lt;Car @clickedSomething&#x3D;&quot;handleClickInParent&quot; &#x2F;&gt;  &lt;&#x2F;div&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  name: &#39;App&#39;,  methods: &#123;    handleClickInParent: function(param1, param2) &#123;      &#x2F;&#x2F;...    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="使用事件总线在任何组件之间进行通信"><a href="#使用事件总线在任何组件之间进行通信" class="headerlink" title="使用事件总线在任何组件之间进行通信"></a>使用事件总线在任何组件之间进行通信</h4><p>使用事件，您不仅限于儿童与父母之间的关系。您可以使用所谓的事件总线。</p>
+<p>上面我们曾经<code>this.$emit</code>在组件实例上发出一个事件。</p>
+<p>相反，我们可以做的是在更易于访问的组件上发出事件。</p>
+<p><code>this.$root</code>根组件，通常用于此目的。</p>
+<p>您还可以创建专用于此作业的Vue组件，然后将其导入所需的位置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  name: &#39;Car&#39;,  methods: &#123;    handleClick: function() &#123;      this.$root.$emit(&#39;clickedSomething&#39;)    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>任何其他组件都可以侦听此事件。您可以在<code>mounted</code>回调中执行此操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  name: &#39;App&#39;,  mounted() &#123;    this.$root.$on(&#39;clickedSomething&#39;, () &#x3D;&gt; &#123;      &#x2F;&#x2F;...    &#125;)  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这就是Vue开箱即用的功能。</p>
+<p>当您超出此范围时，可以查看Vuex或其他第三部分库。</p>
+<h3 id="使用Vuex管理状态"><a href="#使用Vuex管理状态" class="headerlink" title="使用Vuex管理状态"></a>使用Vuex管理状态</h3><p>Vuex是Vue.js的官方状态管理库。</p>
+<p>它的工作是在应用程序的各个组件之间共享数据。</p>
+<p>开箱即用的Vue.js中的组件可以使用</p>
+<ul>
+<li>道具，将状态从父级传递到子级组件</li>
+<li>事件，以从子级更改父组件的状态，或将根组件用作事件总线</li>
+</ul>
+<p>有时候事情变得比这些简单的选项所允许的更为复杂。</p>
+<p>在这种情况下，一个好的选择是将状态集中在一个存储中。这就是Vuex所做的。</p>
+<h4 id="为什么要使用Vuex？"><a href="#为什么要使用Vuex？" class="headerlink" title="为什么要使用Vuex？"></a>为什么要使用Vuex？</h4><p>Vuex不是您可以在Vue中使用的唯一状态管理选项（您也可以使用<a target="_blank" rel="noopener" href="https://medium.com/@quincylarson/17a99705b8e1">Redux</a>），但是它的主要优点是它是官方的，并且与Vue.js的集成才使它发光。</p>
+<p>使用React，您将不得不选择众多可用库中的一种，因为该生态系统庞大且没有实际标准。最近，Redux是最受欢迎的选择，<a target="_blank" rel="noopener" href="https://mobx.js.org/getting-started.html">MobX</a>在人气方面<a target="_blank" rel="noopener" href="https://mobx.js.org/getting-started.html">紧随</a>其后。有了Vue，我想说的就是，除了Vuex之外，您无需四处寻找其他东西，尤其是在入门时。</p>
+<p>Vuex从React生态系统中借鉴了许多想法，因为这是Redux流行的Flux模式。</p>
+<p>如果您已经了解Flux或Redux，那么Vuex将非常熟悉。如果您不这样做，那就没问题-我将彻底解释每个概念。</p>
+<p>Vue应用程序中的组件可以具有自己的状态。例如，一个输入框将在本地存储输入到其中的数据。这非常好，即使使用Vuex，组件也可以具有局部状态。</p>
+<p>您知道开始进行大量工作来传递状态时需要Vuex之类的东西。</p>
+<p>在这种情况下，Vuex为状态提供了一个中央存储库，您可以通过请求状态来对状态进行更改。</p>
+<p>依赖于状态的特定部分的每个组件都将使用商店中的getter来访问它，以确保在状态发生变化时立即对其进行更新。</p>
+<p>使用Vuex会给应用程序带来一些复杂性，因为需要以某种方式进行设置才能正常工作。但是，如果这有助于解决过于复杂的杂乱无章的道具传递和事件系统（如果变得过于复杂，则可能会变成意大利面条），那么这是一个不错的选择。</p>
+<h4 id="开始吧"><a href="#开始吧" class="headerlink" title="开始吧"></a>开始吧</h4><p>在此示例中，我从Vue CLI应用程序开始。通过直接将Vuex加载到脚本标签中，也可以使用它。但是，由于Vuex更适合大型应用程序，因此您很有可能会在结构化的应用程序上使用它，例如可以通过Vue CLI快速启动的应用程序。</p>
+<p>我使用的示例将放在CodeSandbox中，它是一项很棒的服务，具有准备就绪的Vue CLI <a target="_blank" rel="noopener" href="https://codesandbox.io/s/vue">示例</a>。我建议使用它来玩耍。</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/hoB1Mu8Q1Py50t5Es5EKze26BsJOApMhEWVh"></p>
+<p>到达之后，单击“添加依赖项”按钮，输入“ vuex”，然后单击它。</p>
+<p>现在，Vuex将列在项目依赖项中。</p>
+<p>要在本地安装Vuex，您可以简单地运行<code>npm install vuex</code>或<code>yarn add vuex</code>在项目文件夹中。</p>
+<h4 id="创建Vuex商店"><a href="#创建Vuex商店" class="headerlink" title="创建Vuex商店"></a>创建Vuex商店</h4><p>现在，我们准备创建Vuex商店。</p>
+<p>该文件可以放在任何地方。通常建议将其放入<code>src/store/store.js</code>文件中，因此我们将这样做。</p>
+<p>在此文件中，我们初始化Vuex并告诉Vue使用它：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &#39;vue&#39;import Vuex from &#39;vuex&#39;</span><br><span class="line">&#96;&#96;&#96;   </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Vue.use(Vuex)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<p>export const store = new Vuex.Store({})</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">![](https:&#x2F;&#x2F;cdn-media-1.freecodecamp.org&#x2F;images&#x2F;p2kPCCKdhaHsHfXd4Nti975YVgvKMnbHbMRd)</span><br><span class="line"></span><br><span class="line">我们导出使用&#96;Vuex.Store()&#96;API 创建的Vuex存储对象。</span><br><span class="line"></span><br><span class="line">#### 商店的用例</span><br><span class="line"></span><br><span class="line">现在我们有了一个框架，让我们提出一个关于Vuex的好用例的想法，以便我介绍它的概念。</span><br><span class="line"></span><br><span class="line">例如，我有两个同级组件，一个带有一个输入字段，另一个打印该输入字段的内容。</span><br><span class="line"></span><br><span class="line">当输入字段更改时，我还要更改第二个组件中的内容。非常简单，但这将为我们完成工作。</span><br><span class="line"></span><br><span class="line">#### 介绍我们需要的新组件</span><br><span class="line"></span><br><span class="line">我删除HelloWorld组件，并添加一个Form组件和一个Display组件。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><template>  <div>    <label for="flavor">Favorite ice cream flavor?</label>    <input name="flavor">  </div></template></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;&#96;</span><br><span class="line">&lt;template&gt;  &lt;div&gt;    &lt;p&gt;You chose ???&lt;&#x2F;p&gt;  &lt;&#x2F;div&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="将这些组件添加到应用程序"><a href="#将这些组件添加到应用程序" class="headerlink" title="将这些组件添加到应用程序"></a>将这些组件添加到应用程序</h4><p>我们将它们添加到<code>App.vue</code>代码中，而不是HelloWorld组件中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;div id&#x3D;&quot;app&quot;&gt;    &lt;Form&#x2F;&gt;    &lt;Display&#x2F;&gt;  &lt;&#x2F;div&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;import Form from &#39;.&#x2F;components&#x2F;Form&#39;import Display from &#39;.&#x2F;components&#x2F;Display&#39;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;  name: &#39;App&#39;,  components: &#123;    Form,    Display  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="将状态添加到商店"><a href="#将状态添加到商店" class="headerlink" title="将状态添加到商店"></a>将状态添加到商店</h4><p>因此，有了这个，我们回到store.js文件。我们向名为的商店添加了一个属性，该属性<code>state</code>是一个包含该<code>flavor</code>属性的对象。最初是一个空字符串。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &#39;vue&#39;import Vuex from &#39;vuex&#39;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.use(Vuex)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export const store &#x3D; new Vuex.Store(&#123;  state: &#123;    flavor: &#39;&#39;  &#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>当用户在输入字段中键入内容时，我们将对其进行更新。</p>
+<h4 id="添加突变"><a href="#添加突变" class="headerlink" title="添加突变"></a>添加突变</h4><p>除非使用突变，否则无法操纵状态。我们设置了一个突变，该突变将在<code>Form</code>组件内部用于通知商店状态应该更改。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &#39;vue&#39;import Vuex from &#39;vuex&#39;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.use(Vuex)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export const store &#x3D; new Vuex.Store(&#123;  state: &#123;    flavor: &#39;&#39;  &#125;,  mutations: &#123;    change(state, flavor) &#123;      state.flavor &#x3D; flavor    &#125;  &#125;&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="添加获取器以引用状态属性"><a href="#添加获取器以引用状态属性" class="headerlink" title="添加获取器以引用状态属性"></a>添加获取器以引用状态属性</h4><p>设置好之后，我们需要添加一种查看状态的方法。我们使用吸气剂。我们为该<code>flavor</code>属性设置了一个吸气剂：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &#39;vue&#39;import Vuex from &#39;vuex&#39;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.use(Vuex)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export const store &#x3D; new Vuex.Store(&#123;  state: &#123;    flavor: &#39;&#39;  &#125;,  mutations: &#123;    change(state, flavor) &#123;      state.flavor &#x3D; flavor    &#125;  &#125;,  getters: &#123;    flavor: state &#x3D;&gt; state.flavor  &#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>注意<code>getters</code>对象如何。<code>flavor</code>是此对象的属性，该对象接受状态作为参数，并返回<code>flavor</code>状态的属性。</p>
+<h4 id="将Vuex商店添加到应用程序"><a href="#将Vuex商店添加到应用程序" class="headerlink" title="将Vuex商店添加到应用程序"></a>将Vuex商店添加到应用程序</h4><p>现在该商店已准备就绪，可以使用。我们回到应用程序代码，在main.js文件中，我们需要导入状态并将其在我们的Vue应用程序中可用。</p>
+<p>我们增加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#123; store &#125; from &#39;.&#x2F;store&#x2F;store&#39;</span><br></pre></td></tr></table></figure>
+
+<p>并将其添加到Vue应用程序中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new Vue(&#123;  el: &#39;#app&#39;,  store,  components: &#123; App &#125;,  template: &#39;&lt;App&#x2F;&gt;&#39;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>一旦添加它，由于这是主要的Vue组件，因此<code>store</code>每个Vue组件中的变量都将指向Vuex存储。</p>
+<h4 id="使用提交更新用户操作的状态"><a href="#使用提交更新用户操作的状态" class="headerlink" title="使用提交更新用户操作的状态"></a>使用提交更新用户操作的状态</h4><p>让我们在用户键入内容时更新状态。</p>
+<p>我们通过使用<code>store.commit()</code>API来实现。</p>
+<p>但是首先，让我们创建一个在输入内容更改时调用的方法。我们使用<code>@input</code>而不是<code>@change</code>因为后者仅在焦点移离输入框时触发，而<code>@input</code>每次按键时都会调用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;div&gt;    &lt;label for&#x3D;&quot;flavor&quot;&gt;Favorite ice cream flavor?&lt;&#x2F;label&gt;    &lt;input @input&#x3D;&quot;changed&quot; name&#x3D;&quot;flavor&quot;&gt;  &lt;&#x2F;div&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  methods: &#123;    changed: function(event) &#123;      alert(event.target.value)    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>现在我们有了风味的价值，我们使用Vuex API：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;export default &#123;  methods: &#123;    changed: function(event) &#123;      this.$store.commit(&#39;change&#39;, event.target.value)    &#125;  &#125;&#125;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>看看我们如何使用来引用商店<code>this.$store</code>？这是由于<code>store</code>在主Vue组件初始化中包含了该对象。</p>
+<p>该<code>commit()</code>方法接受一个突变名称（我们<code>change</code>在Vuex存储中使用了）和一个有效负载，这些负载将作为其回调函数的第二个参数传递给该突变。</p>
+<h4 id="使用吸气剂打印状态值"><a href="#使用吸气剂打印状态值" class="headerlink" title="使用吸气剂打印状态值"></a>使用吸气剂打印状态值</h4><p>现在，我们需要通过使用在Display模板中引用此值的getter <code>$store.getters.flavor</code>。<code>this</code>可以删除，因为我们在模板中，并且<code>this</code>是隐式的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;div&gt;    &lt;p&gt;You chose &#123;.&#123; $store.getters.flavor &#125;&#125;&lt;&#x2F;p&gt;  &lt;&#x2F;div&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+
+<p>完整的有效源代码可<a target="_blank" rel="noopener" href="https://codesandbox.io/s/zq7k7nkzkm">在此处获得</a>。</p>
+<p>这个难题中仍然缺少许多概念：</p>
+<ul>
+<li>行动</li>
+<li>模组</li>
+<li>帮手</li>
+<li>外挂程式</li>
+</ul>
+<p>但是现在您有了基本知识，可以在官方文档中阅读它们。</p>
+<h3 id="使用Vue路由器处理URL"><a href="#使用Vue路由器处理URL" class="headerlink" title="使用Vue路由器处理URL"></a>使用Vue路由器处理URL</h3><p>在JavaScript Web应用程序中，路由器是将当前显示的视图与浏览器地址栏内容同步的部分。</p>
+<p>换句话说，这是使您在单击页面中的某些内容时更改URL的部分，并有助于在您单击特定的URL时显示正确的视图。</p>
+<p>传统上，Web是围绕URL构建的。当您点击某个URL时，将显示一个特定页面。</p>
+<p>随着在浏览器中运行的应用程序的引入并改变了用户的外观，许多应用程序中断了这种交互，因此您必须使用浏览器的History API手动更新URL。</p>
+<p>当您需要将URL同步到应用程序中的视图时，需要一个路由器。这是非常普遍的需求，现在所有主要的现代框架都允许您管理路由。</p>
+<p>Vue路由器库是用于Vue.js应用程序的方式。Vue不强制使用此库。您可以使用任何所需的通用路由库，也可以创建自己的History API集成，但是使用Vue Router的好处是它是官方的。</p>
+<p>这意味着它由维护Vue的同一个人维护，因此您将在框架中获得更一致的集成，并保证无论将来如何，它始终是兼容的。</p>
+<h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h4><p>Vue Router可以通过名为npm的软件包通过npm获得<code>vue-router</code>。</p>
+<p>如果通过脚本标签使用Vue，则可以使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;unpkg.com&#x2F;vue-router&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://unpkg.com/#/">UNPKG</a>是一个非常方便的工具，它可以通过简单的链接在浏览器中提供每个npm软件包。</p>
+<p>如果使用Vue CLI，请使用以下命令进行安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-router</span><br></pre></td></tr></table></figure>
+
+<p><code>vue-router</code>使用脚本标签或通过Vue CLI 安装并使其可用后，现在可以将其导入应用程序中。</p>
+<p>您在之后导入它<code>vue</code>，然后调用<code>Vue.use(VueRouter)</code>将其<strong>安装</strong>在应用程序中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &#39;vue&#39;import VueRouter from &#39;vue-router&#39;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.use(VueRouter)</span><br></pre></td></tr></table></figure>
+
+<p>调用<code>Vue.use()</code>传递路由器对象后，在应用程序的任何组件中您都可以访问以下对象：</p>
+<ul>
+<li><code>this.$router</code> 是路由器对象</li>
+<li><code>this.$route</code> 是当前路线对象</li>
+</ul>
+<h4 id="路由器对象"><a href="#路由器对象" class="headerlink" title="路由器对象"></a>路由器对象</h4><p><code>this.$router</code>当Vue路由器安装在根Vue组件中时，可以使用任何组件访问该路由器对象，这些对象具有许多不错的功能。</p>
+<p>我们可以使用以下方法使应用导航到新路线</p>
+<ul>
+<li><code>this.$router.push()</code></li>
+<li><code>this.$router.replace()</code></li>
+<li><code>this.$router.go()</code></li>
+</ul>
+<p>这类似于<code>pushState</code>，<code>replaceState</code>和<code>go</code>历史API的方法。</p>
+<ul>
+<li><code>push()</code> 用于转到新路线，将新项目添加到浏览器历史记录中</li>
+<li><code>replace()</code> 是相同的，只是它不会将新状态推向历史记录</li>
+</ul>
+<p>用法样本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$router.push(&#39;about&#39;) &#x2F;&#x2F;named route, see laterthis.$router.push(&#123; path: &#39;about&#39; &#125;)this.$router.push(&#123; path: &#39;post&#39;, query: &#123; post_slug: &#39;hello-world&#39; &#125; &#125;) &#x2F;&#x2F;using query parameters (post?post_slug&#x3D;hello-world)this.$router.replace(&#123; path: &#39;about&#39; &#125;)</span><br></pre></td></tr></table></figure>
+
+<p><code>go()</code> 来回移动，接受可以在历史记录中返回的正数或负数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$router.go(-1) &#x2F;&#x2F;go back 1 stepthis.$router.go(1) &#x2F;&#x2F;go forward 1 step</span><br></pre></td></tr></table></figure>
+<h4 id="定义路线"><a href="#定义路线" class="headerlink" title="定义路线"></a>定义路线</h4><p>在此示例中，我正在使用Vue单个文件组件。</p>
+<p>在模板中，我使用了一个<code>nav</code>标签，该标签包含三个<code>router-link</code>组件，分别具有标签Home，Login和About。URL通过<code>to</code>属性分配。</p>
+<p><code>router-view</code>Vue路由器将在该组件中放置与当前URL匹配的内容。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;div id&#x3D;&quot;app&quot;&gt;    &lt;nav&gt;      &lt;router-link to&#x3D;&quot;&#x2F;&quot;&gt;Home&lt;&#x2F;router-link&gt;      &lt;router-link to&#x3D;&quot;&#x2F;login&quot;&gt;Login&lt;&#x2F;router-link&gt;      &lt;router-link to&#x3D;&quot;&#x2F;about&quot;&gt;About&lt;&#x2F;router-link&gt;    &lt;&#x2F;nav&gt;    &lt;router-view&gt;&lt;&#x2F;router-view&gt;  &lt;&#x2F;div&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+
+<p>一个<code>router-link</code>组件显示的<code>a</code>默认标签（你可以改变）。每次更改路线时，通过单击链接或更改URL，都会将一个<code>router-link-active</code>类添加到引用活动路线的元素中，以设置其样式。</p>
+<p>在JavaScript部分，我们首先包括并安装路由器，然后定义三个路由组件。</p>
+<p>我们将它们传递给<code>router</code>对象的初始化，然后将此对象传递给Vue根实例。</p>
+<p>这是代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;import Vue from &#39;vue&#39;import VueRouter from &#39;vue-router&#39;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.use(Router)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const Home  &#x3D; &#123;  template: &#39;&lt;div&gt;Home&lt;&#x2F;div&gt;&#39;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const Login &#x3D; &#123;  template: &#39;&lt;div&gt;Login&lt;&#x2F;div&gt;&#39;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const About &#x3D; &#123;  template: &#39;&lt;div&gt;About&lt;&#x2F;div&gt;&#39;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const router &#x3D; new VueRouter(&#123;  routes: [    &#123; path: &#39;&#x2F;&#39;, component: Home &#125;,    &#123; path: &#39;&#x2F;login&#39;, component: Login &#125;,    &#123; path: &#39;&#x2F;about&#39;, component: About &#125;  ]&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new Vue(&#123;  router&#125;).$mount(&#39;#app&#39;)&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>通常，在Vue应用程序中，您可以使用以下方法实例化并挂载根应用程序：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new Vue(&#123;  render: h &#x3D;&gt; h(App)&#125;).$mount(&#39;#app&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>使用Vue路由器时，您不会传递<code>render</code>属性，而是使用<code>router</code>。</p>
+<p>上例中使用的语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new Vue(&#123;  router&#125;).$mount(&#39;#app&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>是以下内容的简写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new Vue(&#123;  router: router&#125;).$mount(&#39;#app&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>在示例中看到，我们将<code>routes</code>数组传递给<code>VueRouter</code>构造函数。此数组中的每个路由都有<code>path</code>和<code>component</code>参数。</p>
+<p>如果您也通过了<code>name</code>参数，那么您将具有命名路线。</p>
+<h4 id="使用命名的路由将参数传递到路由器的推入和替换方法"><a href="#使用命名的路由将参数传递到路由器的推入和替换方法" class="headerlink" title="使用命名的路由将参数传递到路由器的推入和替换方法"></a>使用命名的路由将参数传递到路由器的推入和替换方法</h4><p>还记得我们以前如何使用Router对象推送新状态吗？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$router.push(&#123; path: &#39;about&#39; &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>使用命名路由，我们可以将参数传递给新路由：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$router.push(&#123; name: &#39;post&#39;, params: &#123; post_slug: &#39;hello-world&#39; &#125; &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>同样适用于<code>replace()</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$router.replace(&#123; name: &#39;post&#39;, params: &#123; post_slug: &#39;hello-world&#39; &#125; &#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="当用户点击一个-router-link"><a href="#当用户点击一个-router-link" class="headerlink" title="当用户点击一个 router-link?"></a>当用户点击一个 <code>router-link?</code></h4><p>该应用程序将呈现与传递给链接的URL匹配的路由组件。</p>
+<p>实例化处理URL的新路由组件，并调用其防护措施，旧的路由组件将被销毁。</p>
+<h4 id="路线守卫"><a href="#路线守卫" class="headerlink" title="路线守卫"></a>路线守卫</h4><p>既然我们提到了守卫，让我们对其进行介绍。</p>
+<p>您可以将它们视为生命周期挂钩或中间件。这些是在应用程序执行期间的特定时间调用的函数。您可以加入并更改路由的执行，重定向或简单地取消请求。</p>
+<p>您可以通过向路由器的<code>beforeEach()</code>and <code>afterEach()</code>属性添加回调来获得全局保护。</p>
+<ul>
+<li><code>beforeEach()</code> 在确认导航之前调用</li>
+<li><code>beforeResolve()</code>在<code>beforeEach()</code>执行并调用所有组件<code>beforeRouterEnter</code>和<code>beforeRouteUpdate</code>防护时但在确认导航之前调用。最后检查。</li>
+<li><code>afterEach()</code> 导航确认后调用</li>
+</ul>
+<p>“导航已确认”是什么意思？我们将在一秒钟内看到它。同时，将其视为“应用程序可以走那条路”。</p>
+<p>用法是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$router.beforeEach((to, from, next) &#x3D;&gt; &#123;  &#x2F;&#x2F; ...&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$router.afterEach((to, from) &#x3D;&gt; &#123;  &#x2F;&#x2F; ...&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><code>to</code>并<code>from</code>代表我们往返的路线对象。</p>
+<p><code>beforeEach</code>有一个附加参数<code>next</code>，如果我们调用<code>false</code>作为参数，它将阻止导航并导致其不确定。</p>
+<p>就像在Node中间件中一样，如果您熟悉的话，<code>next()</code>应始终调用它，否则执行将被卡住。</p>
+<p>单路径组件还具有防护装置：</p>
+<ul>
+<li><code>beforeRouteEnter(from, to, next)</code> 在确认当前路线之前调用</li>
+<li><code>beforeRouteUpdate(from, to, next)</code>当路由更改但管理它的组件仍然相同时调用（使用动态路由，请参见<code>next</code>）</li>
+<li><code>beforeRouteLeave(from, to, next)</code> 当我们离开这里时被称为</li>
+</ul>
+<p>我们提到了导航。要确定是否确认导航到路线，Vue Router会执行一些检查：</p>
+<ul>
+<li>它会<code>beforeRouteLeave</code>在当前组件中发出警戒</li>
+<li>它称呼路由器<code>beforeEach()</code>守卫</li>
+<li>它调用<code>beforeRouteUpdate()</code>需要重用的任何组件（如果存在）</li>
+<li>它<code>beforeEnter()</code>在路由对象上调用了守卫（我没有提到它，但是您可以<a target="_blank" rel="noopener" href="https://router.vuejs.org/guide/advanced/navigation-guards.html#per-route-guard">在这里查看</a>）</li>
+<li>它调用了<code>beforeRouterEnter()</code>我们应该输入的组件</li>
+<li>它称呼路由器<code>beforeResolve()</code>守卫</li>
+<li>如果一切正常，导航已确认！</li>
+<li>它称呼路由器<code>afterEach()</code>守卫</li>
+</ul>
+<p>您可以使用路由的具体卫士（<code>beforeRouteEnter</code>和<code>beforeRouteUpdate</code>动态路由的情况下）的生命周期挂钩，这样你就可以开始进行数据抓取，例如请求。</p>
+<h4 id="动态路由"><a href="#动态路由" class="headerlink" title="动态路由"></a>动态路由</h4><p>以上示出了例如基于该URL不同的看法，处理<code>/</code>，<code>/login</code>和<code>/about</code>路由。</p>
+<p>一个非常普遍的需求是处理动态路由，例如将所有帖子都放在之下<code>/post/</code>，每个帖子都带有一个名字。</p>
+<ul>
+<li><code>/post/first</code></li>
+<li><code>/post/another-post</code></li>
+<li><code>/post/hello-world</code></li>
+</ul>
+<p>您可以使用动态细分来实现。</p>
+<p>这些是静态段：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const router &#x3D; new VueRouter(&#123;  routes: [    &#123; path: &#39;&#x2F;&#39;, component: Home &#125;,    &#123; path: &#39;&#x2F;login&#39;, component: Login &#125;,    &#123; path: &#39;&#x2F;about&#39;, component: About &#125;  ]&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>我们添加了一个动态细分来处理博客文章：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const router &#x3D; new VueRouter(&#123;  routes: [    &#123; path: &#39;&#x2F;&#39;, component: Home &#125;,    &#123; path: &#39;&#x2F;post&#x2F;:post_slug&#39;, component: Post &#125;,    &#123; path: &#39;&#x2F;login&#39;, component: Login &#125;,    &#123; path: &#39;&#x2F;about&#39;, component: About &#125;  ]&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>注意<code>:post_slug</code>语法。这意味着您可以使用任何字符串，并将其映射到<code>post_slug</code>占位符。</p>
+<p>您不仅限于这种语法。Vue依靠<a target="_blank" rel="noopener" href="https://github.com/pillarjs/path-to-regexp">此库</a>来解析动态路由，并且您可以使用正则表达式疯狂。</p>
+<p>现在，在“发布路线”组件内部，我们可以使用引用该路线<code>$route</code>，并使用<code>$route.params.post_slug</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const Post &#x3D; &#123;  template: &#39;&lt;div&gt;Post: &#123;.&#123; $route.params.post_slug &#125;&#125;&lt;&#x2F;div&gt;&#39;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以使用此参数从后端加载内容。</p>
+<p>在相同的URL中，您可以具有任意数量的动态细分：</p>
+<p><code>/post/:author/:post_slug</code></p>
+<p>还记得我们谈论用户导航到新路线时会发生什么情况吗？</p>
+<p>在动态路线的情况下，发生的情况有些不同。</p>
+<p>为了提高Vue的效率，它可以重用当前实例，而不是销毁当前路由组件并重新实例化它。</p>
+<p>发生这种情况时，Vue会调用<code>beforeRouteUpdate</code>生命周期事件。</p>
+<p>在那里您可以执行所需的任何操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const Post &#x3D; &#123;  template: &#39;&lt;div&gt;Post: &#123;.&#123; $route.params.post_slug &#125;&#125;&lt;&#x2F;div&gt;&#39;  beforeRouteUpdate(to, from, next) &#123;    console.log(&#96;Updating slug from $&#123;from&#125; to $&#123;to&#125;&#96;)    next() &#x2F;&#x2F;make sure you always call next()  &#125;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="使用道具-1"><a href="#使用道具-1" class="headerlink" title="使用道具"></a>使用道具</h4><p>在示例中，我曾经<code>$route.params.*</code>访问过路线数​​据。组件不应与路由器紧密耦合，而可以使用道具：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const Post &#x3D; &#123;  props: [&#39;post_slug&#39;],  template: &#39;&lt;div&gt;Post: &#123;.&#123; post_slug &#125;&#125;&lt;&#x2F;div&gt;&#39;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const router &#x3D; new VueRouter(&#123;  routes: [    &#123; path: &#39;&#x2F;post&#x2F;:post_slug&#39;, component: Post, props: true &#125;  ]&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>请注意<code>props: true</code>传递给route对象以启用此功能。</p>
+<h4 id="嵌套路线"><a href="#嵌套路线" class="headerlink" title="嵌套路线"></a>嵌套路线</h4><p>在我提到之前，您可以在同一URL中具有任意数量的动态细分，例如：</p>
+<p><code>/post/:author/:post_slug</code></p>
+<p>因此，假设我们有一个Author组件负责第一个动态段：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;  &lt;div id&#x3D;&quot;app&quot;&gt;    &lt;router-view&gt;&lt;&#x2F;router-view&gt;  &lt;&#x2F;div&gt;&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;import Vue from &#39;vue&#39;import VueRouter from &#39;vue-router&#39;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.use(Router)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const Author  &#x3D; &#123;  template: &#39;&lt;div&gt;Author: &#123;.&#123; $route.params.author&#125;&#125;&lt;&#x2F;div&gt;&#39;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const router &#x3D; new VueRouter(&#123;  routes: [    &#123; path: &#39;&#x2F;post&#x2F;:author&#39;, component: Author &#125;  ]&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new Vue(&#123;  router&#125;).$mount(&#39;#app&#39;)&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以<code>router-view</code>在Author模板中插入另一个组件实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const Author  &#x3D; &#123;  template: &#39;&lt;div&gt;Author: &#123;.&#123; $route.params.author&#125;&#125;&lt;router-view&gt;&lt;&#x2F;router-view&gt;&lt;&#x2F;div&gt;&#39;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们添加Post组件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const Post &#x3D; &#123;  template: &#39;&lt;div&gt;Post: &#123;.&#123; $route.params.post_slug &#125;&#125;&lt;&#x2F;div&gt;&#39;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后，我们将内部动态路由注入<code>VueRouter</code>配置中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const router &#x3D; new VueRouter(&#123;  routes: [&#123;    path: &#39;&#x2F;post&#x2F;:author&#39;,    component: Author,    children: [      path: &#39;:post_slug&#39;,      component: Post    ]  &#125;]&#125;)</span><br></pre></td></tr></table></figure></div><div class="article-licensing box"><div class="licensing-title"><p>Vue手册：Vue.js的完整介绍</p><p><a href="https://zshipu.com/2019/11/29/Vue%E6%89%8B%E5%86%8C%EF%BC%9AVue-js%E7%9A%84%E5%AE%8C%E6%95%B4%E4%BB%8B%E7%BB%8D/">https://zshipu.com/2019/11/29/Vue%E6%89%8B%E5%86%8C%EF%BC%9AVue-js%E7%9A%84%E5%AE%8C%E6%95%B4%E4%BB%8B%E7%BB%8D/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>知识铺</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2019-11-29</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2020-09-08</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=5f58e448b1477000121881fb&amp;product=inline-share-buttons" defer></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button is-info donate"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="/img/alipay.jpg" alt="支付宝"></span></a><a class="button is-success donate"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="/img/weixin.jpg" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2019/11/29/Next-js%E6%89%8B%E5%86%8C/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Next.js手册</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2019/11/27/Dos%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8E%E7%BC%80/"><span class="level-item">Dos批量修改文件后缀</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'https://zshipu.com/2019/11/29/Vue%E6%89%8B%E5%86%8C%EF%BC%9AVue-js%E7%9A%84%E5%AE%8C%E6%95%B4%E4%BB%8B%E7%BB%8D/';
+            this.page.identifier = '2019/11/29/Vue手册：Vue-js的完整介绍/';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');  
+            s.src = '//' + 'zsp' + '.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="https://www.gravatar.com/avatar/2396bdfe5aadb513e676094004dde830?s=128" alt="edwin"></figure><p class="title is-size-4 is-block line-height-inherit">edwin</p><p class="is-size-6 is-block">知识铺</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国 杭州</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">189</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">2</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/liliang8858" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/liliang8858"><i class="Github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="社区"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="设计"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/go/"><span class="level-start"><span class="level-item">go</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:43:02.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Spring%20Cloud%20Gateway+Nacos%EF%BC%8Cyml+properties%E4%B8%A4%E7%A7%8D%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%96%B9%E5%BC%8F%E6%90%AD%E5%BB%BA%E7%BD%91%E5%85%B3%E6%9C%8D%E5%8A%A1/">Spring Cloud Gateway+Nacos，yml+properties两种配置文件方式搭建网关服务</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:39:59.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Spring%20Cloud+nacos+Feign%EF%BC%8C%E5%AE%9E%E7%8E%B0%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%E5%8F%8A%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">Spring Cloud+nacos+Feign，实现注册中心及配置中心</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:32:26.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E6%97%B6%EF%BC%8C%E5%A4%9A%E4%B8%AA%E6%9C%8D%E5%8A%A1%E5%85%B1%E7%94%A8%E4%B8%80%E4%B8%AAdataId%E7%9A%84%E9%85%8D%E7%BD%AE/">Nacos作为配置中心时，多个服务共用一个dataId的配置</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T09:34:29.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/SpringCloudAlibaba(%E4%B8%89)%EF%BC%9A%E4%BD%BF%E7%94%A8Nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">SpringCloudAlibaba(三)：使用Nacos作为配置中心</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T09:31:53.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Nacos%20%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/">Nacos 集群部署</a></p><p class="is-uppercase"></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2020/07/"><span class="level-start"><span class="level-item">七月 2020</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/06/"><span class="level-start"><span class="level-item">六月 2020</span></span><span class="level-end"><span class="level-item tag">37</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/05/"><span class="level-start"><span class="level-item">五月 2020</span></span><span class="level-end"><span class="level-item tag">29</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/04/"><span class="level-start"><span class="level-item">四月 2020</span></span><span class="level-end"><span class="level-item tag">62</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/03/"><span class="level-start"><span class="level-item">三月 2020</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/12/"><span class="level-start"><span class="level-item">十二月 2019</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/11/"><span class="level-start"><span class="level-item">十一月 2019</span></span><span class="level-end"><span class="level-item tag">24</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/go/"><span class="tag">go</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/web/"><span class="tag">web</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button is-primary" type="submit" value="订阅"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="2183476622" data-ad-slot="pub-2874221941555456" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="知识铺" height="28"></a><p class="size-small"><span>&copy; 2020 知识铺</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            site: {
+                url: 'https://zshipu.com',
+                external_link: {"enable":true,"exclude":[]}
+            },
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

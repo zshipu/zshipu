@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Python 中的主要组件分析 - 分步指南 - 知识铺</title><meta description="主要组件分析是一种无监督机器学习技术，用于探索性数据分析。 更具体地说，数据科学家使用主要组件分析来转换数据集并确定对数据集影响最大的因素。 本教程将教您如何在 Python 中执行主要组件分析。 目录您可以使用下面的目录跳到此 Python 主体组件分析教程的特定部分：  我们将在本教程中使用库 我们将在本教程中使用数据集 执行我们的第一个主要组件转换 可视化我们的主要组件 到底是主要组成部分是"><meta property="og:type" content="blog"><meta property="og:title" content="Python 中的主要组件分析 - 分步指南"><meta property="og:url" content="https://zshipu.com/2020/06/21/Python%20%E4%B8%AD%E7%9A%84%E4%B8%BB%E8%A6%81%E7%BB%84%E4%BB%B6%E5%88%86%E6%9E%90%20-%20%E5%88%86%E6%AD%A5%E6%8C%87%E5%8D%97/"><meta property="og:site_name" content="知识铺"><meta property="og:description" content="主要组件分析是一种无监督机器学习技术，用于探索性数据分析。 更具体地说，数据科学家使用主要组件分析来转换数据集并确定对数据集影响最大的因素。 本教程将教您如何在 Python 中执行主要组件分析。 目录您可以使用下面的目录跳到此 Python 主体组件分析教程的特定部分：  我们将在本教程中使用库 我们将在本教程中使用数据集 执行我们的第一个主要组件转换 可视化我们的主要组件 到底是主要组成部分是"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://nickmccullum.com/images/python-machine-learning/principal-component-analysis/principal-component-analysis-scatterplot.png"><meta property="og:image" content="https://nickmccullum.com/images/python-machine-learning/principal-component-analysis/principal-component-analysis-scatterplot-with-color.png"><meta property="article:published_time" content="2020-06-21T03:29:05.000Z"><meta property="article:modified_time" content="2020-09-08T14:03:00.395Z"><meta property="article:author" content="知识铺"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://nickmccullum.com/images/python-machine-learning/principal-component-analysis/principal-component-analysis-scatterplot.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://zshipu.com/2020/06/21/Python%20%E4%B8%AD%E7%9A%84%E4%B8%BB%E8%A6%81%E7%BB%84%E4%BB%B6%E5%88%86%E6%9E%90%20-%20%E5%88%86%E6%AD%A5%E6%8C%87%E5%8D%97/"},"headline":"知识铺","image":["https://nickmccullum.com/images/python-machine-learning/principal-component-analysis/principal-component-analysis-scatterplot.png","https://nickmccullum.com/images/python-machine-learning/principal-component-analysis/principal-component-analysis-scatterplot-with-color.png"],"datePublished":"2020-06-21T03:29:05.000Z","dateModified":"2020-09-08T14:03:00.395Z","author":{"@type":"Person","name":"知识铺"},"description":"主要组件分析是一种无监督机器学习技术，用于探索性数据分析。 更具体地说，数据科学家使用主要组件分析来转换数据集并确定对数据集影响最大的因素。 本教程将教您如何在 Python 中执行主要组件分析。 目录您可以使用下面的目录跳到此 Python 主体组件分析教程的特定部分：  我们将在本教程中使用库 我们将在本教程中使用数据集 执行我们的第一个主要组件转换 可视化我们的主要组件 到底是主要组成部分是"}</script><link rel="canonical" href="https://zshipu.com/2020/06/21/Python%20%E4%B8%AD%E7%9A%84%E4%B8%BB%E8%A6%81%E7%BB%84%E4%BB%B6%E5%88%86%E6%9E%90%20-%20%E5%88%86%E6%AD%A5%E6%8C%87%E5%8D%97/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600&amp;family=Roboto+Mono"><link rel="stylesheet" href="/css/cyberpunk.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><script data-ad-client="2183476622" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><meta name="generator" content="Hexo 5.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="知识铺" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-06-21T03:29:05.000Z" title="2020-06-21T03:29:05.000Z">2020-06-21</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.395Z" title="2020-09-08T14:03:00.395Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">20 分钟读完 (大约2994个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">Python 中的主要组件分析 - 分步指南</h1><div class="content"><p>主要组件分析是一种无监督机器学习技术，用于探索性数据分析。</p>
+<p>更具体地说，数据科学家使用主要组件分析来转换数据集并确定对数据集影响最大的因素。</p>
+<p>本教程将教您如何在 Python 中执行主要组件分析。</p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>您可以使用下面的目录跳到此 Python 主体组件分析教程的特定部分：</p>
+<ul>
+<li><a href="https://zshipu.com/t?url=#the-libraries-we-will-be-using-in-this-tutorial">我们将在本教程中使用库</a></li>
+<li><a href="https://zshipu.com/t?url=#the-data-set-we-will-be-using-in-this-tutorial">我们将在本教程中使用数据集</a></li>
+<li><a href="https://zshipu.com/t?url=#performing-our-first-principal-component-transformation">执行我们的第一个主要组件转换</a></li>
+<li><a href="https://zshipu.com/t?url=#visualizing-our-principal-component">可视化我们的主要组件</a></li>
+<li><a href="https://zshipu.com/t?url=#what-the-heck-is-a-principal-component-anyway">到底是主要组成部分是什么？</a></li>
+<li><a href="https://zshipu.com/t?url=#how-to-use-principal-component-analysis-in-practice">在实践中如何使用主要组件分析</a></li>
+<li><a href="https://zshipu.com/t?url=#the-full-code-for-this-tutorial">本教程的完整代码</a></li>
+<li><a href="https://zshipu.com/t?url=#final-thoughts">最后的想法</a></li>
+</ul>
+<h2 id="我们将在本教程中使用库"><a href="#我们将在本教程中使用库" class="headerlink" title="我们将在本教程中使用库"></a>我们将在本教程中使用库</h2><p>本教程将使用许多开源软件库，包括NumPy、熊猫和matplotlib。</p>
+<p>因此，我们将通过添加以下导入来启动 Python 脚本：</p>
+<p>  <code>import pandas as pd</p>
+<p>import numpy as np</p>
+<p>import matplotlib.pyplot as plt</p>
+<p>import seaborn</p>
+<p>%matplotlib inline</code> </p>
+<p>接下来，让我们继续导入数据集。</p>
+<h2 id="我们将在本教程中使用数据集"><a href="#我们将在本教程中使用数据集" class="headerlink" title="我们将在本教程中使用数据集"></a>我们将在本教程中使用数据集</h2><p>在本课程的早些时候，您学习了如何在内置乳腺癌数据集上构建<a href="https://zshipu.com/t?url=https://nickmccullum.com/python-machine-learning/support-vector-machines-python/">支持载体机器</a>。<code>scikit-learn</code></p>
+<p>我们将在本教程中使用相同的数据集来了解主要组件分析。</p>
+<p>让我们通过加载函数开始导入此数据集。<code>scikit-learn``````load_breast_cancer</code></p>
+<p>  <code>from sklearn.datasets import load_breast_cancer</code> </p>
+<p>运行此函数时，它将生成数据集。让我们将数据集分配给一个变量：：<code>raw_data</code></p>
+<p>  <code>raw_data = load_breast_cancer()</code> </p>
+<p>如果运行以确定我们的变量是哪种类型的数据类型，它将返回 。这是属于 的特殊内置数据结构。<code>type(raw_data)``````raw_data``````sklearn.utils.Bunch``````scikit-learn</code></p>
+<p>幸运的是，此数据类型易于使用。事实上，它的行为类似于普通的<a href="https://zshipu.com/t?url=https://nickmccullum.com/python-course/dictionaries/">Python 字典。</a></p>
+<p>这个类似字典的对象的键之一是 。我们可以使用此键将数据集转换为熊猫数据帧，并具有以下语句：<code>data</code></p>
+<p>  <code>raw_data_frame = pd.DataFrame(raw_data['data'], columns = raw_data['feature_names'])</code> </p>
+<p>让我们通过打印来调查数据集包含的功能。这将生成：<code>raw_data_frame.columns</code></p>
+<p>  <code>Index(['mean radius', 'mean texture', 'mean perimeter', 'mean area',</p>
+<pre><code>   &#39;mean smoothness&#39;, &#39;mean compactness&#39;, &#39;mean concavity&#39;,
+
+   &#39;mean concave points&#39;, &#39;mean symmetry&#39;, &#39;mean fractal dimension&#39;,
+
+   &#39;radius error&#39;, &#39;texture error&#39;, &#39;perimeter error&#39;, &#39;area error&#39;,
+
+   &#39;smoothness error&#39;, &#39;compactness error&#39;, &#39;concavity error&#39;,
+
+   &#39;concave points error&#39;, &#39;symmetry error&#39;, &#39;fractal dimension error&#39;,
+
+   &#39;worst radius&#39;, &#39;worst texture&#39;, &#39;worst perimeter&#39;, &#39;worst area&#39;,
+
+   &#39;worst smoothness&#39;, &#39;worst compactness&#39;, &#39;worst concavity&#39;,
+
+   &#39;worst concave points&#39;, &#39;worst symmetry&#39;, &#39;worst fractal dimension&#39;],
+
+  dtype=&#39;object&#39;)&lt;/code&gt; </code></pre>
+<p>正如您所看到的，这是一个非常功能丰富的数据集。</p>
+<p>关于我们的数据集，最后需要注意的一个变量是，我们试图预测的变量——即特定的乳腺癌肿瘤是恶性还是良性——被放在关键项下的对象内。<code>raw_data``````target</code></p>
+<p>可以使用 访问目标值。值将用于恶性肿瘤和良性肿瘤。<code>raw_data[&#39;target&#39;]``````1``````0</code></p>
+<h2 id="执行我们的第一个主要组件转换"><a href="#执行我们的第一个主要组件转换" class="headerlink" title="执行我们的第一个主要组件转换"></a>执行我们的第一个主要组件转换</h2><p>正如我们在打印阵列时所看到的，我们的数据集具有许多功能。这使得使用传统可视化技术对数据集执行探索性数据分析变得困难。<code>raw_data_frame.columns</code></p>
+<p>为了解决这个问题，我们需要执行一个主组件转换，将我们的数据集转换为一个只有两个功能的功能，其中每个功能都是主要组件。</p>
+<p>首先，我们需要标准化我们的数据集。在机器学习中，仅指转换数据集中的所有观测值，使每个要素的大小大致相同的行为。<code>standardization</code></p>
+<p>我们使用 的类来执行此操作。我们需要做的第一件事是使用以下命令导入此类：<code>scikit-learn``````StandardScaler``````scikit-learn</code></p>
+<p>  <code>from sklearn.preprocessing import StandardScaler</code> </p>
+<p>接下来，我们需要创建此类的实例。我们将新创建的对象分配给名为 ： 的变量：<code>StandardScaler``````data_scaler</code></p>
+<p>  <code>data_scaler = StandardScaler()</code> </p>
+<p>现在，我们需要在本教程前面创建的数据集上训练变量。这让我们的对象能够观察数据集中每个要素的特征，以便它可以在本教程的后面部分将每个要素转换为相同的比例：<code>data_scaler``````raw_data_frame``````data_scaler</code></p>
+<p>  <code>data_scaler.fit(raw_data_frame)</code> </p>
+<p>我们的最后一步是调用对象上的方法。这将创建一个新的数据集，其中观测值已标准化。我们将将其分配给一个称为 的变量。<code>transform``````data_scaler``````scaled_data_frame</code></p>
+<p>  <code>scaled_data_frame = data_scaler.transform(raw_data_frame)</code> </p>
+<p>我们现在已经成功地标准化了乳腺癌数据集！</p>
+<p>现在是执行主要组件分析转换的时候了。</p>
+<p>我们需要做的第一件事是从 导入必要的类。下面是执行此操作的命令：<code>scikit-learn</code></p>
+<p>  <code>from sklearn.decomposition import PCA</code> </p>
+<p>现在我们需要创建此类的实例。为此，您需要指定主体组件的数量作为参数。我们将使用 2 个主要组件，因此类实例化命令如下所示：<code>PCA``````n_components</code></p>
+<p>  <code>pca = PCA(n_components = 2)</code> </p>
+<p>接下来，我们需要使用方法将模型拟合：<code>pca``````scaled_data_frame``````fit</code></p>
+<p>  <code>pca.fit(scaled_data_frame)</code> </p>
+<p>我们的主要组件分析模型现已创建，whch 意味着我们现在有一个模型，只需 2 个变量来解释原始数据集的一些方差。</p>
+<p>要查看此主体在操作中，运行以下命令：</p>
+<p>  <code>x_pca = pca.transform(scaled_data_frame)</p>
+<p>print(x_pca.shape)</p>
+<p>print(scaled_data_frame.shape)</code> </p>
+<p>这将返回：</p>
+<p>  <code>(569, 2)</p>
+<p>(569, 30)</code> </p>
+<p>正如您所看到的，我们已经将原始数据集从具有 30 个要素的数据集缩减为仅具有 2 个功能的主要组件的简单模型。</p>
+<h2 id="可视化我们的主要组件"><a href="#可视化我们的主要组件" class="headerlink" title="可视化我们的主要组件"></a>可视化我们的主要组件</h2><p>正如我们在本教程前面讨论的那样，几乎不可能从具有 30 个功能的数据集生成有意义的数据可视化效果。</p>
+<p>话虽如此，现在我们已经将数据集转换为 2 个主要组件，创建可视化效果非常简单。</p>
+<p>下面介绍如何从本教程中到目前为止使用的两个主要组件创建简单的散点图：</p>
+<p>  <code>plt.scatter(x_pca[:,0],x_pca[:,1])</p>
+<p>plt.xlabel(‘First Principal Component’)</p>
+<p>plt.ylabel(‘Second Principal Component’)</code> </p>
+<p>这将生成以下可视化效果：</p>
+<p><img src="https://nickmccullum.com/images/python-machine-learning/principal-component-analysis/principal-component-analysis-scatterplot.png" alt="A principal component analysis"></p>
+<p>此可视化显示每个数据点作为其第一个和第二个主要组件的函数。它不是非常有用的当前形式。</p>
+<p>让我们添加一个配色方案，根据它是恶性肿瘤还是良性肿瘤来修改每个数据点的颜色。以下代码可以操作：</p>
+<p>  <code>plt.scatter(x_pca[:,0],x_pca[:,1], c=raw_data['target'])</p>
+<p>plt.xlabel(‘First Principal Component’)</p>
+<p>plt.ylabel(‘Second Principal Component’)</code> </p>
+<p>这将生成：</p>
+<p><img src="https://nickmccullum.com/images/python-machine-learning/principal-component-analysis/principal-component-analysis-scatterplot-with-color.png" alt="A principal component analysis with color"></p>
+<p>正如您所看到的，仅使用 2 个主要成分即可准确划分基于恶性和良性肿瘤的数据集。</p>
+<p>换个说法，我们保持了对数据集进行准确预测的能力，但通过将原始数据集中的 30 个要素减少到现在的 2 个主要组件，大大提高了数据集的简单性。</p>
+<h2 id="到底是主要组成部分是什么？"><a href="#到底是主要组成部分是什么？" class="headerlink" title="到底是主要组成部分是什么？"></a>到底是主要组成部分是什么？</h2><p>在本教程（和上一个教程）中，我经常提到”主要组件”，但您可能仍然不确定这意味着什么。因此，我想花一些时间更好地解释主要组成部分的实际是什么。</p>
+<p>主要组件是数据集中原始要素的线性组合。换句话说，通过添加和减去数据集的原始特征来计算主体组件。</p>
+<p>您可以使用 生成这些线性组合的系数。只需键入，它将生成类似这样的内容：<code>scikit-learn``````pca.components_</code></p>
+<p>  <code>array([[ 0.21890244,  0.10372458,  0.22753729,  0.22099499,  0.14258969,</p>
+<pre><code>     0.23928535,  0.25840048,  0.26085376,  0.13816696,  0.06436335,
+
+     0.20597878,  0.01742803,  0.21132592,  0.20286964,  0.01453145,
+
+     0.17039345,  0.15358979,  0.1834174 ,  0.04249842,  0.10256832,
+
+     0.22799663,  0.10446933,  0.23663968,  0.22487053,  0.12795256,
+
+     0.21009588,  0.22876753,  0.25088597,  0.12290456,  0.13178394],
+
+   [-0.23385713, -0.05970609, -0.21518136, -0.23107671,  0.18611302,
+
+     0.15189161,  0.06016536, -0.0347675 ,  0.19034877,  0.36657547,
+
+    -0.10555215,  0.08997968, -0.08945723, -0.15229263,  0.20443045,
+
+     0.2327159 ,  0.19720728,  0.13032156,  0.183848  ,  0.28009203,
+
+    -0.21986638, -0.0454673 , -0.19987843, -0.21935186,  0.17230435,
+
+     0.14359317,  0.09796411, -0.00825724,  0.14188335,  0.27533947]])&lt;/code&gt; </code></pre>
+<p>这是一个二维 NumPy 数组，包含 2 行和 30 列。更具体地说，每个主体组件都有一行，原始数据集中的每个要素都有一列。此 NumPy 数组中的每个项的值对应于数据集中该特定要素上的系数。</p>
+<p>让我们以示例为例，调查第一个主体组件。它的前 2 个元素是 和 。这意味着用于计算此分量的方程看起来类似，并且此线性组合的其他系数可以在 NumPy 数组中找到。<code>0.21890244``````0.10372458``````0.21890244x1 + 0.10372458x2 + …``````pca.components_</code></p>
+<p>总之，主要组件分析是简单性和可解释性之间的权衡。</p>
+<p>使用它们大大提高了机器学习模型的简单性。</p>
+<p>但是，它们也会增加解释每个变量含义的难度，因为主要组件是数据集中实际实际变量的线性组合。</p>
+<h2 id="在实践中如何使用主要组件分析"><a href="#在实践中如何使用主要组件分析" class="headerlink" title="在实践中如何使用主要组件分析"></a>在实践中如何使用主要组件分析</h2><p>到目前为止，在本教程中，您已经学习了如何执行主要组件分析，将多功能数据集转换为仅包含主要组件的较小数据集。我们已经看到，这增加了简单性，但降低了可解释性。</p>
+<p>尽管您对主要组件分析有各种知识，但我们尚未对主要组件模型进行任何预测。</p>
+<p>这是有原因的。也就是说，主组件分析_must _be与分类模型（如逻辑回归或 k 最近邻域）结合使用，以做出有意义的预测。</p>
+<p>重要的是要牢记这一点向前发展。</p>
+<h2 id="本教程的完整代码"><a href="#本教程的完整代码" class="headerlink" title="本教程的完整代码"></a>本教程的完整代码</h2><p>您可以在<a href="https://zshipu.com/t?url=https://github.com/nicholasmccullum/python-machine-learning">此 GitHub 存储库</a>中查看本教程的完整代码。下面还粘贴如下，供参考：</p>
+<p> <code>import pandas as pd<br>import numpy as np</p>
+<p>import matplotlib.pyplot as plt<br>import seaborn<br>%matplotlib inline</p>
+<p>from sklearn.datasets import load_breast_cancer<br>raw_data = load_breast_cancer()</p>
+<p>raw_data_frame = pd.DataFrame(raw_data[‘data’], columns = raw_data[‘feature_names’])<br>raw_data_frame.columns</p>
+<p>#Standardize the data from sklearn.preprocessing import StandardScaler<br>data_scaler = StandardScaler()<br>data_scaler.fit(raw_data_frame)<br>scaled_data_frame = data_scaler.transform(raw_data_frame)</p>
+<p>#Perform the principal component analysis transformation from sklearn.decomposition import PCA<br>pca = PCA(n_components = 2)<br>pca.fit(scaled_data_frame)</p>
+<p>x_pca = pca.transform(scaled_data_frame)</p>
+<p>print(x_pca.shape)<br>print(scaled_data_frame.shape)</p>
+<p>#Visualize the principal components plt.scatter(x_pca[:,0],x_pca[:,1])<br>plt.xlabel(‘First Principal Component’)<br>plt.ylabel(‘Second Principal Component’)</p>
+<p>#Visualize the principal components with a color scheme plt.scatter(x_pca[:,0],x_pca[:,1], c=raw_data[‘target’])<br>plt.xlabel(‘First Principal Component’)<br>plt.ylabel(‘Second Principal Component’)</p>
+<p>#Investigating at the principal components pca.components_[0]</code> </p>
+<h2 id="最后的想法"><a href="#最后的想法" class="headerlink" title="最后的想法"></a>最后的想法</h2><p>在本教程中，您学习了如何在 Python 中执行主体组件分析。</p>
+<p>以下是我们讨论的主题的简要摘要：</p>
+<ul>
+<li>主要组件分析如何减少数据集中的要素数量</li>
+<li>主要组件如何是数据集原始特征的线性组合</li>
+<li>该主要组件分析必须与其他机器学习技术相结合，以便对实际数据集进行预测</li>
+</ul>
+</div><div class="article-licensing box"><div class="licensing-title"><p>Python 中的主要组件分析 - 分步指南</p><p><a href="https://zshipu.com/2020/06/21/Python%20%E4%B8%AD%E7%9A%84%E4%B8%BB%E8%A6%81%E7%BB%84%E4%BB%B6%E5%88%86%E6%9E%90%20-%20%E5%88%86%E6%AD%A5%E6%8C%87%E5%8D%97/">https://zshipu.com/2020/06/21/Python%20%E4%B8%AD%E7%9A%84%E4%B8%BB%E8%A6%81%E7%BB%84%E4%BB%B6%E5%88%86%E6%9E%90%20-%20%E5%88%86%E6%AD%A5%E6%8C%87%E5%8D%97/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>知识铺</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2020-06-21</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2020-09-08</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=5f58e448b1477000121881fb&amp;product=inline-share-buttons" defer></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button is-info donate"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="/img/alipay.jpg" alt="支付宝"></span></a><a class="button is-success donate"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="/img/weixin.jpg" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2020/06/25/GraphQL%20%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E7%B3%BB%E5%88%97%20%E4%B8%80/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">GraphQL 深入理解系列 一</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2020/06/21/K%20%E8%A1%A8%E7%A4%BA%20Python%20%E4%B8%AD%E7%9A%84%E7%BE%A4%E9%9B%86%20-%20%E5%88%86%E6%AD%A5%E6%8C%87%E5%8D%97/"><span class="level-item">K 表示 Python 中的群集 - 分步指南</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'https://zshipu.com/2020/06/21/Python%20%E4%B8%AD%E7%9A%84%E4%B8%BB%E8%A6%81%E7%BB%84%E4%BB%B6%E5%88%86%E6%9E%90%20-%20%E5%88%86%E6%AD%A5%E6%8C%87%E5%8D%97/';
+            this.page.identifier = '2020/06/21/Python 中的主要组件分析 - 分步指南/';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');  
+            s.src = '//' + 'zsp' + '.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="https://www.gravatar.com/avatar/2396bdfe5aadb513e676094004dde830?s=128" alt="edwin"></figure><p class="title is-size-4 is-block line-height-inherit">edwin</p><p class="is-size-6 is-block">知识铺</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国 杭州</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">189</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">2</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/liliang8858" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/liliang8858"><i class="Github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="社区"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="设计"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/go/"><span class="level-start"><span class="level-item">go</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:43:02.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Spring%20Cloud%20Gateway+Nacos%EF%BC%8Cyml+properties%E4%B8%A4%E7%A7%8D%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%96%B9%E5%BC%8F%E6%90%AD%E5%BB%BA%E7%BD%91%E5%85%B3%E6%9C%8D%E5%8A%A1/">Spring Cloud Gateway+Nacos，yml+properties两种配置文件方式搭建网关服务</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:39:59.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Spring%20Cloud+nacos+Feign%EF%BC%8C%E5%AE%9E%E7%8E%B0%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%E5%8F%8A%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">Spring Cloud+nacos+Feign，实现注册中心及配置中心</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:32:26.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E6%97%B6%EF%BC%8C%E5%A4%9A%E4%B8%AA%E6%9C%8D%E5%8A%A1%E5%85%B1%E7%94%A8%E4%B8%80%E4%B8%AAdataId%E7%9A%84%E9%85%8D%E7%BD%AE/">Nacos作为配置中心时，多个服务共用一个dataId的配置</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T09:34:29.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/SpringCloudAlibaba(%E4%B8%89)%EF%BC%9A%E4%BD%BF%E7%94%A8Nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">SpringCloudAlibaba(三)：使用Nacos作为配置中心</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T09:31:53.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Nacos%20%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/">Nacos 集群部署</a></p><p class="is-uppercase"></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2020/07/"><span class="level-start"><span class="level-item">七月 2020</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/06/"><span class="level-start"><span class="level-item">六月 2020</span></span><span class="level-end"><span class="level-item tag">37</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/05/"><span class="level-start"><span class="level-item">五月 2020</span></span><span class="level-end"><span class="level-item tag">29</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/04/"><span class="level-start"><span class="level-item">四月 2020</span></span><span class="level-end"><span class="level-item tag">62</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/03/"><span class="level-start"><span class="level-item">三月 2020</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/12/"><span class="level-start"><span class="level-item">十二月 2019</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/11/"><span class="level-start"><span class="level-item">十一月 2019</span></span><span class="level-end"><span class="level-item tag">24</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/go/"><span class="tag">go</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/web/"><span class="tag">web</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button is-primary" type="submit" value="订阅"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="2183476622" data-ad-slot="pub-2874221941555456" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="知识铺" height="28"></a><p class="size-small"><span>&copy; 2020 知识铺</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            site: {
+                url: 'https://zshipu.com',
+                external_link: {"enable":true,"exclude":[]}
+            },
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

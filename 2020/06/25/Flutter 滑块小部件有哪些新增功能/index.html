@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Flutter 滑块小部件有哪些新增功能 - 知识铺</title><meta description="Flutter 允许您创建美观的本机编译应用程序。Fluter之所以能做到这一点，是因为材料是一个设计系统，有助于建立高质量的数字体验。随着 UI 设计的不断发展，材料继续更新其组件、运动和设计系统。 Flutter 最近更新了 和 小部件到最新的材料指南。新的滑块的设计考虑到了更好的可访问性：轨道更高，拇指有阴影，并且值指示器具有新的形状和改进的文本缩放支持。 1[Slider](https:&amp;amp;"><meta property="og:type" content="blog"><meta property="og:title" content="Flutter 滑块小部件有哪些新增功能"><meta property="og:url" content="https://zshipu.com/2020/06/25/Flutter%20%E6%BB%91%E5%9D%97%E5%B0%8F%E9%83%A8%E4%BB%B6%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD/"><meta property="og:site_name" content="知识铺"><meta property="og:description" content="Flutter 允许您创建美观的本机编译应用程序。Fluter之所以能做到这一点，是因为材料是一个设计系统，有助于建立高质量的数字体验。随着 UI 设计的不断发展，材料继续更新其组件、运动和设计系统。 Flutter 最近更新了 和 小部件到最新的材料指南。新的滑块的设计考虑到了更好的可访问性：轨道更高，拇指有阴影，并且值指示器具有新的形状和改进的文本缩放支持。 1[Slider](https:&amp;amp;"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://miro.medium.com/max/56/0*neQ_0e28CgjA00W_?q=20"><meta property="og:image" content="https://miro.medium.com/max/546/0*neQ_0e28CgjA00W_"><meta property="og:image" content="https://miro.medium.com/max/1092/0*neQ_0e28CgjA00W_"><meta property="og:image" content="https://miro.medium.com/max/60/0*elEXE_pM0iEDuv_t?q=20"><meta property="og:image" content="https://miro.medium.com/max/960/0*elEXE_pM0iEDuv_t"><meta property="og:image" content="https://miro.medium.com/max/1920/0*elEXE_pM0iEDuv_t"><meta property="og:image" content="https://miro.medium.com/max/60/0*i3IWhVNFBB5OJEze?q=20"><meta property="og:image" content="https://miro.medium.com/max/538/0*i3IWhVNFBB5OJEze"><meta property="og:image" content="https://miro.medium.com/max/1076/0*i3IWhVNFBB5OJEze"><meta property="og:image" content="https://miro.medium.com/max/60/0*DEYZqsMMIdQWZ8mF?q=20"><meta property="og:image" content="https://miro.medium.com/max/960/0*DEYZqsMMIdQWZ8mF"><meta property="og:image" content="https://miro.medium.com/max/1920/0*DEYZqsMMIdQWZ8mF"><meta property="og:image" content="https://miro.medium.com/max/60/0*HviG9DqaeW84PJi5?q=20"><meta property="og:image" content="https://miro.medium.com/max/512/0*HviG9DqaeW84PJi5"><meta property="og:image" content="https://miro.medium.com/max/1024/0*HviG9DqaeW84PJi5"><meta property="og:image" content="https://miro.medium.com/max/60/0*f7ar1ek7C7pUx5cF?q=20"><meta property="og:image" content="https://miro.medium.com/max/1104/0*f7ar1ek7C7pUx5cF"><meta property="og:image" content="https://miro.medium.com/max/2208/0*f7ar1ek7C7pUx5cF"><meta property="og:image" content="https://miro.medium.com/max/60/0*dUrIA4k2wFu48rDe?q=20"><meta property="og:image" content="https://miro.medium.com/max/1198/0*dUrIA4k2wFu48rDe"><meta property="og:image" content="https://miro.medium.com/max/2396/0*dUrIA4k2wFu48rDe"><meta property="og:image" content="https://miro.medium.com/max/60/0*LNKN4lwqpBxQZ60A?q=20"><meta property="og:image" content="https://miro.medium.com/max/528/0*LNKN4lwqpBxQZ60A"><meta property="og:image" content="https://miro.medium.com/max/1056/0*LNKN4lwqpBxQZ60A"><meta property="og:image" content="https://miro.medium.com/max/60/0*q81pqrMZMWkCmRLF?q=20"><meta property="og:image" content="https://miro.medium.com/max/632/0*q81pqrMZMWkCmRLF"><meta property="og:image" content="https://miro.medium.com/max/1264/0*q81pqrMZMWkCmRLF"><meta property="og:image" content="https://miro.medium.com/max/60/0*qIoICKw6wo7NcwOW?q=20"><meta property="og:image" content="https://miro.medium.com/max/632/0*qIoICKw6wo7NcwOW"><meta property="og:image" content="https://miro.medium.com/max/1264/0*qIoICKw6wo7NcwOW"><meta property="og:image" content="https://miro.medium.com/max/60/0*PLNNQjK0_zOXok1A?q=20"><meta property="og:image" content="https://miro.medium.com/max/632/0*PLNNQjK0_zOXok1A"><meta property="og:image" content="https://miro.medium.com/max/1264/0*PLNNQjK0_zOXok1A"><meta property="og:image" content="https://miro.medium.com/max/60/0*j7DxUmBmRK7Ztd5A?q=20"><meta property="og:image" content="https://miro.medium.com/max/94/0*j7DxUmBmRK7Ztd5A"><meta property="og:image" content="https://miro.medium.com/max/188/0*j7DxUmBmRK7Ztd5A"><meta property="article:published_time" content="2020-06-25T11:17:07.000Z"><meta property="article:modified_time" content="2020-09-08T14:03:00.340Z"><meta property="article:author" content="知识铺"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://miro.medium.com/max/56/0*neQ_0e28CgjA00W_?q=20"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://zshipu.com/2020/06/25/Flutter%20%E6%BB%91%E5%9D%97%E5%B0%8F%E9%83%A8%E4%BB%B6%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD/"},"headline":"知识铺","image":[],"datePublished":"2020-06-25T11:17:07.000Z","dateModified":"2020-09-08T14:03:00.340Z","author":{"@type":"Person","name":"知识铺"},"description":"Flutter 允许您创建美观的本机编译应用程序。Fluter之所以能做到这一点，是因为材料是一个设计系统，有助于建立高质量的数字体验。随着 UI 设计的不断发展，材料继续更新其组件、运动和设计系统。 Flutter 最近更新了 和 小部件到最新的材料指南。新的滑块的设计考虑到了更好的可访问性：轨道更高，拇指有阴影，并且值指示器具有新的形状和改进的文本缩放支持。 1[Slider](https:&amp;"}</script><link rel="canonical" href="https://zshipu.com/2020/06/25/Flutter%20%E6%BB%91%E5%9D%97%E5%B0%8F%E9%83%A8%E4%BB%B6%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600&amp;family=Roboto+Mono"><link rel="stylesheet" href="/css/cyberpunk.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><script data-ad-client="2183476622" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><meta name="generator" content="Hexo 5.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="知识铺" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-06-25T11:17:07.000Z" title="2020-06-25T11:17:07.000Z">2020-06-25</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.340Z" title="2020-09-08T14:03:00.340Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">14 分钟读完 (大约2067个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">Flutter 滑块小部件有哪些新增功能</h1><div class="content"><p><font _mstmutation="1" _msthash="34229" _msttexthash="2001307386">Flutter 允许您创建美观的本机编译应用程序。Fluter之所以能做到这一点，是因为<a href="https://zshipu.com/t?url=https://material.io">材料</a>是一个设计系统，有助于建立高质量的数字体验。随着 UI 设计的不断发展，材料继续更新其组件、运动和设计系统。</font></p>
+<p><font _mstmutation="1" _msthash="28405" _msttexthash="1304914624">Flutter 最近更新了 和 小部件到最新的材料指南。新的滑块的设计考虑到了更好的可访问性：轨道更高，拇指有阴影，并且值指示器具有新的形状和改进的文本缩放支持。</font></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Slider](https:&#x2F;&#x2F;zshipu.com&#x2F;t?url&#x3D;https:&#x2F;&#x2F;api.flutter.dev&#x2F;flutter&#x2F;material&#x2F;Slider-class.html)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[RangeSlider](https:&#x2F;&#x2F;zshipu.com&#x2F;t?url&#x3D;https:&#x2F;&#x2F;api.flutter.dev&#x2F;flutter&#x2F;material&#x2F;RangeSlider-class.html)</span><br></pre></td></tr></table></figure>
+
+
+<p><font _mstmutation="1" _msthash="33917" _msttexthash="53819805">本文介绍了 对 和 部件的更改。</font></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Slider</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RangeSlider</span><br></pre></td></tr></table></figure>
+
+
+<p> <img src="https://miro.medium.com/max/56/0*neQ_0e28CgjA00W_?q=20"></p>
+<p><img src="https://miro.medium.com/max/546/0*neQ_0e28CgjA00W_"></p>
+<p><noscript><img src="https://miro.medium.com/max/1092/0*neQ_0e28CgjA00W_"></noscript></p>
+<h1 id="有什么新内容？"><a href="#有什么新内容？" class="headerlink" title="有什么新内容？"></a><font _mstmutation="1" _msthash="29198" _msttexthash="27910649">有什么新内容？</font></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Slider</span><br></pre></td></tr></table></figure>
+<p><font _mstmutation="1" _msthash="33696" _msttexthash="429707499">并更新，让您在使用这些小部件时获得更流畅的体验。此图演示了制作滑块小部件的五个不同的组件。</font></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RangeSlider</span><br></pre></td></tr></table></figure>
+
+
+<p> <img src="https://miro.medium.com/max/60/0*elEXE_pM0iEDuv_t?q=20"></p>
+<p><img src="https://miro.medium.com/max/960/0*elEXE_pM0iEDuv_t"></p>
+<p><noscript><img src="https://miro.medium.com/max/1920/0*elEXE_pM0iEDuv_t"></noscript></p>
+<p><font _mstmutation="1" _msthash="32344" _msttexthash="36459254">和 由五部分组成：</font></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Slider</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RangeSlider</span><br></pre></td></tr></table></figure>
+
+
+<ol>
+<li><font _mstmutation="1" _msthash="27846" _msttexthash="51132783">显示拇指值标签的值指示器</font></li>
+<li><font _mstmutation="1" _msthash="23101" _msttexthash="29336229">拇指滑过的轨迹</font></li>
+<li><font _mstmutation="1" _msthash="34671" _msttexthash="28862158">指示值位置的拇指</font></li>
+<li><font _mstmutation="1" _msthash="28574" _msttexthash="37808160">按下拇指时显示的叠加</font></li>
+<li><font _mstmutation="1" _msthash="28275" _msttexthash="58192030">滑块离散时，在轨道上打勾</font></li>
+</ol>
+<p><font _mstmutation="1" _msthash="22282" _msttexthash="108414111">注意：本文指的是两种不同类型的叠加：</font></p>
+<ul>
+<li><p><font _mstmutation="1" _msthash="34736" _msttexthash="60345181">该组件表示上图中提到的组件。</font></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OverlaySlider</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><font _mstmutation="1" _msthash="28730" _msttexthash="234396942">Flutter 的类用于在以下屏幕上显示的所有其他小部件上”浮动”小部件。</font></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Overlay</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h1 id="新的默认值指示器形状"><a href="#新的默认值指示器形状" class="headerlink" title="新的默认值指示器形状"></a><font _mstmutation="1" _msthash="28431" _msttexthash="41961400">新的默认值指示器形状</font></h1><p><font _mstmutation="1" _msthash="28106" _msttexthash="1673371609">旧滑块和新滑块小部件之间最大的视觉差异是默认值指示器：和 。这些指示器反映了材料的最新设计变化。旧的指示器形状是一个倒置的梨，新的形状更矩形，看起来像一个语音气泡。值指示器已更新为 和。</font></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[RectangularSliderValueIndicatorShape](https:&#x2F;&#x2F;zshipu.com&#x2F;t?url&#x3D;https:&#x2F;&#x2F;master-api.flutter.dev&#x2F;flutter&#x2F;material&#x2F;RectangularSliderValueIndicatorShape-class.html)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Slider</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[RectangularRangeSliderValueIndicatorShape](https:&#x2F;&#x2F;zshipu.com&#x2F;t?url&#x3D;https:&#x2F;&#x2F;master-api.flutter.dev&#x2F;flutter&#x2F;material&#x2F;RectangularRangeSliderValueIndicatorShape-class.html)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RangeSlider</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Slider</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RangeSlider</span><br></pre></td></tr></table></figure>
+
+
+<p> <img src="https://miro.medium.com/max/60/0*i3IWhVNFBB5OJEze?q=20"></p>
+<p><img src="https://miro.medium.com/max/538/0*i3IWhVNFBB5OJEze"></p>
+<p><noscript><img src="https://miro.medium.com/max/1076/0*i3IWhVNFBB5OJEze"></noscript></p>
+<h1 id="叠加上的值指示器绘制"><a href="#叠加上的值指示器绘制" class="headerlink" title="叠加上的值指示器绘制"></a><font _mstmutation="1" _msthash="29211" _msttexthash="37307556">叠加上的值指示器绘制</font></h1><p><font _mstmutation="1" _msthash="32760" _msttexthash="4619124172">更新的值指示器现在绘制在叠加上。这意味着指标不再局限于滑块的范围，可以在其他小部件上显示。这是预料之中的，因为指标仅在处理手势检测器时激活，这意味着它仅在用户与滑块交互时显示。通过将 与 、和 widgets 集成，值指示器可以显示在其他小部件上。要了解有关此机制的更多信息，请参阅<a href="https://zshipu.com/t?url=/flutter/how-to-float-an-overlay-widget-over-a-possibly-transformed-ui-widget-1d15ca7667b6">如何在（可能转换的）UI 小部件上浮动叠加小部件</a>。</font></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MediaQuery</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Overlay](https:&#x2F;&#x2F;zshipu.com&#x2F;t?url&#x3D;https:&#x2F;&#x2F;api.flutter.dev&#x2F;flutter&#x2F;widgets&#x2F;Overlay-class.html)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[CompositedTransformTarget](https:&#x2F;&#x2F;zshipu.com&#x2F;t?url&#x3D;https:&#x2F;&#x2F;api.flutter.dev&#x2F;flutter&#x2F;widgets&#x2F;CompositedTransformTarget-class.html)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[CompositedTransformFollower](https:&#x2F;&#x2F;zshipu.com&#x2F;t?url&#x3D;https:&#x2F;&#x2F;api.flutter.dev&#x2F;flutter&#x2F;widgets&#x2F;CompositedTransformFollower-class.html)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Layerlink](https:&#x2F;&#x2F;zshipu.com&#x2F;t?url&#x3D;https:&#x2F;&#x2F;api.flutter.dev&#x2F;flutter&#x2F;rendering&#x2F;LayerLink-class.html)</span><br></pre></td></tr></table></figure>
+
+
+<p><font _mstmutation="1" _msthash="28691" _msttexthash="78461617">下图显示了 和 小部件的制作方式：</font></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Slider</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RangeSlider</span><br></pre></td></tr></table></figure>
+
+
+<p> <img src="https://miro.medium.com/max/60/0*DEYZqsMMIdQWZ8mF?q=20"></p>
+<p><img src="https://miro.medium.com/max/960/0*DEYZqsMMIdQWZ8mF"></p>
+<p><noscript><img src="https://miro.medium.com/max/1920/0*DEYZqsMMIdQWZ8mF"></noscript></p>
+<p><font _mstmutation="1" _msthash="40443" _msttexthash="654960618">您可能会注意到，我们使用单独的来绘制叠加上的指示器。这是因为我们需要在类和屏幕上绘制，你不能从同一个小部件执行。</font></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LeafRenderObjectWidget</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Overlay</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LeafRenderObjectWidget</span><br></pre></td></tr></table></figure>
+
+
+<p><font _mstmutation="1" _msthash="33813" _msttexthash="702360386">由于我们现在正在叠加上绘制值指示器，因此不再局限于包含滑块的范围。指标不再剪切到该框，这意味着整个值指示器始终显示。</font></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MediaQuery</span><br></pre></td></tr></table></figure>
+
+
+<p> <img src="https://miro.medium.com/max/60/0*HviG9DqaeW84PJi5?q=20"></p>
+<p><img src="https://miro.medium.com/max/512/0*HviG9DqaeW84PJi5"></p>
+<p><noscript><img src="https://miro.medium.com/max/1024/0*HviG9DqaeW84PJi5"></noscript></p>
+<p><font _mstmutation="1" _msthash="32526" _msttexthash="148044234">注意：此示例使用设置为 4 进行，以便更好地演示。</font></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">textScaleFactor</span><br></pre></td></tr></table></figure>
+
+
+<p><font _mstmutation="1" _msthash="39390" _msttexthash="2184905710">值指示器矩形被移动，以便指标的一部分不会消失在屏幕上。此改进允许您增加指标中的位数，并增加应用程序的文本比例因子，而不必担心文本是否超过屏幕大小。在下图中，值指示器文本刻度为 4，包含 3 位值，但滑块处理时没有问题。</font></p>
+<p>double getHorizontalShift({ RenderBox parentBox, Offset center, TextPainter labelPainter, double textScaleFactor, Size sizeWithOverflow, double scale,}) { assert(!sizeWithOverflow.isEmpty); const double edgePadding = 8.0; final double rectangleWidth = _upperRectangleWidth(labelPainter, scale, textScaleFactor); /// Value indicator draws on the overlay, and by using the global Offset, /// we are making sure that we use the bounds of the Overlay instead of the Slider. final Offset globalCenter = parentBox.localToGlobal(center); // The rectangle must be shifted toward the center so that it minimizes the // chance of it rendering outside the bounds of the render box. If the shift // is negative, then the lobe is shifted from right to left. If the shift is // positive, then the lobe is shifted from left to right. final double overflowLeft = math.max(0, rectangleWidth / 2 —     globalCenter.dx + edgePadding); final double overflowRight = math.max(0, rectangleWidth / 2 — (sizeWithOverflow.width — globalCenter.dx — edgePadding)); if (rectangleWidth &lt; sizeWithOverflow.width) { return overflowLeft — overflowRight; } else if (overflowLeft — overflowRight &gt; 0) { return overflowLeft — (edgePadding * textScaleFactor); } else { return -overflowRight + (edgePadding * textScaleFactor); }}</p>
+<p> <img src="https://miro.medium.com/max/60/0*f7ar1ek7C7pUx5cF?q=20"></p>
+<p><img src="https://miro.medium.com/max/1104/0*f7ar1ek7C7pUx5cF"></p>
+<p><noscript><img src="https://miro.medium.com/max/2208/0*f7ar1ek7C7pUx5cF"></noscript></p>
+<p><font _mstmutation="1" _msthash="29263" _msttexthash="148044234">注意：此示例使用设置为 4 进行，以便更好地演示。</font></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">textScaleFactor</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="激活的值指示器优先"><a href="#激活的值指示器优先" class="headerlink" title="激活的值指示器优先"></a><font _mstmutation="1" _msthash="39117" _msttexthash="31678933">激活的值指示器优先</font></h1><p><font _mstmutation="1" _msthash="23153" _msttexthash="566154147">数值指标也已更新，以便当前活动指标优先于静止指标。这意味着，如果指标重叠，则活动指标”浮动”于另一个指标。</font></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RangeSlider</span><br></pre></td></tr></table></figure>
+
+
+<p> <img src="https://miro.medium.com/max/60/0*dUrIA4k2wFu48rDe?q=20"></p>
+<p><img src="https://miro.medium.com/max/1198/0*dUrIA4k2wFu48rDe"></p>
+<p><noscript><img src="https://miro.medium.com/max/2396/0*dUrIA4k2wFu48rDe"></noscript></p>
+<p><font _mstmutation="1" _msthash="22009" _msttexthash="148044234">注意：此示例使用设置为 4 进行，以便更好地演示。</font></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">textScaleFactor</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="更新旧值指示器"><a href="#更新旧值指示器" class="headerlink" title="更新旧值指示器"></a><font _mstmutation="1" _msthash="22607" _msttexthash="23032880">更新旧值指示器</font></h1><p><font _mstmutation="1" _msthash="33644" _msttexthash="952840200">我们保留了小部件，并更新了它，以具有更好的可扩展性和可访问性。小部件也打印在类似 的 上。在下面的示例中，您可以看到这两个 和 都使用旧值指示器。</font></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PaddleValueIndicator</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PaddleValueIndicator</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Overlay</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RectangularSliderValueIndicatorShape</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Slider</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RangeSlider</span><br></pre></td></tr></table></figure>
+
+
+<p><font _mstmutation="1" _msthash="35113" _msttexthash="689275678">如果要继续使用旧值指示器，只需使用 包装小部件，并将 属性设置为 。过程对于 是相同的。使用 包包小部件，并将 属性设置为 。</font></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Slider</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SliderTheme</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">valueIndicatorShape</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SliderThemeData</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PaddleSliderValueIndicatorShape</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RangeSlider</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RangeSlider</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SliderTheme</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rangeValueIndicatorShape</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SliderThemeData</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PaddleRangeSliderValueIndicatorShape</span><br></pre></td></tr></table></figure>
+
+
+<p> <img src="https://miro.medium.com/max/60/0*LNKN4lwqpBxQZ60A?q=20"></p>
+<p><img src="https://miro.medium.com/max/528/0*LNKN4lwqpBxQZ60A"></p>
+<p><noscript><img src="https://miro.medium.com/max/1056/0*LNKN4lwqpBxQZ60A"></noscript></p>
+<h1 id="活动轨道大于非活动轨道"><a href="#活动轨道大于非活动轨道" class="headerlink" title="活动轨道大于非活动轨道"></a><font _mstmutation="1" _msthash="23725" _msttexthash="51810135">活动轨道大于非活动轨道</font></h1><p><font _mstmutation="1" _msthash="28743" _msttexthash="3093123553">中的其他组件形状也已更新。轨道形状已更改，以便轨道的活动部分大于轨道的非活动部分。这意味着，如果应用程序使用从左到右的语言，则轨道的左侧部分大于右侧。如果应用程序使用从右到左的语言，则轨道的右侧部分大于左侧。对于 ，活动轨道是两个拇指之间的轨道部分。</font></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Slider</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RangeSlider</span><br></pre></td></tr></table></figure>
+
+
+<p> <img src="https://miro.medium.com/max/60/0*q81pqrMZMWkCmRLF?q=20"></p>
+<p><img src="https://miro.medium.com/max/632/0*q81pqrMZMWkCmRLF"></p>
+<p><noscript><img src="https://miro.medium.com/max/1264/0*q81pqrMZMWkCmRLF"></noscript></p>
+<p> <img src="https://miro.medium.com/max/60/0*qIoICKw6wo7NcwOW?q=20"></p>
+<p><img src="https://miro.medium.com/max/632/0*qIoICKw6wo7NcwOW"></p>
+<p><noscript><img src="https://miro.medium.com/max/1264/0*qIoICKw6wo7NcwOW"></noscript></p>
+<h1 id="标记标记组件"><a href="#标记标记组件" class="headerlink" title="标记标记组件"></a><font _mstmutation="1" _msthash="28731" _msttexthash="21701108">标记标记组件</font></h1><p><font _mstmutation="1" _msthash="32955" _msttexthash="1073493512">刻度线大小和定位已更改。刻度线现在是轨道组件的一部分，而不是延伸轨道的末尾。刻度线上也有填充，因此它显示在轨道组件中。刻度线的大小现在具有 1 的半径。</font></p>
+<p> <img src="https://miro.medium.com/max/60/0*PLNNQjK0_zOXok1A?q=20"></p>
+<p><img src="https://miro.medium.com/max/632/0*PLNNQjK0_zOXok1A"></p>
+<p><noscript><img src="https://miro.medium.com/max/1264/0*PLNNQjK0_zOXok1A"></noscript></p>
+<h1 id="拇指组件具有阴影"><a href="#拇指组件具有阴影" class="headerlink" title="拇指组件具有阴影"></a><font _mstmutation="1" _msthash="27339" _msttexthash="29404596">拇指组件具有阴影</font></h1><p><font _mstmutation="1" _msthash="26975" _msttexthash="95320355">激活拇指滑块组件时，现在出现在 上 有 。</font></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Shadow</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Overlay</span><br></pre></td></tr></table></figure>
+
+
+<p> <img src="https://miro.medium.com/max/60/0*j7DxUmBmRK7Ztd5A?q=20"></p>
+<p><img src="https://miro.medium.com/max/94/0*j7DxUmBmRK7Ztd5A"></p>
+<p><noscript><img src="https://miro.medium.com/max/188/0*j7DxUmBmRK7Ztd5A"></noscript></p>
+<h1 id="闭幕词"><a href="#闭幕词" class="headerlink" title="闭幕词"></a><font _mstmutation="1" _msthash="28613" _msttexthash="10191480">闭幕词</font></h1><p><font _mstmutation="1" _msthash="34151" _msttexthash="809873103">您可以通过切换到 Flutter 版本 1.18.0_9.0 来尝试这些更改。此版本仅在本文发布期间在主分支上可用。您可以通过运行 然后 切换到主分支。</font></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter channel master</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter upgrade</span><br></pre></td></tr></table></figure>
+
+
+</div><div class="article-licensing box"><div class="licensing-title"><p>Flutter 滑块小部件有哪些新增功能</p><p><a href="https://zshipu.com/2020/06/25/Flutter%20%E6%BB%91%E5%9D%97%E5%B0%8F%E9%83%A8%E4%BB%B6%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD/">https://zshipu.com/2020/06/25/Flutter%20%E6%BB%91%E5%9D%97%E5%B0%8F%E9%83%A8%E4%BB%B6%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>知识铺</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2020-06-25</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2020-09-08</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=5f58e448b1477000121881fb&amp;product=inline-share-buttons" defer></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button is-info donate"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="/img/alipay.jpg" alt="支付宝"></span></a><a class="button is-success donate"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="/img/weixin.jpg" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2020/06/25/Flutter%20404%E9%A1%B5%E9%9D%A2%E8%87%AA%E5%AE%9A%E4%B9%89/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Flutter 404页面自定义</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2020/06/25/%E7%94%A8%E4%BA%8E%20Flutter%20%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E6%96%B0%E5%B7%A5%E5%85%B7%EF%BC%8C%E5%86%85%E7%BD%AE%E4%BA%8E%20Flutter/"><span class="level-item">用于 Flutter 开发人员的新工具，内置于 Flutter</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'https://zshipu.com/2020/06/25/Flutter%20%E6%BB%91%E5%9D%97%E5%B0%8F%E9%83%A8%E4%BB%B6%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD/';
+            this.page.identifier = '2020/06/25/Flutter 滑块小部件有哪些新增功能/';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');  
+            s.src = '//' + 'zsp' + '.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="https://www.gravatar.com/avatar/2396bdfe5aadb513e676094004dde830?s=128" alt="edwin"></figure><p class="title is-size-4 is-block line-height-inherit">edwin</p><p class="is-size-6 is-block">知识铺</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国 杭州</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">189</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">2</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/liliang8858" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/liliang8858"><i class="Github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="社区"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="设计"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/go/"><span class="level-start"><span class="level-item">go</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:43:02.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Spring%20Cloud%20Gateway+Nacos%EF%BC%8Cyml+properties%E4%B8%A4%E7%A7%8D%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%96%B9%E5%BC%8F%E6%90%AD%E5%BB%BA%E7%BD%91%E5%85%B3%E6%9C%8D%E5%8A%A1/">Spring Cloud Gateway+Nacos，yml+properties两种配置文件方式搭建网关服务</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:39:59.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Spring%20Cloud+nacos+Feign%EF%BC%8C%E5%AE%9E%E7%8E%B0%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%E5%8F%8A%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">Spring Cloud+nacos+Feign，实现注册中心及配置中心</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:32:26.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E6%97%B6%EF%BC%8C%E5%A4%9A%E4%B8%AA%E6%9C%8D%E5%8A%A1%E5%85%B1%E7%94%A8%E4%B8%80%E4%B8%AAdataId%E7%9A%84%E9%85%8D%E7%BD%AE/">Nacos作为配置中心时，多个服务共用一个dataId的配置</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T09:34:29.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/SpringCloudAlibaba(%E4%B8%89)%EF%BC%9A%E4%BD%BF%E7%94%A8Nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">SpringCloudAlibaba(三)：使用Nacos作为配置中心</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T09:31:53.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Nacos%20%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/">Nacos 集群部署</a></p><p class="is-uppercase"></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2020/07/"><span class="level-start"><span class="level-item">七月 2020</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/06/"><span class="level-start"><span class="level-item">六月 2020</span></span><span class="level-end"><span class="level-item tag">37</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/05/"><span class="level-start"><span class="level-item">五月 2020</span></span><span class="level-end"><span class="level-item tag">29</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/04/"><span class="level-start"><span class="level-item">四月 2020</span></span><span class="level-end"><span class="level-item tag">62</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/03/"><span class="level-start"><span class="level-item">三月 2020</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/12/"><span class="level-start"><span class="level-item">十二月 2019</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/11/"><span class="level-start"><span class="level-item">十一月 2019</span></span><span class="level-end"><span class="level-item tag">24</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/go/"><span class="tag">go</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/web/"><span class="tag">web</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button is-primary" type="submit" value="订阅"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="2183476622" data-ad-slot="pub-2874221941555456" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="知识铺" height="28"></a><p class="size-small"><span>&copy; 2020 知识铺</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            site: {
+                url: 'https://zshipu.com',
+                external_link: {"enable":true,"exclude":[]}
+            },
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
