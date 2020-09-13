@@ -35,6 +35,13 @@
 
 <script>
     function setContent(content) {
+        content = content.replace(/反应/g,"React");
+        content = content.replace(/图形QL/g,"Graphql");
+        content = content.replace(/戈朗/g,"Golang");
+        content = content.replace(/飘飘/g,"Flutter");
+        content = content.replace(/飘动/g,"Flutter");
+        content = content.replace(/颤动/g,"Flutter");
+        content = content.replace(/飞镖/g,"Flutter");
         var md = toMarkdown(content, {
             gfm: true,
             converters: [{
@@ -92,7 +99,6 @@
         var Title = $('#articleTitle').val()
         var Content = $("#output").val();
         var Tag = $("#tag").val();
-        Content = Content.replace(/反应/g,"React");
         var JsonData = {
             Title:Title,
             Content:Content,
