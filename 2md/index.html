@@ -16,6 +16,7 @@
     <div class="col">
         <div class="header">
             Title:<input type="text" id="articleTitle">
+            Tag:<input type="text" id="tag">
         </div>
         <textarea id="input"></textarea>
     </div>
@@ -90,9 +91,12 @@
     function saveArtcile () {
         var Title = $('#articleTitle').val()
         var Content = $("#output").val();
+        var Tag = $("#tag").val();
+        Content = Content.replace(/反应/g,"React");
         var JsonData = {
             Title:Title,
-            Content:Content
+            Content:Content,
+            Tag:Tag
         };
 
         let jsonstr = JSON.stringify(JsonData);
