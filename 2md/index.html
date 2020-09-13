@@ -90,6 +90,9 @@
     function saveArtcile () {
         var Title = $('#articleTitle').val()
         var Content = $("#output").val();
+        Content = Content.replace(/反应/g，"React");
+        Content = Content.replace(/颤动/g，"Flutter");
+        Content = Content.replace(/图形QL/g，"Graphql");
         var JsonData = {
             Title:Title,
             Content:Content
