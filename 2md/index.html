@@ -90,6 +90,7 @@
     function saveArtcile () {
         var Title = $('#articleTitle').val()
         var Content = $("#output").val();
+        Content = Content.replace(/反应/g，"React")
         var JsonData = {
             Title:Title,
             Content:Content
