@@ -17,6 +17,18 @@
         <div class="header">
             Title:<input type="text" id="articleTitle">
             Tag:<input type="text" id="tag">
+            Top:
+            <select id="top">
+                <option value="top" selected>top</option>
+                <option value="topcsdn">topcsdn</option>
+                <option value="topgoforum">topgoforum</option>
+                <option value="topinfohot">topinfohot</option>
+                <option value="topjuejin">topjuejin</option>
+                <option value="toplaravle">toplaravle</option>
+                <option value="toplinuxcn">toplinuxcn</option>
+                <option value="topopencn">topopencn</option>
+                <option value="topsegmentfault">topsegmentfault</option>
+            </select>
         </div>
         <textarea id="input"></textarea>
     </div>
@@ -100,10 +112,12 @@
         var Title = $('#articleTitle').val()
         var Content = $("#output").val();
         var Tag = $("#tag").val();
+        var Top = $("#top").val();
         var JsonData = {
             Title:Title,
             Content:Content,
-            Tag:Tag
+            Tag:Tag,
+            Top:Top
         };
 
         let jsonstr = JSON.stringify(JsonData);
