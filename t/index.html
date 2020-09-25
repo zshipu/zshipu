@@ -22,7 +22,6 @@
         <div class="_3OuyzjzFBDdQwRGk08HXHz_0"><a id="gourl" href="">继续前往</a></div>
     </div>
 </div>
-<script src="https://blog.zshipu.com/article/js/jquery-3.3.1.min.js?1573482544"></script>
 <script>
     function getQueryString(name) {
         var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
@@ -34,9 +33,12 @@
     }
 
     let zurl = getQueryString("url")
-    $('#gourl').attr("href",zurl)
-    $('#urldeal').html(zurl)
-    $('#urldeal').attr("title",zurl)
+    var gourlNode = document.getElementById("gourl");
+    gourlNode.setAttribute("href", zurl);
+
+    var urldealNode = document.getElementById("urldeal");
+    urldealNode.innerHTML = zurl;
+    urldealNode.setAttribute("href", zurl);
 </script>
 </body>
 
