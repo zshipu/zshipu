@@ -56,6 +56,12 @@
         content = content.replace(/飘动/g,"Flutter");
         content = content.replace(/颤动/g,"Flutter");
         content = content.replace(/飞镖/g,"Flutter");
+        content = content.replace(/库贝内茨/g,"Kubernetes");
+        content = content.replace(/库伯涅茨/g,"Kubernetes");
+        content = content.replace(/节点/g,"Node");
+        content = content.replace(/吊舱/g,"Pod");
+        content = content.replace(/秘密/g,"Secret");
+        content = content.replace(/配置图/g,"ConfigMap");
         var md = toMarkdown(content, {
             gfm: true,
             converters: [{
