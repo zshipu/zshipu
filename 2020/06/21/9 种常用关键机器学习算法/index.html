@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>9 种常用关键机器学习算法 - 知识铺</title><meta description="机器学习正在改变世界。谷歌使用机器学习向用户推荐搜索结果。Netflix 使用它推荐电影供您观看。Facebook 使用机器学习来推荐您可能认识的人。 机器学习从未像现在这样重要。同时，理解机器学习也很难。田野里充满了行话。不同的 ML 算法数量每年都在增长。 本文将向您介绍机器学习领域的基本概念。更具体地说，我们将讨论当今 9 个最重要的机器学习算法背后的基本概念。 推荐系统什么是推荐系统？建议"><meta property="og:type" content="blog"><meta property="og:title" content="9 种常用关键机器学习算法"><meta property="og:url" content="https://zshipu.com/2020/06/21/9%20%E7%A7%8D%E5%B8%B8%E7%94%A8%E5%85%B3%E9%94%AE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/"><meta property="og:site_name" content="知识铺"><meta property="og:description" content="机器学习正在改变世界。谷歌使用机器学习向用户推荐搜索结果。Netflix 使用它推荐电影供您观看。Facebook 使用机器学习来推荐您可能认识的人。 机器学习从未像现在这样重要。同时，理解机器学习也很难。田野里充满了行话。不同的 ML 算法数量每年都在增长。 本文将向您介绍机器学习领域的基本概念。更具体地说，我们将讨论当今 9 个最重要的机器学习算法背后的基本概念。 推荐系统什么是推荐系统？建议"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://nickmccullum.com/images/python-machine-learning/introduction-linear-regression/least-squares-regression.gif"><meta property="og:image" content="https://nickmccullum.com/images/python-machine-learning/introduction-logistic-regression/linear-regression-classification.png"><meta property="og:image" content="https://nickmccullum.com/images/python-machine-learning/introduction-logistic-regression/linear-vs-logistic-regression.png"><meta property="og:image" content="https://nickmccullum.com/images/python-machine-learning/introduction-logistic-regression/sigmoid-equation.png"><meta property="og:image" content="https://nickmccullum.com/images/python-machine-learning/introduction-logistic-regression/confusion-matrix.png"><meta property="og:image" content="https://nickmccullum.com/images/python-machine-learning/introduction-k-nearest-neighbors/k-nearest-neighbors.jpg"><meta property="og:image" content="https://nickmccullum.com/images/python-machine-learning/introduction-k-nearest-neighbors/k-value-error-rates.png"><meta property="og:image" content="https://nickmccullum.com/images/python-machine-learning/introduction-decision-tree/decision-tree.png"><meta property="og:image" content="https://www.freecodecamp.org/news/content/images/2020/06/image-57.png"><meta property="og:image" content="https://www.freecodecamp.org/news/content/images/2020/06/image-58.png"><meta property="og:image" content="https://nickmccullum.com/images/python-machine-learning/introduction-k-means-clustering/k-means-clustering.png"><meta property="og:image" content="https://nickmccullum.com/images/python-machine-learning/introduction-k-means-clustering/k-means-iteration.gif"><meta property="og:image" content="https://nickmccullum.com/images/python-machine-learning/introduction-k-means-clustering/elbow-method.png"><meta property="og:image" content="https://nickmccullum.com/images/python-machine-learning/introduction-principal-component-analysis/principal-component-analysis.png"><meta property="article:published_time" content="2020-06-21T03:17:12.000Z"><meta property="article:modified_time" content="2020-09-08T14:03:00.318Z"><meta property="article:author" content="知识铺"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://nickmccullum.com/images/python-machine-learning/introduction-linear-regression/least-squares-regression.gif"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://zshipu.com/2020/06/21/9%20%E7%A7%8D%E5%B8%B8%E7%94%A8%E5%85%B3%E9%94%AE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/"},"headline":"知识铺","image":["https://nickmccullum.com/images/python-machine-learning/introduction-linear-regression/least-squares-regression.gif","https://nickmccullum.com/images/python-machine-learning/introduction-logistic-regression/linear-regression-classification.png","https://nickmccullum.com/images/python-machine-learning/introduction-logistic-regression/linear-vs-logistic-regression.png","https://nickmccullum.com/images/python-machine-learning/introduction-logistic-regression/sigmoid-equation.png","https://nickmccullum.com/images/python-machine-learning/introduction-logistic-regression/confusion-matrix.png","https://nickmccullum.com/images/python-machine-learning/introduction-k-nearest-neighbors/k-nearest-neighbors.jpg","https://nickmccullum.com/images/python-machine-learning/introduction-k-nearest-neighbors/k-value-error-rates.png","https://nickmccullum.com/images/python-machine-learning/introduction-decision-tree/decision-tree.png","https://www.freecodecamp.org/news/content/images/2020/06/image-57.png","https://www.freecodecamp.org/news/content/images/2020/06/image-58.png","https://nickmccullum.com/images/python-machine-learning/introduction-k-means-clustering/k-means-clustering.png","https://nickmccullum.com/images/python-machine-learning/introduction-k-means-clustering/k-means-iteration.gif","https://nickmccullum.com/images/python-machine-learning/introduction-k-means-clustering/elbow-method.png","https://nickmccullum.com/images/python-machine-learning/introduction-principal-component-analysis/principal-component-analysis.png"],"datePublished":"2020-06-21T03:17:12.000Z","dateModified":"2020-09-08T14:03:00.318Z","author":{"@type":"Person","name":"知识铺"},"description":"机器学习正在改变世界。谷歌使用机器学习向用户推荐搜索结果。Netflix 使用它推荐电影供您观看。Facebook 使用机器学习来推荐您可能认识的人。 机器学习从未像现在这样重要。同时，理解机器学习也很难。田野里充满了行话。不同的 ML 算法数量每年都在增长。 本文将向您介绍机器学习领域的基本概念。更具体地说，我们将讨论当今 9 个最重要的机器学习算法背后的基本概念。 推荐系统什么是推荐系统？建议"}</script><link rel="canonical" href="https://zshipu.com/2020/06/21/9%20%E7%A7%8D%E5%B8%B8%E7%94%A8%E5%85%B3%E9%94%AE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600&amp;family=Roboto+Mono"><link rel="stylesheet" href="/css/cyberpunk.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><script data-ad-client="2183476622" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><meta name="generator" content="Hexo 5.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="知识铺" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-06-21T03:17:12.000Z" title="2020-06-21T03:17:12.000Z">2020-06-21</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.318Z" title="2020-09-08T14:03:00.318Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">1 小时读完 (大约7138个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">9 种常用关键机器学习算法</h1><div class="content"><p>机器学习正在改变世界。谷歌使用机器学习向用户推荐搜索结果。Netflix 使用它推荐电影供您观看。Facebook 使用机器学习来推荐您可能认识的人。</p>
+<p>机器学习从未像现在这样重要。同时，理解机器学习也很难。田野里充满了行话。不同的 ML 算法数量每年都在增长。</p>
+<p>本文将向您介绍机器学习领域的基本概念。更具体地说，我们将讨论当今 9 个最重要的机器学习算法背后的基本概念。</p>
+<h1 id="推荐系统"><a href="#推荐系统" class="headerlink" title="推荐系统"></a>推荐系统</h1><h3 id="什么是推荐系统？"><a href="#什么是推荐系统？" class="headerlink" title="什么是推荐系统？"></a>什么是推荐系统？</h3><p><a href="https://zshipu.com/t?url=https://nickmccullum.com/python-machine-learning/introduction-recommendation-systems/">建议系统</a>用于在数据集中查找类似的条目。</p>
+<p>也许最常见的建议真实示例存在于 Netflix 中。更具体地说，其视频流媒体服务将推荐基于你已经观看的内容的电影和电视节目。</p>
+<p>另一个推荐系统是Facebook的”你可能认识的人”功能，它建议你可能的朋友，根据你现有的朋友名单。</p>
+<p>充分开发和部署的建议系统极其复杂。它们也非常耗费资源。</p>
+<h3 id="推荐系统和线性代数"><a href="#推荐系统和线性代数" class="headerlink" title="推荐系统和线性代数"></a>推荐系统和线性代数</h3><p>成熟的推荐系统需要线性代数的深层背景，才能从头开始构建。</p>
+<p>因此，如果您以前从未研究过线性代数，则本节中可能有些概念无法理解。</p>
+<p>不过，别担心——学习的 Python 库使得构建推荐系统变得非常简单。S0 你不需要太多的线性代数背景来构建真实世界的建议系统。</p>
+<h3 id="推荐系统如何工作？"><a href="#推荐系统如何工作？" class="headerlink" title="推荐系统如何工作？"></a>推荐系统如何工作？</h3><p>推荐系统主要有两种类型：</p>
+<ul>
+<li>基于内容的建议系统</li>
+<li>协作筛选建议系统</li>
+</ul>
+<p>基于内容的推荐系统根据已使用的项目的相似性为您提供建议。他们完全按照你期望的推荐系统来做。</p>
+<p>协作筛选建议系统根据用户与项目交互的知识生成建议。换句话说，他们利用了人群的智慧。（因此，其名称中的术语”协作”。</p>
+<p>在现实世界中，协作筛选建议系统比基于内容的系统更常见。这主要是因为它们通常能产生更好的结果。一些从业者还发现协作筛选建议系统更易于理解。</p>
+<p>协作筛选建议系统还具有缺少基于内容的系统的独特功能。也就是说，他们有能力自己学习功能。</p>
+<p>这意味着他们甚至可以开始根据您甚至未告诉他们要考虑的属性来识别项之间的相似性。</p>
+<p>协作筛选中有两个子类别：</p>
+<ul>
+<li>基于内存的协作筛选</li>
+<li>基于模型的协作筛选</li>
+</ul>
+<p>在机器学习中取得成功，您无需了解这两种类型的协作筛选建议系统之间的区别。这足以识别存在多种类型。</p>
+<h3 id="章节总结"><a href="#章节总结" class="headerlink" title="章节总结"></a>章节总结</h3><p>以下是我们在本教程中讨论的关于建议系统的简要摘要：</p>
+<ul>
+<li>现实世界中推荐制度的例子</li>
+<li>不同类型的推荐系统，以及协作筛选系统如何比基于内容的建议系统更常用</li>
+<li>推荐系统与线性代数的关系</li>
+</ul>
+<h1 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h1><p><a href="https://zshipu.com/t?url=https://nickmccullum.com/python-machine-learning/linear-regression-python/">线性回归</a>用于根据另一组值的值预测某些值。<code>y``````x</code></p>
+<h3 id="线性回归的历史"><a href="#线性回归的历史" class="headerlink" title="线性回归的历史"></a>线性回归的历史</h3><p>线性回归是由<a href="https://zshipu.com/t?url=https://en.wikipedia.org/wiki/Francis_Galton">弗朗西斯·加尔顿</a>在19世纪创建的。</p>
+<p>高尔顿是研究父母和孩子之间关系的科学家。更具体地说，高尔顿正在调查父亲身高和儿子身高之间的关系。</p>
+<p>高尔顿的第一个发现是，儿子往往和父亲一样高。这并不奇怪。</p>
+<p>后来，加尔顿发现了一些更有趣的东西。儿子的身高往往<strong>更接近于所有人的总平均身高__，而不是他自己的父亲__。</strong></p>
+<p>加尔顿给这种现象起一个名称：**<strong>回归**</strong>。具体来说，他说”父亲的儿子的身高倾向于倒退（或向）平均（平均）高度漂移”。</p>
+<p>这导致了整个统计和机器学习领域称为回归。</p>
+<h3 id="线性回归数学"><a href="#线性回归数学" class="headerlink" title="线性回归数学"></a>线性回归数学</h3><p>创建回归模型时，我们尝试的只是绘制一条尽可能接近数据集中每个点的线。</p>
+<p>典型的示例是线性回归的”最小平方法”，该方法仅计算向上和向下方向的直线的接近度。</p>
+<p>下面是一个示例，可帮助说明这一点：</p>
+<p><img src="https://nickmccullum.com/images/python-machine-learning/introduction-linear-regression/least-squares-regression.gif" alt="An example of the math behind least squares regression"></p>
+<p>创建回归模型时，最终产品是一个方程，可用于预测 x 值的 y 值，而无需事先实际知道 y 值。</p>
+<h1 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h1><p><a href="https://zshipu.com/t?url=https://nickmccullum.com/python-machine-learning/logistic-regression-python/">逻辑回归</a>类似于线性回归，只不过它不是计算数值，而是估计数据点属于哪个_类别_。<code>y</code></p>
+<h3 id="什么是逻辑回归？"><a href="#什么是逻辑回归？" class="headerlink" title="什么是逻辑回归？"></a>什么是逻辑回归？</h3><p>逻辑回归是一种机器学习模型，用于解决分类问题。</p>
+<p>以下是机器学习分类问题的一些示例：</p>
+<ul>
+<li>垃圾邮件（垃圾邮件还是垃圾邮件？</li>
+<li>汽车保险索赔（注销或修理？</li>
+<li>疾病诊断</li>
+</ul>
+<p>每个分类问题都有两个类别，这使得它们成为<strong>二进制分类</strong>问题的示例。</p>
+<p>逻辑回归非常适合解决<strong>二进制分类</strong>问题 - 我们只是为每个类别指定值和分别。<code>0``````1</code></p>
+<p>为什么我们需要逻辑回归？因为不能使用线性回归模型进行二进制分类预测。它不会导致良好的拟合，因为您尝试通过只有两个可能的值的数据集拟合直线。</p>
+<p>此图像可以帮助您理解为什么线性回归模型不适合二进制分类问题：</p>
+<p><img src="https://nickmccullum.com/images/python-machine-learning/introduction-logistic-regression/linear-regression-classification.png" alt="Linear Regression Classification"></p>
+<p>在此图像中， 表示肿瘤是恶性的概率.相反，该值表示肿瘤不是恶性肿瘤的概率。如您所见，线性回归模型在预测数据集中大多数观测值的此概率方面做得很差。<code>y-axis``````1-y</code></p>
+<p>这就是为什么逻辑回归模型很有用。它们有一个弯曲到他们的最佳拟合线，这使得他们更适合预测分类数据。</p>
+<p>下面是一个使用相同训练数据将线性回归模型与逻辑回归模型进行比较的示例：</p>
+<p><img src="https://nickmccullum.com/images/python-machine-learning/introduction-logistic-regression/linear-vs-logistic-regression.png" alt="Linear Regression vs Logistic Regression"></p>
+<h3 id="西格莫伊德函数"><a href="#西格莫伊德函数" class="headerlink" title="西格莫伊德函数"></a>西格莫伊德函数</h3><p>逻辑回归模型在其曲线中具有折弯的原因是因为它没有使用线性方程计算。相反，逻辑回归模型是使用 Sigmoid 函数构建的（由于逻辑回归中使用，因此也称为逻辑函数）。</p>
+<p>您不必记住<a href="https://zshipu.com/t?url=https://en.wikipedia.org/wiki/Sigmoid_function">Sigmoid 函数</a>即可在机器学习中取得成功。话虽如此，对它的外观有一些了解是有用的。</p>
+<p>公式如下所示：</p>
+<p><img src="https://nickmccullum.com/images/python-machine-learning/introduction-logistic-regression/sigmoid-equation.png" alt="The Sigmoid Equation"></p>
+<p>Sigmoid 函数的主要特征值得理解：无论您向它传递什么价值，它始终都会在 0 和 1 之间生成输出。</p>
+<h3 id="使用逻辑回归模型进行预测"><a href="#使用逻辑回归模型进行预测" class="headerlink" title="使用逻辑回归模型进行预测"></a>使用逻辑回归模型进行预测</h3><p>要使用线性回归模型进行预测，通常需要指定截止点。此截止点通常是 。<code>0.5</code></p>
+<p>让我们用我们早期图像中的癌症诊断示例来在实践中看到这一原则。如果逻辑回归模型输出的值低于 0.5，则数据点被归类为非恶性肿瘤。同样，如果 Sigmoid 函数输出的值高于 0.5，则肿瘤将归类为恶性肿瘤。</p>
+<h3 id="使用混淆矩阵测量逻辑回归性能"><a href="#使用混淆矩阵测量逻辑回归性能" class="headerlink" title="使用混淆矩阵测量逻辑回归性能"></a>使用混淆矩阵测量逻辑回归性能</h3><p>混淆矩阵可用作比较机器学习中真实正值、真负数、误报和假负数的工具。</p>
+<p>当用于测量逻辑回归模型的性能时，混淆矩阵特别有用。下面是一个示例，演示如何使用混淆矩阵：</p>
+<p><img src="https://nickmccullum.com/images/python-machine-learning/introduction-logistic-regression/confusion-matrix.png" alt="An Example Confusion Matrix">在此图中，TN 代表”真负”，FN 代表”假负”。FP 代表”误报”，TP 代表”真实正”。</p>
+<p>混淆矩阵可用于评估模型在混淆矩阵的特定象限中是否特别弱。例如，它可能有异常数量的误报。</p>
+<p>在某些应用程序中，确保模型在混淆矩阵的异常危险区域中表现良好也很有帮助。</p>
+<p>例如，在这个癌症示例中，您希望非常确定模型的假阴性率不会很高，因为这将表明某人的恶性肿瘤被错误地归类为非恶性肿瘤。</p>
+<h3 id="章节总结-1"><a href="#章节总结-1" class="headerlink" title="章节总结"></a>章节总结</h3><p>在本节中，您首次接触了逻辑回归机器学习模型。</p>
+<p>以下是您学到的有关逻辑回归的简要摘要：</p>
+<ul>
+<li>使用逻辑回归模型解决的分类问题类型</li>
+<li>物流函数（也称为 Sigmoid 函数）始终输出介于 0 和 1 之间的值</li>
+<li>如何使用截止点使用逻辑回归机器学习模型进行预测</li>
+<li>为什么混淆矩阵可用于测量逻辑回归模型的性能</li>
+</ul>
+<h1 id="K-最近邻域"><a href="#K-最近邻域" class="headerlink" title="K-最近邻域"></a>K-最近邻域</h1><p><a href="https://zshipu.com/t?url=https://nickmccullum.com/python-machine-learning/k-nearest-neighbors-python/">K 最近邻域</a>算法可以帮助您解决分类问题，其中有两个以上类别。</p>
+<h3 id="什么是-K-最近邻域算法？"><a href="#什么是-K-最近邻域算法？" class="headerlink" title="什么是 K-最近邻域算法？"></a>什么是 K-最近邻域算法？</h3><p>K 最近邻域算法是基于简单原理的分类算法。事实上，这个原则是如此简单，最好通过实例来理解它。</p>
+<p>想象一下，你有关于足球运动员和篮球运动员身高和体重的数据。K 近邻算法可用于预测新运动员是足球运动员还是篮球运动员。</p>
+<p>为此，K 最近的邻域算法标识最接近新观测点的数据点。<code>K</code></p>
+<p>下图以 K 值的 K 值显示此情况，K 值为 ：<code>3</code></p>
+<p><img src="https://nickmccullum.com/images/python-machine-learning/introduction-k-nearest-neighbors/k-nearest-neighbors.jpg" alt="A visualization of k nearest neighbors"></p>
+<p>在此图像中，足球运动员被标记为蓝色数据点，篮球运动员标记为橙色点。我们尝试分类的数据点标记为绿色。</p>
+<p>由于新数据点的壁橱数据点中的大部分（3个中的2个）是蓝色足球运动员，因此K最近的邻域算法将预测新数据点也是足球运动员。</p>
+<h3 id="构建-K-最近邻域算法的步骤"><a href="#构建-K-最近邻域算法的步骤" class="headerlink" title="构建 K-最近邻域算法的步骤"></a>构建 K-最近邻域算法的步骤</h3><p>构建 K 最近邻域算法的一般步骤是：</p>
+<ol>
+<li>存储所有数据</li>
+<li>计算<a href="https://zshipu.com/t?url=https://en.wikipedia.org/wiki/Euclidean_distance">欧几里登</a>距离的新数据点到数据集中的所有其他点<code>x</code></li>
+<li>按与<code>x</code></li>
+<li>使用与大多数最近数据点相同的类别进行预测<code>K``````x</code></li>
+</ol>
+<h3 id="K-最近邻域算法中-K-的重要性"><a href="#K-最近邻域算法中-K-的重要性" class="headerlink" title="K-最近邻域算法中 K 的重要性"></a>K-最近邻域算法中 K 的重要性</h3><p>尽管从一开始可能并不明显，但更改 K-最近邻域算法中 的值将更改新点分配给哪个类别。<code>K</code></p>
+<p>更具体地说，值非常低将导致模型完全预测您的训练数据，并预测测试数据不足。同样，值过高会使模型不必要地复杂。<code>K``````K</code></p>
+<p>以下可视化效果很好地说明了这一点：</p>
+<p><img src="https://nickmccullum.com/images/python-machine-learning/introduction-k-nearest-neighbors/k-value-error-rates.png" alt="K value and error rates"></p>
+<h3 id="K-最近邻域算法的优缺点"><a href="#K-最近邻域算法的优缺点" class="headerlink" title="K-最近邻域算法的优缺点"></a>K-最近邻域算法的优缺点</h3><p>最后，对 K-最近邻域算法的介绍，我想简要地讨论使用此模型的一些利弊。</p>
+<p>以下是 K 最接近邻域算法的一些主要优点：</p>
+<ul>
+<li>该算法简单易懂</li>
+<li>根据新的训练数据对模型进行培训是微不足道的</li>
+<li>它适用于分类问题中的任意数量的类别</li>
+<li>可以轻松地向数据集添加更多数据</li>
+<li>模型仅接受两个参数：以及您要使用的距离指标（通常为欧几里得距离）<code>K</code></li>
+</ul>
+<p>同样，以下是算法的一些主要缺点：</p>
+<ul>
+<li>进行预测的计算成本很高，因为您需要对整个数据集进行排序</li>
+<li>它不适用于分类功能</li>
+</ul>
+<h3 id="章节总结-2"><a href="#章节总结-2" class="headerlink" title="章节总结"></a>章节总结</h3><p>以下是您刚刚了解到的关于 k-最近邻域算法的简要摘要：</p>
+<ul>
+<li>K 近邻算法可以解决的分类问题（足球运动员与篮球运动员）的示例</li>
+<li>K 最近邻域如何使用相邻数据点的欧几里得距离来预测新数据点属于哪个类别</li>
+<li>为什么进行预测的价值<code>K</code></li>
+<li>使用 K 最近邻域算法的优缺点</li>
+</ul>
+<h1 id="决策树和随机林"><a href="#决策树和随机林" class="headerlink" title="决策树和随机林"></a>决策树和随机林</h1><p><a href="https://zshipu.com/t?url=https://nickmccullum.com/python-machine-learning/decision-trees-random-forests-python/">决策树和随机林</a>都是树方法的示例。</p>
+<p>更具体地说，决策树是机器学习模型，用于通过逐个循环浏览数据集中的每个要素来进行预测。随机林是决策树的集中，它们使用数据集中要素的随机顺序。</p>
+<h3 id="什么是树方法？"><a href="#什么是树方法？" class="headerlink" title="什么是树方法？"></a>什么是树方法？</h3><p>在深入探讨机器学习中树方法的理论基础之前，先从示例开始是很有帮助的。</p>
+<p>想象一下你每个星期一打篮球。此外，你总是邀请同一个朋友来和你一起玩。</p>
+<p>有时朋友真的来了。有时他们没有。</p>
+<p>决定是否来取决于许多因素，如天气，温度，风和疲劳。您开始注意到这些功能，并开始跟踪它们，同时您朋友决定是否播放。</p>
+<p>您可以使用这些数据来预测你的朋友是否会出现打篮球。可以使用的一种技术是决策树。以下是此决策树的外观：</p>
+<p><img src="https://nickmccullum.com/images/python-machine-learning/introduction-decision-tree/decision-tree.png" alt="An example of a decision tree"></p>
+<p>每个决策树都有两种类型的元素：</p>
+<ul>
+<li><code>Nodes</code>：树根据某些属性的值拆分的位置</li>
+<li><code>Edges</code>：拆分到下一个节点的结果</li>
+</ul>
+<p>您可以在上面的图像中看到 ， 和 的 节点。每个属性的每个潜在值都有一个边。<code>outlook``````humidity``````windy</code></p>
+<p>下面是在继续操作之前应了解的另外两个决策树术语：</p>
+<ul>
+<li><code>Root</code>：执行第一次拆分的节点</li>
+<li><code>Leaves</code>：预测最终结果的终端节点</li>
+</ul>
+<p>现在，您对决策树有了基本的了解。我们将在下一节中了解如何从头开始构建决策树。</p>
+<h3 id="如何从头开始构建决策树"><a href="#如何从头开始构建决策树" class="headerlink" title="如何从头开始构建决策树"></a>如何从头开始构建决策树</h3><p>建立决策树比你想象的要难。这是因为决定要拆分数据的功能（这是属于<a href="https://zshipu.com/t?url=https://en.wikipedia.org/wiki/Entropy">熵</a>和信息<a href="https://zshipu.com/t?url=https://machinelearningmastery.com/information-gain-and-mutual-information/#:~:text=Information+gain+is+the+reduction,before+and+after+a+transformation.">增益</a>领域的主题）是一个数学上复杂的问题。</p>
+<p>为了解决这个问题，机器学习从业者通常使用许多决策树，使用选择为拆分的要素的随机样本。</p>
+<p>换句话说，每次拆分时，都会为每个树选择新的要素随机样本。这种技术称为<strong>随机林</strong>。</p>
+<p>通常，从业者通常选择要素随机样本（表示）的大小作为数据集（表示）中总要素数的平方根。简洁，是 的平方根，然后从 随机选择特定要素。<code>m``````p``````m``````p``````m</code></p>
+<p>如果这现在不完全有意义，不要担心。当您最终构建第一个随机林模型时，它将更加清晰。</p>
+<h3 id="使用随机林的好处"><a href="#使用随机林的好处" class="headerlink" title="使用随机林的好处"></a>使用随机林的好处</h3><p>假设您正在使用具有非常强大功能的数据集。换句话说，数据集有一个功能比数据集中的其他功能更具有预测最终结果。</p>
+<p>如果要手动构建决策树，则使用此功能作为决策树的顶部拆分是有意义的。这意味着您将有多个预测高度相关的树。</p>
+<p>我们希望避免这种情况，因为取高度相关变量的平均值不会显著降低方差。通过随机选择随机林中每个树的特征，树变得不相关，并减小生成的模型的方差。这种相互性是使用随机林而不是手工决策树的主要优点</p>
+<h3 id="章节总结-3"><a href="#章节总结-3" class="headerlink" title="章节总结"></a>章节总结</h3><p>本文简要总结了您学到的关于决策树和随机林的知识：</p>
+<ul>
+<li>可以使用决策树预测的问题示例</li>
+<li>决策树的元素： 、 、 和<code>nodes``````edges``````roots``````leaves</code></li>
+<li>如何随机采样决策树特征，使我们能够构建一个随机林</li>
+<li>为什么使用随机林来关联变量有助于降低最终模型的方差</li>
+</ul>
+<h1 id="支持矢量机"><a href="#支持矢量机" class="headerlink" title="支持矢量机"></a>支持矢量机</h1><p><a href="https://zshipu.com/t?url=https://nickmccullum.com/python-machine-learning/support-vector-machines-python/">支持向量机</a>是分类算法（尽管从技术上讲，它们也可用于解决回归问题），它们通过切片划分类别之间的最广泛差距将数据集划分为多个类别。这一概念将在一瞬间通过可视化来更加清晰。</p>
+<h3 id="什么是支持向量机？"><a href="#什么是支持向量机？" class="headerlink" title="什么是支持向量机？"></a>什么是支持向量机？</h3><p><a href="https://zshipu.com/t?url=https://en.wikipedia.org/wiki/Support_vector_machine">支持向量机</a>（简称 SVM）是受监督的机器学习模型，具有分析数据和识别模式的相关学习算法。</p>
+<p>支持向量机可用于分类问题和回归问题。在本文中，我们将专门研究支持向量机用于解决分类问题。</p>
+<h3 id="支持矢量机的工作原理是什么？"><a href="#支持矢量机的工作原理是什么？" class="headerlink" title="支持矢量机的工作原理是什么？"></a>支持矢量机的工作原理是什么？</h3><p>让我们深入了解支持向量机的真正工作方式。</p>
+<p>给定一组训练示例（每个示例都标记为属于两个类别之一），支持向量机器训练算法可生成模型。此模型将新示例分配给两个类别之一。这使得支持向量机成为非概率二进制线性分类器。</p>
+<p>SVM 使用几何进行分类预测。</p>
+<p>更具体地说，SVM 模型将数据点映射为空间中的点，并将单独的类别进行划分，以便它们除以尽可能宽的开放间隙。根据它们所属的间隙的哪一侧，预测新数据点属于一个类别。</p>
+<p>下面是一个示例可视化，可帮助您了解支持向量机背后的直觉：</p>
+<p><img src="https://www.freecodecamp.org/news/content/images/2020/06/image-57.png"></p>
+<p>正如您所看到的，如果新数据点落在绿线的左侧，它将使用红色类别标记。同样，如果新数据点落在绿线的右侧，它将被贴上属于蓝色类别的标签。</p>
+<p>这条绿线被称为<strong>超平面</strong>，它是支持向量机算法的重要词汇。</p>
+<p>让我们来看看支持向量机的不同可视表示形式：</p>
+<p><img src="https://www.freecodecamp.org/news/content/images/2020/06/image-58.png"></p>
+<p>在此图中，超平面标记为<strong>最佳超平面</strong>。支持向量机理论将<strong>最佳超平面</strong>定义为最大化每个类别最近数据点之间的边距。</p>
+<p>如您所见，边距线实际上触及三个数据点 - 两个来自红色类别，一个来自蓝色类别。这些接触边距线的数据点称为<strong>支持向量</strong>，是支持向量机从中获取其名称的位置。</p>
+<h3 id="章节总结-4"><a href="#章节总结-4" class="headerlink" title="章节总结"></a>章节总结</h3><p>以下是您刚刚了解到的支持向量机的简要摘要：</p>
+<ul>
+<li>支持向量机是受监督机器学习算法的一个示例</li>
+<li>支持向量机可用于解决分类和回归问题</li>
+<li>支持向量机如何使用超平面对数据点进行分类，该<strong>超平面</strong>可最大化数据集中类别之间的差值</li>
+<li>在支持向量机中触摸边距线的数据点称为<strong>支持向量</strong>。这些数据点是支持向量机从中派生其名称的位置。</li>
+</ul>
+<h1 id="K-意味着聚类"><a href="#K-意味着聚类" class="headerlink" title="K-意味着聚类"></a>K-意味着聚类</h1><p><a href="https://zshipu.com/t?url=https://nickmccullum.com/python-machine-learning/k-means-clustering-python/">K-意味着聚类</a>是一种机器学习算法，允许您识别数据集中类似数据段。</p>
+<h3 id="什么是-K-意味着聚类？"><a href="#什么是-K-意味着聚类？" class="headerlink" title="什么是 K-意味着聚类？"></a>什么是 K-意味着聚类？</h3><p>K-意味着聚类是一种不受监督的机器学习算法。</p>
+<p>这意味着它占用了未标记的数据，并尝试将数据中的相似观测组分组在一起。</p>
+<p>K-意味着聚类算法对于解决实际问题非常有用。以下是此机器学习模型的一些用例：</p>
+<ul>
+<li>营销团队的客户细分</li>
+<li>文档分类</li>
+<li>亚马逊、UPS 或联邦快递等公司的交付路线优化</li>
+<li>识别和应对城市内的犯罪中心</li>
+<li>专业体育分析</li>
+<li>预测和预防网络犯罪</li>
+</ul>
+<p>K 表示聚类算法的主要目标是将数据集划分为不同的组，以便每个组中的观测值彼此相似。</p>
+<p>下面是实际外观的视觉表示形式：</p>
+<p><img src="https://nickmccullum.com/images/python-machine-learning/introduction-k-means-clustering/k-means-clustering.png" alt="A Visualization of a K Means Clustering Algorithm"></p>
+<p>我们将在本教程的下一节中探讨 K 表示聚类背后的数学。</p>
+<h3 id="K-意味着聚类算法的工作原理是什么？"><a href="#K-意味着聚类算法的工作原理是什么？" class="headerlink" title="K-意味着聚类算法的工作原理是什么？"></a>K-意味着聚类算法的工作原理是什么？</h3><p>运行 K-表示聚类算法的第一步是选择要将数据划分为的群集数。此群集数是算法名称中引用的值。<code>K</code></p>
+<p>在 K-表示聚类算法中选择值是一个重要的选择。在本文中，我们将更多地讨论如何选择后面的正确值。<code>K``````K</code></p>
+<p>接下来，必须随机将数据集中的每个点分配给随机群集。这提供了我们的初始赋值，然后运行以下迭代，直到群集停止更改：</p>
+<ul>
+<li>通过取取该群集内点的平均矢量来计算每个群集的质心</li>
+<li>将每个数据点重新分配给具有最近质心的群集</li>
+</ul>
+<p>下面是一个动画，说明对于值 为 的 K-表示聚类算法来说，这在实践中是如何工作的。您可以看到由黑色字符表示的每个群集的质心。<code>K``````3``````+</code></p>
+<p><img src="https://nickmccullum.com/images/python-machine-learning/introduction-k-means-clustering/k-means-iteration.gif" alt="A Visualization of a K Means Clustering Algorithm"></p>
+<p>如您所见，此迭代将继续，直到群集停止更改 - 这意味着数据点不再分配给新的群集。</p>
+<h3 id="为-K-选择正确的-K-值意味着聚类算法"><a href="#为-K-选择正确的-K-值意味着聚类算法" class="headerlink" title="为 K 选择正确的 K 值意味着聚类算法"></a>为 K 选择正确的 K 值意味着聚类算法</h3><p>为 K-意味着聚类算法选择适当的值实际上相当困难。选择”最佳”值没有”正确”答案。<code>K``````K</code></p>
+<p>机器学习从业者经常使用的一种方法称为<strong>肘部方法</strong>。</p>
+<p>要使用弯头方法，您需要做的第一件事是计算一组值的 K 表示聚类算法的平方误差 （SSE） 的总和。K 中的 SSE 表示聚类算法定义为群集中每个数据点与群集的质心之间的平方距离之和。<code>K</code></p>
+<p>作为此步骤的示例，您可以计算 SSE 的值， 和 。<code>K``````2``````4``````6``````8``````10</code></p>
+<p>接下来，您需要针对这些不同的值生成 SSE 的绘图。您将看到错误会随着值的增加而减小。<code>K``````K</code></p>
+<p>这是有道理的 - 在数据集中创建的类别越多，每个数据点都越接近其特定群集的中心。</p>
+<p>话虽如此，肘部法背后的理念是选择一个值，即上证所突然放慢下跌速度。此突然减少在图形中生成 。<code>K``````elbow</code></p>
+<p>例如，下面是 SSE 反对 的图表。在这种情况下，弯头方法建议使用近似 值。<code>K``````K``````6</code></p>
+<p><img src="https://nickmccullum.com/images/python-machine-learning/introduction-k-means-clustering/elbow-method.png" alt="A Visualization of a K Means Clustering Algorithm"></p>
+<p>重要的是，只是对使用价值的估计。K-表示聚类算法中永远不会有”最佳”值。与机器学习领域的许多内容一样，这是一个高度依赖于情况的决策。<code>6``````K``````K</code></p>
+<h3 id="章节总结-5"><a href="#章节总结-5" class="headerlink" title="章节总结"></a>章节总结</h3><p>以下是您在本文中学到的内容的简要摘要：</p>
+<ul>
+<li>K-意味着聚类算法能够解决的无监督机器学习问题示例</li>
+<li>K-意味着聚类算法的基本原理</li>
+<li>K-意味着聚类算法的工作原理</li>
+<li>如何使用弯头方法在 K 表示聚类模型中选择 适当的值<code>K</code></li>
+</ul>
+<h1 id="主要组件分析"><a href="#主要组件分析" class="headerlink" title="主要组件分析"></a>主要组件分析</h1><p><a href="https://zshipu.com/t?url=https://nickmccullum.com/python-machine-learning/principal-component-analysis-python/">主要组件分析</a>用于将多要素数据集转换为具有较少功能的转换数据集，其中每个新功能都是预先存在的要素的线性组合。此转换数据集旨在以更简单得多来解释原始数据集的大部分差异。</p>
+<h3 id="什么是主要组件分析？"><a href="#什么是主要组件分析？" class="headerlink" title="什么是主要组件分析？"></a>什么是主要组件分析？</h3><p>主要组件分析是一种机器学习技术，用于检查变量集之间的相互关系。</p>
+<p>说的不同，主要成分分析研究变量集，以便确定这些变量的基础结构。</p>
+<p>主要成分分析有时称为**<strong>因子分析**</strong>。</p>
+<p>基于此描述，您可能会认为主要分量分析与线性回归非常相似。</p>
+<p>事实并非如此。事实上，这两种技术有一些重要的区别。</p>
+<h3 id="线性回归与主分量分析的区别"><a href="#线性回归与主分量分析的区别" class="headerlink" title="线性回归与主分量分析的区别"></a>线性回归与主分量分析的区别</h3><p>线性回归确定数据集的最佳拟合线。主组件分析确定几个最适合数据集的正交行。</p>
+<p>如果您不熟悉正<strong>交</strong>一词，则只表示线彼此成直角（90 度），如地图上的北、东、南和西。</p>
+<p>让我们考虑一个示例，以帮助您更好地理解这一点。</p>
+<p><img src="https://nickmccullum.com/images/python-machine-learning/introduction-principal-component-analysis/principal-component-analysis.png" alt="A principal component analysis"></p>
+<p>查看此图像中的轴标签。</p>
+<p>在此图像中，x 轴主组件示例数据集中 73% 的方差。y 轴主组件解释了数据集中大约 23% 的方差。</p>
+<p>这意味着数据集中 4% 的方差仍无法解释。您可以通过向分析添加更多主要组件来进一步减少此数字。</p>
+<h3 id="章节总结-6"><a href="#章节总结-6" class="headerlink" title="章节总结"></a>章节总结</h3><p>以下是您在本教程中学到的关于主要组件分析的简要摘要：</p>
+<ul>
+<li>该主要组件分析试图找到确定数据集中可变性的正交因子</li>
+<li>主分量分析与线性回归的区别</li>
+<li>在数据集内部可视化时，正交主体组件的外观</li>
+<li>添加更多主要组件可以帮助您解释数据集中的更多差异</li>
+</ul>
+</div><div class="article-licensing box"><div class="licensing-title"><p>9 种常用关键机器学习算法</p><p><a href="https://zshipu.com/2020/06/21/9%20%E7%A7%8D%E5%B8%B8%E7%94%A8%E5%85%B3%E9%94%AE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/">https://zshipu.com/2020/06/21/9%20%E7%A7%8D%E5%B8%B8%E7%94%A8%E5%85%B3%E9%94%AE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>知识铺</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2020-06-21</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2020-09-08</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=5f58e448b1477000121881fb&amp;product=inline-share-buttons" defer></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button is-info donate"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="/img/alipay.jpg" alt="支付宝"></span></a><a class="button is-success donate"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="/img/weixin.jpg" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2020/06/21/%E6%8E%A8%E8%8D%90%E7%AE%97%E6%B3%95%E7%AE%80%E4%BB%8B/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">推荐算法简介</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2020/06/21/%E6%9C%80%E6%96%B0%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A%2001/"><span class="level-item">最新技术周刊 01</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'https://zshipu.com/2020/06/21/9%20%E7%A7%8D%E5%B8%B8%E7%94%A8%E5%85%B3%E9%94%AE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/';
+            this.page.identifier = '2020/06/21/9 种常用关键机器学习算法/';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');  
+            s.src = '//' + 'zsp' + '.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="https://www.gravatar.com/avatar/2396bdfe5aadb513e676094004dde830?s=128" alt="edwin"></figure><p class="title is-size-4 is-block line-height-inherit">edwin</p><p class="is-size-6 is-block">知识铺</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国 杭州</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">189</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">2</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/liliang8858" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/liliang8858"><i class="Github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="社区"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="设计"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/go/"><span class="level-start"><span class="level-item">go</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:43:02.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Spring%20Cloud%20Gateway+Nacos%EF%BC%8Cyml+properties%E4%B8%A4%E7%A7%8D%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%96%B9%E5%BC%8F%E6%90%AD%E5%BB%BA%E7%BD%91%E5%85%B3%E6%9C%8D%E5%8A%A1/">Spring Cloud Gateway+Nacos，yml+properties两种配置文件方式搭建网关服务</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:39:59.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Spring%20Cloud+nacos+Feign%EF%BC%8C%E5%AE%9E%E7%8E%B0%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%E5%8F%8A%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">Spring Cloud+nacos+Feign，实现注册中心及配置中心</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:32:26.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E6%97%B6%EF%BC%8C%E5%A4%9A%E4%B8%AA%E6%9C%8D%E5%8A%A1%E5%85%B1%E7%94%A8%E4%B8%80%E4%B8%AAdataId%E7%9A%84%E9%85%8D%E7%BD%AE/">Nacos作为配置中心时，多个服务共用一个dataId的配置</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T09:34:29.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/SpringCloudAlibaba(%E4%B8%89)%EF%BC%9A%E4%BD%BF%E7%94%A8Nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">SpringCloudAlibaba(三)：使用Nacos作为配置中心</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T09:31:53.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Nacos%20%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/">Nacos 集群部署</a></p><p class="is-uppercase"></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2020/07/"><span class="level-start"><span class="level-item">七月 2020</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/06/"><span class="level-start"><span class="level-item">六月 2020</span></span><span class="level-end"><span class="level-item tag">37</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/05/"><span class="level-start"><span class="level-item">五月 2020</span></span><span class="level-end"><span class="level-item tag">29</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/04/"><span class="level-start"><span class="level-item">四月 2020</span></span><span class="level-end"><span class="level-item tag">62</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/03/"><span class="level-start"><span class="level-item">三月 2020</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/12/"><span class="level-start"><span class="level-item">十二月 2019</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/11/"><span class="level-start"><span class="level-item">十一月 2019</span></span><span class="level-end"><span class="level-item tag">24</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/go/"><span class="tag">go</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/web/"><span class="tag">web</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button is-primary" type="submit" value="订阅"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="2183476622" data-ad-slot="pub-2874221941555456" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="知识铺" height="28"></a><p class="size-small"><span>&copy; 2020 知识铺</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            site: {
+                url: 'https://zshipu.com',
+                external_link: {"enable":true,"exclude":[]}
+            },
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

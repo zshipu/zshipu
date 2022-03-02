@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>SpringCloudAlibaba(三)：使用Nacos作为配置中心 - 知识铺</title><meta description="之前提到了这次从php技术栈迁移到java技术栈要解决的一个问题就是集中化配置管理。 我们为什么会有配置中心的需求?  配置管理变更较为方便 合理控制配置的权限内容  Nacos 控制台增加配置文件 进入Nacos管理界面,在【配置管理】-【配置列表】功能页面点击右上角的 + 号。 进入 新建配置 页面，填写要新增的配置内容 WARN:Data ID的默认扩展名为properties,如果需要使"><meta property="og:type" content="blog"><meta property="og:title" content="SpringCloudAlibaba(三)：使用Nacos作为配置中心"><meta property="og:url" content="https://zshipu.com/2020/07/16/SpringCloudAlibaba(%E4%B8%89)%EF%BC%9A%E4%BD%BF%E7%94%A8Nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/"><meta property="og:site_name" content="知识铺"><meta property="og:description" content="之前提到了这次从php技术栈迁移到java技术栈要解决的一个问题就是集中化配置管理。 我们为什么会有配置中心的需求?  配置管理变更较为方便 合理控制配置的权限内容  Nacos 控制台增加配置文件 进入Nacos管理界面,在【配置管理】-【配置列表】功能页面点击右上角的 + 号。 进入 新建配置 页面，填写要新增的配置内容 WARN:Data ID的默认扩展名为properties,如果需要使"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cDovL2NhaW5nYW8uYW55ZGF0YS50b3AvYXNzZXRzL2ltZy9zcHJpbmdjbG91ZGFsaWJhYmEvMy9uYWNvc193ZWJfY29uZmlnX2NvbnNvbGUucG5n?x-oss-process=image/format,png"><meta property="og:image" content="https://img-blog.csdnimg.cn/20200509214305127.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE1MzIxMDU=,size_16,color_FFFFFF,t_70"><meta property="article:published_time" content="2020-07-16T09:34:29.000Z"><meta property="article:modified_time" content="2020-09-08T14:03:00.405Z"><meta property="article:author" content="知识铺"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://imgconvert.csdnimg.cn/aHR0cDovL2NhaW5nYW8uYW55ZGF0YS50b3AvYXNzZXRzL2ltZy9zcHJpbmdjbG91ZGFsaWJhYmEvMy9uYWNvc193ZWJfY29uZmlnX2NvbnNvbGUucG5n?x-oss-process=image/format,png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://zshipu.com/2020/07/16/SpringCloudAlibaba(%E4%B8%89)%EF%BC%9A%E4%BD%BF%E7%94%A8Nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/"},"headline":"知识铺","image":[],"datePublished":"2020-07-16T09:34:29.000Z","dateModified":"2020-09-08T14:03:00.405Z","author":{"@type":"Person","name":"知识铺"},"description":"之前提到了这次从php技术栈迁移到java技术栈要解决的一个问题就是集中化配置管理。 我们为什么会有配置中心的需求?  配置管理变更较为方便 合理控制配置的权限内容  Nacos 控制台增加配置文件 进入Nacos管理界面,在【配置管理】-【配置列表】功能页面点击右上角的 + 号。 进入 新建配置 页面，填写要新增的配置内容 WARN:Data ID的默认扩展名为properties,如果需要使"}</script><link rel="canonical" href="https://zshipu.com/2020/07/16/SpringCloudAlibaba(%E4%B8%89)%EF%BC%9A%E4%BD%BF%E7%94%A8Nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600&amp;family=Roboto+Mono"><link rel="stylesheet" href="/css/cyberpunk.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><script data-ad-client="2183476622" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><meta name="generator" content="Hexo 5.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="知识铺" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-07-16T09:34:29.000Z" title="2020-07-16T09:34:29.000Z">2020-07-16</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.405Z" title="2020-09-08T14:03:00.405Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">6 分钟读完 (大约833个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">SpringCloudAlibaba(三)：使用Nacos作为配置中心</h1><div class="content"><p> 之前提到了这次从php技术栈迁移到java技术栈要解决的一个问题就是集中化配置管理。</p>
+<p>我们为什么会有配置中心的需求?</p>
+<ol>
+<li>配置管理变更较为方便</li>
+<li>合理控制配置的权限内容</li>
+</ol>
+<h3 id="Nacos-控制台增加配置文件"><a href="#Nacos-控制台增加配置文件" class="headerlink" title="Nacos 控制台增加配置文件"></a><a name="t0"></a><a name="t0"></a>Nacos 控制台增加配置文件</h3><ol>
+<li>进入Nacos管理界面,在【配置管理】-【配置列表】功能页面点击右上角的 + 号。<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2NhaW5nYW8uYW55ZGF0YS50b3AvYXNzZXRzL2ltZy9zcHJpbmdjbG91ZGFsaWJhYmEvMy9uYWNvc193ZWJfY29uZmlnX2NvbnNvbGUucG5n?x-oss-process=image/format,png"></li>
+<li>进入 新建配置 页面，填写要新增的配置内容<img src="https://img-blog.csdnimg.cn/20200509214305127.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE1MzIxMDU=,size_16,color_FFFFFF,t_70"></li>
+<li><strong>WARN</strong>:Data ID的默认扩展名为<strong>properties</strong>,如果需要使用yaml格式则需要指明是 <strong>.yaml</strong></li>
+<li>发布配置 配置完成后点击发布,即可在配置列表中看到刚才新增的配置</li>
+</ol>
+<h3 id="创建Nacos-Config客户端"><a href="#创建Nacos-Config客户端" class="headerlink" title="创建Nacos Config客户端"></a><a name="t1"></a><a name="t1"></a>创建Nacos Config客户端</h3><ol>
+<li>新建项目,由于使用SpringCloudAlibaba直接引用相关依赖 ```xml</li>
+</ol>
+<p>com.alibaba.cloud spring-cloud-starter-alibaba-nacos-config org.springframework.boot spring-boot-starter-web</p>
+<pre><code class="1.">
+2.  *   启动类
+
+3.  ```java
+
+4.  @SpringBootApplication
+
+5.  public class NacosConfigApplication &#123;
+
+6.  public static void main(String[] args) &#123;
+
+7.  SpringApplication.run(NacosConfigApplication.class,args);
+
+8.  &#125;
+
+9.  &#125;``` 
+
+*   Controller ```1.  @RefreshScope
+
+   2.  @RestController
+
+   3.  @RequestMapping(&quot;/config&quot;)
+
+   4.  public class ConfigController &#123;
+
+   5.  @Value(&quot;$&#123;useLocalCache:false&#125;&quot;)
+
+   6.  private boolean useLocalCache;
+
+   8.  @Value(&quot;$&#123;name&#125;&quot;)
+
+   9.  private String name;
+
+   11.  @RequestMapping(&quot;/get&quot;)
+
+   12.  public boolean get() &#123;
+
+   13.  return useLocalCache;
+
+   14.  &#125;
+
+   16.  @RequestMapping(&quot;/name&quot;)
+
+   17.  public String name()&#123;
+
+   18.  return name;
+
+   19.  &#125;
+
+   20.  &#125;``` 
+
+   **@RefreshScope**在这里的作用就是让配置内容支持动态刷新，也就是当应用运行中，我们在Nacos控制台修改了配置之后这里也会动态的更新。
+
+1.  项目bootstrap.properties配置服务名称与Nacos地址 ```1.  # 配置中心url
+
+   2.  spring.cloud.nacos.config.server-addr=localhost:8848
+
+   3.  # 配置中心展现的服务名称
+
+   4.  spring.application.name=nacos-config-example
+
+   5.  #配置文件类型[TEXT,JSON,XML,YAML,HTML,Properties]
+
+   6.  spring.cloud.nacos.config.file-extension=properties
+
+   7.  # 配置分组,当前的业务基本选择为某些的GROUP,可以基于业务来划分不同的分组.
+
+   8.  spring.cloud.nacos.config.group=DEFAULT_GROUP
+
+   9.  # 默认选择的配置环境,当前把环境划分为4套, dev[开发环境],test[测试环境],pre[预发环境],prod[生产环境]
+
+   10.  spring.profiles.active=dev``` 
+
+   **WARN** 多环境配置中需要指定Nacos namespace的id，而不是指定namespace的名称
+
+2.  启动应用程序并进行验证
+   *   启动应用
+       ![](https://img-blog.csdnimg.cn/20200509214405511.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE1MzIxMDU=,size_16,color_FFFFFF,t_70)
+   *   发送请求测试配置是否生效
+       ![](https://imgconvert.csdnimg.cn/aHR0cDovL2NhaW5nYW8uYW55ZGF0YS50b3AvYXNzZXRzL2ltZy9zcHJpbmdjbG91ZGFsaWJhYmEvMy9uYWNvc193ZWJfY29uZmlnX3Rlc3QucG5n?x-oss-process=image/format,png)
+   *   修改配置进行进行动态刷新
+       进入Nacos控制台修改配置信息,name修改为bigData 再次进行测试
+       ![](https://imgconvert.csdnimg.cn/aHR0cDovL2NhaW5nYW8uYW55ZGF0YS50b3AvYXNzZXRzL2ltZy9zcHJpbmdjbG91ZGFsaWJhYmEvMy9uYWNvc193ZWJfY29uZmlnX3JlZnJlc2gucG5n?x-oss-process=image/format,png)
+       再次发送请求
+       ![](https://imgconvert.csdnimg.cn/aHR0cDovL2NhaW5nYW8uYW55ZGF0YS50b3AvYXNzZXRzL2ltZy9zcHJpbmdjbG91ZGFsaWJhYmEvMy9uYWNvc193ZWJfY29uZmlnX3Rlc3RfcmVmcmVzaC5wbmc?x-oss-process=image/format,png)
+
+至此使用Nacos作为配置中心已经完全搞定,并且也实现了多环境的配置。多环境有几种方式实现，但是我依然习惯使用namespace的方式来实现。
+**源码:**
+
+```1.  github: https://github.com/CainGao/SpringCloudAlibabaExample 
+
+3.  码云:   https://gitee.com/CainGao/SpringCloudAlibabaExample```</code></pre>
+</div><div class="article-licensing box"><div class="licensing-title"><p>SpringCloudAlibaba(三)：使用Nacos作为配置中心</p><p><a href="https://zshipu.com/2020/07/16/SpringCloudAlibaba(%E4%B8%89)%EF%BC%9A%E4%BD%BF%E7%94%A8Nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">https://zshipu.com/2020/07/16/SpringCloudAlibaba(%E4%B8%89)%EF%BC%9A%E4%BD%BF%E7%94%A8Nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>知识铺</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2020-07-16</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2020-09-08</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=5f58e448b1477000121881fb&amp;product=inline-share-buttons" defer></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button is-info donate"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="/img/alipay.jpg" alt="支付宝"></span></a><a class="button is-success donate"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="/img/weixin.jpg" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2020/07/16/Nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E6%97%B6%EF%BC%8C%E5%A4%9A%E4%B8%AA%E6%9C%8D%E5%8A%A1%E5%85%B1%E7%94%A8%E4%B8%80%E4%B8%AAdataId%E7%9A%84%E9%85%8D%E7%BD%AE/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Nacos作为配置中心时，多个服务共用一个dataId的配置</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2020/07/16/Nacos%20%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/"><span class="level-item">Nacos 集群部署</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'https://zshipu.com/2020/07/16/SpringCloudAlibaba(%E4%B8%89)%EF%BC%9A%E4%BD%BF%E7%94%A8Nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/';
+            this.page.identifier = '2020/07/16/SpringCloudAlibaba(三)：使用Nacos作为配置中心/';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');  
+            s.src = '//' + 'zsp' + '.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="https://www.gravatar.com/avatar/2396bdfe5aadb513e676094004dde830?s=128" alt="edwin"></figure><p class="title is-size-4 is-block line-height-inherit">edwin</p><p class="is-size-6 is-block">知识铺</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国 杭州</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">189</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">2</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/liliang8858" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/liliang8858"><i class="Github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="社区"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="设计"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/go/"><span class="level-start"><span class="level-item">go</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:43:02.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Spring%20Cloud%20Gateway+Nacos%EF%BC%8Cyml+properties%E4%B8%A4%E7%A7%8D%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%96%B9%E5%BC%8F%E6%90%AD%E5%BB%BA%E7%BD%91%E5%85%B3%E6%9C%8D%E5%8A%A1/">Spring Cloud Gateway+Nacos，yml+properties两种配置文件方式搭建网关服务</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:39:59.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Spring%20Cloud+nacos+Feign%EF%BC%8C%E5%AE%9E%E7%8E%B0%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%E5%8F%8A%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">Spring Cloud+nacos+Feign，实现注册中心及配置中心</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:32:26.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E6%97%B6%EF%BC%8C%E5%A4%9A%E4%B8%AA%E6%9C%8D%E5%8A%A1%E5%85%B1%E7%94%A8%E4%B8%80%E4%B8%AAdataId%E7%9A%84%E9%85%8D%E7%BD%AE/">Nacos作为配置中心时，多个服务共用一个dataId的配置</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T09:34:29.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/SpringCloudAlibaba(%E4%B8%89)%EF%BC%9A%E4%BD%BF%E7%94%A8Nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">SpringCloudAlibaba(三)：使用Nacos作为配置中心</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T09:31:53.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Nacos%20%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/">Nacos 集群部署</a></p><p class="is-uppercase"></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2020/07/"><span class="level-start"><span class="level-item">七月 2020</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/06/"><span class="level-start"><span class="level-item">六月 2020</span></span><span class="level-end"><span class="level-item tag">37</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/05/"><span class="level-start"><span class="level-item">五月 2020</span></span><span class="level-end"><span class="level-item tag">29</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/04/"><span class="level-start"><span class="level-item">四月 2020</span></span><span class="level-end"><span class="level-item tag">62</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/03/"><span class="level-start"><span class="level-item">三月 2020</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/12/"><span class="level-start"><span class="level-item">十二月 2019</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/11/"><span class="level-start"><span class="level-item">十一月 2019</span></span><span class="level-end"><span class="level-item tag">24</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/go/"><span class="tag">go</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/web/"><span class="tag">web</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button is-primary" type="submit" value="订阅"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="2183476622" data-ad-slot="pub-2874221941555456" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="知识铺" height="28"></a><p class="size-small"><span>&copy; 2020 知识铺</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            site: {
+                url: 'https://zshipu.com',
+                external_link: {"enable":true,"exclude":[]}
+            },
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

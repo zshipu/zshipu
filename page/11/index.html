@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>知识铺</title><meta property="og:type" content="blog"><meta property="og:title" content="知识铺"><meta property="og:url" content="https://zshipu.com/"><meta property="og:site_name" content="知识铺"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://zshipu.com/img/og_image.png"><meta property="article:author" content="edwin"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://zshipu.com"},"headline":"知识铺","image":["https://zshipu.com/img/og_image.png"],"author":{"@type":"Person","name":"edwin"},"description":""}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600&amp;family=Roboto+Mono"><link rel="stylesheet" href="/css/cyberpunk.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><script data-ad-client="2183476622" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><meta name="generator" content="Hexo 5.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="知识铺" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-04-11T09:20:45.000Z" title="2020-04-11T09:20:45.000Z">2020-04-11</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.438Z" title="2020-09-08T14:03:00.438Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">1 小时读完 (大约6681个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/04/11/%E3%80%90%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86%E3%80%91HTML%E7%AF%87-%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86%EF%BC%88%E4%B8%80%EF%BC%89/">【前端知识梳理】HTML篇 笔记整理（一）</a></h1><div class="content"><!-- TOC -->
+
+<ul>
+<li><a href="#1html5%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B0%E7%89%B9%E6%80%A7%E7%A7%BB%E9%99%A4%E4%BA%86%E9%82%A3%E4%BA%9B%E5%85%83%E7%B4%A0">1、html5有哪些新特性、移除了那些元素？</a></li>
+<li><a href="#2%E5%89%8D%E7%AB%AF%E6%B3%A8%E6%84%8F%E5%93%AA%E4%BA%9Bseo">2、前端注意哪些SEO?</a></li>
+<li><a href="#3%E4%BB%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9C%B0%E5%9D%80%E6%A0%8F%E8%BE%93%E5%85%A5url%E5%88%B0%E6%98%BE%E7%A4%BA%E9%A1%B5%E9%9D%A2%E7%9A%84%E6%AD%A5%E9%AA%A4">3、从浏览器地址栏输入url到显示页面的步骤</a></li>
+<li><a href="#4%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E7%BD%91%E7%AB%99%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96">4、如何进行网站性能优化</a></li>
+<li><a href="#5%E8%AF%AD%E4%B9%89%E5%8C%96%E7%9A%84%E7%90%86%E8%A7%A3">5、语义化的理解</a></li>
+<li><a href="#6%E5%AF%B9%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E7%9A%84%E7%90%86%E8%A7%A3">6、对浏览器内核的理解</a></li>
+<li><a href="#7%E8%AF%B7%E6%8F%8F%E8%BF%B0%E4%B8%80%E4%B8%8B-cookiessessionstorage-%E5%92%8C-localstorage-%E7%9A%84%E5%8C%BA%E5%88%AB">7、请描述一下 cookies，sessionStorage 和 localStorage 的区别？</a></li>
+<li><a href="#8%E9%A1%B5%E9%9D%A2%E8%AE%BF%E9%97%AEcookie%E7%9A%84%E9%99%90%E5%88%B6%E6%9D%A1%E4%BB%B6">8、页面访问cookie的限制条件</a></li>
+<li><a href="#9cookie%E7%9A%84%E4%BD%9C%E7%94%A8%E4%B8%8E%E5%BC%8A%E7%AB%AF">9、cookie的作用与弊端</a></li>
+<li><a href="#10%E4%BB%8B%E7%BB%8Dcookie%E7%9A%84%E5%B1%9E%E6%80%A7">10、介绍cookie的属性</a></li>
+<li><a href="#11%E9%A2%84%E6%B5%8B%E6%9C%80%E8%BF%91%E9%9D%A2%E8%AF%95%E4%BC%9A%E8%80%83-cookie-%E7%9A%84-samesite-%E5%B1%9E%E6%80%A7">11、预测最近面试会考 Cookie 的 SameSite 属性</a></li>
+<li><a href="#12samesite">12、SameSite</a></li>
+<li><a href="#13doctype-%E7%9A%84%E4%BD%9C%E7%94%A8%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F%E4%B8%8E%E6%B7%B7%E6%9D%82%E6%A8%A1%E5%BC%8F%E5%A6%82%E4%BD%95%E5%8C%BA%E5%88%86%E5%AE%83%E4%BB%AC%E6%9C%89%E4%BD%95%E6%84%8F%E4%B9%89">13、doctype 的作用？严格模式与混杂模式如何区分？它们有何意义？</a></li>
+<li><a href="#14html5-%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8F%AA%E9%9C%80%E5%86%99-doctype-html-">14、HTML5 为什么只需写&lt; !DOCTYPE HTML&gt; ?</a></li>
+<li><a href="#15web%E6%A0%87%E5%87%86%E4%BB%A5%E5%8F%8Aw3c%E6%A0%87%E5%87%86%E6%98%AF%E4%BB%80%E4%B9%88">15、WEB标准以及W3C标准是什么?</a></li>
+<li><a href="#16%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0%E6%9C%89%E5%93%AA%E4%BA%9B%E5%9D%97%E7%BA%A7%E5%85%83%E7%B4%A0%E6%9C%89%E5%93%AA%E4%BA%9B%E7%A9%BAvoid%E5%85%83%E7%B4%A0%E6%9C%89%E5%93%AA%E4%BA%9B">16、行内元素有哪些？块级元素有哪些？空（void）元素有哪些？</a></li>
+<li><a href="#17xhtml%E5%92%8Chtml%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB">17、xhtml和html有什么区别?</a></li>
+<li><a href="#18iframe%E6%9C%89%E9%82%A3%E4%BA%9B%E7%BC%BA%E7%82%B9">18、iframe有那些缺点？</a></li>
+<li><a href="#19%E7%BD%91%E9%A1%B5%E9%AA%8C%E8%AF%81%E7%A0%81%E6%98%AF%E5%B9%B2%E5%98%9B%E7%9A%84%E6%98%AF%E4%B8%BA%E4%BA%86%E8%A7%A3%E5%86%B3%E4%BB%80%E4%B9%88%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98">19、网页验证码是干嘛的，是为了解决什么安全问题</a></li>
+<li><a href="#20title%E4%B8%8Eh1%E7%9A%84%E5%8C%BA%E5%88%ABb%E4%B8%8Estrong%E7%9A%84%E5%8C%BA%E5%88%ABi%E4%B8%8Eem%E7%9A%84%E5%8C%BA%E5%88%AB">20、title与h1的区别、b与strong的区别、i与em的区别？</a></li>
+</ul>
+<!-- /TOC -->
+
+<h3 id="1、html5有哪些新特性、移除了那些元素？"><a href="#1、html5有哪些新特性、移除了那些元素？" class="headerlink" title="1、html5有哪些新特性、移除了那些元素？"></a>1、html5有哪些新特性、移除了那些元素？</h3><ul>
+<li><p><code>HTML5</code> 现在已经不是 <code>SGML</code> 的子集，主要是关于图像，位置，存储，多任务等功能的增加</p>
+<p>  绘画 <code>canvas</code><br>  用于媒介回放的<code> video</code> 和 <code>audio</code> 元素<br>  本地离线存储<code> localStorage</code> 长期存储数据，浏览器关闭后数据不丢失<br>  <code>sessionStorage</code> 的数据在浏览器关闭后自动删除<br>  语意化更好的内容元素，比如<code>article</code>、<code>footer</code>、<code>header</code>、<code>nav</code>、<code>section</code><br>  表单控件，<code>calendar</code>、<code>date</code>、<code>time</code>、<code>email</code>、<code>url</code>、<code>search</code><br>  新的技术<code>webworker</code>、<code> websocket</code>、 <code>Geolocation</code></p>
+</li>
+<li><p><code>移除</code> 的元素：</p>
+<p>  纯表现的元素：<code>basefont</code>、<code>big</code>、<code>center</code>、<code>font</code>、 <code>s</code>、<code>strike</code>、<code>tt</code>、<code>u</code><br>  对可用性产生负面影响的元素：<code>frame</code>、<code>frameset</code>、<code>noframes</code></p>
+</li>
+<li><p>支持<code>HTML5</code>新标签：</p>
+<p>  IE8/IE7/IE6支持通过<code>document.createElement</code>方法产生的标签<br>  可以利用这一特性让这些浏览器支持<code>HTML5</code>新标签<br>  浏览器支持新标签后，还需要添加标签默认的样式</p>
+</li>
+<li><p>当然也可以直接使用成熟的框架、比如<code>html5shim</code></p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--[<span class="keyword">if</span> lt IE <span class="number">9</span>]&gt;</span><br><span class="line"> </span><br><span class="line">&lt;script&gt; src=<span class="string">&quot;http://html5shim.googlecode.com/svn/trunk/html5.js&quot;</span>&lt;/script&gt;</span><br><span class="line"> </span><br><span class="line">&lt;![endif]--&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、前端注意哪些SEO"><a href="#2、前端注意哪些SEO" class="headerlink" title="2、前端注意哪些SEO?"></a>2、前端注意哪些SEO?</h3><ul>
+<li>合理的<code>title</code>、<code>description</code>、<code>keywords</code>：搜索对着三项的权重逐个减小，<code>title</code>值强调重点即可，重要关键词出现不要超过2次，而且要靠前，不同页面<code>title</code>要有所不同；<code>description</code>把页面内容高度概括，长度合适，不可过分堆砌关键词，不同页面<code>description</code>有所不同；<code>keywords</code>列举出重要关键词即可</li>
+<li>语义化的<code>HTML</code>代码，符合W3C规范：语义化代码让搜索引擎容易理解网页</li>
+<li>重要内容<code>HTML</code>代码放在最前：搜索引擎抓取<code>HTML</code>顺序是从上到下，有的搜索引擎对抓取长度有限制，保证重要内容一定会被抓取</li>
+<li>重要内容不要用<code>js</code>输出：爬虫不会执行js获取内容</li>
+<li>少用<code>iframe</code>：搜索引擎不会抓取<code>iframe</code>中的内容</li>
+<li>非装饰性图片必须加<code>alt</code></li>
+<li>提高网站速度：网站速度是搜索引擎排序的一个重要指标</li>
+</ul>
+<h3 id="3、从浏览器地址栏输入url到显示页面的步骤"><a href="#3、从浏览器地址栏输入url到显示页面的步骤" class="headerlink" title="3、从浏览器地址栏输入url到显示页面的步骤"></a>3、从浏览器地址栏输入url到显示页面的步骤</h3><p><strong>简略回答</strong></p>
+<ul>
+<li>浏览器根据请求的<code>URL</code>交给<code>DNS</code>域名解析，找到真实<code>IP</code>，向服务器发起请求；</li>
+<li>服务器交给后台处理完成后返回数据，浏览器接收文件（<code>HTML、JS、CSS</code>、图象等）；</li>
+<li>浏览器对加载到的资源（HTML、JS、CSS等）进行语法解析，建立相应的内部数据结构（如HTML的DOM）；</li>
+<li>载入解析到的资源文件，渲染页面，完成。</li>
+</ul>
+<p><strong>详细回答</strong></p>
+<ol>
+<li>从浏览器接收<code>url</code>到开启网络请求线程（这一部分可以展开浏览器的机制以及进程与线程之间的关系）</li>
+<li>开启网络线程到发出一个完整的<code>HTTP</code>请求（这一部分涉及到dns查询，<code>TCP/IP</code>请求，五层因特网协议栈等知识）</li>
+<li>从服务器接收到请求到对应后台接收到请求（这一部分可能涉及到负载均衡，安全拦截以及后台内部的处理等等）</li>
+<li>后台和前台的<code>HTTP</code>交互（这一部分包括<code>HTTP</code>头部、响应码、报文结构、<code>cookie</code>等知识，可以提下静态资源的<code>cookie</code>优化，以及编码解码，如<code>gzip</code>压缩等）</li>
+<li>单独拎出来的缓存问题，<code>HTTP</code>的缓存（这部分包括http缓存头部，<code>ETag</code>，<code>catch-control</code>等）</li>
+<li>浏览器接收到<code>HTTP</code>数据包后的解析流程（解析<code>html</code>-词法分析然后解析成<code>dom</code>树、解析<code>css</code>生成<code>css规则树</code>、合并成<code>render</code>树，然后<code>layout、painting</code>渲染、复合图层的合成、<code>GPU</code>绘制、外链资源的处理、<code>loaded</code>和<code>DOMContentLoaded</code>等）</li>
+<li><code>CSS</code>的可视化格式模型（元素的渲染规则，如包含块，控制框，<code>BFC</code>，<code>IFC</code>等概念）</li>
+<li><code>JS</code>引擎解析过程（<code>JS</code>的解释阶段，预处理阶段，执行阶段生成执行上下文，<code>VO</code>，作用域链、回收机制等等）</li>
+<li>其它（可以拓展不同的知识模块，如<code>跨域</code>，<code>web安全</code>，<code>hybrid</code>模式等等内容）</li>
+</ol>
+<h3 id="4、如何进行网站性能优化"><a href="#4、如何进行网站性能优化" class="headerlink" title="4、如何进行网站性能优化"></a>4、如何进行网站性能优化</h3><ul>
+<li><p><code>content </code> 方面</p>
+<p>  减少<code>HTTP</code>请求：合并文件、<code>CSS</code>精灵、<code>inline Image</code><br>  减少<code>DNS</code>查询：<code>DNS</code>缓存、将资源分布到恰当数量的主机名<br>  减少<code>DOM</code>元素数量</p>
+</li>
+<li><p><code>Cookie</code> 方面</p>
+<p>  减小<code>cookie</code>大小</p>
+</li>
+<li><p><code>Server</code> 方面</p>
+<p>  使用<code>CDN</code><br>  配置<code>ETag</code><br>  对组件使用<code>Gzip</code>压缩</p>
+</li>
+<li><p><code>图片</code> 方面</p>
+<p>  优化图片：根据实际颜色需要选择色深、压缩<br>  优化<code>css</code>精灵<br>  不要在<code>HTML</code>中拉伸图片</p>
+</li>
+<li><p><code>css</code> 方面</p>
+<p>   将样式表放到页面顶部<br>  不使用<code>CSS</code>表达式<br>  使用<code>&lt;link&gt;</code>不使用<code>@import</code></p>
+</li>
+<li><p><code> js</code> 方面</p>
+<p>  将脚本放到页面底部<br>  将<code>javascript</code>和<code>css</code>从外部引入<br>  压缩<code>javascript</code>和<code>css</code><br>  删除不需要的脚本<br>  减少<code>DOM</code>访问</p>
+</li>
+</ul>
+<h3 id="5、语义化的理解"><a href="#5、语义化的理解" class="headerlink" title="5、语义化的理解"></a>5、语义化的理解</h3><ul>
+<li>简单来说：用正确的标签做正确的事情！</li>
+<li><code>HTML</code>语义化就是让页面的内容结构化，便于对浏览器、搜索引擎解析；</li>
+<li>在没有样式<code>CSS</code>情况下也以一种文档格式显示，并且是容易阅读的。</li>
+<li>搜索引擎的爬虫依赖于标记来确定上下文和各个关键字的权重，利于 <code>SEO</code>。</li>
+<li>使阅读源代码的人对网站更容易将网站分块，便于阅读维护理解</li>
+</ul>
+<h3 id="6、对浏览器内核的理解"><a href="#6、对浏览器内核的理解" class="headerlink" title="6、对浏览器内核的理解"></a>6、对浏览器内核的理解</h3><ul>
+<li><p>主要分成两部分：渲染引擎(<code>layout engineer</code>或<code>Rendering Engine</code>)和<code>JS</code>引擎</p>
+</li>
+<li><p>渲染引擎：负责取得网页的内容（<code>HTML</code>、<code>XML</code>、图像等等）、整理讯息（例如加入<code>CSS</code>等），以及计算网页的显示方式，然后会输出至显示器或打印机。浏览器的内核的不同对于网页的语法解释会有不同，所以渲染的效果也不相同。所有网页浏览器、电子邮件客户端以及其它需要编辑、显示网络内容的应用程序都需要内核</p>
+</li>
+<li><p><code>JS</code>引擎则：解析和执行<code>javascript</code>来实现网页的动态效果</p>
+</li>
+<li><p>最开始渲染引擎和<code>JS</code>引擎并没有区分的很明确，后来JS引擎越来越独立，内核就倾向于只指渲染引擎</p>
+</li>
+</ul>
+<h3 id="7、请描述一下-cookies，sessionStorage-和-localStorage-的区别？"><a href="#7、请描述一下-cookies，sessionStorage-和-localStorage-的区别？" class="headerlink" title="7、请描述一下 cookies，sessionStorage 和 localStorage 的区别？"></a>7、请描述一下 cookies，sessionStorage 和 localStorage 的区别？</h3><ul>
+<li><p><code>cookie</code>是网站为了标示用户身份而储存在用户本地终端（Client Side）上的数据（通常经过加密）</p>
+</li>
+<li><p><code>cookie</code>数据始终在同源的http请求中携带（即使不需要），即会在浏览器和服务器间来回传递</p>
+</li>
+<li><p><code>sessionStorage</code>和<code>localStorage</code>不会自动把数据发给服务器，仅在本地保存</p>
+</li>
+<li><p>存储大小：</p>
+<p>  <code>cookie</code>数据大小不能超过4k<br>  <code>sessionStorage</code>和<code>localStorage</code>虽然也有存储大小的限制，但比<code>cookie</code>大得多，可以达到5M或更大</p>
+</li>
+<li><p>有期时间：</p>
+<p>  <code>localStorage</code> 存储持久数据，浏览器关闭后数据不丢失除非主动删除数据<br>  <code>sessionStorage</code> 数据在当前浏览器窗口关闭后自动删除<br>  <code>cookie</code> 设置的<code>cookie</code>过期时间之前一直有效，即使窗口或浏览器关闭</p>
+</li>
+</ul>
+<h3 id="8、页面访问cookie的限制条件"><a href="#8、页面访问cookie的限制条件" class="headerlink" title="8、页面访问cookie的限制条件"></a>8、页面访问cookie的限制条件</h3><p>cookie （储存在用户本地终端上的数据）</p>
+<p>cookie 指某些网站为了辨别用户身份、进行 session 跟踪而储存在用户本地终端上的数据。cookie 在网络系统中几乎无处不在，当我们浏览以前访问过的网站时，网页中可能会出现 ：你好 XXX。</p>
+<p><strong>1. 跨域问题：</strong></p>
+<p><code>cookie</code>允许Web开发者保留他们的用户的登录状态。但是当你的站点有一个以上的域名时就会出现问题了。在<code>cookie</code>规范上说，一个<code>cookie</code>只能用于一个域名，不能够发给其它的域名。因此，如果在浏览器中对一个域名设置了一个<code>cookie</code>，这个<code>cookie</code>对于其它的域名将无效。</p>
+<p><strong>解决：</strong></p>
+<ul>
+<li>通过nginx反向代理</li>
+<li>jsonp方式请求</li>
+</ul>
+<p><strong>2. 设置了HTTP only：</strong></p>
+<p>如果在cookie中设置了<code>HttpOnly</code>属性，那么通过程序(JS脚本、Applet等)将无法读取到<code>cookie</code>信息，这样能有效的防止<code>XSS</code>攻击。</p>
+<h3 id="9、cookie的作用与弊端"><a href="#9、cookie的作用与弊端" class="headerlink" title="9、cookie的作用与弊端"></a>9、cookie的作用与弊端</h3><p><strong>cookie的作用</strong></p>
+<ul>
+<li>可以在客户端上保存用户数据，起到简单的缓存和用户身份识别等作用。</li>
+<li>保存用户的登陆状态，用户进行登陆，成功登陆后，服务器生成特定的cookie返回给客户端，客户端下次访问该域名下的任何页面，将该cookie的信息发送给服务器，服务器经过检验，来判断用户是否登陆。</li>
+<li>记录用户的行为。</li>
+</ul>
+<p><strong>cookie弊端</strong></p>
+<ul>
+<li>增加流量消耗，每次请求都需要带上cookie信息。</li>
+<li>安全性隐患，cookie使用明文传输。如果cookie被人拦截了，那人就可以取得所有的session信息。</li>
+<li>Cookie数量和长度的限制。每个domain最多只能有20条cookie，每个cookie长度不能超过4KB，否则会被截掉</li>
+</ul>
+<h3 id="10、介绍cookie的属性"><a href="#10、介绍cookie的属性" class="headerlink" title="10、介绍cookie的属性"></a>10、介绍cookie的属性</h3><p>在chrome控制台中的Application选项卡中可以看到cookie的信息。</p>
+<p><img src="https://blog.zshipu.com/tlg/images/pasted-298.png" alt="知识铺-pasted-298.png"><br>一个域名下面可能存在着很多个<code>cookie</code>对象。但一个<code>cookie</code>只能用于一个域名，不能够发给其它的域名。</p>
+<ul>
+<li><p>Name</p>
+<p>  为一个cookie的名称（用 JavaScript 操作 Cookie 的时候注意对 Value 进行编码处理。）</p>
+</li>
+<li><p>value</p>
+<p>  为一个cookie的值（用 JavaScript 操作 Cookie 的时候注意对 Value 进行编码处理。）</p>
+</li>
+<li><p>Domain<br>  为可以访问此cookie的域名</p>
+</li>
+</ul>
+<p>注：二级域名能读取设置了<code>domain</code>为顶级域名或者自身的cookie，不能读取其他二级域名<code>domain</code>的<code>cookie</code>。所以要想<code>cookie</code>在多个二级域名中共享，需要设置<code>domain</code>为顶级域名，这样就可以在所有二级域名里面获得到这个<code>cookie</code>的值了。</p>
+<p>顶级域名只能获取到<code>domain</code>设置为顶级域名的<code>cookie</code>，其他domain设置为二级域名的无法获取。</p>
+<ul>
+<li>Path</li>
+</ul>
+<p>为可以访问此cookie的页面路径。 比如domain是abc.com,path是/test，那么只有/test路径下的页面可以读取此cookie</p>
+<ul>
+<li>Expires</li>
+</ul>
+<p>字段为此cookie<code>超时时间</code>。若设置其值为一个时间，那么当到达此时间后，此cookie失效。不设置的话<code>默认值是Session</code>，意思是cookie会和session一起失效。当浏览器关闭(不是浏览器标签页，而是整个浏览器) 后，此cookie失效。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set</span>-Cookie: id=a3fWa; Expires=Wed, <span class="number">21</span> Oct <span class="number">2015</span> <span class="number">07</span>:<span class="number">28</span>:<span class="number">00</span> GMT;</span><br></pre></td></tr></table></figure>
+<p>当为<code>会话性 Cookie</code> 的时候，值保存在客户端内存中，并在用户关闭浏览器时失效。需要注意的是，有些浏览器提供了会话恢复功能，这种情况下即使关闭了浏览器，会话期 Cookie 也会被保留下来，就好像浏览器从来没有关闭一样。</p>
+<p>与会话性 Cookie 相对的是<code>持久性 Cookie</code>，持久性 Cookies 会保存在用户的硬盘中，直至过期或者清除 Cookie。这里值得注意的是，设定的日期和时间只与客户端相关，而不是服务端。</p>
+<ul>
+<li>Max-Age</li>
+</ul>
+<p><code>Max-Age </code>用于设置在 Cookie 失效之前需要经过的<code>秒数</code>。比如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set</span>-Cookie: id=a3fWa; Max-Age=<span class="number">604800</span>;</span><br></pre></td></tr></table></figure>
+<p><code>Max-Age</code> 可以为正数、负数、甚至是 0。</p>
+<p>如果 max-Age 属性为<code>正数</code>时，浏览器会将其持久化，即写到对应的 Cookie 文件中。</p>
+<p>当 max-Age 属性为<code>负数</code>，则表示该 Cookie 只是一个会话性 Cookie。</p>
+<p>当 max-Age 为 <code>0 </code>时，则会立即删除这个 Cookie。</p>
+<p>假如 <code>Expires </code>和 <code>Max-Age</code> 都存在，<code>Max-Age </code>优先级更高。</p>
+<ul>
+<li><p>Size<br>  此cookie大小</p>
+</li>
+<li><p>HttpOnly</p>
+</li>
+</ul>
+<p>若此属性为<code>true</code>，则只有在http请求头中会带有此cookie的信息，而不能通过<code>document.cookie</code>来访问此cookie。</p>
+<ul>
+<li><p>Secure<br>  设置是否只能通过https来传递此条cookie。使用 <code>HTTPS </code>安全协议，可以保护 Cookie 在浏览器和 Web 服务器间的传输过程中不被窃取和篡改。</p>
+</li>
+<li><p>SameSite<br>(    3月份比较火的一个问题，下面会参考别人文章进行整理）</p>
+</li>
+</ul>
+<h3 id="11、预测最近面试会考-Cookie-的-SameSite-属性"><a href="#11、预测最近面试会考-Cookie-的-SameSite-属性" class="headerlink" title="11、预测最近面试会考 Cookie 的 SameSite 属性"></a>11、预测最近面试会考 Cookie 的 SameSite 属性</h3><p><a href="https://zshipu.com/t?url=https://segmentfault.com/a/1190000022055666">参考文章出处</a></p>
+<p><strong>前言</strong></p>
+<p>2 月份发布的 Chrome 80 版本中默认屏蔽了第三方的 Cookie，在灰度期间，就导致了阿里系的很多应用都产生了问题，为此还专门成立了小组，推动各 BU 进行改造，目前阿里系基本已经改造完成。所有的前端团队估计都收到过通知，也着实加深了一把大家对于 Cookie 的理解，所以很可能就此出个面试题，而即便不是面试题，当问到 HTTP 相关内容的时候，不妨也扯到这件事情来，一能表明你对前端时事的跟进，二还能借此引申到前端安全方面的内容，为你的面试加分。</p>
+<p><strong>HTTP</strong></p>
+<p>一般我们都会说 “HTTP 是一个<code>无状态的协议</code>”，不过要注意这里的 HTTP 其实是指 HTTP 1.x，而所谓无状态协议，简单的理解就是即使同一个客户端连续两次发送请求给服务器，服务器也<code>识别不出这是同一个客户端发送的请求</code>，这导致的问题就比如你加了一个商品到购物车中，但因为识别不出是同一个客户端，你刷新下页面就没有了……</p>
+<p><strong>Cookie</strong></p>
+<p>为了解决 HTTP 无状态导致的问题，后来出现了 Cookie。不过这样说可能会让你产生一些误解，首先无状态并不是不好，有优点，但也会导致一些问题。而 Cookie 的存在也不是为了解决通讯协议无状态的问题，只是为了解决客户端与服务端会话状态的问题，这个状态是指<code>后端服务的状态而非通讯协议的状态</code>。</p>
+<p><strong>Cookie 的设置</strong></p>
+<p>那 Cookie 是怎么设置的呢？简单来说就是</p>
+<ol>
+<li>客户端发送 HTTP 请求到服务器</li>
+<li>当服务器收到 HTTP 请求时，在响应头里面添加一个 Set-Cookie 字段</li>
+<li>浏览器收到响应后保存下 Cookie</li>
+<li>之后对该服务器每一次请求中都通过 Cookie 字段将 Cookie 信息发送给服务器。</li>
+</ol>
+<h3 id="12、SameSite"><a href="#12、SameSite" class="headerlink" title="12、SameSite"></a>12、SameSite</h3><p>SameSite 是最近非常值得一提的内容，因为 2 月份发布的 Chrome80 版本中默认屏蔽了第三方的 Cookie，这会导致阿里系的很多应用都产生问题，为此还专门成立了问题小组，推动各 BU 进行改造。</p>
+<p><strong>作用</strong></p>
+<p>SameSite 属性可以让<code>Cookie</code>在跨站请求时不会被发送，从而可以阻止跨站请求伪造攻击（<code>CSRF</code>）。</p>
+<p><strong>属性值</strong></p>
+<ul>
+<li><code>Strict</code>仅允许一方请求携带 Cookie，即浏览器将只发送<code>相同站点</code>请求的 Cookie，即当前网页 URL 与请求目标 <code>URL 完全一致</code>。</li>
+<li><code>Lax</code>允许部分第三方请求携带 Cookie</li>
+<li><code>None</code>无论是否跨站都会发送 Cookie</li>
+</ul>
+<p>之前默认是<code> None</code> 的，Chrome80 后默认是 <code>Lax</code>。</p>
+<p><strong>跨域和跨站</strong></p>
+<p>首先要理解的一点就是<code>跨站</code>和<code>跨域</code>是不同的。同站(<code>same-site</code>)/跨站(<code>cross-site</code>)」和第一方(<code>first-party</code>)/第三方(<code>third-party</code>)是等价的。但是与浏览器同源策略（<code>SOP</code>）中的「同源(<code>same-origin</code>)/跨域(<code>cross-origin</code>)」是完全不同的概念。</p>
+<p>同源策略的同源是指两个 URL 的协议/主机名/端口一致。例如，<code>https://www.taobao.com/pages/...</code>，它的协议是<code> https</code>，主机名是<code>www.taobao.com</code>，端口是 <code>443</code>。</p>
+<p>同源策略作为浏览器的安全基石，其「同源」判断是比较严格的，相对而言，<code>Cookie</code>中的「同站」判断就比较宽松：只要两个 URL 的 eTLD+1 相同即可，不需要考虑协议和端口。其中，eTLD 表示有效顶级域名，注册于 Mozilla 维护的公共后缀列表（Public Suffix List）中，例如，.com、.co.uk、.github.io 等。eTLD+1 则表示，有效顶级域名+二级域名，例如taobao.com等</p>
+<p>举几个例子，<code>www.taobao.com</code>和<code>www.baidu.com</code>是跨站，<code>www.a.taobao.com</code>和<code>www.b.taobao.com</code>是同站，<code>a.github.io</code>和<code>b.github.io</code>是跨站(注意是跨站)。</p>
+<p><strong>改变</strong></p>
+<p>接下来看下从 None 改成 Lax 到底影响了哪些地方的 Cookies 的发送？直接来一个图表：</p>
+<p><img src="https://blog.zshipu.com/tlg/images/pasted-297.png" alt="知识铺-pasted-297.png"><br>从上图可以看出，对大部分 web 应用而言，Post 表单，iframe，AJAX，Image 这四种情况从以前的跨站会发送三方 Cookie，变成了不发送。</p>
+<p><code>Post表单</code>：应该的，学 CSRF 总会举表单的例子。</p>
+<p><code>iframe</code>：iframe 嵌入的 web 应用有很多是跨站的，都会受到影响。</p>
+<p><code>AJAX</code>：可能会影响部分前端取值的行为和结果。</p>
+<p><code>Image</code>：图片一般放 CDN，大部分情况不需要 Cookie，故影响有限。但如果引用了需要鉴权的图片，可能会受到影响。</p>
+<p>除了这些还有 script 的方式，这种方式也不会发送 Cookie，像淘宝的大部分请求都是 <code>jsonp</code>，如果涉及到跨站也有可能会被影响。</p>
+<p><strong>问题</strong></p>
+<p>我们再看看会出现什么的问题？举几个例子：</p>
+<ul>
+<li>天猫和飞猪的页面靠请求淘宝域名下的接口获取登录信息，由于 Cookie 丢失，用户无法登录，页面还会误判断成是由于用户开启了浏览器的“禁止第三方 Cookie”功能导致而给与错误的提示</li>
+<li>淘宝部分页面内嵌支付宝确认付款和确认收货页面、天猫内嵌淘宝的登录页面等，由于 Cookie 失效，付款、登录等操作都会失败</li>
+<li>阿里妈妈在各大网站比如今日头条，网易，微博等投放的广告，也是用 iframe 嵌入的，没有了 Cookie，就不能准确的进行推荐</li>
+<li>一些埋点系统会把用户 id 信息埋到 Cookie 中，用于日志上报，这种系统一般走的都是单独的域名，与业务域名分开，所以也会受到影响。</li>
+<li>一些用于防止恶意请求的系统，对判断为恶意请求的访问会弹出验证码让用户进行安全验证，通过安全验证后会在请求所在域种一个Cookie，请求中带上这个Cookie之后，短时间内不再弹安全验证码。在Chrome80以上如果因为Samesite的原因请求没办法带上这个Cookie，则会出现一直弹出验证码进行安全验证。</li>
+<li>天猫商家后台请求了跨域的接口，因为没有 Cookie，接口不会返回数据</li>
+<li>……</li>
+</ul>
+<p>如果不解决，影响的系统其实还是很多的……</p>
+<p>解决方案就是<code>设置 SameSite 为 none</code>。</p>
+<h3 id="13、doctype-的作用？严格模式与混杂模式如何区分？它们有何意义？"><a href="#13、doctype-的作用？严格模式与混杂模式如何区分？它们有何意义？" class="headerlink" title="13、doctype 的作用？严格模式与混杂模式如何区分？它们有何意义？"></a>13、doctype 的作用？严格模式与混杂模式如何区分？它们有何意义？</h3><p>DOCTYPE是<code>document type (文档类型)</code> 的缩写。 &lt; !DOCTYPE &gt; 声明位于文档的最前面，处于标签之前，它不是html标签。主要作用是告诉浏览器的解析器使用哪种HTML规范或者XHTML规范来解析页面。</p>
+<p><code>严格模式</code>和<code>混杂模式</code>都是浏览器的呈现模式，浏览器究竟使用混杂模式还是严格模式呈现页面与网页中的<code>DTD</code>（文件类型定义）有关，DTD里面包含了文档的规则。比如：loose.dtd</p>
+<ul>
+<li>严格模式：又称标准模式，是指浏览器按照<code>W3C</code>标准来解析代码，呈现页面</li>
+<li>混杂模式：又称为怪异模式或者兼容模式，是指浏览器按照自己的方式来解析代码，使用一种比较宽松的向后兼容的方式来显示页面。</li>
+</ul>
+<h3 id="14、HTML5-为什么只需写-lt-DOCTYPE-HTML-gt"><a href="#14、HTML5-为什么只需写-lt-DOCTYPE-HTML-gt" class="headerlink" title="14、HTML5 为什么只需写&lt; !DOCTYPE HTML&gt; ?"></a>14、HTML5 为什么只需写&lt; !DOCTYPE HTML&gt; ?</h3><p>HTML5不基于<code> SGML</code> （标准通用标记语言），因此不需要对<code>DTD</code>（ DTD 规定了标记语言的规则，这样浏览器才能正确地呈现内容。）进行引用，但是需要doctype来规范浏览器的行为（让浏览器按照它们应该的方式来运行）。</p>
+<p>而HTML4.01基于<code>SGML</code>,所以需要对<code>DTD</code>进行引用，才能告知浏览器文档所使用的文档类型。</p>
+<h3 id="15、WEB标准以及W3C标准是什么"><a href="#15、WEB标准以及W3C标准是什么" class="headerlink" title="15、WEB标准以及W3C标准是什么?"></a>15、WEB标准以及W3C标准是什么?</h3><p>标签闭合、标签小写、不乱嵌套、使用外链<code>css</code>和<code>js</code>、结构行为表现的分离</p>
+<h3 id="16、行内元素有哪些？块级元素有哪些？空（void）元素有哪些？"><a href="#16、行内元素有哪些？块级元素有哪些？空（void）元素有哪些？" class="headerlink" title="16、行内元素有哪些？块级元素有哪些？空（void）元素有哪些？"></a>16、行内元素有哪些？块级元素有哪些？空（void）元素有哪些？</h3><p>行内元素不可以设置宽高，不独占一行<br>块级元素可以设置宽高，独占一行</p>
+<ul>
+<li>行内：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a&gt;、&lt;abbr&gt;、&lt;acronym&gt;、&lt;b&gt;、&lt;bdo&gt;、&lt;big&gt;、&lt;br&gt;、&lt;cite&gt;、&lt;code&gt;、&lt;dfn&gt;、&lt;em&gt;、&lt;i&gt;、&lt;img&gt;、&lt;input&gt;、&lt;kbd&gt;、&lt;label&gt;、&lt;q&gt;、&lt;samp&gt;、&lt;select&gt;、&lt;small&gt;、&lt;span&gt;、&lt;strong&gt;、&lt;sub&gt;、&lt;sup&gt;、&lt;textarea&gt;、&lt;tt&gt;、&lt;<span class="keyword">var</span>&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>块级：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;address&gt;、&lt;caption&gt;、&lt;dd&gt;、&lt;div&gt;、&lt;dl&gt;、&lt;dt&gt;、&lt;fieldset&gt;、&lt;form&gt;、&lt;h1&gt;、&lt;h2&gt;、&lt;h3&gt;、&lt;h4&gt;、&lt;h5&gt;、&lt;h6&gt;、&lt;hr&gt;、&lt;legend&gt;、&lt;li&gt;、&lt;noframes&gt;、&lt;noscript&gt;、&lt;ol&gt;、&lt;ul&gt;、&lt;p&gt;、&lt;pre&gt;、&lt;table&gt;、&lt;tbody&gt;、&lt;td&gt;、&lt;tfoot&gt;、&lt;th&gt;、&lt;thead&gt;、&lt;tr&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>空：</li>
+</ul>
+<p>常见的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;br&gt; &lt;hr&gt; &lt;img&gt; &lt;input&gt; &lt;link&gt; &lt;meta&gt;</span><br></pre></td></tr></table></figure>
+
+<p>鲜为人知的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;area&gt; &lt;base&gt; &lt;col&gt; &lt;command&gt; &lt;embed&gt; &lt;link&gt; &lt;meta&gt;&lt;keygen&gt; &lt;param&gt; &lt;source&gt; &lt;track&gt; &lt;wbr&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="17、xhtml和html有什么区别"><a href="#17、xhtml和html有什么区别" class="headerlink" title="17、xhtml和html有什么区别?"></a>17、xhtml和html有什么区别?</h3><ul>
+<li><p>功能上的差别</p>
+<p>  主要是XHTML可兼容各大浏览器、手机以及PDA，并且浏览器也能快速正确地编译网页</p>
+</li>
+<li><p>书写习惯的差别</p>
+<p>  XHTML 元素必须被正确地嵌套，闭合，区分大小写，文档必须拥有根元素</p>
+</li>
+</ul>
+<h3 id="18、iframe有那些缺点？"><a href="#18、iframe有那些缺点？" class="headerlink" title="18、iframe有那些缺点？"></a>18、iframe有那些缺点？</h3><ul>
+<li>iframe会阻塞主页面的<code>Onload</code>事件</li>
+<li>搜索引擎的检索程序无法解读这种页面，不利于<code>SEO</code></li>
+<li><code> iframe</code>和主页面共享连接池，而浏览器对相同域的连接有限制，所以会影响页面的并行加载</li>
+<li>使用<code>iframe</code>之前需要考虑这两个缺点。如果需要使用<code>iframe</code>，最好是通过<code>javascript</code>动态给iframe添加<code>src</code>属性值，这样可以绕开以上两个问题</li>
+</ul>
+<h3 id="19、网页验证码是干嘛的，是为了解决什么安全问题"><a href="#19、网页验证码是干嘛的，是为了解决什么安全问题" class="headerlink" title="19、网页验证码是干嘛的，是为了解决什么安全问题"></a>19、网页验证码是干嘛的，是为了解决什么安全问题</h3><ul>
+<li>区分用户是计算机还是人的公共全自动程序。可以防止恶意破解密码、刷票、论坛灌水</li>
+<li>有效防止黑客对某一个特定注册用户用特定程序暴力破解方式进行不断的登陆尝试</li>
+</ul>
+<h3 id="20、title与h1的区别、b与strong的区别、i与em的区别？"><a href="#20、title与h1的区别、b与strong的区别、i与em的区别？" class="headerlink" title="20、title与h1的区别、b与strong的区别、i与em的区别？"></a>20、title与h1的区别、b与strong的区别、i与em的区别？</h3><ul>
+<li><code>title</code>属性没有明确意义只表示是个标题，<code>H1</code>则表示层次明确的标题，对页面信息的抓取也有很大的影响;</li>
+<li><code>strong</code>是标明重点内容，有语气加强的含义，使用阅读设备阅读网络时，<code>&lt;strong&gt;</code> 会重读，而<code>&lt;B&gt;</code>是展示强调内容。</li>
+<li><code>i </code>内容展示为斜体，<code>em</code>表示强调的文本；</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-04-11T09:07:12.000Z" title="2020-04-11T09:07:12.000Z">2020-04-11</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.454Z" title="2020-09-08T14:03:00.454Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">1 分钟读完 (大约208个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/04/11/%E5%93%88%E5%8B%83%E6%8B%8D%E6%91%84%E5%94%AF%E7%BE%8E%E5%AE%87%E5%AE%99/">哈勃拍摄唯美宇宙</a></h1><div class="content"><p><img src="https://blog.zshipu.com/tlg/images/pasted-281.png" alt="知识铺-pasted-281.png"><br><img src="https://blog.zshipu.com/tlg/images/pasted-282.png" alt="知识铺-pasted-282.png"><br><img src="https://blog.zshipu.com/tlg/images/pasted-283.png" alt="知识铺-pasted-283.png"><br><img src="https://blog.zshipu.com/tlg/images/pasted-284.png" alt="知识铺-pasted-284.png"><br><img src="https://blog.zshipu.com/tlg/images/pasted-285.png" alt="知识铺-pasted-285.png"><br><img src="https://blog.zshipu.com/tlg/images/pasted-286.png" alt="知识铺-pasted-286.png"><br><img src="https://blog.zshipu.com/tlg/images/pasted-287.png" alt="知识铺-pasted-287.png"><br><img src="https://blog.zshipu.com/tlg/images/pasted-288.png" alt="知识铺-pasted-288.png"><br><img src="https://blog.zshipu.com/tlg/images/pasted-289.png" alt="知识铺-pasted-289.png"><br><img src="https://blog.zshipu.com/tlg/images/pasted-290.png" alt="知识铺-pasted-290.png"><br><img src="https://blog.zshipu.com/tlg/images/pasted-291.png" alt="知识铺-pasted-291.png"><br><img src="https://blog.zshipu.com/tlg/images/pasted-292.png" alt="知识铺-pasted-292.png"><br><img src="https://blog.zshipu.com/tlg/images/pasted-293.png" alt="知识铺-pasted-293.png"><br><img src="https://blog.zshipu.com/tlg/images/pasted-294.png" alt="知识铺-pasted-294.png"><br><img src="https://blog.zshipu.com/tlg/images/pasted-295.png" alt="知识铺-pasted-295.png"><br><img src="https://blog.zshipu.com/tlg/images/pasted-296.png" alt="知识铺-pasted-296.png"></p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-04-11T06:41:09.000Z" title="2020-04-11T06:41:09.000Z">2020-04-11</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.445Z" title="2020-09-08T14:03:00.445Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">17 分钟读完 (大约2515个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/04/11/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AARPC%E6%A1%86%E6%9E%B6%EF%BC%88%E9%9B%B6%EF%BC%89/">从零开始实现一个RPC框架（零）</a></h1><div class="content"><h2 id="从零开始实现一个RPC框架（零）"><a href="#从零开始实现一个RPC框架（零）" class="headerlink" title="从零开始实现一个RPC框架（零）"></a>从零开始实现一个RPC框架（零）</h2><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近决心开始学习go语言，但是苦于没有实际的应用场景，学习始终停留在hello world层面，看过的教程和资料印象也不深刻。于是决定从go自带的rpc实现开始切入，了解一下go语言在实际场景下是如何使用的，包括异常处理、代理和过滤、go routine的用法等等，同时也简单了解了一下其他rpc的go语言实现，比如thrift和grpc等等。一阵走马观花，稍微加深了印象，也开始慢慢体会到go语言和java语言的种种差异和共性。接下来，为了进一步巩固学习效果，也算是为了对自己目前为止的职业生涯做一次复习和汇报，决定使用go语言从零开始构建一个比较完整的RPC（或者说是微服务）框架。</p>
+<p><strong>微服务框架和RPC框架</strong></p>
+<p>本文中提到RPC框架，指的是提供基础的RPC调用支持的框架；而本文中提到的微服务框架，指的是包含一些服务治理相关的功能（比如服务注册发现、负载均衡、链路追踪等）的RPC框架。</p>
+<h2 id="调研"><a href="#调研" class="headerlink" title="调研"></a>调研</h2><p>在动手开始做之前，需要先了解学习一下其他现有的产品，可以从中学习一下优秀的经验和方法，这里列举一下初步了解到的几个框架：</p>
+<ul>
+<li><a href="https://zshipu.com/t?url=https://grpc.io/">grpc</a> google推出的微服务框架，支持10种语言，支持基于http2的双向的流式通讯</li>
+<li><a href="https://zshipu.com/t?url=https://github.com/micro/go-micro">go-micro</a> 一个开源的微服务框架，比较独特的是支持Async Messaging，像是mq一样的subpub功能</li>
+<li><a href="https://zshipu.com/t?url=https://thrift.apache.org/lib/go">thrift-go</a> thrift是facebook捐献给apache的rpc框架（不包含服务治理相关的功能），根据官方文档，thrift支持20种语言的RPC调用</li>
+<li><a href="https://zshipu.com/t?url=http://rpcx.site/">rpcx</a> rpcx是一个国人开发并开源的微服务框架，宣传的特性是“快、易用却功能强大”，官网上的介绍提到性能是grpc的两倍。这里附上作者（应该是）的<a href="https://zshipu.com/t?url=https://colobu.com/">博客</a></li>
+</ul>
+<p>以上就是目前了解过的几个已有的框架，比较惭愧的是了解得都不够深入，后续还要持续学习。</p>
+<p><strong>Pluggable Interfaces</strong></p>
+<p>值得一提的是除了thrift，其他三个称得上微服务框架的产品，其特性都包含Pluggable Interfaces，也就是可以通过插件替换部分功能。通过插件实现可替换的功能，实际上在一个微服务框架中基本是最低要求了，否则后续的功能扩展将会变得十分困难，相信我，这里是饱含血泪的经验之谈。</p>
+<h1 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h1><p>在开始着手设计甚至是编写代码以前，我们首先分析一下我们的需求（来自学习软件工程中的成果）。同时对于一部分可能不太熟悉RPC相关细节的同学来说，对我们后面要做的事情心中也能够有一个大致的概念。这里就直接列举几个功能性需求：</p>
+<ul>
+<li>支持RPC调用，包括同步调用和异步调用</li>
+<li>支持服务治理的相关功能，包括：<ul>
+<li>服务注册与发现</li>
+<li>服务负载均衡</li>
+<li>限流和熔断</li>
+<li>身份认证</li>
+<li>监控和链路追踪</li>
+<li>健康检查，包括端到端的心跳以及注册中心对服务实例的检查</li>
+</ul>
+</li>
+<li>支持插件，对于有多种实现的功能（比如负载均衡），需要以插件的形式提供实现，同时需要支持自定义插件 至于非功能性需求比如性能要好，要够稳定这类的暂时不重点关注。</li>
+</ul>
+<h1 id="系统设计"><a href="#系统设计" class="headerlink" title="系统设计"></a>系统设计</h1><h2 id="分层"><a href="#分层" class="headerlink" title="分层"></a>分层</h2><p>有了大致的需求，接下来就可以开始着手设计了。首先我们将框架划分为若干层，层与层之间约定通过接口交互。这里就不要问为什么需要分层了，非要问就是经验。分层作为一种经典到不能在经典的设计模式，几乎在软件开发过程中无处不在，在RPC框架当中也十分适用，下面画出大致的层次图：</p>
+<p><img src="https://blog.zshipu.com/tlg/images/pasted-280.png" alt="知识铺-pasted-280.png"></p>
+<ul>
+<li>service 是面向用户的接口，比如客户端和服务端实例的初始化和运行等等</li>
+<li>client和server表示客户端和服务端的实例，它们负责发出请求和返回响应</li>
+<li>selector 表示负载均衡，或者叫做loadbanlancer，它负责决定具体要向哪个server发出请求</li>
+<li>registery 表示注册中心，server在初始化完毕甚至是运行时都要向注册中心注册自身的相关信息，这样client才能从注册中心查找到需要的server</li>
+<li>codec 表示编解码，也就是将对象和二进制数据互相转换</li>
+<li>protocol 表示通信协议，也就是二进制数据是如何组成的，RPC框架中很多功能都需要协议层的支持</li>
+<li>transport 表示通讯，它负责具体的网络通讯，将按照protocol组装好的二进制数据通过网络发送出去，并根据protocol指定的方式从网络读取数据</li>
+</ul>
+<p>上面提到的各个层，除了service，实际上可以提供多种实现，所以应该都以plugin的方式实现。</p>
+<p>这样一来按照我们划分的层次，一个客户端从发出请求到收到响应的流程大概就是这样：</p>
+<p><img src="https://blog.zshipu.com/tlg/images/pasted-279.png" alt="知识铺-pasted-279.png"><br>服务端的逻辑比较类似，这里就不画图了。</p>
+<h2 id="过滤器链"><a href="#过滤器链" class="headerlink" title="过滤器链"></a>过滤器链</h2><p>通过上面的层次划分可以看到，一个请求或者响应实际上会依次穿过各个层然后通过网络发送或者到达用户逻辑，所以我们采用类似过滤器链一样的方式处理请求和响应，以此来达到对扩展开放，对修改关闭的效果。这样一来对于一些附加功能比如熔断降级和限流、身份认证等功能都可以在过滤器中实现。</p>
+<h2 id="消息协议"><a href="#消息协议" class="headerlink" title="消息协议"></a>消息协议</h2><p>接下来设计具体的消息协议，所谓消息协议大概就是两台计算机为了互相通信而做的约定。举个例子，TCP协议约定了一个TCP数据包的具体格式，比如前2个byte表示源端口，第3和第4个byte表示目标端口，接下来是序号和确认序号等等。而在我们的RPC框架中，也需要定义自己的协议。一般来说，网络协议都分为head和body部分，head是一些元数据，是协议自身需要的数据，body则是上一层传递来的数据，只需要原封不动的接着传递下去就是了。</p>
+<p>接下来我们就试着定义自己的协议：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">|2byte|1byte  |4byte       |4byte        | header length |(total length - header length - 4byte)|</span><br><span class="line">-------------------------------------------------------------------------------------------------</span><br><span class="line">|magic|version|total length|header length|     header    |                    body              |</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>根据上面的协议，一个消息体由以下几个部分严格按照顺序组成：</p>
+<ul>
+<li>两个byte的magic number开头，这样一来我们就可以快速的识别出非法的请求</li>
+<li>一个byte表示协议的版本，目前可以一律设置为0</li>
+<li>4个byte表示消息体剩余部分的总长度（total length）</li>
+<li>4个byte表示消息头的长度（header length）</li>
+<li>消息头（header），其长度根据前面解析出的长度（header length）决定</li>
+<li>消息体（body），其长度为前面解析出的总长度减去消息头所占的长度（total length - 4 - header length)</li>
+</ul>
+<p>协议中消息头的数据主要是RPC调用过程中的元数据，元数据跟方法参数和响应无关，主要记录额外的信息以及实现附属功能比如链路追踪、身份认证等等；消息体的数据则是由实际的请求参数或者响应编码而来。 在实际的处理中，消息头在发送端通常是一个结构体，在发送时会被编码成二进制添加在消息头的前面，在接收端接收时又解码成一个结构体，交给程序进行处理。这里试着列举消息头包含的各个信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">type Header struct &#123;</span><br><span class="line">        Seq uint64 &#x2F;&#x2F;序号, 用来唯一标识请求或响应</span><br><span class="line">        MessageType byte &#x2F;&#x2F;消息类型，用来标识一个消息是请求还是响应</span><br><span class="line">        CompressType byte &#x2F;&#x2F;压缩类型，用来标识一个消息的压缩方式</span><br><span class="line">        SerializeType byte &#x2F;&#x2F;序列化类型，用来标识消息体采用的编码方式</span><br><span class="line">        StatusCode byte &#x2F;&#x2F;状态类型，用来标识一个请求是正常还是异常</span><br><span class="line">        ServiceName string &#x2F;&#x2F;服务名</span><br><span class="line">        MethodName string  &#x2F;&#x2F;方法名</span><br><span class="line">        Error string &#x2F;&#x2F;方法调用发生的异常</span><br><span class="line">        MetaData map[string]string &#x2F;&#x2F;其他元数据</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>第一篇文章就到此为止了，主要先做一下准备，整理一下思路，如果有不正确或者不合理的部分还请大家多多指教。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-04-11T05:10:29.000Z" title="2020-04-11T05:10:29.000Z">2020-04-11</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.381Z" title="2020-09-08T14:03:00.381Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">6 分钟读完 (大约871个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/04/11/MQTT%E4%B9%8BMosquitto%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">MQTT之Mosquitto源码分析</a></h1><div class="content"><p>一、  Mosquitto简介</p>
+<p>mosquitto是一款实现了消息推送协议MQTT v3.1 的开源消息代理软件，提供轻量级的，支持可发布/可订阅的的消息推送模式，使设备对设备之间的短消息通信变得简单，例如现在应用广泛的低功耗传感器，手机、嵌入式计算机、微型控制器等移动设备。</p>
+<p>Mosquitto采用出版/订阅的模式实现MQTT协议，这种设计模式将通信终端之间的关系统一到服务程序中进行管理，可极大减轻客户端的开发和维护工作。</p>
+<p>1.1、  mqtt协议简介</p>
+<p>MQTT（MessageQueuing Telemetry Transport，消息队列遥测传输）是IBM开发的一个即时通讯协议，有可能成为物联网的重要组成部分。在某些应用场合中，可通过该协议维持与客户端的长连接。关于mqtt协议更详细的介绍，请参考其官方网站：<a target="_blank" rel="noopener" href="http://mqtt.org/">http://mqtt.org/</a></p>
+<p>其他版本源码下载位置：<a target="_blank" rel="noopener" href="http://mosquitto.org/files/source/">http://mosquitto.org/files/source/</a></p>
+<p>1.2、  出版/订阅模式简介</p>
+<p>出版/订阅模式定义了如何向一个节点发布和订阅消息，这些节点被称作主题(topic)。主题可以被认为是消息的传输中介，发布者(publisher)发布消息到主题，订阅者(subscriber) 从主题订阅消息。这种模式使得消息订阅者和消息发布者保持互相独立，不需要接触即可保证消息的传送。</p>
+<p><a href="https://zshipu.com/t?url=https://links.jianshu.com/go?to=https://github.com/eclipse/mosquitto">mosquitto github开源代码</a></p>
+<p><a href="https://zshipu.com/t?url=https://links.jianshu.com/go?to=https://mosquitto.org/">mosquitto 官方网站</a></p>
+<p><a href="https://zshipu.com/t?url=https://links.jianshu.com/go?to=http://chenzhenianqing.com/articles/985.html">趁着年轻：《Mosquitto pub/sub服务实现代码浅析-主体框架》</a></p>
+<p><a href="https://zshipu.com/t?url=https://links.jianshu.com/go?to=https://blog.csdn.net/z729685731/article/details/70142182">小诺Z《Mosquitto集群搭建》</a></p>
+<p><a href="https://zshipu.com/t?url=https://links.jianshu.com/go?to=https://blog.csdn.net/houjixin/article/details/21461225">逍遥子《mosquitto源码分析（一）》简介</a></p>
+<p><a href="https://zshipu.com/t?url=https://links.jianshu.com/go?to=https://blog.csdn.net/houjixin/article/details/21462005">逍遥子《mosquitto源码分析（二）》数据结构</a></p>
+<p><a href="https://zshipu.com/t?url=https://links.jianshu.com/go?to=https://blog.csdn.net/houjixin/article/details/21462255">逍遥子《mosquitto源码分析（三）》订阅树</a></p>
+<p><a href="https://zshipu.com/t?url=https://links.jianshu.com/go?to=https://blog.csdn.net/houjixin/article/details/21463965">逍遥子《mosquitto源码分析（四）》订阅树</a></p>
+<p><a href="https://zshipu.com/t?url=https://links.jianshu.com/go?to=https://blog.csdn.net/houjixin/article/details/21464519">逍遥子《mosquitto源码分析（五）》Poll和消息收发</a></p>
+<p><a href="https://zshipu.com/t?url=https://links.jianshu.com/go?to=https://blog.csdn.net/houjixin/article/details/21465011">逍遥子《mosquitto源码分析（六）》日志</a></p>
+<p><a href="https://zshipu.com/t?url=https://links.jianshu.com/go?to=https://blog.csdn.net/houjixin/article/details/46413583">逍遥子《Mosquito的优化——epoll优化（七）》</a></p>
+<p><a href="https://zshipu.com/t?url=https://links.jianshu.com/go?to=https://blog.csdn.net/houjixin/article/details/46413783">逍遥子《Mosquito的优化——订阅树优化（八）》</a></p>
+<p><a href="https://zshipu.com/t?url=https://links.jianshu.com/go?to=https://blog.csdn.net/houjixin/article/details/46413941">逍遥子《Mosquito的优化——其他优化（九）》</a></p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-04-11T03:49:46.000Z" title="2020-04-11T03:49:46.000Z">2020-04-11</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.441Z" title="2020-09-08T14:03:00.441Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">17 分钟读完 (大约2611个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/04/11/%E4%B8%BA%E4%BB%80%E4%B9%88%E9%80%89%E6%8B%A9go-kit/">为什么选择go-kit</a></h1><div class="content"><p>用什么框架<br>之前团队有人仿造内部php框架开发过一个golang框架，有人提议将其直接拿过来用，有人说找个开源的如beego，gin，martini等这类流行的框架。我个人当时不太赞同使用自研的框架，主要有以下几点原因：1 文档少，漏洞多；2 需要投入人力去开发和维护，在当时人力极其紧缺的情况下是不现实的。另外，当时社区流行的框架也比较多，但是最终也没有选择那些流行的框架，主要是出于以下考虑：时间短，任务重，没有精力去辨别各个框架的优劣，适用场景以及性能如何。万一冒然使用一个还没有深入了解的框架，线上出问题咋办！尤其在当时系统频繁出问题，顶着各种压力的情况下。</p>
+<p>虽说，我们无法在短时间内选一个合适的框架，但是能够确定的是：我们的需求是什么？</p>
+<p>1 只做高性能的HTTP 接口；</p>
+<p>2 需要完整的单元测试体系；</p>
+<p>3 可扩展，组件化；</p>
+<p>基于以上三点，可以发现，go语言自带的特性就可以满足这些需求。于是，我们开始决定裸写。</p>
+<p>此外，还有一个裸写的原因就是：没想好将来想要什么！当然，每个团队的背景不一样，业务场景也不同，在人力和时间充裕的情况下，还是需要选择一个合适的框架比较好。</p>
+<p>裸写不是乱写<br>裸写不是乱写。众说周知，用框架的其中一个好处就是保证团队代码风格的一致性，当然，目前市面上除了beego外的大多数框架，在代码风格上也并没有做约束。为了保证团队go代码的规范性和一致性，按照经典的分层架构和过往的经验，我们制定了一套go编程模版，由上向下：Router层，Service层，Dao层，还有贯穿这三层的Entity层，架构图如图1所示。其中，Router层负责处理与http handler逻辑,请求参数以及response格式相关的处理工作；Service层处理业务逻辑；Dao层处理数据访问逻辑；Entity层负责实体定义相关的逻辑，并贯穿Router，Service，Dao这三层。层与层之间不直接进行耦合，高层模块不直接依赖与低层模块，它们都依赖于所定义的抽象接口。</p>
+<p>Booch曾经说过：“所有结构良好的面向对象构架都具有清晰的层次定义，每个层次通过一个定义良好的，受控的接口向外提供了一组内聚的服务”。</p>
+<p>除此之外，我们还维护了一套常用的公共组件库，如：日志库，各种数据库driver等。</p>
+<p><img src="https://blog.zshipu.com/tlg/images/pasted-268.png" alt="知识铺-pasted-268.png"><br>图1 分层构架<br>如何重构<br>当我们制定好编程模版后，我们就开始进行项目重构工作。由于，业务任务重，人手少，所以，重构的基本方向就是：根据业务需求，结合接口重要性进行重构。只有这样，才能保证在业务需求不停的情况下，进行系统重构。所以，在此期间，有相当长的一段时间是处于php＋go进行混合编程，混合部署的状态，如图2所示，重构完的接口，通过nginx代理到新接口，这种状态一直持续了一年。采取混合编程的思路在重构初期，可能会遇到一些问题，比如：同一段业务逻辑，需要用go写一遍，用php写一遍，无疑增加了一定的工作量，当然这也是避免不了的。</p>
+<p>注意，有些同学在重构的时候容易走到一个误区：一口气把整个项目都重构了，或者说重构大部分内容。从时间成本和系统稳定性上来讲，这种方式风险比较大，不推荐。推荐的思路：一个接口一个接口进行重构。</p>
+<p><img src="https://blog.zshipu.com/tlg/images/pasted-269.png" alt="知识铺-pasted-269.png"><br>图2 php＋go混合架构<br>最终，为何想引入go-kit<br>之前这套东西，基本上可以满足大部分的业务场景，但随着随着业务的发展，请求量越来越大，同时，有些请求的链路也变长了，为了继续保证接口的高并发和低时延特性，团队有少量业务开始尝试GRPC。根据测试，压测一个空接口，GRPC的性能大约是HTTP＋JSON的2～3倍，在这里推荐一个压测框架fperf 。</p>
+<p>但是，针对GRPC的使用，不要盲目“求新”。以本人经验，HTTP＋JSON的模式基本上可以满足大部分的业务开发场景了，针对小部分对接口时延和并发量要求极高的场景可以考虑使用GRPC。因为，GRPC本身还是不利于调试，且会在一定程度上增加调用方和服务方的耦合性，所以，最后的传输协议和格式建议还是以HTTP＋JSON为主，以GRPC为辅。</p>
+<p>另外，我们还是需要标准化一些中间件的使用，如回路断流，rate limit等，来保障系统的稳定性。这次的思考，时间比较充分，所以有精力去研究一些新的东西。最后，框架抉择的思路和最初是一样的，就是，明确我们的需求是什么？</p>
+<p>1 需要一个同时支持多种传输协议，不论是现在的http，thrift，grpc，还是将来出现的某种新协议，要有良好扩展性的框架；</p>
+<p>2 框架本身和业务代码保持一种低耦合的状态；</p>
+<p>3 需要一套通用的middleware，使之与http，grpc等传输协议无关。</p>
+<p>目前市面上流行的框架都是围绕着http协议而展开的，包括gin，beego等。经调研，我们发现go-kit能够满足我们的需求。 go-kit本身不是一个框架，而是一套微服务工具集。其设计思想跟我们初期go编程模版制定的思想也算是不谋而合——分层设计，组件化，可扩展。go-kit的架构如图3所示，分为三层结构：Transport层，Endpoint层，Service层。Transport层主要负责与传输协议HTTP，GRPC，THRIFT等相关的逻辑，Endpoint层主要负责request／response格式的转换，以及公用拦截器相关的逻辑；Service层则专注于业务逻辑。go-kit除了经典的分层架构外，还在endpoint层提供了很多公用的拦截器，如log，metric，tracing，circuitbreaker，rate-limiter等，来保障业务系统的可用性。它们在设计上有一个共同特点：都是同传输协议无关的。在之前的一些http框架中，这些拦截器同传输协议是紧紧耦合在一起的，如果，此时我需要将某些HTTP接口改造成GRPC协议的接口，那么这些拦截器我还得再基于grpc再实现一遍，设计上存在一定的冗余。因此，借助go-kit这套工具集，我们就能很好的对transport协议，middleware进行扩展，且不会影响到业务本身的设计。</p>
+<p><img src="https://blog.zshipu.com/tlg/images/pasted-270.png" alt="知识铺-pasted-270.png"><br>图3 go-kit架构图<br>怎样將go-kit集成到现有的业务系统中<br>我们找到了心仪的开源工具后，那么我们怎样以较低的成本将其引入到我们业务系统中呢？之前我们有提到，我们的go模版是分为三层：router，service和dao。而go-kit也分为三层，我们可以根据每层职责的不同进行重新组合，如图4所示，从上到下依次为：transport层，endpoint层，service层，dao层。这样就能很轻易的將go-kit集成进来，当然你如果哪天因为某种原因，不想再继续使用go-kit这套东西，直接將endpoint层和Transport层移除即可。在集成的过程中，需要注意一点：之前的代码中router层不能包含任何业务逻辑，否则就无法集成。</p>
+<p><img src="https://blog.zshipu.com/tlg/images/pasted-271.png" alt="知识铺-pasted-271.png"><br>图4 架构的演进<br>如何高效的使用go-kit<br>前面有提到，go-kit本身分为三层，针对这点有同学会提出：“每次新建项目，都需要手动写下go-kit的这三层逻辑，有点浪费时间，不够简洁”，这确实是一个共性问题，从go-kit的github的issue中可以发现，也有不少人反馈过类似问题。很庆幸的是，有人给我们铺好了路，详见GoKit CLi，其主要功能如图5所示。</p>
+<p><img src="https://blog.zshipu.com/tlg/images/pasted-272.png" alt="知识铺-pasted-272.png"><br>图5 GoKit CLi功能模块<br>这个工具可以根据我们的需求自动生成service，transport和endpoint模版，以及生成供调用方的使用的client library，节省我们大量的时间，提高我们的生产效率。具体操作步骤，可以参考GoKit CLi的说明，这里不再赘述。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-04-11T03:39:44.000Z" title="2020-04-11T03:39:44.000Z">2020-04-11</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.343Z" title="2020-09-08T14:03:00.343Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">26 分钟读完 (大约3968个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/04/11/Gokit-go%E6%B5%81%E8%A1%8C%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%85%A5%E9%97%A8/">Gokit go流行微服务入门</a></h1><div class="content"><h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><p>让我们创建一个最小的 Go 工具包服务。现在，我们将为此使用单个文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">main.go</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="您的业务逻辑"><a href="#您的业务逻辑" class="headerlink" title="您的业务逻辑"></a>您的业务逻辑</h2><p>您的服务从业务逻辑开始。在 Go 工具包中，我们将服务建模为<strong>接口</strong>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#x2F;&#x2F; StringService provides operations on strings.</span><br><span class="line">import &quot;context&quot;</span><br><span class="line"></span><br><span class="line">type StringService interface &#123;</span><br><span class="line">	Uppercase(string) (string, error)</span><br><span class="line">	Count(string) int</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">该接口将具有实现。</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>import (<br>    “context”<br>    “errors”<br>    “strings”<br>)</p>
+<p>type stringService struct{}</p>
+<p>func (stringService) Uppercase(s string) (string, error) {<br>    if s == “” {<br>        return “”, ErrEmpty<br>    }<br>    return strings.ToUpper(s), nil<br>}</p>
+<p>func (stringService) Count(s string) int {<br>    return len(s)<br>}</p>
+<p>// ErrEmpty is returned when input string is empty<br>var ErrEmpty = errors.New(“Empty string”)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 请求和响应</span><br><span class="line"></span><br><span class="line">在 Go 工具包中，主要消息传递模式是 RPC。因此，我们接口中的每个方法都将建模为远程过程调用。对于每种方法，我们定义**请求和响应**结构，分别捕获所有输入和输出参数。</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>type uppercaseRequest struct {<br>    S string <code>json:&quot;s&quot;</code><br>}</p>
+<p>type uppercaseResponse struct {<br>    V   string <code>json:&quot;v&quot;</code><br>    Err string <code>json:&quot;err,omitempty&quot;</code> // errors don’t JSON-marshal, so we use a string<br>}</p>
+<p>type countRequest struct {<br>    S string <code>json:&quot;s&quot;</code><br>}</p>
+<p>type countResponse struct {<br>    V int <code>json:&quot;v&quot;</code><br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 节点</span><br><span class="line"></span><br><span class="line">Go 工具包通过称为**终结点**的抽象提供其大部分功能。</span><br><span class="line"></span><br><span class="line">终结点的定义如下（您不必将其放在代码的任意位置，它由 提供。</span><br></pre></td></tr></table></figure>
+<p>go-kit</p>
+<p>type Endpoint func(ctx context.Context, request interface{}) (response interface{}, err error)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">它表示单个 RPC。也就是说，我们的服务接口中的一种方法。我们将编写简单的适配器，将服务的每个方法转换为终结点。每个适配器采用 StringService，并返回对应于其中一种方法的终结点。</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>import (<br>    “context”<br>    “github.com/go-kit/kit/endpoint”<br>)</p>
+<p>func makeUppercaseEndpoint(svc StringService) endpoint.Endpoint {<br>    return func(_ context.Context, request interface{}) (interface{}, error) {<br>        req := request.(uppercaseRequest)<br>        v, err := svc.Uppercase(req.S)<br>        if err != nil {<br>            return uppercaseResponse{v, err.Error()}, nil<br>        }<br>        return uppercaseResponse{v, “”}, nil<br>    }<br>}</p>
+<p>func makeCountEndpoint(svc StringService) endpoint.Endpoint {<br>    return func(_ context.Context, request interface{}) (interface{}, error) {<br>        req := request.(countRequest)<br>        v := svc.Count(req.S)<br>        return countResponse{v}, nil<br>    }<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 传输</span><br><span class="line"></span><br><span class="line">现在，我们需要将您的服务暴露给外部世界，以便可以调用它。您的组织可能已经对服务应该如何相互对话了。也许你使用节俭，或自定义JSON通过HTTP。Go 套件支持开箱即用的许多**传输**。</span><br><span class="line"></span><br><span class="line">对于此最小示例服务，让我们在 HTTP 上使用 JSON。Go 套件在包传输&#x2F;http 中提供了帮助器结构。</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>import (<br>    “context”<br>    “encoding/json”<br>    “log”<br>    “net/http”</p>
+<pre><code>httptransport &quot;github.com/go-kit/kit/transport/http&quot;</code></pre>
+<p>)</p>
+<p>func main() {<br>    svc := stringService{}</p>
+<pre><code>uppercaseHandler := httptransport.NewServer(
+    makeUppercaseEndpoint(svc),
+    decodeUppercaseRequest,
+    encodeResponse,
+)
+
+countHandler := httptransport.NewServer(
+    makeCountEndpoint(svc),
+    decodeCountRequest,
+    encodeResponse,
+)
+
+http.Handle(&quot;/uppercase&quot;, uppercaseHandler)
+http.Handle(&quot;/count&quot;, countHandler)
+log.Fatal(http.ListenAndServe(&quot;:8080&quot;, nil))</code></pre>
+<p>}</p>
+<p>func decodeUppercaseRequest(_ context.Context, r *http.Request) (interface{}, error) {<br>    var request uppercaseRequest<br>    if err := json.NewDecoder(r.Body).Decode(&amp;request); err != nil {<br>        return nil, err<br>    }<br>    return request, nil<br>}</p>
+<p>func decodeCountRequest(_ context.Context, r *http.Request) (interface{}, error) {<br>    var request countRequest<br>    if err := json.NewDecoder(r.Body).Decode(&amp;request); err != nil {<br>        return nil, err<br>    }<br>    return request, nil<br>}</p>
+<p>func encodeResponse(_ context.Context, w http.ResponseWriter, response interface{}) error {<br>    return json.NewEncoder(w).Encode(response)<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 字符串vc1</span><br><span class="line"></span><br><span class="line">到目前为止，完整的服务是[stringsvc1。](https:&#x2F;&#x2F;zshipu.com&#x2F;t?url&#x3D;https:&#x2F;&#x2F;github.com&#x2F;go-kit&#x2F;kit&#x2F;blob&#x2F;master&#x2F;examples&#x2F;stringsvc1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>$ go get github.com/go-kit/kit/examples/stringsvc1<br>$ stringsvc1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>$ curl -XPOST -d’{“s”:”hello, world”}’ localhost:8080/uppercase<br>{“v”:”HELLO, WORLD”}<br>$ curl -XPOST -d’{“s”:”hello, world”}’ localhost:8080/count<br>{“v”:12}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 中间件</span><br><span class="line"></span><br><span class="line">如果没有彻底的日志记录和检测，任何服务都无法被视为生产就绪。</span><br><span class="line"></span><br><span class="line">## 关切事项的分离</span><br><span class="line"></span><br><span class="line">将标注图的每一层分离到单个文件中，使 go-kit 项目在增加服务终结点数量时更易于阅读。我们的第一个示例[stringsvc1](https:&#x2F;&#x2F;zshipu.com&#x2F;t?url&#x3D;https:&#x2F;&#x2F;github.com&#x2F;go-kit&#x2F;kit&#x2F;blob&#x2F;master&#x2F;examples&#x2F;stringsvc1)在单个主文件中包含所有这些层。在增加更复杂的内容之前，让我们将代码分离到以下文件中，并将所有剩余的代码保留在 main.go 中。</span><br><span class="line"></span><br><span class="line">将**服务**放入服务.go 文件中，包含以下功能和类型。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>type StringService<br>type stringService<br>func Uppercase<br>func Count<br>var ErrEmpty</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">将**传输**放入具有以下函数和类型的文件中。</span><br></pre></td></tr></table></figure>
+<p>transport.go</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>func makeUppercaseEndpoint<br>func makeCountEndpoint<br>func decodeUppercaseRequest<br>func decodeCountRequest<br>func encodeResponse<br>type uppercaseRequest<br>type uppercaseResponse<br>type countRequest<br>type countResponse</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 传输日志记录</span><br><span class="line"></span><br><span class="line">任何需要记录的组件都应将记录器视为依赖项，与数据库连接相同。因此，我们在 中构造我们的记录器，并将其传递给需要它的组件。我们从不使用全局范围的记录器。</span><br></pre></td></tr></table></figure>
+<p>func main</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">我们可以将记录器直接传递到我们的 stringService 实现中，但有更好的方法。让我们使用**中间件**，也称为装饰器。中间件是获取终结点并返回终结点的函数。</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>type Middleware func(Endpoint) Endpoint</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">&gt; 请注意，中间件类型由 go-kit 为您提供。</span><br><span class="line"></span><br><span class="line">在这两者之间，它可以做任何事情。下面您可以看到如何实现基本日志记录中间件（您无需在任何地方复制&#x2F;粘贴此代码）：</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>func loggingMiddleware(logger log.Logger) Middleware {<br>    return func(next endpoint.Endpoint) endpoint.Endpoint {<br>        return func(ctx context.Context, request interface{}) (interface{}, error) {<br>            logger.Log(“msg”, “calling endpoint”)<br>            defer logger.Log(“msg”, “called endpoint”)<br>            return next(ctx, request)<br>        }<br>    }<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">使用[go-kit 日志](https:&#x2F;&#x2F;zshipu.com&#x2F;t?url&#x3D;https:&#x2F;&#x2F;gokit.io&#x2F;faq&#x2F;#logging-mdash-why-is-package-log-so-different)包并删除标准库[日志](https:&#x2F;&#x2F;zshipu.com&#x2F;t?url&#x3D;https:&#x2F;&#x2F;golang.org&#x2F;pkg&#x2F;log&#x2F;)。您需要从文件底部删除。</span><br><span class="line"></span><br><span class="line">log.Fatal</span><br></pre></td></tr></table></figure>
+<p>main.go</p>
+<p>import (<br> “github.com/go-kit/kit/log”<br>)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">并将其连接到我们的每个处理程序中。请注意，下一个代码部分_不会_编译，直到您遵循**应用程序日志记录**部分，该部分定义日志记录中间件。</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>logger := log.NewLogfmtLogger(os.Stderr)</p>
+<p>svc := stringService{}</p>
+<p>var uppercase endpoint.Endpoint<br>uppercase = makeUppercaseEndpoint(svc)<br>uppercase = loggingMiddleware(log.With(logger, “method”, “uppercase”))(uppercase)</p>
+<p>var count endpoint.Endpoint<br>count = makeCountEndpoint(svc)<br>count = loggingMiddleware(log.With(logger, “method”, “count”))(count)</p>
+<p>uppercaseHandler := httptransport.NewServer(<br>    uppercase,<br>    // …<br>)</p>
+<p>countHandler := httptransport.NewServer(<br>    count,<br>    // …<br>)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">事实证明，这种技术对于不仅仅是日志记录非常有用。许多 Go 工具包组件都作为端点中间件实现。</span><br><span class="line"></span><br><span class="line">## 应用程序日志记录</span><br><span class="line"></span><br><span class="line">但是，如果我们想要登录应用程序域，如传入的参数，该怎么办？事实证明，我们可以为我们的服务定义一个中间件，并获得同样好和可组合的效果。由于我们的 StringService 被定义为接口，因此我们只需要制作一种新类型，以包装现有的 StringService 并执行额外的日志记录职责。</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>type loggingMiddleware struct {<br>    logger log.Logger<br>    next   StringService<br>}</p>
+<p>func (mw loggingMiddleware) Uppercase(s string) (output string, err error) {<br>    defer func(begin time.Time) {<br>        mw.logger.Log(<br>            “method”, “uppercase”,<br>            “input”, s,<br>            “output”, output,<br>            “err”, err,<br>            “took”, time.Since(begin),<br>        )<br>    }(time.Now())</p>
+<pre><code>output, err = mw.next.Uppercase(s)
+return</code></pre>
+<p>}</p>
+<p>func (mw loggingMiddleware) Count(s string) (n int) {<br>    defer func(begin time.Time) {<br>        mw.logger.Log(<br>            “method”, “count”,<br>            “input”, s,<br>            “n”, n,<br>            “took”, time.Since(begin),<br>        )<br>    }(time.Now())</p>
+<pre><code>n = mw.next.Count(s)
+return</code></pre>
+<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">And wire it in.</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>import (<br>    “os”</p>
+<pre><code>&quot;github.com/go-kit/kit/log&quot;
+httptransport &quot;github.com/go-kit/kit/transport/http&quot;</code></pre>
+<p>)</p>
+<p>func main() {<br>    logger := log.NewLogfmtLogger(os.Stderr)</p>
+<pre><code>var svc StringService
+svc = stringService&#123;&#125;
+svc = loggingMiddleware&#123;logger, svc&#125;
+
+// ...
+
+uppercaseHandler := httptransport.NewServer(
+    makeUppercaseEndpoint(svc),
+    // ...
+)
+
+countHandler := httptransport.NewServer(
+    makeCountEndpoint(svc),
+    // ...
+)</code></pre>
+<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">使用端点中间件解决传输域问题，如电路中断和速率限制。将服务中间件用于业务领域问题，如日志记录和检测。说到仪器...</span><br><span class="line"></span><br><span class="line">## 应用仪器</span><br><span class="line"></span><br><span class="line">在 Go 工具包中，检测意味着使用**包指标**记录有关服务运行时行为的统计信息。计算处理的作业数、记录请求完成后的持续时间以及跟踪在飞行中操作的数量都将被视为检测。</span><br><span class="line"></span><br><span class="line">我们可以使用与用于日志记录相同的中间件模式。</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>type instrumentingMiddleware struct {<br>    requestCount   metrics.Counter<br>    requestLatency metrics.Histogram<br>    countResult    metrics.Histogram<br>    next           StringService<br>}</p>
+<p>func (mw instrumentingMiddleware) Uppercase(s string) (output string, err error) {<br>    defer func(begin time.Time) {<br>        lvs := []string{“method”, “uppercase”, “error”, fmt.Sprint(err != nil)}<br>        mw.requestCount.With(lvs…).Add(1)<br>        mw.requestLatency.With(lvs…).Observe(time.Since(begin).Seconds())<br>    }(time.Now())</p>
+<pre><code>output, err = mw.next.Uppercase(s)
+return</code></pre>
+<p>}</p>
+<p>func (mw instrumentingMiddleware) Count(s string) (n int) {<br>    defer func(begin time.Time) {<br>        lvs := []string{“method”, “count”, “error”, “false”}<br>        mw.requestCount.With(lvs…).Add(1)<br>        mw.requestLatency.With(lvs…).Observe(time.Since(begin).Seconds())<br>        mw.countResult.Observe(float64(n))<br>    }(time.Now())</p>
+<pre><code>n = mw.next.Count(s)
+return</code></pre>
+<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">并连接到我们的服务。</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>import (<br>    stdprometheus “github.com/prometheus/client_golang/prometheus”<br>    kitprometheus “github.com/go-kit/kit/metrics/prometheus”<br>    “github.com/go-kit/kit/metrics”<br>)</p>
+<p>func main() {<br>    logger := log.NewLogfmtLogger(os.Stderr)</p>
+<pre><code>fieldKeys := []string&#123;&quot;method&quot;, &quot;error&quot;&#125;
+requestCount := kitprometheus.NewCounterFrom(stdprometheus.CounterOpts&#123;
+    Namespace: &quot;my_group&quot;,
+    Subsystem: &quot;string_service&quot;,
+    Name:      &quot;request_count&quot;,
+    Help:      &quot;Number of requests received.&quot;,
+&#125;, fieldKeys)
+requestLatency := kitprometheus.NewSummaryFrom(stdprometheus.SummaryOpts&#123;
+    Namespace: &quot;my_group&quot;,
+    Subsystem: &quot;string_service&quot;,
+    Name:      &quot;request_latency_microseconds&quot;,
+    Help:      &quot;Total duration of requests in microseconds.&quot;,
+&#125;, fieldKeys)
+countResult := kitprometheus.NewSummaryFrom(stdprometheus.SummaryOpts&#123;
+    Namespace: &quot;my_group&quot;,
+    Subsystem: &quot;string_service&quot;,
+    Name:      &quot;count_result&quot;,
+    Help:      &quot;The result of each count method.&quot;,
+&#125;, []string&#123;&#125;) // no fields here
+
+var svc StringService
+svc = stringService&#123;&#125;
+svc = loggingMiddleware&#123;logger, svc&#125;
+svc = instrumentingMiddleware&#123;requestCount, requestLatency, countResult, svc&#125;
+
+uppercaseHandler := httptransport.NewServer(
+    makeUppercaseEndpoint(svc),
+    decodeUppercaseRequest,
+    encodeResponse,
+)
+
+countHandler := httptransport.NewServer(
+    makeCountEndpoint(svc),
+    decodeCountRequest,
+    encodeResponse,
+)
+
+http.Handle(&quot;/uppercase&quot;, uppercaseHandler)
+http.Handle(&quot;/count&quot;, countHandler)
+http.Handle(&quot;/metrics&quot;, promhttp.Handler())
+logger.Log(&quot;msg&quot;, &quot;HTTP&quot;, &quot;addr&quot;, &quot;:8080&quot;)
+logger.Log(&quot;err&quot;, http.ListenAndServe(&quot;:8080&quot;, nil))</code></pre>
+<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 字符串vc2</span><br><span class="line"></span><br><span class="line">The complete service so far is [stringsvc2](https:&#x2F;&#x2F;zshipu.com&#x2F;t?url&#x3D;https:&#x2F;&#x2F;github.com&#x2F;go-kit&#x2F;kit&#x2F;blob&#x2F;master&#x2F;examples&#x2F;stringsvc2).</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>$ go get github.com/go-kit/kit/examples/stringsvc2<br>$ stringsvc2<br>msg=HTTP addr=:8080</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>$ curl -XPOST -d’{“s”:”hello, world”}’ localhost:8080/uppercase<br>{“v”:”HELLO, WORLD”}<br>$ curl -XPOST -d’{“s”:”hello, world”}’ localhost:8080/count<br>{“v”:12}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>method=uppercase input=”hello, world” output=”HELLO, WORLD” err=null took=2.455µs<br>method=count input=”hello, world” n=12 took=743ns</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># Calling other services</span><br><span class="line"></span><br><span class="line">It’s rare that a service exists in a vacuum. Often, you need to call other services. **This is where Go kit shines**. We provide transport middlewares to solve many of the problems that come up.</span><br><span class="line"></span><br><span class="line">Let’s say that we want to have our string service call out to a _different_ string service to satisfy the Uppercase method. In effect, proxying the request to another service. Let’s implement the proxying middleware as a ServiceMiddleware, same as a logging or instrumenting middleware.</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>// proxymw implements StringService, forwarding Uppercase requests to the<br>// provided endpoint, and serving all other (i.e. Count) requests via the<br>// next StringService.<br>type proxymw struct {<br>    next      StringService     // Serve most requests via this service…<br>    uppercase endpoint.Endpoint // …except Uppercase, which gets served by this endpoint<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 客户端终结点</span><br><span class="line"></span><br><span class="line">我们有完全相同的终结点，我们已经知道，但我们会使用它调用，而不是服务，一个请求。以这种方式使用时，我们称之为_客户端_终结点。为了调用客户端终结点，我们只需执行一些简单的转换。</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>func (mw proxymw) Uppercase(s string) (string, error) {<br>    response, err := mw.uppercase(uppercaseRequest{S: s})<br>    if err != nil {<br>        return “”, err<br>    }<br>    resp := response.(uppercaseResponse)<br>    if resp.Err != “” {<br>        return resp.V, errors.New(resp.Err)<br>    }<br>    return resp.V, nil<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">现在，为了构造这些代理中间件之一，我们将代理 URL 字符串转换为终结点。如果我们假设 JSON 通过 HTTP，我们可以在传输&#x2F;http 包中使用帮助程序。</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>import (<br>    httptransport “github.com/go-kit/kit/transport/http”<br>)</p>
+<p>func proxyingMiddleware(proxyURL string) ServiceMiddleware {<br>    return func(next StringService) StringService {<br>        return proxymw{next, makeUppercaseProxy(proxyURL)}<br>    }<br>}</p>
+<p>func makeUppercaseProxy(proxyURL string) endpoint.Endpoint {<br>    return httptransport.NewClient(<br>        “GET”,<br>        mustParseURL(proxyURL),<br>        encodeUppercaseRequest,<br>        decodeUppercaseResponse,<br>    ).Endpoint()<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 服务发现和负载平衡</span><br><span class="line"></span><br><span class="line">如果我们只有一个远程服务，这很好。但在现实中，我们可能有许多可用的服务实例。我们希望通过一些服务发现机制来发现它们，并将我们的负载分散到所有这些机制中。如果其中任何一个实例开始表现不佳，我们希望处理这一点，而不会影响我们服务的可靠性。</span><br><span class="line"></span><br><span class="line">Go 工具包为不同的服务发现系统提供适配器，以获取最新实例集，这些实例作为单个终结点公开。这些适配器称为订阅者。</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>type Subscriber interface {<br>    Endpoints() ([]endpoint.Endpoint, error)<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">在内部，订阅者使用提供的工厂函数将每个发现的实例字符串（通常是主机：端口）转换为可用的终结点。</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>type Factory func(instance string) (endpoint.Endpoint, error)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">到目前为止，我们的工厂功能，使上文代理，只是直接调用URL。但是，将一些安全中间件（如断路器和限速器）放入工厂也很重要。</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>var e endpoint.Endpoint<br>e = makeUppercaseProxy(instance)<br>e = circuitbreaker.Gobreaker(gobreaker.NewCircuitBreaker(gobreaker.Settings{}))(e)<br>e = kitratelimit.NewTokenBucketLimiter(jujuratelimit.NewBucketWithRate(float64(maxQPS), int64(maxQPS)))(e)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">现在，我们有一组终结点，我们需要选择一个。负载均衡器包装订阅者，并从多个中选择一个终结点。Go 套件提供了几个基本的负载均衡器，如果您想要更高级的启发式方法，则很容易编写您自己的设备。</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>type Balancer interface {<br>    Endpoint() (endpoint.Endpoint, error)<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">现在，我们有能力根据一些启发式选择端点。我们可以用它来向使用者提供单个、逻辑的、可靠的终结点。重试策略将包装负载均衡器，并返回可用的终结点。重试策略将重试失败的请求，直到达到最大尝试或超时。</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>func Retry(max int, timeout time.Duration, lb Balancer) endpoint.Endpoint</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">让我们电汇我们最后的代理中间件。为简单起见，我们假设用户将指定多个带有标志的逗号分隔实例终结点。</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>func proxyingMiddleware(instances string, logger log.Logger) ServiceMiddleware {<br>    // If instances is empty, don’t proxy.<br>    if instances == “” {<br>        logger.Log(“proxy_to”, “none”)<br>        return func(next StringService) StringService { return next }<br>    }</p>
+<pre><code>// Set some parameters for our client.
+var (
+    qps         = 100                    // beyond which we will return an error
+    maxAttempts = 3                      // per request, before giving up
+    maxTime     = 250 * time.Millisecond // wallclock time, before giving up
+)
+
+// Otherwise, construct an endpoint for each instance in the list, and add
+// it to a fixed set of endpoints. In a real service, rather than doing this
+// by hand, you&#39;d probably use package sd&#39;s support for your service
+// discovery system.
+var (
+    instanceList = split(instances)
+    subscriber   sd.FixedSubscriber
+)
+logger.Log(&quot;proxy_to&quot;, fmt.Sprint(instanceList))
+for _, instance := range instanceList &#123;
+    var e endpoint.Endpoint
+    e = makeUppercaseProxy(instance)
+    e = circuitbreaker.Gobreaker(gobreaker.NewCircuitBreaker(gobreaker.Settings&#123;&#125;))(e)
+    e = kitratelimit.NewTokenBucketLimiter(jujuratelimit.NewBucketWithRate(float64(qps), int64(qps)))(e)
+    subscriber = append(subscriber, e)
+&#125;
+
+// Now, build a single, retrying, load-balancing endpoint out of all of
+// those individual endpoints.
+balancer := lb.NewRoundRobin(subscriber)
+retry := lb.Retry(maxAttempts, maxTime, balancer)
+
+// And finally, return the ServiceMiddleware, implemented by proxymw.
+return func(next StringService) StringService &#123;
+    return proxymw&#123;next, retry&#125;
+&#125;</code></pre>
+<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 字符串vc3</span><br><span class="line"></span><br><span class="line">The complete service so far is [stringsvc3](https:&#x2F;&#x2F;zshipu.com&#x2F;t?url&#x3D;https:&#x2F;&#x2F;github.com&#x2F;go-kit&#x2F;kit&#x2F;blob&#x2F;master&#x2F;examples&#x2F;stringsvc3).</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>$ go get github.com/go-kit/kit/examples/stringsvc3<br>$ stringsvc3 -listen=:8001 &amp;<br>listen=:8001 caller=proxying.go:25 proxy_to=none<br>listen=:8001 caller=main.go:72 msg=HTTP addr=:8001<br>$ stringsvc3 -listen=:8002 &amp;<br>listen=:8002 caller=proxying.go:25 proxy_to=none<br>listen=:8002 caller=main.go:72 msg=HTTP addr=:8002<br>$ stringsvc3 -listen=:8003 &amp;<br>listen=:8003 caller=proxying.go:25 proxy_to=none<br>listen=:8003 caller=main.go:72 msg=HTTP addr=:8003<br>$ stringsvc3 -listen=:8080 -proxy=localhost:8001,localhost:8002,localhost:8003<br>listen=:8080 caller=proxying.go:29 proxy_to=”[localhost:8001 localhost:8002 localhost:8003]”<br>listen=:8080 caller=main.go:72 msg=HTTP addr=:8080</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>$ for s in foo bar baz ; do curl -d”{&quot;s&quot;:&quot;$s&quot;}” localhost:8080/uppercase ; done<br>{“v”:”FOO”}<br>{“v”:”BAR”}<br>{“v”:”BAZ”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>listen=:8001 caller=logging.go:28 method=uppercase input=foo output=FOO err=null took=5.168µs<br>listen=:8080 caller=logging.go:28 method=uppercase input=foo output=FOO err=null took=4.39012ms<br>listen=:8002 caller=logging.go:28 method=uppercase input=bar output=BAR err=null took=5.445µs<br>listen=:8080 caller=logging.go:28 method=uppercase input=bar output=BAR err=null took=2.04831ms<br>listen=:8003 caller=logging.go:28 method=uppercase input=baz output=BAZ err=null took=3.285µs<br>listen=:8080 caller=logging.go:28 method=uppercase input=baz output=BAZ err=null took=1.388155ms</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 高级主题</span><br><span class="line"></span><br><span class="line">## 线程上下文</span><br><span class="line"></span><br><span class="line">上下文对象用于在单个请求的范围内跨概念边界传递信息。在我们的示例中，我们还没有通过业务逻辑来线程化上下文。但这几乎总是一个好主意。它允许您在业务逻辑和中间件之间传递请求范围的信息，对于更复杂的任务（如粒度分布式跟踪注释）是必需的。</span><br><span class="line"></span><br><span class="line">具体来说，这意味着您的业务逻辑接口将看起来像</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>type MyService interface {<br>    Foo(context.Context, string, int) (string, error)<br>    Bar(context.Context, string) error<br>    Baz(context.Context) (int, error)<br>}</p>
+<pre><code>
+## 分布式跟踪
+
+一旦基础结构增长到超过特定规模，通过多个服务跟踪请求就变得非常重要，因此您可以识别和排除热点。有关详细信息，请参阅[包跟踪](https://zshipu.com/t?url=https://github.com/go-kit/kit/blob/master/tracing)。
+
+## 创建客户端包
+
+可以使用 Go 工具包为服务创建客户端包，以便从其他 Go 程序更轻松地使用服务。实际上，客户端包将提供服务接口的实现，该服务接口使用特定传输调用远程服务实例。有关示例，请参阅[添加vc/cmd/addcli](https://zshipu.com/t?url=https://github.com/go-kit/kit/blob/master/examples/addsvc/cmd/addcli)或[包配置文件/客户端](https://zshipu.com/t?url=https://github.com/go-kit/kit/blob/master/examples/profilesvc/client)。</code></pre>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-04-10T12:17:22.000Z" title="2020-04-10T12:17:22.000Z">2020-04-10</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.368Z" title="2020-09-08T14:03:00.368Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">3 分钟读完 (大约478个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/04/10/JVM%E8%87%AA%E5%8A%A8%E6%8E%A8%E8%8D%90%E6%96%87%E7%AB%A0%E5%88%97%E8%A1%A8-1/">JVM自动推荐文章列表</a></h1><div class="content"><h3 id="技术月刊第-40-期-知识铺"><a href="#技术月刊第-40-期-知识铺" class="headerlink" title="技术月刊第 40 期 | 知识铺"></a><a href="https://zshipu.com/t?url=https://blog.zshipu.com/media/2019/11/19/20191119/40/satj40/">技术月刊第 40 期 | 知识铺</a></h3><p> 2019年11月19日 - 上手简单、文档完备、无代码侵入式的可以对正在运行的 <em>jvm</em> 进程进行监控,简单易用的命令行工具。线上出 bug 了,有了 arthas 先喝口咖啡压压惊,问题分…</p>
+<h3 id="JVM-入门到入魔-01-JVM-基础必备知识-技术分享-知识铺"><a href="#JVM-入门到入魔-01-JVM-基础必备知识-技术分享-知识铺" class="headerlink" title="_JVM_入门到入魔:01_JVM_基础必备知识 | 技术分享 | 知识铺"></a><a href="https://zshipu.com/t?url=https://blog.zshipu.com/tlg/2020/03/28/JVM%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E9%AD%94%EF%BC%9A01JVM%E5%9F%BA%E7%A1%80%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86/">_JVM_入门到入魔:01_JVM_基础必备知识 | 技术分享 | 知识铺</a></h3><p> 原始链接:<a target="_blank" rel="noopener" href="https://blog.zshipu.com/tlg/2020/03/28/_JVM_%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E9%AD%94:01_JVM_%E5%9F%BA%E7%A1%80%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86/">https://blog.zshipu.com/tlg/2020/03/28/_JVM_入门到入魔:01_JVM_基础必备知识/</a> 版权声明: “署名-非商用-相同方式共享 4.0” 转载请保留原文链接及作者…</p>
+<h3 id="14-深入Java系列Java堆内存-技术分享-知识铺"><a href="#14-深入Java系列Java堆内存-技术分享-知识铺" class="headerlink" title="14.深入Java系列Java堆内存 | 技术分享 | 知识铺"></a><a href="https://zshipu.com/t?url=https://blog.zshipu.com/tlg/2020/04/04/%E6%B7%B1%E5%85%A5Java%E7%B3%BB%E5%88%97Java%E5%A0%86%E5%86%85%E5%AD%98/">14.深入Java系列Java堆内存 | 技术分享 | 知识铺</a></h3><p> 5天前 - 2018年7月6日 - 堆内存 Java 中的堆是 <em>JVM</em> 所管理的最大的一块内存空间,主要用于存放各种类的实例对象。 在Java 中,堆被划分成两个不同的区域:新生代 …</p>
+<h3 id="JVM-入门到入魔-00课程大纲-知识铺"><a href="#JVM-入门到入魔-00课程大纲-知识铺" class="headerlink" title="_JVM_入门到入魔:00课程大纲 | 知识铺"></a><a href="https://zshipu.com/t?url=https://blog.zshipu.com/tlg/2020/03/27/JVM%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E9%AD%94%EF%BC%9A%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%BA%B2/">_JVM_入门到入魔:00课程大纲 | 知识铺</a></h3><p> 原始链接:<a target="_blank" rel="noopener" href="https://blog.zshipu.com/tlg/2020/03/27/_JVM_%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E9%AD%94:%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%BA%B2/">https://blog.zshipu.com/tlg/2020/03/27/_JVM_入门到入魔:课程大纲/</a> 版权声明: “署名-非商用-相同方式共享 4.0” 转载请保留原文链接及作者。 …</p>
+<h3 id="团队管理-打造高绩效团队-知识铺"><a href="#团队管理-打造高绩效团队-知识铺" class="headerlink" title="团队管理:打造高绩效团队 | 知识铺"></a><a href="https://zshipu.com/t?url=https://blog.zshipu.com/tlg/2020/03/28/%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86%EF%BC%9A%E6%89%93%E9%80%A0%E9%AB%98%E7%BB%A9%E6%95%88%E5%9B%A2%E9%98%9F/">团队管理:打造高绩效团队 | 知识铺</a></h3><p> 系列之<em>JVM</em> 2020/03/31 将您的Spring Booot应用迁移到最新的Spring Security 和 OAuth 2.0 2020/03/31 Neo4j系列:CentOS下Neo4j安装教程 2020/03/31 _JVM_入门到…</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-04-09T09:02:16.000Z" title="2020-04-09T09:02:16.000Z">2020-04-09</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.430Z" title="2020-09-08T14:03:00.430Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">几秒读完 (大约110个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/04/09/macaca-doctor%E4%B9%8BAndroid%E8%AF%81%E4%B9%A6Not-accepted-Android-SDK-license-agreements/">macaca doctor之Android证书Not accepted Android SDK license agreements</a></h1><div class="content"><h1 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h1><p>在搭建macaca环境的过程中出现关于Android的”Not accepted Android SDK license agreements：…..”问题。</p>
+<h3 id="解决如下："><a href="#解决如下：" class="headerlink" title="解决如下："></a>解决如下：</h3><h4 id="1、找到环境变量中”ANDROID-HOME”"><a href="#1、找到环境变量中”ANDROID-HOME”" class="headerlink" title="1、找到环境变量中”ANDROID_HOME”"></a>1、找到环境变量中”ANDROID_HOME”</h4><p>使用”which Android”找到目录路径</p>
+<h4 id="2、创建license"><a href="#2、创建license" class="headerlink" title="2、创建license"></a>2、创建license</h4><blockquote>
+<p>mkdir “/Users/april_chou/Library/Android/sdk/licenses”</p>
+<p>echo -e “\n8933bad161af4178b1185d1a37fbf41ea5269c55” &gt; “/Users/april_chou/Library/Android/sdk/licenses/android-sdk-license”</p>
+<p>echo -e “\n84831b9409646a918e30573bab4c9c91346d8abd” &gt; “/Users/april_chou/Library/Android/sdk/licenses/android-sdk-preview-license”</p>
+</blockquote>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-04-09T02:28:01.000Z" title="2020-04-09T02:28:01.000Z">2020-04-09</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.462Z" title="2020-09-08T14:03:00.462Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">16 分钟读完 (大约2350个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/04/09/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90%E7%AF%87%EF%BC%9APlantUML-%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E4%B8%93%E5%B1%9E%E7%BB%98%E5%88%B6%E6%B5%81%E7%A8%8B%E5%9B%BE%E5%B7%A5%E5%85%B7%EF%BC%8C%E5%B0%B1%E5%83%8F%E5%86%99%E4%BB%A3%E7%A0%81%E4%B8%80%E6%A0%B7%E4%BE%BF%E5%88%A9/">工具推荐篇：PlantUML,程序员的专属绘制流程图工具，就像写代码一样便利</a></h1><div class="content"><h3 id="选择-PlatnUML-原因"><a href="#选择-PlatnUML-原因" class="headerlink" title="选择_PlatnUML_原因"></a>选择_PlatnUML_原因</h3><blockquote>
+<ul>
+<li>_PlantUML_是开源的，有一个相对比较成熟的网站，通过简单的UML语言来实现想要的效果，有点极客范</li>
+<li>_PlantUML_有比较详细的各类语言的guide文档</li>
+<li>_PlantUML_做了很多的适配，比如常用的编译器_eclipse_，_IDEA intelliJ_都有对应的插件，同时还和_Maven_和_JQuery_都做了集成，还提供了_war_包形式，可以在本地的_JavaEE_容器（比如_Tomcat_）中运行起来</li>
+<li>_PlantUML_语言简单直接易学，就好像Markdown语法一样，简单高效</li>
+</ul>
+</blockquote>
+<h3 id="plantuml-官网-开源工具-使用简单的文字描述画UML图。"><a href="#plantuml-官网-开源工具-使用简单的文字描述画UML图。" class="headerlink" title="_plantuml_官网 - 开源工具,使用简单的文字描述画UML图。"></a><a href="https://zshipu.com/t?url=https://plantuml.com/zh/">_plantuml_官网 - 开源工具,使用简单的文字描述画UML图。</a></h3><p> 轻松从简单的文字说明创建_UML_图。也有许多种可用的图表。它也可以在PNG,乳胶,EPS,SVG图像导出。</p>
+<h3 id="程序员绘图工具-Plantuml-简书"><a href="#程序员绘图工具-Plantuml-简书" class="headerlink" title="程序员绘图工具-Plantuml - 简书"></a><a href="https://zshipu.com/t?url=https://www.jianshu.com/p/30f6a9c06083">程序员绘图工具-<em>Plantuml</em> - 简书</a></h3><p> 2018年11月29日 - 最近在网上找到了一款还算不错的绘图工具– <em>Plantuml</em>, 它本质上是也算一门可以快速画图的设计语言,学习起来也很方便。可以在http://<em>plantuml</em>.com/网站上体验一…</p>
+<h3 id="PlantUML-让你知道什么才是高效绘制流程图-知乎"><a href="#PlantUML-让你知道什么才是高效绘制流程图-知乎" class="headerlink" title="PlantUML,让你知道什么才是高效绘制流程图 - 知乎"></a><a href="https://zshipu.com/t?url=https://zhuanlan.zhihu.com/p/76948461"><em>PlantUML</em>,让你知道什么才是高效绘制流程图 - 知乎</a></h3><p> 2019年8月6日 - 官方网址开源工具,使用简单的文字描述画UML图。_PlantUML_是一个开源项目,支持快速绘制的类型:顺序图的语法和功能用例图语法和功能类图的语法和功能新的活动图测试语法…</p>
+<h3 id="时序图-plantuml-顺序图的语法和功能"><a href="#时序图-plantuml-顺序图的语法和功能" class="headerlink" title="时序图-plantuml - 顺序图的语法和功能"></a><a href="https://zshipu.com/t?url=https://plantuml.com/zh/sequence-diagram">时序图-<em>plantuml</em> - 顺序图的语法和功能</a></h3><p> _PlantUML_序列图的语法:你可以有几种类型的参与者(演员和其他人),箭头,音符,组…改变字体和颜色也有可能。</p>
+<h3 id="plantuml-download-SourceForge-net"><a href="#plantuml-download-SourceForge-net" class="headerlink" title="plantuml download | SourceForge.net"></a><a href="https://zshipu.com/t?url=https://sourceforge.net/projects/plantuml/"><em>plantuml</em> download | SourceForge.net</a></h3><p> 2020年3月6日 - Download <em>plantuml</em> for free. <em>PlantUml</em> allows to quickly create some UML diagram using a simple textual description language.</p>
+<h3 id="PlantUML-入门-简书"><a href="#PlantUML-入门-简书" class="headerlink" title="_PlantUML_入门 - 简书"></a><a href="https://zshipu.com/t?url=https://www.jianshu.com/p/4068e5cf8355">_PlantUML_入门 - 简书</a></h3><p> 2019年3月24日 - 在线通过_PlantUML_语言绘制对应的UML图,_plantUML_官网提供了免费的在线编辑服务,通过在左侧输入对应的UML语言来生成对应的UML图,地址如下:online-site 1553415664042.png…</p>
+<h3 id="IntelliJ-IDEA反向生成-UML-类图"><a href="#IntelliJ-IDEA反向生成-UML-类图" class="headerlink" title="IntelliJ IDEA反向生成_UML_类图"></a><a href="https://zshipu.com/t?url=https://baijiahao.baidu.com/s?id=1636627532894129693&wfr=spider&for=pc">IntelliJ IDEA反向生成_UML_类图</a></h3><p> 2019年6月18日 - 最近在开发的过程当中,对于已有的代码,想将相关类绘制成UML类图,虽然现在有很多UML类图的优秀软件,比如ProcessOn(可视化编辑)、draw.io(可视化编辑)、<em>PlantUML</em>(代码…</p>
+<h3 id="PlantUML-FamilyYuan的博客-CSDN博客"><a href="#PlantUML-FamilyYuan的博客-CSDN博客" class="headerlink" title="_PlantUML__FamilyYuan的博客-CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/myfriend0/article/details/78673718">_PlantUML__FamilyYuan的博客-CSDN博客</a></h3><p> 2017年11月30日 - _PlantUML_前言UML 对于技术文档来说,真的很重要,不管是形象展示,还是阅读理解,都发挥非常重要的作用。之前一直用 visio 画图,当然,我必须承认 visio 集…</p>
+<h3 id="PlantUML-安装与使用-Wunsam-Chan-博客园"><a href="#PlantUML-安装与使用-Wunsam-Chan-博客园" class="headerlink" title="_PlantUML_安装与使用 - Wunsam_Chan - 博客园"></a><a href="https://zshipu.com/t?url=https://www.cnblogs.com/ChanWunsam/p/9863154.html">_PlantUML_安装与使用 - Wunsam_Chan - 博客园</a></h3><p> 2018年10月27日 - 如果你安装好了java环境,理论上在命令行中输入java -jar <em>plantuml</em>.jar ‘sample’.uml就可以了。 新版本的<em>plantuml</em>.jar可以有不需要graphviz的语法,不过如果你使用…</p>
+<h3 id="1-PlantUML-简介及语法、图标和示例-开发工具-向阳的味…-CSDN博客"><a href="#1-PlantUML-简介及语法、图标和示例-开发工具-向阳的味…-CSDN博客" class="headerlink" title="1 PlantUML 简介及语法、图标和示例_开发工具_向阳的味…_CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/g1506490083/article/details/79877659">1 <em>PlantUML</em> 简介及语法、图标和示例_开发工具_向阳的味…_CSDN博客</a></h3><p> 2018年4月10日 - 一.安装<em>PlantUML_插件IDEA 安装_PlantUML_二.windows下安装Graphvizwindows下Graphviz安装及入门教程三._PlantUML_使用方法_PlantUML</em> 简介及语法… 博文 来自: 麦洛 在…</p>
+<h3 id="plantuml-使用教程【转】-小天儿-博客园"><a href="#plantuml-使用教程【转】-小天儿-博客园" class="headerlink" title="_plantuml_使用教程【转】 - 小天儿 - 博客园"></a><a href="https://zshipu.com/t?url=https://www.cnblogs.com/ningskyer/articles/5397750.html">_plantuml_使用教程【转】 - 小天儿 - 博客园</a></h3><p> 2016年4月16日 - 编写本文的目的旨在记录个人在学习_PlantUML_时对官网上一些内容的理解,以 及总结学习过程中遇到的问题,并将…</p>
+<h3 id="PlantUML-速查表-前端速查表"><a href="#PlantUML-速查表-前端速查表" class="headerlink" title="PlantUML 速查表 - 前端速查表"></a><a href="https://zshipu.com/t?url=http://caibaojian.com/scb/plantuml.html"><em>PlantUML</em> 速查表 - 前端速查表</a></h3><p> 前端速查表为你提供<em>PlantUML_的基本使用教程,教你如何入门_PlantUML</em>,同时也一步步熟悉<em>PlantUML</em>,学_PlantUML_用前端速查表。</p>
+<h3 id="PlantUML-——-应用于-Eclipse-的简单快速的-UML-编辑软件"><a href="#PlantUML-——-应用于-Eclipse-的简单快速的-UML-编辑软件" class="headerlink" title="PlantUML —— 应用于 Eclipse 的简单快速的 UML 编辑软件"></a><a href="https://zshipu.com/t?url=https://www.ibm.com/developerworks/cn/opensource/os-cn-ecl-plantuml/"><em>PlantUML</em> —— 应用于 Eclipse 的简单快速的 UML 编辑软件</a></h3><p> 2012年7月5日 - 支持的 UML 图包括:时序图、用例图、类图、组件图、活动图等。<em>PlantUML</em> 可以帮助开发人员建立和编辑 UML,有较好的应用前景。 UML 的简介…</p>
+<h3 id="PlantUml-入门-一-OSCHINA"><a href="#PlantUml-入门-一-OSCHINA" class="headerlink" title="_PlantUml_入门(一) - OSCHINA"></a><a href="https://zshipu.com/t?url=https://www.oschina.net/question/97818_37894">_PlantUml_入门(一) - OSCHINA</a></h3><p> 2012年3月18日 - <em>PlantUML_的用法还是比较简单的,首先安装好 Graphviz,然后安装_plantuml_的eclipse插件 安装好之后从eclipse的菜单windows–&gt;show view–&gt;Other里找到_pla</em>…</p>
+<h3 id="PlantUML-UML建模-开发工具-深度开源"><a href="#PlantUML-UML建模-开发工具-深度开源" class="headerlink" title="PlantUML - UML建模 - 开发工具 - 深度开源"></a><a href="https://zshipu.com/t?url=https://www.open-open.com/project/5041490032311017614.html"><em>PlantUML</em> - UML建模 - 开发工具 - 深度开源</a></h3><p> _PlantUML_是一个UML图绘制Java开源组件。利用它可以快速绘制:时序图、用例图、类图、组件图、活动图。这些图形使用一种简单和直观的语言来定义。</p>
+<h3 id="PlantUML-图文-百度文库"><a href="#PlantUML-图文-百度文库" class="headerlink" title="_PlantUML__图文_百度文库"></a><a href="https://zshipu.com/t?url=https://wenku.baidu.com/view/867a78b448d7c1c708a145f4.html">_PlantUML__图文_百度文库</a></h3><p> 评分:5/5 117页</p>
+<p> 2016年5月27日 - 使用<em>PlantUML</em> 绘制的 UML 语言参考指引 (2016 年 1 月 20 日星期三上午 8:22) <em>PlantUML</em> 是一个开源项目,并支持快速绘制: ? 时序图 ? 用例图 ? 类图 ? …</p>
+<h3 id="PlantUML-简明教程-云-社区-腾讯云"><a href="#PlantUML-简明教程-云-社区-腾讯云" class="headerlink" title="PlantUML 简明教程 - 云+社区 - 腾讯云"></a><a href="https://zshipu.com/t?url=https://cloud.tencent.com/developer/article/1519368"><em>PlantUML</em> 简明教程 - 云+社区 - 腾讯云</a></h3><p> 2019年10月10日 - <em>PlantUML</em> 是一个开源项目,支持快速绘制时序图、用例图、类图、活动图、组件图、状态图、对象图、部署图等。同时还支持非 UML 图的甘特图、架构图等。…</p>
+<h3 id="plantuml-生成uml图-dolinux-ChinaUnix博客"><a href="#plantuml-生成uml图-dolinux-ChinaUnix博客" class="headerlink" title="plantuml 生成uml图-dolinux-ChinaUnix博客"></a><a href="https://zshipu.com/t?url=http://blog.chinaunix.net/uid-20753645-id-3578751.html"><em>plantuml</em> 生成uml图-dolinux-ChinaUnix博客</a></h3><p> 2013年4月11日 - 在win下,_plantuml_使用: 1. 首先安装好 Graphviz, 可以在<a target="_blank" rel="noopener" href="http://www.graphviz.org/Download_windows.php">http://www.graphviz.org/Download_windows.php</a> 下载zip包解压到本地就可以了。 2. 然后安</p>
+<h3 id="PlantUML-类图-云栖社区-阿里云"><a href="#PlantUML-类图-云栖社区-阿里云" class="headerlink" title="_PlantUML_类图-云栖社区-阿里云"></a><a href="https://zshipu.com/t?url=https://yq.aliyun.com/articles/25405">_PlantUML_类图-云栖社区-阿里云</a></h3><p> 2016年4月8日 - 类之间的关系 _PlantUML_用下面的符号来表示类之间的关系: 泛化,Generalization:&lt;|– 关联,Association:&lt;– 组合,Composition:*– 聚合,Aggregation:o–…</p>
+<h3 id="PlantUML-知识库-开发者头条-1"><a href="#PlantUML-知识库-开发者头条-1" class="headerlink" title="_PlantUML_知识库 - 开发者头条 - 1"></a><a href="https://zshipu.com/t?url=https://toutiao.io/tags/PlantUML">_PlantUML_知识库 - 开发者头条 - 1</a></h3><p> 在Android Studio 中使用 <em>PlantUML</em> 前言Unified Modeling Language (UML)又称统一建模语言或标准建模语言,用来描述 类(对象的)、对象、关联、职责、行为、接口、用…</p>
+<h3 id="tools-using-the-plantuml-language-使用-PlantUML-语言工具"><a href="#tools-using-the-plantuml-language-使用-PlantUML-语言工具" class="headerlink" title="tools using the plantuml language - 使用_PlantUML_语言工具"></a><a href="https://zshipu.com/t?url=https://plantuml.com/zh/running">tools using the <em>plantuml</em> language - 使用_PlantUML_语言工具</a></h3><p> 您可以选择多种工具整合_PlantUML_。你可以用它在你的维基,在文本编辑器或IDE,你产生的文档中。你也可以从源代码中调用它。</p>
+<h3 id="plantuml-jar-Download-plantuml-from-SourceForge-net"><a href="#plantuml-jar-Download-plantuml-from-SourceForge-net" class="headerlink" title="plantuml.jar  - Download plantuml from SourceForge.net"></a><a href="https://zshipu.com/t?url=https://sourceforge.net/projects/plantuml/files/plantuml.jar/download"><em>plantuml</em>.jar  - Download <em>plantuml</em> from SourceForge.net</a></h3><p> <em>PlantUml</em> allows to quickly create some UML diagram using a simple textual description language.</p>
+<h3 id="1-PlantUML-简介及语法、图标和示例-开发工具-向阳的味…-CSDN博客-1"><a href="#1-PlantUML-简介及语法、图标和示例-开发工具-向阳的味…-CSDN博客-1" class="headerlink" title="1 PlantUML 简介及语法、图标和示例_开发工具_向阳的味…_CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/g1506490083/article/details/79877659">1 <em>PlantUML</em> 简介及语法、图标和示例_开发工具_向阳的味…_CSDN博客</a></h3><p> 2018年4月10日 - 一.安装<em>PlantUML_插件IDEA 安装_PlantUML_二.windows下安装Graphvizwindows下Graphviz安装及入门教程三._PlantUML_使用方法_PlantUML</em> 简介及语法… 博文 来自: 麦洛 在…</p>
+<h3 id="利用-plantuml-绘制类图-类图的语法和功能"><a href="#利用-plantuml-绘制类图-类图的语法和功能" class="headerlink" title="利用_plantuml_绘制类图 - 类图的语法和功能"></a><a href="https://zshipu.com/t?url=https://plantuml.com/zh/class-diagram">利用_plantuml_绘制类图 - 类图的语法和功能</a></h3><p> _PlantUML_类图的语法:您可以定义接口,成员关系,包,泛型,注释…改变字体和颜色也有可能。</p>
+<h3 id="一-PlantUML-语法之时序图-Yiaz-博客园"><a href="#一-PlantUML-语法之时序图-Yiaz-博客园" class="headerlink" title="(一)PlantUML 语法之时序图 - Yiaz - 博客园"></a><a href="https://zshipu.com/t?url=https://www.cnblogs.com/young-youth/p/11665573.html">(一)<em>PlantUML</em> 语法之时序图 - Yiaz - 博客园</a></h3><p> 2019年3月21日 - IDEA 下载插件 <em>PlantUML</em>,直接在 IDEA 里面编写 UML,很方便;然后电脑再安装渲染引擎 Gravizo ,没有它,复杂的类图就无法渲染了 ; 链接:<a target="_blank" rel="noopener" href="https://pan.baid/">https://pan.baid</a>…</p>
+<h3 id="绘图工具-代码实现绘图-—-plantuml-wulong710的专栏-CSDN博客"><a href="#绘图工具-代码实现绘图-—-plantuml-wulong710的专栏-CSDN博客" class="headerlink" title="绘图工具(代码实现绘图)—_plantuml__wulong710的专栏-CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/wulong710/article/details/79228211">绘图工具(代码实现绘图)—_plantuml__wulong710的专栏-CSDN博客</a></h3><p> 2018年2月1日 - 最近看到asciidoc和<em>plantuml</em>;是编写文档的极好工具。相对word和visio,最大的好处是可以实现代码版本管理,作为changelist。  asciidoc,相对markdown来…</p>
+<h3 id="【工具使用系列】UML-建模工具-PlantUML-Allen-Moore的博客"><a href="#【工具使用系列】UML-建模工具-PlantUML-Allen-Moore的博客" class="headerlink" title="【工具使用系列】UML_建模工具_PlantUML - Allen-Moore的博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/mosesaaron/article/details/90640909">【工具使用系列】<em>UML_建模工具_PlantUML</em> - Allen-Moore的博客</a></h3><p> 2019年5月28日 - _PlantUML_快速入门… _PlantUML_是一个开源工具,允许用户使用纯文本语言创建UML图表。 _PlantUML_的语言是特定于域的语言的示例。它使用Graphviz软件来布置其图表。它已被…</p>
+<h3 id="PlantUML-语法之时序图-woodwhale’s-blog"><a href="#PlantUML-语法之时序图-woodwhale’s-blog" class="headerlink" title="PlantUML 语法之时序图 | woodwhale’s blog"></a><a href="https://zshipu.com/t?url=http://woodwhales.github.io/2019/01/13/017/"><em>PlantUML</em> 语法之时序图 | woodwhale’s blog</a></h3><p> 2019年1月13日 - 快速高效生成时序图… Visual Studio Code 安装 <em>plantUML</em> 插件,在插件应用商店中搜索:<em>PlantUML</em>,点击安装即可。快捷键:Alt + D 即可快速预览,Ctrl + S…</p>
+<h3 id="plantuml"><a href="#plantuml" class="headerlink" title="plantuml"></a><a href="https://zshipu.com/t?url=https://www.findbestopensource.com/product/plantuml"><em>plantuml</em></a></h3><p> <em>PlantUml</em> allows to quickly create some UML diagram using a simple textual description language.http://<em>plantuml</em>.sourceforge.net …</p>
+<h3 id="PlantUML-快速入门-社区博客-网易云"><a href="#PlantUML-快速入门-社区博客-网易云" class="headerlink" title="_PlantUML_快速入门-社区博客-网易云"></a><a href="https://zshipu.com/t?url=https://sq.163yun.com/blog/article/175328912581824512">_PlantUML_快速入门-社区博客-网易云</a></h3><p> 2018年7月11日 - 因为本人是开发人员,使用类图比较多,下面主要以类图为例介绍_PlantUML_的用法。先熟悉一下类图中的六种关系 类图中的六种关系 实现(Realize):元素A定义…</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-04-09T02:08:02.000Z" title="2020-04-09T02:08:02.000Z">2020-04-09</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.364Z" title="2020-09-08T14:03:00.364Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">20 分钟读完 (大约3065个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/04/09/Istio-%E6%98%AF%E4%BB%80%E4%B9%88-1/">Istio 是什么</a></h1><div class="content"><h2 id="istio-是什么"><a href="#istio-是什么" class="headerlink" title="istio 是什么"></a>istio 是什么</h2><blockquote>
+<p>Istio 提供一种简单的方式来为已部署的服务建立网络，该网络具有负载均衡、服务间认证、监控等功能，而不需要对服务的代码做任何改动。</p>
+</blockquote>
+<ul>
+<li>istio 适用于容器或虚拟机环境（特别是 k8s），兼容异构架构。</li>
+<li>istio 使用 sidecar（边车模式）代理服务的网络，不需要对业务代码本身做任何的改动。</li>
+<li>HTTP、gRPC、WebSocket 和 TCP 流量的自动负载均衡。</li>
+<li>istio 通过丰富的路由规则、重试、故障转移和故障注入，可以对流量行为进行细粒度控制；支持访问控制、速率限制和配额。</li>
+<li>istio 对出入集群入口和出口中所有流量的自动度量指标、日志记录和跟踪。</li>
+</ul>
+<h3 id="istio-官网"><a href="#istio-官网" class="headerlink" title="_istio_官网"></a><a href="https://zshipu.com/t?url=https://istio.io/">_istio_官网</a></h3><p> Connect, secure, control, and observe services…. <em>Istio</em> Connect, secure, control, and observe services. Connect Intelligently control the flow of traffic a…</p>
+<h3 id="Istio-文档"><a href="#Istio-文档" class="headerlink" title="Istio / 文档"></a><a href="https://zshipu.com/t?url=https://istio.io/zh/docs/"><em>Istio</em> / 文档</a></h3><p> 2020年3月17日 - 了解如何部署、使用和运维 <em>Istio_。… 了解如何部署、使用和运维 _Istio_。 概念 一些概念,理解它们有助于您更好地了解 _Istio</em> 系统的不同部分及其使用的…</p>
+<h3 id="istio-简介-简书"><a href="#istio-简介-简书" class="headerlink" title="istio 简介 - 简书"></a><a href="https://zshipu.com/t?url=https://www.jianshu.com/p/bed143a1c886"><em>istio</em> 简介 - 简书</a></h3><p> 2018年12月18日 - 最近接触到了 <em>istio</em>,感觉十分强大,写篇短文推荐给大家。本文所涉及的具体实验步骤可以参考官网教程。 <em>istio</em> 相关文章列表: <em>istio</em> 简介 <em>istio</em> 性能测试 i…</p>
+<h3 id="Istio-是啥-一文带你彻底了解-代理-搜狐"><a href="#Istio-是啥-一文带你彻底了解-代理-搜狐" class="headerlink" title="_Istio_是啥?一文带你彻底了解!_代理_搜狐"></a><a href="https://zshipu.com/t?url=https://www.sohu.com/a/270131876_463994">_Istio_是啥?一文带你彻底了解!_代理_搜狐</a></h3><p> 2018年10月19日 - 如果你比较关注新兴技术的话,那么很可能在不同的地方听说过 <em>Istio</em>,并且知道它和 Service Mesh 有着牵扯。 这篇文章可以作为了解 <em>Istio</em> 的入门介绍,了解什么是 Is…</p>
+<h3 id="istio-的原理和功能介绍-Jo-ZSM-博客园"><a href="#istio-的原理和功能介绍-Jo-ZSM-博客园" class="headerlink" title="_istio_的原理和功能介绍 - Jo_ZSM - 博客园"></a><a href="https://zshipu.com/t?url=https://www.cnblogs.com/JoZSM/p/10902306.html">_istio_的原理和功能介绍 - Jo_ZSM - 博客园</a></h3><p> 2019年5月21日 - 而<em>Istio_则为我们把这件事执行的更彻底。让我们看看_Istio_到底能干啥?_Istio</em> lets you connect, secure, control, and observe services.官方给出的_Istio_的总结,很…</p>
+<h3 id="在生产中使用Istio-我们学到了什么-简书"><a href="#在生产中使用Istio-我们学到了什么-简书" class="headerlink" title="在生产中使用Istio,我们学到了什么? - 简书"></a><a href="https://zshipu.com/t?url=https://www.jianshu.com/p/cf4d4258b7f6">在生产中使用<em>Istio</em>,我们学到了什么? - 简书</a></h3><p> 2019年6月10日 - 首先,给大家简单介绍一下<em>Istio</em>,_Istio_是一个Service Mesh的开源框架,来自Google,大部分使用Go语言来开发,是Service Mesh的集大成者。 I…</p>
+<h3 id="Istio-知乎"><a href="#Istio-知乎" class="headerlink" title="Istio - 知乎"></a><a href="https://zshipu.com/t?url=https://www.zhihu.com/topic/20680818/top-answers"><em>Istio</em> - 知乎</a></h3><p> 2019年2月15日 - 本文转载自:宋净超的博客 这不是一篇教程,本文试图带您梳理清楚 Kubernetes、Envoy(xDS 协议)以及 <em>Istio</em> Service Mesh 之间的关系及内在联系。本文介…</p>
+<h3 id="Istio-简介-如果你是一个县长-吃着火锅唱着歌-突然就被…-CSDN博客"><a href="#Istio-简介-如果你是一个县长-吃着火锅唱着歌-突然就被…-CSDN博客" class="headerlink" title="_Istio_简介_如果你是一个县长,吃着火锅唱着歌,突然就被…_CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/chenleiking/article/details/79785493">_Istio_简介_如果你是一个县长,吃着火锅唱着歌,突然就被…_CSDN博客</a></h3><p> 2018年4月2日 - _Istio_简介1、简介1.1、ServiceMesh上网了解一下:Servicemesh和sidec… 旁白:事先准备一个Ansible的脚本确实很方便,在部署_Istio_的过程中出现过很多问…</p>
+<h3 id="Istio-下一个Kubernetes-老孙的博客-CSDN博客"><a href="#Istio-下一个Kubernetes-老孙的博客-CSDN博客" class="headerlink" title="Istio,下一个Kubernetes? - 老孙的博客 - CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/sunhf_csdn/article/details/84257923"><em>Istio</em>,下一个Kubernetes? - 老孙的博客 - CSDN博客</a></h3><p> 2018年11月19日 - 近年来,开源项目被业界予以厚望,为业界众多技术大咖所推崇,其中一个项目就是由谷歌和IBM联合打造的_Istio_。_Istio_的出现使得服务网格——ServiceMesh这一概念开始流行…</p>
+<h3 id="istio-云计算解决方案"><a href="#istio-云计算解决方案" class="headerlink" title="istio_云计算解决方案"></a><a href="https://zshipu.com/t?url=http://www.baidu.com/baidu.php?url=af0000KpxzUee8WytjNIIijzpJahEaTBEA5XC6n2F0FPjRUCp_xmtw2MpuFjvpeZ2XZrkp2B18zRPsfkJ3KUNWvNK7TsBDYNB1FBfc2NSgfPK9lYEAPDgqx6NTUqcyeHhYnSoICXvUfa-L3CX256d9xyS77enHqEmkAj-tBwDAJH4YOZJo1CySTBEJ6hCt5qNMhlT31wlMYcvPNotXi9xm34M55G.7R_jVswRTDRP7va4a-muCyrrO__z20.U1Yk0ZDqigPYpyt0TA-W5H00TZPGuv3qPhNWPjc3Pj9WrjbYn199uWnLm1-WPHKhPjKWmWRLPH60IjdGTLwGUsKGUHYznWT0u1dsT1c0Iybqmh7GuZR0TA-b5Hnz0APGujYzrj00UgfqnH0kPdtznjmzg1DsnH-xn1msnfKopHYs0ZFY5Hm30ANGujYkPjmYg1nknHm4g1cknj6vg1nknH6vg1nsrH0zg1nsrjc1g1nknj6dg1nknHmYg1nknHbd0AFG5HDdPNtkPH9xnW0Yg1ckPsKVm1Ykrjf3nWfYPjbzg1DzPWDzPW6knjnkg1Dsnj7xn0KkTA-b5H00TyPGujYs0ZFMIA7M5H00mycqn7ts0ANzu1Ys0ZKs5HDzPHcdrHmd0A4vTjYsQW0snj0snj0s0AdYTjYs0AwbUL0qnfKzpWYs0Aw-IWdsmsKhIjYs0ZKC5H00ULnqn0KBI1Ykn0K8IjYs0ZPl5fK9TdqGuAnqTZnVUhC0pywW5R42i-n0IZN15HTsnHRzrjb1PjcLPWb4nW0dnjm0ThNkIjYkPH6vn1bYPWn1rHR10ZPGujdhnWuWuym3m10snj7hnWnL0AP1UHYLfRRznH0snjIjwDPDwDfs0A7W5HD0TA3qn0KkUgfqn0KkUgnqn0KlIjYs0AdWgvuzUvYqn7tsg1Kxn0Kbmy4dmhNxTAk9Uh-bT1Ysg1Kxn7ts0ZK9I7qhUA7M5H00uAPGujYs0ANYpyfqQHD0mgPsmvnqn0KdTA-8mvnqn0KkUymqn0KhmLNY5H00pgPWUjYs0ZGsUZN15H00mywhUA7M5HD0UAuW5H00uAPWujY0mhwGujYYn10dnRFDfY7DnHNjfYR1fWDLnbR3PHfzPWnLrH03w6KBIjYs0AqY5H00ULFsIjYsc10Wc10Wnansc108nj0snj0sc10Wc10WQfKkgLmqna3drNtsQW0sg108njKxna3sP-tsQW0Yg108nWm0ug9Y5H00mMPxTZFEuA-b5H00mLFW5Hf3rHDs&word=Istio&ck=0.0.0.0.0.0.0.0&shh=www.baidu.com">istio_云计算解决方案</a></h3><p> istio平台是在容器调度平台 Kubernetes 上构建的企业级分布式多租户容器管理平台具有多集群管理多存储类型支持等特性，在网络，存储方面提供多种便捷可靠方案</p>
+<h3 id="istio-KubeSphere-–-企业容器平台"><a href="#istio-KubeSphere-–-企业容器平台" class="headerlink" title="istio KubeSphere – 企业容器平台"></a><a href="https://zshipu.com/t?url=http://www.baidu.com/baidu.php?url=af0000KpxzUee8Wyt2zw5jQzp37JxGf8xD5dFg5GMjPpyF6Aao0lqYzrbHiNjDRu9Qk4lBb9gub6nMT6cB9bviNg3KUvoestBpms-xr9b6uC8FHhHt_P1KWXJwudsKo3NpgltW8lSXxvX1PTRxtGBA9uIHdhkoezXzsRkdRC_fyVxYbhaCM5QLJ8jMKKbzZqgWjpLMUwBWKZjN1joytd-Zc7ScXF.DY_iI8aqnXrGnzxQv51fYgmQbfIt7jHzs_lTUQqRHZCl32AM-YG8x6Y_g_3_ZgKfYt_U_DY2yAU88Ge8yBSQV4TH7OSEkYOYxZR4i_nYQAHxYqMBC0.U1Yz0ZDqigPYpyt0TA-W5H00TZPGuv3qPjfvujFbPyuWnjmvnA7WPWRsuWnzmWfvuHTdPHNhP160IjdGTLwGUsKGUHYznWT0u1dsT1c0Iybqmh7GuZR0TA-b5Hnz0APGujYzrj00UgfqnH0kPdtznjmzg1DsnH-xn1msnfKopHYs0ZFY5Hm30ANGujYkPjmYg1nknHm4g1cknj6vg1nknH6vg1nsrH0zg1nsrjc1g1nknj6dg1nknHmYg1nknHbd0AFG5HDdPNtkPH9xnW0Yg1ckPsKVm1YkrjfYnHb3rjRvg1bdrjc3P1b1PW7xnH0snNts0Z7spyfqn0Kkmv-b5H00ThIYmyTqn0K9mWYsg100ugFM5H00TZ0qnHcdnWR4PWR0UMus5H08nj0snj0snj00Ugws5H00uAwETjYs0ZFJ5H00uANv5gKW0AuY5H00TA6qn0KET1Ys0AFL5HDs0A4Y5H00TLCq0A71gv-bm1dsTzd8p6KGuAnqHbG2RsKYIgnqn1cdPW0LnHDLP1T4PjDdnHRkrfKzug7Y5HDdrjm1rHfvn1n4PHn0Tv-b5ymzPhP-uW9Wnj0snymzn1T0mLPV5HIKwHcknj0sPYPDfYwDwj00mynqnfKsUWYs0Z7VIjYs0Z7VT1Ys0ZGY5H00UyPxuMFEUHYsg1Kxn7ts0Aw9UMNBuNqsUA78pyw15HKxn7tsg100TA7Ygvu_myTqn0Kbmv-b5H00ugwGujYVnfK9TLKWm1Ys0ZNspy4Wm1Ys0Z7VuWYs0AuWIgfqn0KGTvP_5H00XMK_Ignqn0K9uAu_myTqnfK_uhnqn0KbmvPb5fKBuA-b5Hf1njRkfbwjfRfkPRPjwHPanHTzwH6dPjcvn1T4nj9A0AFY5H00ULfqn0KETMKY5H0WnanWnansc10Wna3snj0snj0WnanWnanV0Z7xIWYsQWmzg108njKxna3sn7tsQW04g108njwxna3zrfK-XZfqn0KBTdqsThqbpyfqn0KWThnqnWmLPs&word=Istio&ck=0.0.0.0.0.0.0.0&shh=www.baidu.com">istio KubeSphere – 企业容器平台</a></h3><p> KubeSphere 是基于 Kubernetes 构建的多租户，企业级容器管理平台，具有强大且完善的网络与存储能力，提供完善的 CI / CD ，微服务，多集群管理，应用管理等功能</p>
+<h3 id="Istio-中文社区"><a href="#Istio-中文社区" class="headerlink" title="Istio 中文社区"></a><a href="https://zshipu.com/t?url=https://istio.cn/"><em>Istio</em> 中文社区</a></h3><p> 文档<em>Istio</em> 官方英文文档 <em>Istio</em> 官方中文文档纸质书籍 #TODO 电子书 _Istio_深度解析与项目实践该电子书深度解析服务网格开源项目_Istio_的基本原理,实现机制,以及如何在…</p>
+<h3 id="istio-·-Service-Mesh-服务网格中文社区"><a href="#istio-·-Service-Mesh-服务网格中文社区" class="headerlink" title="istio · Service Mesh|服务网格中文社区"></a><a href="https://zshipu.com/t?url=https://www.servicemesher.com/tags/istio/"><em>istio</em> · Service Mesh|服务网格中文社区</a></h3><p> 作者马若飞 | 2900字 | 阅读大约需要6分钟 | 归档于<em>istio</em> 2020年3月3日 本文基于_istio_最新的架构调整设计文档,分析了_istio_未来的设计目标。 继续阅读 ist…</p>
+<h3 id="Istio-Kubernetes中文社区"><a href="#Istio-Kubernetes中文社区" class="headerlink" title="_Istio__Kubernetes中文社区"></a><a href="https://zshipu.com/t?url=https://www.kubernetes.org.cn/tags/istio">_Istio__Kubernetes中文社区</a></h3><p> 5天前 - 在_Istio_中,使用网关定义在网格边缘运行的负载均衡器,用于接收传入或传出的HTTP / TCP请求,网关配置适用于在网格边缘运行的独立Envoy代理。 与其他控制进入系统流量的…</p>
+<h3 id="使用-Istio-治理微服务入门-割肉机-博客园"><a href="#使用-Istio-治理微服务入门-割肉机-博客园" class="headerlink" title="使用_Istio_治理微服务入门 - 割肉机 - 博客园"></a><a href="https://zshipu.com/t?url=https://www.cnblogs.com/williamjie/p/9442340.html">使用_Istio_治理微服务入门 - 割肉机 - 博客园</a></h3><p> 2018年8月8日 - 三、_Istio_安装 _Istio_目前支持最好的就是Kubernetes了,因此我们的实验环境就定在Kubernetes上。至于版本,_Istio_当前最新版本为0.4.0,这个版本据说要Kub…</p>
+<h3 id="Istio-首页、文档和下载-大型微服务系统管理工具-OSCHINA"><a href="#Istio-首页、文档和下载-大型微服务系统管理工具-OSCHINA" class="headerlink" title="_Istio_首页、文档和下载 - 大型微服务系统管理工具 - OSCHINA"></a><a href="https://zshipu.com/t?url=https://www.oschina.net/p/Istio">_Istio_首页、文档和下载 - 大型微服务系统管理工具 - OSCHINA</a></h3><p> 2017年5月26日 - <em>Istio</em> 是一个由谷歌、IBM 与 Lyft 共同开发的开源项目,旨在提供一种统一化的微服务连接、安全保障、管理与监控方式。<em>Istio</em> 项目能够为微服务架构提供流量管理机制…</p>
+<h3 id="《-Istio-官方文档》什么是-Istio-——综述-并发编程网-–-ifeve-com"><a href="#《-Istio-官方文档》什么是-Istio-——综述-并发编程网-–-ifeve-com" class="headerlink" title="《_Istio_官方文档》什么是_Istio_——综述 | 并发编程网 – ifeve.com"></a><a href="https://zshipu.com/t?url=http://ifeve.com/istio-overview/">《_Istio_官方文档》什么是_Istio_——综述 | 并发编程网 – ifeve.com</a></h3><p> 2018年1月5日 -   本文介绍<em>Istio</em>:开源的连接,管理和安全的微服务。_Istio_提供了一种简单方式,让发布的服务创建连接并实现负载均衡,服务间的认证,监控,还有更多,而在…</p>
+<h3 id="Istio-最佳实践-容器服务Kubernetes版-阿里云"><a href="#Istio-最佳实践-容器服务Kubernetes版-阿里云" class="headerlink" title="_Istio__最佳实践_容器服务Kubernetes版-阿里云"></a><a href="https://zshipu.com/t?url=https://help.aliyun.com/knowledge_list/96908.html">_Istio__最佳实践_容器服务Kubernetes版-阿里云</a></h3><p> 在Kubernetes上基于_Istio_实现Service Mesh智能路由 基于_Istio_实现Kubernetes与ECS上的应用服务混合编排 基于_Istio_实现TCP入口流量路由的统一管理 基于_Istio_实现服务的…</p>
+<h3 id="Istio-是什么-百度知道"><a href="#Istio-是什么-百度知道" class="headerlink" title="_Istio_是什么?_百度知道"></a><a href="https://zshipu.com/t?url=https://zhidao.baidu.com/question/687426310948483132.html">_Istio_是什么?_百度知道</a></h3><p> 2018年11月22日 - 回答：_Istio_是由Google、IBM和Lyft开源的微服务管理、保护和监控框架。_Istio_为希腊语,意思是”起航“使用_istio_可以很简单的创建具有负载均衡、服务间…</p>
+<h3 id="istio-资源的页面-Istio-IBM"><a href="#istio-资源的页面-Istio-IBM" class="headerlink" title="istio_资源的页面 - _Istio | IBM"></a><a href="https://zshipu.com/t?url=https://www.ibm.com/cloud/info/istio"><em>istio_资源的页面 - _Istio</em> | IBM</a></h3><p> 2020年1月27日 - Learn about <em>Istio</em> as a tool for managing microservices at scale and get started with useful resources from IBM Cloud.</p>
+<h3 id="码云极速下载-istio"><a href="#码云极速下载-istio" class="headerlink" title="码云极速下载/istio"></a><a href="https://zshipu.com/t?url=https://gitee.com/mirrors/istio">码云极速下载/<em>istio</em></a></h3><p> <em>istio</em>/api. This repository defines component-level APIs and common configuration formats for the <em>Istio</em> platform. <em>istio</em>/proxy. The <em>Istio</em> proxy contains ext…</p>
+<h3 id="简单解释-Istio-是什么"><a href="#简单解释-Istio-是什么" class="headerlink" title="简单解释_Istio_是什么"></a><a href="https://zshipu.com/t?url=https://www.jdon.com/50273">简单解释_Istio_是什么</a></h3><p> 2018年10月12日 - Envoy是_Istio_控制的主要部分,Envoy核心功能可以被认为是一个第7层路由表。或者,可以认为是没有DNS的DNS,类似DNS,但是不是真正DNS。 假如你在主机上运…</p>
+<h3 id="Istio-Istio-是什么"><a href="#Istio-Istio-是什么" class="headerlink" title="Istio / Istio 是什么?"></a><a href="https://zshipu.com/t?url=https://istio.io/zh/docs/concepts/what-is-istio/"><em>Istio</em> / <em>Istio</em> 是什么?</a></h3><p> 2020年3月17日 - 介绍<em>Istio</em>,它要解决的问题,高层面的架构和设计目标。… <em>Istio</em> 允许您连接、保护、控制和观察服务。 从较高的层面来说,<em>Istio</em> 有助于降低这些部署的复…</p>
+<h3 id="istio-Kubernetes中文社区"><a href="#istio-Kubernetes中文社区" class="headerlink" title="_istio__Kubernetes中文社区"></a><a href="https://zshipu.com/t?url=https://www.kubernetes.org.cn/istio">_istio__Kubernetes中文社区</a></h3><p> 5天前 - _Istio_被称作Kubernetes的最佳云原生拍档。从今天起,我们推出“_Istio_技术实践”系列专题,在本专题中,我们将通过技术文章+视频授课的方式,为大家详细阐…</p>
+<h3 id="istio-架构及各个组件介绍-itanony-博客园"><a href="#istio-架构及各个组件介绍-itanony-博客园" class="headerlink" title="_istio_架构及各个组件介绍 - itanony - 博客园"></a><a href="https://zshipu.com/t?url=https://www.cnblogs.com/itanony/p/11976340.html">_istio_架构及各个组件介绍 - itanony - 博客园</a></h3><p> 2019年12月3日 - <em>Istio</em> 服务网格从逻辑上分为数据平面和控制平面。 数据平面由一组智能代理(Envoy)组成,被部署为 sidecar。这些代理通过一个通用的策略和遥测中心(Mixe…</p>
+<h3 id="带你玩转Istio-第3篇—-Istio-架构概述篇-坚持的道路注…-CSDN博客"><a href="#带你玩转Istio-第3篇—-Istio-架构概述篇-坚持的道路注…-CSDN博客" class="headerlink" title="带你玩转Istio-第3篇—_Istio_架构概述篇_坚持的道路注…_CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/qq_31136839/article/details/101478870">带你玩转<em>Istio</em>-第3篇—_Istio_架构概述篇_坚持的道路注…_CSDN博客</a></h3><p> 2019年9月26日 - _Istio_架构概述前面的内容分别讲解了_Istio_是什么,以及_Istio_能做什么。本章将在此基础上进行</p>
+<h3 id="Istio-简介-网络-z69183787的专栏-CSDN博客"><a href="#Istio-简介-网络-z69183787的专栏-CSDN博客" class="headerlink" title="_Istio_简介_网络_z69183787的专栏-CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/z69183787/article/details/90756295">_Istio_简介_网络_z69183787的专栏-CSDN博客</a></h3><p> 2019年6月3日 - _Istio_简介1、简介1.1、Service Mesh上网了解一下:Service mesh和sid网络… 旁白:事先准备一个Ansible的脚本确实很方便,在部署_Istio_的过程中出现过很多问题,很多时…</p>
+<h3 id="Istio-–-IBM-Developer-–-IBM-Developer"><a href="#Istio-–-IBM-Developer-–-IBM-Developer" class="headerlink" title="Istio – IBM Developer – IBM Developer"></a><a href="https://zshipu.com/t?url=https://developer.ibm.com/components/istio/"><em>Istio</em> – IBM Developer – IBM Developer</a></h3><p> Connect, manage, and secure microservices with this open-source platform…. <em>Istio</em> is an open-source service mesh platform that connects microservices and …</p>
+<h3 id="istio-入门教程-个人文章-SegmentFault-思否"><a href="#istio-入门教程-个人文章-SegmentFault-思否" class="headerlink" title="_istio_入门教程 - 个人文章 - SegmentFault 思否"></a><a href="https://zshipu.com/t?url=https://segmentfault.com/a/1190000019997952">_istio_入门教程 - 个人文章 - SegmentFault 思否</a></h3><p> 2019年8月7日 - [root@_istio_host ~]# wget <a target="_blank" rel="noopener" href="https://storage.googleapis.com/kubernetes-helm/helm-v2.9.1-linux-amd64.tar.gz">https://storage.googleapis.com/kubernetes-helm/helm-v2.9.1-linux-amd64.tar.gz</a> [root@_istio_host ~]# tar zxvf helm-v2…</p>
+<h3 id="istio-–-运维派"><a href="#istio-–-运维派" class="headerlink" title="istio – 运维派"></a><a href="https://zshipu.com/t?url=http://www.yunweipai.com/tags/istio"><em>istio</em> – 运维派</a></h3><p> 2019年4月5日 - Google、IBM和Lyft开源其大型微服务系统管理工具<em>Istio</em> 谷歌、IBM 与 Lyft 三方已经共同公布了 <em>Istio</em> 项目的首次公开发行版。<em>Istio</em> 是一个开源项目,旨…</p>
+<h3 id="Istio-官方文档中文版"><a href="#Istio-官方文档中文版" class="headerlink" title="_Istio_官方文档中文版"></a><a href="https://zshipu.com/t?url=https://www.bbsmax.com/A/l1dyegj0de/">_Istio_官方文档中文版</a></h3><p> 2018年7月17日 - https://<em>istio</em>.io/docs/concepts/what-is-<em>istio</em>/goals.html为什么要使用<em>Istio</em>?在从单体应用程序向分布式微服务架构的转型过程中,开发人员和运维人员面…</p>
+</div></article></div><nav class="pagination is-centered mt-4" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/10/">上一页</a></div><div class="pagination-next"><a href="/page/12/">下一页</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/10/">10</a></li><li><a class="pagination-link is-current" href="/page/11/">11</a></li><li><a class="pagination-link" href="/page/12/">12</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/19/">19</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="https://www.gravatar.com/avatar/2396bdfe5aadb513e676094004dde830?s=128" alt="edwin"></figure><p class="title is-size-4 is-block line-height-inherit">edwin</p><p class="is-size-6 is-block">知识铺</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国 杭州</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">189</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">2</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/liliang8858" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/liliang8858"><i class="Github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="社区"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="设计"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/go/"><span class="level-start"><span class="level-item">go</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:43:02.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Spring%20Cloud%20Gateway+Nacos%EF%BC%8Cyml+properties%E4%B8%A4%E7%A7%8D%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%96%B9%E5%BC%8F%E6%90%AD%E5%BB%BA%E7%BD%91%E5%85%B3%E6%9C%8D%E5%8A%A1/">Spring Cloud Gateway+Nacos，yml+properties两种配置文件方式搭建网关服务</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:39:59.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Spring%20Cloud+nacos+Feign%EF%BC%8C%E5%AE%9E%E7%8E%B0%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%E5%8F%8A%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">Spring Cloud+nacos+Feign，实现注册中心及配置中心</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:32:26.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E6%97%B6%EF%BC%8C%E5%A4%9A%E4%B8%AA%E6%9C%8D%E5%8A%A1%E5%85%B1%E7%94%A8%E4%B8%80%E4%B8%AAdataId%E7%9A%84%E9%85%8D%E7%BD%AE/">Nacos作为配置中心时，多个服务共用一个dataId的配置</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T09:34:29.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/SpringCloudAlibaba(%E4%B8%89)%EF%BC%9A%E4%BD%BF%E7%94%A8Nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">SpringCloudAlibaba(三)：使用Nacos作为配置中心</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T09:31:53.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Nacos%20%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/">Nacos 集群部署</a></p><p class="is-uppercase"></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2020/07/"><span class="level-start"><span class="level-item">七月 2020</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/06/"><span class="level-start"><span class="level-item">六月 2020</span></span><span class="level-end"><span class="level-item tag">37</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/05/"><span class="level-start"><span class="level-item">五月 2020</span></span><span class="level-end"><span class="level-item tag">29</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/04/"><span class="level-start"><span class="level-item">四月 2020</span></span><span class="level-end"><span class="level-item tag">62</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/03/"><span class="level-start"><span class="level-item">三月 2020</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/12/"><span class="level-start"><span class="level-item">十二月 2019</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/11/"><span class="level-start"><span class="level-item">十一月 2019</span></span><span class="level-end"><span class="level-item tag">24</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/go/"><span class="tag">go</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/web/"><span class="tag">web</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button is-primary" type="submit" value="订阅"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="2183476622" data-ad-slot="pub-2874221941555456" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="知识铺" height="28"></a><p class="size-small"><span>&copy; 2020 edwin</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            site: {
+                url: 'https://zshipu.com',
+                external_link: {"enable":true,"exclude":[]}
+            },
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>知识铺</title><meta property="og:type" content="blog"><meta property="og:title" content="知识铺"><meta property="og:url" content="https://zshipu.com/"><meta property="og:site_name" content="知识铺"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://zshipu.com/img/og_image.png"><meta property="article:author" content="edwin"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://zshipu.com"},"headline":"知识铺","image":["https://zshipu.com/img/og_image.png"],"author":{"@type":"Person","name":"edwin"},"description":""}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600&amp;family=Roboto+Mono"><link rel="stylesheet" href="/css/cyberpunk.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><script data-ad-client="2183476622" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><meta name="generator" content="Hexo 5.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="知识铺" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-06-04T05:26:37.000Z" title="2020-06-04T05:26:37.000Z">2020-06-04</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.463Z" title="2020-09-08T14:03:00.463Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">7 分钟读完 (大约1061个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/06/04/%E5%BE%AE%E4%BF%A1%20%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%9C%80%E8%A6%81%E6%8E%88%E6%9D%83%20%E6%9C%89%E9%83%A8%E5%88%86%E4%BA%BA%E9%9C%80%E8%A6%81%E8%8E%B7%E5%8F%96%E9%AA%8C%E8%AF%81%E7%A0%81/">微信 小程序需要授权 有部分人需要获取验证码</a></h1><div class="content"> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;获取用户的授权信息，放到本地缓存中</span><br><span class="line">  wx.getSetting(&#123;</span><br><span class="line">   success: (res) &#x3D;&gt; &#123;</span><br><span class="line">    if(res.authSetting[&#39;scope.userInfo&#39;])</span><br><span class="line">    &#123;</span><br><span class="line">     wx.setStorage(&#123;</span><br><span class="line">      key: &#39;can_getuserinfo&#39;,</span><br><span class="line">      data: 1,</span><br><span class="line">     &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">     wx.setStorage(&#123;</span><br><span class="line">      key: &#39;can_getuserinfo&#39;,</span><br><span class="line">      data: 0,</span><br><span class="line">     &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">   &#125;</span><br><span class="line">  &#125;),</span><br><span class="line">  &#x2F;&#x2F;1:从本地缓存中获取数据，如果获取到根据结果显示Index页面的授权按钮是否显示，</span><br><span class="line">  &#x2F;&#x2F;2:如果从本地缓存获取不到数据则说明用户清空了本地数据，默认设置为0，让用户重新授权</span><br><span class="line">  wx.getStorage(&#123;</span><br><span class="line">   key: &#39;can_getuserinfo&#39;,</span><br><span class="line">   success: function (res) &#123; </span><br><span class="line">    console.log(res.data);</span><br><span class="line">    that.setData(&#123;</span><br><span class="line">     can_getuserinfo:res.data</span><br><span class="line">    &#125;)</span><br><span class="line">   &#125;,fail:function()</span><br><span class="line">   &#123;</span><br><span class="line">    that.setData(&#123;</span><br><span class="line">     can_getuserinfo: 0</span><br><span class="line">    &#125;)</span><br><span class="line">   &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  </span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
+<h3 id="微信小程序-判断用户是否-需要-再次-授权获取-个人信息"><a href="#微信小程序-判断用户是否-需要-再次-授权获取-个人信息" class="headerlink" title="_微信小程序_判断用户是否_需要_再次_授权获取_个人信息"></a><a href="https://zshipu.com/t?url=http://www.mamicode.com/info-detail-2364455.html">_微信小程序_判断用户是否_需要_再次_授权获取_个人信息</a></h3><p> 2018年7月7日 - 效果是如果用户<em>授权_过了,则直接首页不显示_授权_按钮,直接进入业务页面,如果用户没_授权</em>,则显示<em>授权_按钮让用户选择_授权</em> <em>微信小程序<em>判断用户是否需要再次</em>…</em></p>
+<h3 id="微信小程序-判断用户是否-需要-再次-授权获取-个人信息-javascript技巧…"><a href="#微信小程序-判断用户是否-需要-再次-授权获取-个人信息-javascript技巧…" class="headerlink" title="_微信小程序_判断用户是否_需要_再次_授权获取_个人信息_javascript技巧…"></a><a href="https://zshipu.com/t?url=https://www.jb51.net/article/165706.htm">_微信小程序_判断用户是否_需要_再次_授权获取_个人信息_javascript技巧…</a></h3><p> 2019年7月18日 - 这篇文章主要介绍了_微信小程序_判断用户是否需要再次_授权获取_个人信息,文中通过示例代码介绍的非常详细,对大家的学习或者工作具有一定的参考学习价值,…</p>
+<h3 id="微信小程序-判断用户是否-需要-再次-授权获取-个人信息-weix…-CSDN博客"><a href="#微信小程序-判断用户是否-需要-再次-授权获取-个人信息-weix…-CSDN博客" class="headerlink" title="_微信小程序_判断用户是否_需要_再次_授权获取_个人信息_weix…_CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/weixin_30376083/article/details/97030538">_微信小程序_判断用户是否_需要_再次_授权获取_个人信息_weix…_CSDN博客</a></h3><p> 2018年7月7日 - _微信小程序_判断用户是否需要再次_授权获取_个人信息 一、index.js设置如下 //获取用户的_授权_信息,放到本地缓存中 wx.getSetting({ success: (res) =&gt; {…</p>
+<h3 id="小程序-中-授权-手机号码为什么-验证码-微信-开放社区"><a href="#小程序-中-授权-手机号码为什么-验证码-微信-开放社区" class="headerlink" title="小程序_中_授权_手机号码为什么_验证码? | _微信_开放社区"></a><a href="https://zshipu.com/t?url=https://developers.weixin.qq.com/community/develop/doc/000acce6c6059821bff769f3b5b000?_at=1559135518468"><em>小程序_中_授权_手机号码为什么_验证码</em>? | _微信_开放社区</a></h3><p> 2019年1月18日 - 框架类型 问题类型 操作系统版本 手机型号 <em>微信_版本 _小程序</em> Bug 12.1 华为/…手机号码 <em>授权_都是直接_授权_就可以了,只是有少_部分人_在_授权_时,还_需要验</em>…</p>
+<h3 id="微信小程序-三种-授权-登录的方式-weixin-33672400的博客-CSDN博客"><a href="#微信小程序-三种-授权-登录的方式-weixin-33672400的博客-CSDN博客" class="headerlink" title="_微信小程序_三种_授权_登录的方式 - weixin_33672400的博客 - CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/weixin_33672400/article/details/92256790">_微信小程序_三种_授权_登录的方式 - weixin_33672400的博客 - CSDN博客</a></h3><p> 2019年5月14日 - 常规写法,_需要获取_用户公开信息(头像,昵称等)时,判断调取_授权_登录接口,但是此方法如果不经处理的话 用户如果拒绝_授权_或者删除该_微信小程序_后 需要重新…</p>
+<h3 id="微信小程序授权获取-到用户手机号之后还有必要发短信-验证码-绑定吗"><a href="#微信小程序授权获取-到用户手机号之后还有必要发短信-验证码-绑定吗" class="headerlink" title="_微信小程序授权获取_到用户手机号之后还有必要发短信_验证码_绑定吗?"></a><a href="https://zshipu.com/t?url=https://www.zhihu.com/question/328913067?d=123">_微信小程序授权获取_到用户手机号之后还有必要发短信_验证码_绑定吗?</a></h3><p> 2019年12月31日 - 看不少_小程序_在_得到授权获取_到用户手机号之后,依然让…1人赞同了该回答 其实没必要。 短信验证的目的有两…说白了,这些产品不信任_微信获取_的号码,需…</p>
+<h3 id="微信小程序获取-用户-授权-手机号的问题-CSDN论坛"><a href="#微信小程序获取-用户-授权-手机号的问题-CSDN论坛" class="headerlink" title="_微信小程序获取_用户_授权_手机号的问题-CSDN论坛"></a><a href="https://zshipu.com/t?url=https://bbs.csdn.net/topics/392585119?list=lz">_微信小程序获取_用户_授权_手机号的问题-CSDN论坛</a></h3><p> _微信_手机号_授权_登陆 点击这个按钮弹出框效果为: 但是有的_小程序_的效果是这样的: 请问这种效果是怎么做到的? 0 2019-04-29 16:31:02 回复数 11 查看全部楼层…</p>
+<h3 id="微信小程序获取-“-微信-手机号”-授权-然后用户“确认-授权-”后-弹不…"><a href="#微信小程序获取-“-微信-手机号”-授权-然后用户“确认-授权-”后-弹不…" class="headerlink" title="微信小程序获取_“_微信_手机号”_授权,然后用户“确认_授权_”后,弹不…"></a><a href="https://zshipu.com/t?url=https://segmentfault.com/q/1010000014067340?utm_source=tag-newest"><em>微信小程序获取_“_微信_手机号”_授权</em>,然后用户“确认_授权_”后,弹不…</a></h3><p> 2018年5月17日 - <em>微信小程序获取_“_微信_手机号”_授权</em>,然后用户“确认_授权_”后,弹不出来“填写手机短信_验证码_”的框,如何解决? 我_需要获取_填写的_验证码_才能进行下一步操…</p>
+<h3 id="如何取消对微信小程序-的-授权-百度经验"><a href="#如何取消对微信小程序-的-授权-百度经验" class="headerlink" title="如何取消对微信小程序_的_授权-百度经验"></a><a href="https://zshipu.com/t?url=https://jingyan.baidu.com/article/4f34706e1f6454e386b56d56.html">如何取消对<em>微信小程序_的_授权</em>-百度经验</a></h3><p> 2017年11月27日 - 如何取消对<em>微信小程序_的授权,细心的朋友有没有发现,大_部分小程序_在使用前都_要授权_你的_微信_昵称,头像等用户信息,_有些小程序_还要求获取你的地理位置,_有</em>…</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-06-04T04:06:09.000Z" title="2020-06-04T04:06:09.000Z">2020-06-04</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.428Z" title="2020-09-08T14:03:00.428Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">几秒读完 (大约36个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/06/04/golang%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%20%E8%BF%87%E6%BB%A4%E6%89%8B%E6%9C%BA%E5%8F%B7%E5%B8%A6%E6%9C%89%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%8C%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7/">golang 正则表达式 过滤手机号带有字符串，特殊符号</a></h1><div class="content"><p> 过滤手机号带有字符串，特殊符号问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">func findNum(mobile string) string  &#123;</span><br><span class="line">	reg :&#x3D; regexp.MustCompile(&#96;[\d]+&#96;)</span><br><span class="line">	allString :&#x3D; reg.FindAllString(mobile, -1)</span><br><span class="line">	arrString :&#x3D; strings.Join(allString , &quot;&quot;)</span><br><span class="line">	return arrString</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-06-04T03:56:09.000Z" title="2020-06-04T03:56:09.000Z">2020-06-04</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.427Z" title="2020-09-08T14:03:00.427Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">15 分钟读完 (大约2185个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/06/04/golang%20regexp.Compile%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">golang regexp.Compile 正则表达式</a></h1><div class="content"><h3 id="Golang-中的-RegExp正则表达式-用法指南-sunsky303-博客园"><a href="#Golang-中的-RegExp正则表达式-用法指南-sunsky303-博客园" class="headerlink" title="_Golang_中的_RegExp正则表达式_用法指南 - sunsky303 - 博客园"></a><a href="https://zshipu.com/t?url=https://www.cnblogs.com/sunsky303/p/11051468.html">_Golang_中的_RegExp正则表达式_用法指南 - sunsky303 - 博客园</a></h3><p> 2019年6月19日 - (相当于 \x07) 注意:<em>正则表达式_中不能使用 \b 匹配退格符,因为 \b 被用来…123 _Go</em>.<code> // 查找连续的小写字母 reg := _regexp_.Must_Compile_(</code>[a-z]+`…</p>
+<h3 id="Golang-正则表达式-regexp-weixin-33916256的博客-CSDN博客"><a href="#Golang-正则表达式-regexp-weixin-33916256的博客-CSDN博客" class="headerlink" title="Golang 正则表达式(regexp) - weixin_33916256的博客 - CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/weixin_33916256/article/details/88604488"><em>Golang</em> <em>正则表达式</em>(<em>regexp</em>) - weixin_33916256的博客 - CSDN博客</a></h3><p> 2019年2月22日 - Go内置了(<em>regexp_包)对_正则表达式_的支持,这里是一般的_正则表达式_常规用法的例子。…reg = _regexp</em>.Must_Compile_(<code>(\w+),(\w+)</code>) src := []byte(“<em>Golang</em>,…</p>
+<h3 id="Golang-正则表达式-regexp-无风的雨-CSDN博客"><a href="#Golang-正则表达式-regexp-无风的雨-CSDN博客" class="headerlink" title="Golang 正则表达式(regexp) - 无风的雨_CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/guyan0319/article/details/87873070"><em>Golang</em> <em>正则表达式</em>(<em>regexp</em>) - 无风的雨_CSDN博客</a></h3><p> 2019年2月22日 - <em>Go_内置了(_regexp_包)对_正则表达式<em>的支持,这里是一般的_正则表达式_常规用法的例子。示例: packagemainimport( “bytes” “fmt” “</em>…</em></p>
+<h3 id="golang-正则表达式-浊浊然-博客园"><a href="#golang-正则表达式-浊浊然-博客园" class="headerlink" title="golang 正则表达式 - 浊浊然 - 博客园"></a><a href="https://zshipu.com/t?url=https://www.cnblogs.com/benlightning/articles/4440940.html"><em>golang</em> <em>正则表达式</em> - 浊浊然 - 博客园</a></h3><p> 2015年4月20日 - <em>golang</em> <em>正则表达式</em> package main import “bytes” import “fmt” import “<em>regexp</em>…r = <em>regexp</em>.Must_Compile_(“p([a-z]+)ch”) fmt.Println(r) //<em>regexp</em> 包…</p>
+<h3 id="golang-中-regexp-包用法-Go语言中文网-Golang-中文社区"><a href="#golang-中-regexp-包用法-Go语言中文网-Golang-中文社区" class="headerlink" title="golang 中_regexp_包用法 - Go语言中文网 - _Golang_中文社区"></a><a href="https://zshipu.com/t?url=https://studygolang.com/articles/1813"><em>golang</em> 中_regexp_包用法 - Go语言中文网 - _Golang_中文社区</a></h3><p> 2014年11月10日 - 本文转自<em>Go_love博客:<a target="_blank" rel="noopener" href="http://www.cnblogs.com/_go_love/p/3270918.html">http://www.cnblogs.com/_go_love/p/3270918.html</a> _regexp</em> …// <em>Compile</em> 用来解析<em>正则表达式</em> expr 是否合法,如果合法,则返回一个 <em>Re</em>…</p>
+<h3 id="Golang-正则表达式-regexp-golang-开发笔记-SegmentFault-思否"><a href="#Golang-正则表达式-regexp-golang-开发笔记-SegmentFault-思否" class="headerlink" title="Golang 正则表达式(regexp) - _golang_开发笔记 - SegmentFault 思否"></a><a href="https://zshipu.com/t?url=https://segmentfault.com/a/1190000018244892"><em>Golang</em> <em>正则表达式</em>(<em>regexp</em>) - _golang_开发笔记 - SegmentFault 思否</a></h3><p> 2019年2月23日 - _Go_内置了(_regexp_包)对_正则表达式_的支持,这里是一般的_正则表达式_常规用法的例子。 示例: {代码…} 小结: 1、 {代码…} 可用一下代替 {代码…} 两者…</p>
+<h3 id="Golang-正则表达式-简书"><a href="#Golang-正则表达式-简书" class="headerlink" title="Golang 正则表达式 - 简书"></a><a href="https://zshipu.com/t?url=https://www.jianshu.com/p/7d507ccb5eec"><em>Golang</em> <em>正则表达式</em> - 简书</a></h3><p> <em>golang_正则使用总结 //MatchString返回的第一个参数是bool类型即匹配结果,第二个…_Compile_函数或Must_Compile_函数是将_正则表达式_进行编译,返回优化的 _Regexp</em> 结构体 …</p>
+<h3 id="Golang-正则-匹配-–-regexp-园荐-博客园"><a href="#Golang-正则-匹配-–-regexp-园荐-博客园" class="headerlink" title="Golang _正则_匹配 – _regexp__园荐_博客园"></a><a href="https://zshipu.com/t?url=https://recomm.cnblogs.com/blogpost/10939899"><em>Golang</em> _正则_匹配 – _regexp__园荐_博客园</a></h3><p> 2019年5月28日 - <em>Golang</em> <em>正则_匹配 – _regexp</em> 2019-05-28 20:07 − 匹配特殊字符 ``` //re :=<em>regexp</em>.Must_Compile_(“[~!@#$%^&amp;*(){}|\/+\-【】:&quot;?’:;‘…</p>
+<h3 id="004-golang-正则表达式-的使用-云-社区-腾讯云"><a href="#004-golang-正则表达式-的使用-云-社区-腾讯云" class="headerlink" title="004-golang _正则表达式_的使用 - 云+社区 - 腾讯云"></a><a href="https://zshipu.com/t?url=https://cloud.tencent.com/developer/article/1348496">004-<em>golang</em> _正则表达式_的使用 - 云+社区 - 腾讯云</a></h3><p> 2018年9月28日 - 004-<em>golang</em> <em>正则表达式_的使用 2018-09-28阅读600 获取包名 func my_Regexp</em>(text string,regs string) string { reg := <em>regexp</em>.Must_Compile_(regs) arr …</p>
+<h3 id="golang-正则表达式-脚本之家"><a href="#golang-正则表达式-脚本之家" class="headerlink" title="golang 正则表达式 - 脚本之家"></a><a href="https://zshipu.com/t?url=https://www.jb51.cc/go/191326.html"><em>golang</em> <em>正则表达式</em> - 脚本之家</a></h3><p> 2019年7月21日 - 脚本之家收集整理的这篇文章主要介绍了<em>golang</em> <em>正则表达式</em>,脚本之家小编觉得挺不…re,_ := <em>regexp.Compile</em>(<code>a=(\d+),b=(\d+)</code>) c := re.ReplaceAll…</p>
+<h3 id="golang-使用-正则表达式-使用-xingzhehxiang的博客-51CTO博客"><a href="#golang-使用-正则表达式-使用-xingzhehxiang的博客-51CTO博客" class="headerlink" title="_golang_使用_正则表达式_使用-xingzhehxiang的博客-51CTO博客"></a><a href="https://zshipu.com/t?url=https://blog.51cto.com/860143/2424819">_golang_使用_正则表达式_使用-xingzhehxiang的博客-51CTO博客</a></h3><p> 2019年7月30日 - -1)) reg = <em>regexp</em>.Must_Compile_(<code>[a-zA-Z0-9]</code>) fmt.Println(reg.Find…d:_go_projects\src\day1_正则_\exp2&gt;<em>go</em> run main.<em>go</em>[$ # % * &amp; @ @ …</p>
+<h3 id="golang-使用-正则表达式-解析网页-Golang-脚本之家"><a href="#golang-使用-正则表达式-解析网页-Golang-脚本之家" class="headerlink" title="_golang_使用_正则表达式_解析网页__Golang__脚本之家"></a><a href="https://zshipu.com/t?url=https://www.jb51.net/article/62549.htm">_golang_使用_正则表达式_解析网页__Golang__脚本之家</a></h3><p> 2015年3月20日 - 这篇文章主要介绍了_golang_使用_正则表达式<em>解析网页,需要的朋友可以参考下… 这篇文章主要介绍了_golang_使用_正则表达式_解析…re,</em> = <em>regexp.Compile</em>(“]…</p>
+<h3 id="用Golang-替换-正则表达式-IT屋-程序员软件开发技术分享社区"><a href="#用Golang-替换-正则表达式-IT屋-程序员软件开发技术分享社区" class="headerlink" title="用Golang_替换_正则表达式 - IT屋-程序员软件开发技术分享社区"></a><a href="https://zshipu.com/t?url=https://www.it1352.com/808168.html">用<em>Golang_替换_正则表达式</em> - IT屋-程序员软件开发技术分享社区</a></h3><p> 2018年5月2日 - var re = <em>regexp</em>.Must_Compile_(<code>(^|[^_])\bproducts\b([^_]|$)</code>) s…本文地址:IT屋 » 用_Golang_替换_正则表达式_regex go 将代字符展开到主目录 …</p>
+<h3 id="regex-Must-Compile-中的-Golang正则表达式-参考-查找重复字符…"><a href="#regex-Must-Compile-中的-Golang正则表达式-参考-查找重复字符…" class="headerlink" title="regex-Must_Compile_中的_Golang正则表达式_参考(查找重复字符…"></a><a href="https://zshipu.com/t?url=https://ask.csdn.net/questions/1046432">regex-Must_Compile_中的_Golang正则表达式_参考(查找重复字符…</a></h3><p> 2016年4月10日 - Go的<em>regexp_与Python或Java有所不同。请访问play._golang</em>.org/p/4kDJMbT1jH,…dqce48404 Must_Compile_类似于<em>Compile</em>,但如果无法解析该<em>表达式</em>,则会发生恐…</p>
+<h3 id="Golang-系列文章-正则表达式"><a href="#Golang-系列文章-正则表达式" class="headerlink" title="Golang_系列文章:_正则表达式"></a><a href="https://zshipu.com/t?url=http://www.mamicode.com/info-detail-2440359.html"><em>Golang_系列文章:_正则表达式</em></a></h3><p> 2018年9月7日 - 在上面几段代码中,都使用了<em>regexp.Compile</em>(regexpString)方法对正则字符串进行预…关于<em>正则表达式</em>,就先写这么多,其实还有很多内容,后续再做总结。 <em>Go</em>…</p>
+<h3 id="golang-正则表达式-学步园"><a href="#golang-正则表达式-学步园" class="headerlink" title="golang 正则表达式 | 学步园"></a><a href="https://zshipu.com/t?url=https://www.xuebuyuan.com/1073503.html"><em>golang</em> <em>正则表达式</em> | 学步园</a></h3><p> 2013年10月23日 - func main() { re, _ := <em>regexp.Compile</em>(<code>a=(\d+),b=(\d+)</code>) c…转载请注明: <em>golang</em> <em>正则表达式</em> | 学步园 +复制链接抱歉!评论已关闭.书签…</p>
+<h3 id="golang-正则表达式-Golang-张文兵博客"><a href="#golang-正则表达式-Golang-张文兵博客" class="headerlink" title="golang-正则表达式 | Golang | 张文兵博客"></a><a href="https://zshipu.com/t?url=https://www.zhangwenbing.com/blog/golang/BJu7QSkw4"><em>golang</em>-<em>正则表达式</em> | <em>Golang</em> | 张文兵博客</a></h3><p> 2019年3月8日 - <em>正则表达式_是对字符串操作的一种逻辑公式,就是用事先定义好的一些特定字符、及…reg = _regexp</em>.Must_Compile_(<code>\Q_Go_.\E</code>) fmt.Printf(“%q\n”, reg.Find…</p>
+<h3 id="求助-GO-语言的-正则表达式-问题-Golang-中国"><a href="#求助-GO-语言的-正则表达式-问题-Golang-中国" class="headerlink" title="求助:GO_语言的_正则表达式_问题 - _Golang 中国"></a><a href="https://zshipu.com/t?url=http://www.golangtc.com/t/55bf33fbb09ecc22f6000301">求助:<em>GO_语言的_正则表达式_问题 - _Golang</em> 中国</a></h3><p> 2019年11月14日 - 我写了一个<em>正则表达式_”^((?!等于).)$“,目的是让字符串任何位置有“等于”不匹配,用的是系统_regexp_包。reg := _regexp</em>.Must_Compile_(“^((?!等于).)$”…</p>
+<h3 id="regex-获取-Golang正则表达式-中括号内的所有子字符串——CSDN问答…"><a href="#regex-获取-Golang正则表达式-中括号内的所有子字符串——CSDN问答…" class="headerlink" title="regex-获取_Golang正则表达式_中括号内的所有子字符串——CSDN问答…"></a><a href="https://zshipu.com/t?url=https://ask.csdn.net/questions/1028714">regex-获取_Golang正则表达式_中括号内的所有子字符串——CSDN问答…</a></h3><p> 2016年11月14日 - 获取<em>Golang正则表达式_中括号内的所有子字符串 I want to get all the sub…{ var re = _regexp</em>.Must_Compile_(<code>\((.*?)\)</code>) var str = `foo(bar)…</p>
+<h3 id="golang正则表达式-示例-ByteLang字节社"><a href="#golang正则表达式-示例-ByteLang字节社" class="headerlink" title="_golang正则表达式_示例 - ByteLang字节社"></a><a href="https://zshipu.com/t?url=https://bytelang.com/article/content/a_85kLS4zFE=">_golang正则表达式_示例 - ByteLang字节社</a></h3><p> 2017年3月1日 - 标签:<em>golang</em>,<em>正则表达式</em>// 示例 func main() { text := <code>Hello 世界!123 Go.</code> // 查找连续的小写字母 reg := <em>regexp</em>.Must_Compile_(<code>[a-z]+</code>) fmt…</p>
+<h3 id="Golang-正则表达式-regexp-weixin-33904756的博客-CSDN博客"><a href="#Golang-正则表达式-regexp-weixin-33904756的博客-CSDN博客" class="headerlink" title="Golang 正则表达式(regexp)_weixin_33904756的博客-CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/weixin_33904756/article/details/88604492"><em>Golang</em> <em>正则表达式</em>(<em>regexp</em>)_weixin_33904756的博客-CSDN博客</a></h3><p> 2019年2月22日 - <em>Go_内置了(_regexp_包)对_正则表达式_的支持,这里是一般的_正则表达式_常规用法的例子。示例:… _Go_内置了(_regexp_包)对_正则表达式_的支持,这里是一般的_正则表</em>…</p>
+<h3 id="基础知识-Golang-中的正则表达式-GoLove-博客园"><a href="#基础知识-Golang-中的正则表达式-GoLove-博客园" class="headerlink" title="基础知识 - Golang 中的正则表达式 - GoLove - 博客园"></a><a href="https://zshipu.com/t?url=https://www.cnblogs.com/golove/p/3269099.html">基础知识 - <em>Golang</em> 中的<em>正则表达式</em> - GoLove - 博客园</a></h3><p> 2013年8月19日 - (相当于 \x07) 注意:<em>正则表达式_中不能使用 \b 匹配退格符,因为 \b 被用来…123 _Go</em>.<code> // 查找连续的小写字母 reg := _regexp_.Must_Compile_(</code>[a-z]+`…</p>
+<h3 id="Golang-正则表达式-regexp-weixin-34179968的博客-CSDN博客"><a href="#Golang-正则表达式-regexp-weixin-34179968的博客-CSDN博客" class="headerlink" title="Golang 正则表达式(regexp)_weixin_34179968的博客-CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/weixin_34179968/article/details/88604491"><em>Golang</em> <em>正则表达式</em>(<em>regexp</em>)_weixin_34179968的博客-CSDN博客</a></h3><p> 2019年2月22日 - <em>Go_内置了(_regexp_包)对_正则表达式_的支持,这里是一般的_正则表达式_常规用法的例子。示例:… _Go_内置了(_regexp_包)对_正则表达式_的支持,这里是一般的_正则表</em>…</p>
+<h3 id="Golang-正则表达式-regexp-weixin-34239592的博客-CSDN博客"><a href="#Golang-正则表达式-regexp-weixin-34239592的博客-CSDN博客" class="headerlink" title="Golang 正则表达式(regexp) - weixin_34239592的博客 - CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/weixin_34239592/article/details/88604490"><em>Golang</em> <em>正则表达式</em>(<em>regexp</em>) - weixin_34239592的博客 - CSDN博客</a></h3><p> 2019年2月22日 - Go内置了(<em>regexp_包)对_正则表达式_的支持,这里是一般的_正则表达式_常规用法的例子。…reg = _regexp</em>.Must_Compile_(<code>(\w+),(\w+)</code>) src := []byte(“<em>Golang</em>,…</p>
+<h3 id="Golang-正则表达式-regexp-weixin-33735077的博客-CSDN博客"><a href="#Golang-正则表达式-regexp-weixin-33735077的博客-CSDN博客" class="headerlink" title="Golang 正则表达式(regexp)_weixin_33735077的博客-CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/weixin_33735077/article/details/88604486"><em>Golang</em> <em>正则表达式</em>(<em>regexp</em>)_weixin_33735077的博客-CSDN博客</a></h3><p> 2019年2月22日 - <em>Go_内置了(_regexp_包)对_正则表达式_的支持,这里是一般的_正则表达式_常规用法的例子。示例:… _Go_内置了(_regexp_包)对_正则表达式_的支持,这里是一般的_正则表</em>…</p>
+<h3 id="Golang-中的-RegExp正则表达式-用法指南-dianfu2892的博客-CSDN博客"><a href="#Golang-中的-RegExp正则表达式-用法指南-dianfu2892的博客-CSDN博客" class="headerlink" title="_Golang_中的_RegExp正则表达式_用法指南_dianfu2892的博客-CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/dianfu2892/article/details/101466596">_Golang_中的_RegExp正则表达式_用法指南_dianfu2892的博客-CSDN博客</a></h3><p> 2019年6月19日 - (相当于 \x07) 注意:<em>正则表达式_中不能使用 \b 匹配退格符,因为 \b 被用来…123 _Go</em>.<code> // 查找连续的小写字母 reg := _regexp_.Must_Compile_(</code>[a-z]+`…</p>
+<h3 id="Golang-中的-正则表达式-golang-菜的抠脚的博客-CSDN博客"><a href="#Golang-中的-正则表达式-golang-菜的抠脚的博客-CSDN博客" class="headerlink" title="_Golang_中的_正则表达式___golang__菜的抠脚的博客-CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/u013870094/article/details/70142492">_Golang_中的_正则表达式___golang__菜的抠脚的博客-CSDN博客</a></h3><p> 2017年4月12日 - (相当于 \x07) 注意:<em>正则表达式_中不能使用 \b 匹配退格符,因为 \b 被用来…reg = _regexp</em>.Must_Compile_(<code>\Q_Go_.\E</code>) fmt.Printf(“%q\n”, reg.FindAll…</p>
+<h3 id="Golang-正则表达式-寻觅beyond-博客园"><a href="#Golang-正则表达式-寻觅beyond-博客园" class="headerlink" title="Golang 正则表达式 - 寻觅beyond - 博客园"></a><a href="https://zshipu.com/t?url=https://www.cnblogs.com/-beyond/p/9168473.html"><em>Golang</em> <em>正则表达式</em> - 寻觅beyond - 博客园</a></h3><p> 2018年6月11日 - <em>Golang</em> <em>正则表达式</em> go语言的_正则表达式<em>匹配,可以使用go语言的regexp包。 go语言…demo, _ := _regexp.Compile</em>(<code>foo</code>) fmt.Println(demo.FindStringSub…</p>
+<h3 id="golang-使用-正则表达式-使用-Go语言中文网-Golang-中文社区"><a href="#golang-使用-正则表达式-使用-Go语言中文网-Golang-中文社区" class="headerlink" title="_golang_使用_正则表达式_使用 - Go语言中文网 - _Golang_中文社区"></a><a href="https://zshipu.com/t?url=https://studygolang.com/articles/22306?fr=sidebar">_golang_使用_正则表达式_使用 - Go语言中文网 - _Golang_中文社区</a></h3><p> 2019年7月30日 - (s1, -1)) reg = <em>regexp</em>.Must_Compile_(<code>[a-z]</code>) fmt.Println(reg.Find…查看原文:_golang_使用_正则表达式_使用入群交流(和以上内容无关):加入Go大咖交流…</p>
+<h3 id="golang正则表达式-的使用详解-TigerwolfC的博客-CSDN博客"><a href="#golang正则表达式-的使用详解-TigerwolfC的博客-CSDN博客" class="headerlink" title="_golang正则表达式_的使用详解_TigerwolfC的博客-CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/wade3015/article/details/84431321">_golang正则表达式_的使用详解_TigerwolfC的博客-CSDN博客</a></h3><p> 2018年11月24日 - 使用<em>正则表达式_需引入”_regexp</em>“包,通常还需与”strings”包配合使用,推荐一篇《<em>Go</em> strings 字符串处理包常用方法详解》链接地址 本文主要介绍_regexp_包下…</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-05-31T07:38:34.000Z" title="2020-05-31T07:38:34.000Z">2020-05-31</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.450Z" title="2020-09-08T14:03:00.450Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">25 分钟读完 (大约3784个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/05/31/%E5%88%9D%E5%AD%A6%E8%80%85%E7%9A%84%20Docker/">初学者的 Docker</a></h1><div class="content"><p> 每家公司都依赖软件进行创新，软件开发领域最大的创新之一是容器的发明。这些容器已经改变了软件的构建和发货方式。Docker 公司走这条路，为每个人提供集装箱。它让开发人员无忧无虑，因为它惊人的功能。Docker 还通过消除通常用于发生冲突的开发人员和运营团队之间的差距，在企业中采用 DevOps。<br>今天，我们将介绍 Docker 的一些基础知识等。</p>
+<h2 id="码头集装箱"><a href="#码头集装箱" class="headerlink" title="码头集装箱"></a><a href="https://zshipu.com/t?url=#docker-containers"></a><font _mstmutation="1" _msthash="288756" _msttexthash="18766306">码头集装箱</font></h2><p>现在，我们将查看一个高级概述，了解为什么需要 Docker，以及它可以为您做些什么。让我首先分享我是如何被介绍给Docker的。在以前的项目中，我要求设置一个端到端堆栈，包括各种不同的技术，如使用节点 js 的 Web 服务器，以及像 Redis 这样的消息传递系统以及像 Ansible 这样的业务流程工具等数据库。使用所有这些不同的组件开发此应用程序时，我们有很多问题。首先，要处理的是它们与底层操作系统的兼容性，我们必须确保所有不同的服务都与我们计划使用的操作系统版本兼容。</p>
+<p><a href="https://zshipu.com/t?url=https://res.cloudinary.com/practicaldev/image/fetch/s--tU2w193i--/c_limit,f_auto,fl_progressive,q_auto,w_880/https://dev-to-uploads.s3.amazonaws.com/i/xvh044py3v1uh1qp60sa.png"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--tU2w193i--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/xvh044py3v1uh1qp60sa.png" alt="Alt Text"></a></p>
+<p>有时，这些服务的某些版本与操作系统不兼容。我们必须回去寻找另一个与所有这些不同服务兼容的操作系统。其次，我们必须检查服务与库之间的兼容性以及操作系统的依赖项。我们曾出现问题，一个服务需要一个版本的从属库，而另一个服务需要另一个版本。</p>
+<p><a href="https://zshipu.com/t?url=https://res.cloudinary.com/practicaldev/image/fetch/s--HnoGqM71--/c_limit,f_auto,fl_progressive,q_auto,w_880/https://dev-to-uploads.s3.amazonaws.com/i/1ao16z2r8cuo8ujfmy21.png"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--HnoGqM71--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/1ao16z2r8cuo8ujfmy21.png" alt="Alt Text"></a></p>
+<p>应用程序的体系结构随时间而变化，我们不得不升级到这些组件的较新版本或更改数据库等。每次发生某些变化时，我们都必须经历相同的过程来检查这些不同的公司和底层基础架构之间的兼容性。此兼容性矩阵问题通常称为来自地狱的矩阵。</p>
+<p>接下来，每次我们有一个新的开发人员，我们发现设置一个新的环境真的很难，新的开发人员必须遵循一大组指令，并运行数百个命令，最终设置他们的环境。他们必须确保他们使用正确的操作系统，即每个组件的正确版本。每个开发人员每次都必须自己设置这一切。我们还有不同的开发测试和生产环境。</p>
+<p>一个开发人员可能愿意使用一个操作系统，而另一个开发人员可能使用另一个操作系统。因此，我们不能保证我们正在构建的应用程序在不同的环境中以相同的方式运行。因此，这一切使我们的生活真的很难。<br>因此，我需要一些可以帮助我们解决兼容性问题的东西，这样可以让我们修改或更改这些组件，而不会影响其他组件，甚至根据需要修改底层操作系统。那次搜索把我落在了Docker身上</p>
+<p><a href="https://zshipu.com/t?url=https://res.cloudinary.com/practicaldev/image/fetch/s--Opct-hry--/c_limit,f_auto,fl_progressive,q_auto,w_880/https://dev-to-uploads.s3.amazonaws.com/i/c3u9w9nj4rzy565ezctl.png"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--Opct-hry--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/c3u9w9nj4rzy565ezctl.png" alt="Alt Text"></a></p>
+<p>使用 Docker，我能够在具有其自己的库和自己的依赖项的单独容器中运行每个组件，所有这些组件都位于相同的 VM 和操作系统上，但都在单独的环境或容器中运行。我们只需要构建一次 Docker 配置，并且我们所有的开发人员现在都可以开始使用简单的 Docker 运行命令，而不管他们运行的是什么基础操作系统。他们只需要确保他们的系统上安装了 Docker。</p>
+<h3 id="那么什么是容器？"><a href="#那么什么是容器？" class="headerlink" title="那么什么是容器？"></a><a href="https://zshipu.com/t?url=#so-what-are-containers"></a><font _mstmutation="1" _msthash="304330" _msttexthash="33446192">那么什么是容器？</font></h3><p>容器是完全隔离的环境。就像他们可以有自己的进程或服务，他们自己的网络接口，他们自己的装载就像虚拟机一样，除了他们都共享相同的操作系统内核。我们将稍微看看这意味着什么。但同样重要的是要注意，容器不是新的Docker。</p>
+<p><a href="https://zshipu.com/t?url=https://res.cloudinary.com/practicaldev/image/fetch/s--XuLc-NGo--/c_limit,f_auto,fl_progressive,q_auto,w_880/https://dev-to-uploads.s3.amazonaws.com/i/i4yfo8lcivvntqn546dd.png"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--XuLc-NGo--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/i4yfo8lcivvntqn546dd.png" alt="Alt Text"></a></p>
+<p>集装箱已经存在了大约10年。一些不同类型的容器是LXC、LXD、LXCFS等。码头使用 LXC 容器。设置这些容器环境非常困难，因为它们级别非常低。这就是 Docker 提供具有多种强大功能的高级工具，使像我们这样的最终用户能够真正轻松。</p>
+<h3 id="Docker-是如何工作的？"><a href="#Docker-是如何工作的？" class="headerlink" title="Docker 是如何工作的？"></a><a href="https://zshipu.com/t?url=#how-does-docker-work"></a><font _mstmutation="1" _msthash="305578" _msttexthash="45347835">Docker 是如何工作的？</font></h3><p>为了了解 Docker 的工作原理，让我们首先重新审视操作系统的一些基本概念。如果你看看像Ubuntu，Fedora，CentOS等操作系统。它们都由两样东西组成：一个操作系统内核和一组软件。操作系统内核负责与底层硬件交互，而操作系统内核保持不变，在这种情况下，这是 Linux，它上面的软件使这些操作系统与众不同。</p>
+<p>该软件可能由不同的用户界面驱动程序、编译器、文件管理器、开发人员工具等组成。因此，您拥有跨所有操作系统共享的通用 Linux 内核和一些自定义软件，这些软件将操作系统彼此区分开来。<br>我们前面说过 Docker 容器共享底层内核。分享内核实际上意味着什么？假设我们有一个系统，其中安装了 Docker 的 Ubuntu 操作系统。Docker 可以在它上面运行任何版本的操作系统。只要它们都基于同一个内核，在这种情况下，Linux。如果基础操作系统是 Ubuntu Docker，则可以基于另一个发行（如 Debian、Fedora、Susi 或 CentOS）运行容器。每个 Docker 容器只有我们前面刚刚讨论过的附加软件，这使得这些操作系统与众不同。</p>
+<p>Docker 利用 Docker 主机的基础内核，该内核适用于上述所有操作系统。因此，什么是操作系统，没有共享相同的内核，这些，窗口。因此，您将无法在带有 Linux 操作系统的 Docker 主机上运行基于 Windows 的容器。为此，您需要在 Windows 服务器上使用 Docker。</p>
+<p>你可能会问，那不是个缺点吗？无法在操作系统上运行另一个内核？答案是否定的，<br>因为与虚拟机管理程序不同，Docker 并不是要在同一硬件上虚拟化和运行不同的操作系统和内核。Docker 的主要目的是对应用程序进行容器化并运送和运行它们。</p>
+<h3 id="虚拟机和容器之间的差异"><a href="#虚拟机和容器之间的差异" class="headerlink" title="虚拟机和容器之间的差异"></a><a href="https://zshipu.com/t?url=#differences-between-virtual-machines-and-containers"></a><font _mstmutation="1" _msthash="304317" _msttexthash="45143176">虚拟机和容器之间的差异</font></h3><p>因此，这让我们认识到虚拟机和容器之间的差异，我们倾向于这样做，尤其是来自虚拟化背景的虚拟机和容器。如您右图，在 Docker 的情况下，我们有底层的硬件基础结构，然后在操作系统上安装操作系统和 Docker。然后，Docker 可以单独管理仅使用库和依赖项运行的容器。</p>
+<p><a href="https://zshipu.com/t?url=https://res.cloudinary.com/practicaldev/image/fetch/s--QlzclhMf--/c_limit,f_auto,fl_progressive,q_auto,w_880/https://dev-to-uploads.s3.amazonaws.com/i/6modlz6aj09whss7rozh.png"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--QlzclhMf--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/6modlz6aj09whss7rozh.png" alt="Alt Text"></a></p>
+<p>对于虚拟机，我们在基础硬件上拥有操作系统，然后是虚拟机（如 ESX）或某种虚拟化的虚拟机，然后是虚拟机。正如您所看到的，每个虚拟机都拥有自己的操作系统。然后是依赖项，然后是应用程序。由于有多个虚拟操作系统和内核在运行，因此此开销导致基础资源的利用率更高。虚拟机还消耗较高的磁盘空间，因为每个 VM 都很重，并且其大小通常为千兆字节，而 Docker 容器是轻量级的，并且它们的大小通常为兆字节。这允许 Docker 容器更快地启动，通常只需几秒钟，而我们知道的虚拟机需要几分钟才能启动，因为它需要启动整个操作系统。</p>
+<p>还必须注意，由于在内核等容器之间共享的资源越多，而 VM 彼此完全隔离，因此 Docker 的隔离更少。由于 VM，不要依赖底层操作系统或内核。您可以基于 Linux 或基于 Windows 的基于同一虚拟机管理程序的不同类型的操作系统。而在单个 Docker 主机上是不可能的。因此，这些都是两者之间的一些区别。</p>
+<p>那么，它是如何做到的呢？目前有很多容器化版本的应用程序。因此，大多数组织都将其产品容器化，并且已在称为 Docker Hub 或 Docker 存储的公共 Docker 注册表中可用。例如，您可以查找最常见的操作系统、数据库和其他服务和工具的图像。识别所需的映像后，在主机上安装 Docker。启动应用程序堆栈与使用映像名称运行 Docker run 命令一样简单。</p>
+<p>在这种情况下，运行 Docker 运行 Ansible 命令将在 Docker 主机上运行 Ansible 的实例。同样，使用 Docker Hub 命令运行 MongoDB Redis 和节点 js 的实例。运行节点 js 时，只需指向主机上代码存储库的位置。如果需要运行 Web 服务的多个实例，只需根据需要添加尽可能多的实例，并在前面配置某种负载均衡器。如果其中一个实例想要失败，只需销毁该实例并启动新实例即可。还有其他解决方案可用于处理此类案件，我们稍后将研究。我们一直在谈论图像和容器。</p>
+<p><a href="https://zshipu.com/t?url=https://res.cloudinary.com/practicaldev/image/fetch/s--VjSBbmQi--/c_limit,f_auto,fl_progressive,q_auto,w_880/https://dev-to-uploads.s3.amazonaws.com/i/jeq26pvs2cto6e901ciy.png"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--VjSBbmQi--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/jeq26pvs2cto6e901ciy.png" alt="Alt Text"></a></p>
+<p>让我们了解两者的区别。映像是一个包或模板，就像您可能在虚拟化世界中处理过的 VM 模板一样。它用于创建一个或多个容器。容器正在运行隔离映像的实例，这些映像具有自己的环境和进程集。<br>正如我们以前所看到的，很多产品已经多克。如果您找不到要查找的内容，可以自己创建映像并将其推送到 Docker Hub 存储库，使其可供公众使用。</p>
+<p><a href="https://zshipu.com/t?url=https://res.cloudinary.com/practicaldev/image/fetch/s--H6ULELJD--/c_limit,f_auto,fl_progressive,q_auto,w_880/https://dev-to-uploads.s3.amazonaws.com/i/0p19k2e6gq9c4why54nn.png"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--H6ULELJD--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/0p19k2e6gq9c4why54nn.png" alt="Alt Text"></a></p>
+<p>如果你看看它，传统上，开发人员开发了应用程序。然后，他们将其交给 Ops 团队，用于在生产环境中部署和管理它。他们通过提供一组说明来做到这一点，例如有关如何设置主机的信息、要在主机上安装哪些先决条件以及如何配置依赖项等。<br>由于 Ops 团队没有自行开发应用程序，因此他们很难设置应用程序。当他们出现问题时，他们与开发人员一起解决问题。使用 Docker 时，设置基础结构所涉及的大部分工作现在以 Dockerfile 的形式掌握在开发人员手中。开发人员以前为设置基础结构而构建的指南现在可以轻松地放在 Dockerfile 中，为应用程序创建映像。</p>
+<p>此映像现在可以在任何容器平台上运行，并且保证在任何地方以相同的方式运行。因此，Ops 团队现在只需使用映像来部署应用程序。由于映像已在工作，当开发人员生成映像时，并且操作没有修改它，因此在生产中部署映像时，它将继续以相同的方式工作。要了解有关容器的更多，请查看我的其他课程<a href="https://zshipu.com/t?url=https://kodekloud.com/p/docker-for-the-absolute-beginner-hands-on">“Docker 绝对初学者</a>“</p>
+<h4 id="在-YouTube-上观看”初学者-Docker：完整课程“的视频。"><a href="#在-YouTube-上观看”初学者-Docker：完整课程“的视频。" class="headerlink" title="在 YouTube 上观看”初学者 Docker：完整课程“的视频。"></a><a href="https://zshipu.com/t?url=#watch-the-video-on-docker-for-beginners-full-course-on-youtube"></a><font _mstmutation="1" _msthash="305513" _msttexthash="164360690">在 YouTube 上观看”<a href="https://zshipu.com/t?url=https://youtu.be/zJ6WbK9zFpI">初学者 Docker：完整课程</a>“的视频。</font></h4></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-05-31T07:32:48.000Z" title="2020-05-31T07:32:48.000Z">2020-05-31</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.464Z" title="2020-09-08T14:03:00.464Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">4 分钟读完 (大约552个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/05/31/%E6%8C%89%E5%80%BC%E6%8E%92%E5%BA%8F%E5%AF%B9%E8%B1%A1%E7%9A%84%20JavaScript%20%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84/">按值排序对象的 JavaScript 排序数组</a></h1><div class="content"><p> 曾经拥有一组对象，需要根据特定值对其进行排序？<br>这是一个每个人都会经常遇到的问题，想象一下任何表表的价目表。</p>
+<h2 id="按值排序对象的-JavaScript-排序数组"><a href="#按值排序对象的-JavaScript-排序数组" class="headerlink" title="按值排序对象的 JavaScript 排序数组"></a><a href="https://zshipu.com/t?url=#javascript-sort-array-of-objects-by-value"></a><font _mstmutation="1" _msthash="288756" _msttexthash="60908341">按值排序对象的 JavaScript 排序数组</font></h2><p><font _mstmutation="1" _msthash="276237" _msttexthash="66073501">让我们从以下对象数组开始：</font></p>
+<p> <code>var products = [<br>  &#123;<br>    color: 'white',<br>    price: 10,<br>    name: 'Basic T-shirt'<br>  &#125;,<br>  &#123;<br>    color: 'red',<br>    price: 5,<br>    name: 'Cheap T-shirt'<br>  &#125;,<br>  &#123;<br>    color: 'black',<br>    price: 50,<br>    name: 'Exclusive T-shirt'<br>  &#125;<br>];</code> </p>
+<p>所以，看到这个列表，我们已经有一个快速的两个选项，我们希望根据颜色和价格排序。</p>
+<p>现在，我们如何根据值进行排序？</p>
+<p><font _mstmutation="1" _msthash="277381" _msttexthash="34248604">我们可以使用 操纵器。</font><code>sort``````Arrays</code></p>
+<p> <code>products.sort((a, b) => (a.color > b.color ? 1 : -1));</code> </p>
+<p><font _mstmutation="1" _msthash="277953" _msttexthash="894235108">正如您可以看到一个简单明了的函数，它将根据颜色进行排序并替换值，直到它完成。<br>您可以将此功能视为手动循环，但随后所有功能都为您完成。</font><code>if...else</code></p>
+<p><font _mstmutation="1" _msthash="290017" _msttexthash="79395134">至于价格，我们可以做以下几点：</font></p>
+<p> <code>products.sort((a, b) => (a.price > b.price ? 1 : -1));</code> </p>
+<h2 id="对第二个参数进行排序"><a href="#对第二个参数进行排序" class="headerlink" title="对第二个参数进行排序"></a><a href="https://zshipu.com/t?url=#sorting-on-the-second-parameter"></a><font _mstmutation="1" _msthash="304057" _msttexthash="40072786">对第二个参数进行排序</font></h2><p><font _mstmutation="1" _msthash="290914" _msttexthash="329686851">因此，假设我们想要对颜色进行排序，但如果颜色相同，则要对价格进行排序。</font></p>
+<p> <code>var productsPrice = [<br>  &#123;<br>    color: 'white',<br>    price: 10,<br>    name: 'Basic T-shirt'<br>  &#125;,<br>  &#123;<br>    color: 'white',<br>    price: 5,<br>    name: 'Cheap T-shirt'<br>  &#125;,<br>  &#123;<br>    color: 'black',<br>    price: 50,<br>    name: 'Exclusive T-shirt'<br>  &#125;<br>];</p>
+<p>productsPrice.sort((a, b) =&gt;<br>  a.color &gt; b.color ? 1 : a.color === b.color ? (a.price &gt; b.price ? 1 : -1) : -1<br>);</code> </p>
+<p>所以同样的设置，但我们使用回调功能来检查颜色是否相同，然后我们还需要检查价格！</p>
+<p>您可以玩以下 Codepen。</p>
+<p>在<a href="https://zshipu.com/t?url=https://codepen.io">CodePen</a>上，由克里斯·邦格斯<a href="https://zshipu.com/t?url=https://codepen.io/rebelchris">（@rebelchris</a>） 查看按值排列对象的笔<a href="https://zshipu.com/t?url=https://codepen.io/rebelchris/pen/wvKVPPJ">JavaScript 排序数组</a>。</p>
+<h3 id="感谢您的阅读，让我们连接！"><a href="#感谢您的阅读，让我们连接！" class="headerlink" title="感谢您的阅读，让我们连接！"></a><a href="https://zshipu.com/t?url=#thank-you-for-reading-and-lets-connect"></a><font _mstmutation="1" _msthash="306202" _msttexthash="80787096">感谢您的阅读，让我们连接！</font></h3><p>感谢您阅读我的博客。请随时订阅我的电子邮件通讯，并在<a href="https://zshipu.com/t?url=https://www.facebook.com/DailyDevTipsBlog">Facebook</a>或<a href="https://zshipu.com/t?url=https://twitter.com/DailyDevTips1">Twitter</a>上连接</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-05-30T04:19:41.000Z" title="2020-05-30T04:19:41.000Z">2020-05-30</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.412Z" title="2020-09-08T14:03:00.412Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">15 分钟读完 (大约2247个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/05/30/Vue.js%E2%80%94%E2%80%9460%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">Vue.js——60分钟快速入门</a></h1><div class="content"><h2 id="Vue-js——60分钟快速入门"><a href="#Vue-js——60分钟快速入门" class="headerlink" title="Vue.js——60分钟快速入门"></a>Vue.js——60分钟快速入门</h2><p> <code class="language-text">Vue.js介绍<br>Vue.js是当下很火的一个JavaScript MVVM库，它是以数据驱动和组件化的思想构建的。相比于Angular.js，Vue.js提供了更加简洁、<br>更易于理解的API，使得我们能够快速地上手并使用Vue.js。</p>
+<p>如果你之前已经习惯了用jQuery操作DOM，学习Vue.js时请先抛开手动操作DOM的思维，因为Vue.js是数据驱动的，<br>你无需手动操作DOM。它通过一些特殊的HTML语法，将DOM和数据绑定起来。一旦你创建了绑定，DOM将和数据保持同步，每当变更了数据，DOM也会相应地更新。</p>
+<p>当然了，在使用Vue.js时，你也可以结合其他库一起使用，比如jQuery。</p>
+<p>本文的Demo和源代码已放到GitHub，如果您觉得本篇内容不错，请点个赞，或在GitHub上加个星星！</p>
+<p>v-for Demo v-bind Demo Page Demo GitHub Source</p>
+<p>MVVM模式<br>下图不仅概括了MVVM模式（Model-View-ViewModel），还描述了在Vue.js中ViewModel是如何和View以及Model进行交互的。</p>
+<p>MVVM</p>
+<p>ViewModel是Vue.js的核心，它是一个Vue实例。Vue实例是作用于某一个HTML元素上的，这个元素可以是HTML的body元素，也可以是指定了id的某个元素。</p>
+<p>当创建了ViewModel后，双向绑定是如何达成的呢？</p>
+<p>首先，我们将上图中的DOM Listeners和Data Bindings看作两个工具，它们是实现双向绑定的关键。<br>从View侧看，ViewModel中的DOM Listeners工具会帮我们监测页面上DOM元素的变化，如果有变化，则更改Model中的数据；<br>从Model侧看，当我们更新Model中的数据时，Data Bindings工具会帮我们更新页面中的DOM元素。</p>
+<p>Hello World示例<br>了解一门语言，或者学习一门新技术，编写Hello World示例是我们的必经之路。<br>这段代码在画面上输出”Hello World!”。</p>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+
+<pre><code>&lt;body&gt;
+    &lt;!--这是我们的View--&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        &#123;&#123; message &#125;&#125;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;script src=&quot;js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    // 这是我们的Model
+    var exampleData = &#123;
+        message: &#39;Hello World!&#39;
+    &#125;
+
+    // 创建一个 Vue 实例或 &quot;ViewModel&quot;
+    // 它连接 View 与 Model
+    new Vue(&#123;
+        el: &#39;#app&#39;,
+        data: exampleData
+    &#125;)
+&lt;/script&gt;</code></pre>
+</html></code>
+
+<p>使用Vue的过程就是定义MVVM各个组成部分的过程的过程。</p>
+<ol>
+<li><strong>定义View</strong></li>
+<li><strong>定义Model</strong></li>
+<li><strong>创建一个Vue实例或”ViewModel”，它用于连接View和Model</strong></li>
+</ol>
+<p>在创建Vue实例时，需要传入一个<strong>选项对象</strong>，选项对象可以包含数据、挂载元素、方法、模生命周期钩子等等。</p>
+<p>在这个示例中，<strong>选项对象</strong>的<strong>el属性</strong>指向View，<code>el: &#39;#app&#39;</code>表示该Vue实例将挂载到<code>&lt;div id=&quot;app&quot;&gt;...&lt;/div&gt;</code>这个元素；<strong>data属性</strong>指向Model，<code>data: exampleData</code>表示我们的Model是exampleData对象。<br>Vue.js有多种数据绑定的语法，最基础的形式是文本插值，使用一对大括号语法，在运行时<code>&#123;&#123; message &#125;&#125;</code>会被数据对象的message属性替换，所以页面上会输出”Hello World!”。</p>
+<p>Vue.js已经更新到2.0版本了，但由于还不是正式版，本文的代码都是1.0.25版本的。</p>
+<h3 id="双向绑定示例"><a href="#双向绑定示例" class="headerlink" title="双向绑定示例"></a>双向绑定示例</h3><p>MVVM模式本身是实现了双向绑定的，在Vue.js中可以使用<code>v-model</code>指令在表单元素上创建双向数据绑定。</p>
+<p> <code class="language-text"><!--这是我们的View--></p>
+<div id="app">
+    <p>&#123;&#123; message &#125;&#125;</p>
+    <input type="text" v-model="message"/>
+</div></code> 
+
+<p>将message绑定到文本框，当更改文本框的值时，<code>&lt;p&gt;&#123;&#123; message &#125;&#125;&lt;/p&gt;</code> 中的内容也会被更新。</p>
+<p>反过来，如果改变message的值，文本框的值也会被更新，我们可以在Chrome控制台进行尝试。</p>
+<p>Vue实例的data属性指向exampleData，它是一个引用类型，改变了exampleData对象的属性，同时也会影响Vue实例的data属性。</p>
+<h2 id="Vue-js的常用指令"><a href="#Vue-js的常用指令" class="headerlink" title="Vue.js的常用指令"></a>Vue.js的常用指令</h2><p>上面用到的<code>v-model</code>是Vue.js常用的一个指令，那么指令是什么呢？</p>
+<p><strong>Vue.js的指令是以v-开头的，它们作用于HTML元素，指令提供了一些特殊的特性，将指令绑定在元素上时，指令会为绑定的目标元素添加一些特殊的行为，我们可以将指令看作特殊的HTML特性（attribute）。</strong></p>
+<p>Vue.js提供了一些常用的内置指令，接下来我们将介绍以下几个内置指令：</p>
+<ul>
+<li>v-if指令</li>
+<li>v-show指令</li>
+<li>v-else指令</li>
+<li>v-for指令</li>
+<li>v-bind指令</li>
+<li>v-on指令</li>
+</ul>
+<p>Vue.js具有良好的扩展性，我们也可以开发一些自定义的指令，后面的文章会介绍自定义指令。</p>
+<h2 id="v-if指令"><a href="#v-if指令" class="headerlink" title="v-if指令"></a>v-if指令</h2><p><code>v-if</code>是条件渲染指令，它根据表达式的真假来删除和插入元素，它的基本语法如下：</p>
+<p> <code class="language-text">v-if="expression"</code></p>
+<p>expression是一个返回bool值的表达式，表达式可以是一个bool属性，也可以是一个返回bool的运算式。例如：</p>
+<p> <code class="language-text"><!DOCTYPE html></p>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <div id="app">
+            <h1>Hello, Vue.js!</h1>
+            <h1 v-if="yes">Yes!</h1>
+            <h1 v-if="no">No!</h1>
+            <h1 v-if="age >= 25">Age: &#123;&#123; age &#125;&#125;</h1>
+            <h1 v-if="name.indexOf('jack') >= 0">Name: &#123;&#123; name &#125;&#125;</h1>
+        </div>
+    </body>
+    <script src="js/vue.js"></script>
+    <script>
+
+<pre><code>    var vm = new Vue(&#123;
+        el: &#39;#app&#39;,
+        data: &#123;
+            yes: true,
+            no: false,
+            age: 28,
+            name: &#39;keepfool&#39;
+        &#125;
+    &#125;)
+&lt;/script&gt;</code></pre>
+</html></code>
+
+<p><strong>注意：</strong>yes, no, age, name这4个变量都来源于Vue实例选项对象的data属性。</p>
+<p>这段代码使用了4个表达式：</p>
+<ul>
+<li>数据的<code>yes</code>属性为true，所以”Yes!”会被输出；</li>
+<li>数据的<code>no</code>属性为false，所以”No!”不会被输出；</li>
+<li>运算式<code>age &gt;= 25</code>返回true，所以”Age: 28”会被输出；</li>
+<li>运算式<code>name.indexOf(&#39;jack&#39;) &gt;= 0</code>返回false，所以”Name: keepfool”不会被输出。</li>
+</ul>
+<p><strong>注意：</strong>v-if指令是根据条件表达式的值来执行<strong>元素的插入或者删除行为。</strong></p>
+<p>这一点可以从渲染的HTML源代码看出来，面上只渲染了3个<h1>元素，<code>v-if</code>值为false的<h1>元素没有渲染到HTML。</p>
+<p>为了再次验证这一点，可以在Chrome控制台更改age属性，使得表达式<code>age &gt;= 25</code>的值为false，可以看到<code>&lt;h1&gt;Age: 28&lt;/h1&gt;</code>元素被删除了。</p>
+<p>age是定义在选项对象的data属性中的，为什么Vue实例可以直接访问它呢？<br>这是因为<strong>每个Vue实例都会代理其选项对象里的data属性。</strong></p>
+<h2 id="v-show指令"><a href="#v-show指令" class="headerlink" title="v-show指令"></a>v-show指令</h2><p><code>v-show</code>也是条件渲染指令，和v-if指令不同的是，使用<code>v-show</code>指令的元素始终会被渲染到HTML，它只是简单地为元素设置CSS的style属性。</p>
+<p> <code class="language-text"><!DOCTYPE html></p>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <div id="app">
+            <h1>Hello, Vue.js!</h1>
+            <h1 v-show="yes">Yes!</h1>
+            <h1 v-show="no">No!</h1>
+            <h1 v-show="age >= 25">Age: &#123;&#123; age &#125;&#125;</h1>
+            <h1 v-show="name.indexOf('jack') >= 0">Name: &#123;&#123; name &#125;&#125;</h1>
+        </div>
+    </body>
+    <script src="js/vue.js"></script>
+    <script>
+
+<pre><code>    var vm = new Vue(&#123;
+        el: &#39;#app&#39;,
+        data: &#123;
+            yes: true,
+            no: false,
+            age: 28,
+            name: &#39;keepfool&#39;
+        &#125;
+    &#125;)
+&lt;/script&gt;</code></pre>
+</html></code>
+
+<p>在Chrome控制台更改age属性，使得表达式<code>age &gt;= 25</code>的值为false，可以看到<code>&lt;h1&gt;Age: 24&lt;/h1&gt;</code>元素被设置了style=”display:none”样式。</p>
+<h2 id="v-else指令"><a href="#v-else指令" class="headerlink" title="v-else指令"></a>v-else指令</h2><p>可以用<code>v-else</code>指令为<code>v-if</code>或<code>v-show</code>添加一个“else块”。<code>v-else</code>元素必须立即跟在<code>v-if</code>或<code>v-show</code>元素的后面——否则它不能被识别。</p>
+<p> <code class="language-text"><!DOCTYPE html></p>
+<html>
+
+<pre><code>&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        &lt;h1 v-if=&quot;age &gt;= 25&quot;&gt;Age: &#123;&#123; age &#125;&#125;&lt;/h1&gt;
+        &lt;h1 v-else&gt;Name: &#123;&#123; name &#125;&#125;&lt;/h1&gt;
+        &lt;h1&gt;---------------------分割线---------------------&lt;/h1&gt;
+        &lt;h1 v-show=&quot;name.indexOf(&#39;keep&#39;) &gt;= 0&quot;&gt;Name: &#123;&#123; name &#125;&#125;&lt;/h1&gt;
+        &lt;h1 v-else&gt;Sex: &#123;&#123; sex &#125;&#125;&lt;/h1&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;script src=&quot;js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    var vm = new Vue(&#123;
+        el: &#39;#app&#39;,
+        data: &#123;
+            age: 28,
+            name: &#39;keepfool&#39;,
+            sex: &#39;Male&#39;
+        &#125;
+    &#125;)
+&lt;/script&gt;</code></pre>
+</html></code>
+
+<p><code>v-else</code>元素是否渲染在HTML中，取决于前面使用的是<code>v-if</code>还是<code>v-show</code>指令。<br>这段代码中<code>v-if</code>为true，后面的<code>v-else</code>不会渲染到HTML；<code>v-show</code>为tue，但是后面的<code>v-else</code>仍然渲染到HTML了。</p>
+<h2 id="v-for指令"><a href="#v-for指令" class="headerlink" title="v-for指令"></a>v-for指令</h2><p><code>v-for</code>指令基于一个数组渲染一个列表，它和JavaScript的遍历语法相似：</p>
+<p> <code class="language-text">v-for="item in items"</code></p>
+<p>items是一个数组，item是当前被遍历的数组元素。</p>
+<p> <code class="language-text"><!DOCTYPE html></p>
+<html>
+
+<pre><code>&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/demo.css&quot; /&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        &lt;table&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;Name&lt;/th&gt;
+                    &lt;th&gt;Age&lt;/th&gt;
+                    &lt;th&gt;Sex&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                &lt;tr v-for=&quot;person in people&quot;&gt;
+                    &lt;td&gt;&#123;&#123; person.name  &#125;&#125;&lt;/td&gt;
+                    &lt;td&gt;&#123;&#123; person.age  &#125;&#125;&lt;/td&gt;
+                    &lt;td&gt;&#123;&#123; person.sex  &#125;&#125;&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;script src=&quot;js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    var vm = new Vue(&#123;
+        el: &#39;#app&#39;,
+        data: &#123;
+            people: [&#123;
+                name: &#39;Jack&#39;,
+                age: 30,
+                sex: &#39;Male&#39;
+            &#125;, &#123;
+                name: &#39;Bill&#39;,
+                age: 26,
+                sex: &#39;Male&#39;
+            &#125;, &#123;
+                name: &#39;Tracy&#39;,
+                age: 22,
+                sex: &#39;Female&#39;
+            &#125;, &#123;
+                name: &#39;Chris&#39;,
+                age: 36,
+                sex: &#39;Male&#39;
+            &#125;]
+        &#125;
+    &#125;)
+&lt;/script&gt;</code></pre>
+</html></code>
+
+<p>我们在选项对象的data属性中定义了一个people数组，然后在#app元素内使用<code>v-for</code>遍历people数组，输出每个person对象的姓名、年龄和性别。</p>
+<p><a href="https://zshipu.com/t?url=https://keepfool.github.io/vue-tutorials/01.GettingStarted/v-for.html">View Demo</a></p>
+<h2 id="v-bind指令"><a href="#v-bind指令" class="headerlink" title="v-bind指令"></a>v-bind指令</h2><p><code>v-bind</code>指令可以在其名称后面带一个参数，中间放一个冒号隔开，这个参数通常是HTML元素的特性（attribute），例如：<code>v-bind:class</code></p>
+<p> <code class="language-text">v-bind:argument="expression"</code></p>
+<p>下面这段代码构建了一个简单的分页条，v-bind指令作用于元素的class特性上。<br>这个指令包含一个表达式，表达式的含义是：高亮当前页。</p>
+<p> <code class="language-text"><!DOCTYPE html></p>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <link rel="stylesheet" href="styles/demo.css" />
+    </head>
+    <body>
+        <div id="app">
+            <ul class="pagination">
+                <li v-for="n in pageCount">
+                    <a href="javascripit:void(0)" v-bind:class="activeNumber === n + 1 ? 'active' : ''">&#123;&#123; n + 1 &#125;&#125;</a>
+                </li>
+            </ul>
+        </div>
+    </body>
+    <script src="js/vue.js"></script>
+    <script>
+        var vm = new Vue(&#123;
+            el: '#app',
+            data: &#123;
+                activeNumber: 1,
+                pageCount: 10
+            &#125;
+        &#125;)
+    </script>
+</html></code>
+
+<p>注意<code>v-for=&quot;n in pageCount&quot;</code>这行代码，pageCount是一个整数，遍历时n从0开始，然后遍历到pageCount –1结束。</p>
+<blockquote>
+<p>作者：永恒之魂</p>
+</blockquote>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-05-30T04:00:43.000Z" title="2020-05-30T04:00:43.000Z">2020-05-30</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.413Z" title="2020-09-08T14:03:00.413Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">1 小时读完 (大约7402个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/05/30/Vue.js%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/">Vue.js新手入门指南</a></h1><div class="content"><h2 id="Vue-js新手入门指南"><a href="#Vue-js新手入门指南" class="headerlink" title="Vue.js新手入门指南"></a>Vue.js新手入门指南</h2><p> 最近在逛各大网站，论坛，以及像SegmentFault等编程问答社区，发现Vue.js异常火爆，重复性的提问和内容也很多，楼主自己也趁着这个大前端的热潮，着手学习了一段时间的Vue.js，目前用它正在做自己的结业项目。</p>
+<p>在做的过程中也对Vue.js的官方文档以及其各种特性有了许多认识。作为一个之前以PHP+模版引擎为主的开发，从一个从未接触过除HTML+CSS+JavaScript+JQuery以外的前端技术的人到现在可以独立使用Vue.js以及各种附属的UI库来开发项目，我总结了一些知识和经验想与大家分享。</p>
+<p>下面我就以问答的形式来分享吧。这里假设你仅仅只掌握了HTML+CSS+JavaScript，如果你对JQuery这个前端库，以及各种后端模版语言比如说PHP，JSP还有所了解并且使用过的话那就太好了。</p>
+<h2 id="1-Vue-js是什么？"><a href="#1-Vue-js是什么？" class="headerlink" title="1.Vue.js是什么？"></a>1.Vue.js是什么？</h2><blockquote>
+<p>Vue.js（读音 /vjuː/, 类似于 view） 是一套构建用户界面的 渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，并且非常容易学习，非常容易与其它库或已有项目整合。另一方面，Vue 完全有能力驱动采用<a href="https://zshipu.com/t?url=http://cn.vuejs.org/v2/guide/single-file-components.html">单文件组件</a>和 <a href="https://zshipu.com/t?url=http://github.com/vuejs/awesome-vue#libraries--plugins">Vue 生态系统支持的库</a>开发的复杂单页应用。</p>
+<p>Vue.js 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。</p>
+<p>如果你是有经验的前端开发者，想知道 Vue.js 与其它库/框架的区别，查看<a href="https://zshipu.com/t?url=http://cn.vuejs.org/v2/guide/comparison.html">对比其它框架</a>。</p>
+</blockquote>
+<p>这是官网的介绍，是不是觉得非常的抽象非常的官方？看完之后可能还是有很多人不是很懂这个框架到底是用来做什么的，什么是“渐进式框架”？什么是“自底向上增量开发”？什么是“视图层”？什么是“单文件组件”？什么是“复杂的单页应用？”第二段话里面“响应的数据绑定和组合的视图组件”这又是个啥？还有最后一段话，“Vue.js 与其它库/框架的区别”究竟是什么？</p>
+<p>不要担心，如果你慢慢看完这里面的所有问答，一定会对前面那些可能你从未听说过的专业术语有一种恍然大悟的感觉。</p>
+<h2 id="2-Vue-js到底是什么？"><a href="#2-Vue-js到底是什么？" class="headerlink" title="2.Vue.js到底是什么？"></a>2.Vue.js到底是什么？</h2><p>想必现在能看到我这篇文章的人，都是用着APP或者网页版知乎在阅读把。Vue.js就是一个用于搭建类似于网页版知乎这种表单项繁多，且内容需要根据用户的操作进行修改的网页版应用。</p>
+<h2 id="3-单页应用程序（SPA）"><a href="#3-单页应用程序（SPA）" class="headerlink" title="3.单页应用程序（SPA）"></a>3.单页应用程序（SPA）</h2><p>顾名思义，单页应用一般指的就是一个页面就是应用，当然也可以是一个子应用，比如说知乎的一个页面就可以视为一个子应用。单页应用程序中一般交互处理非常多，而且页面中的内容需要根据用户的操作动态变化。</p>
+<h2 id="4-你前面说的网页版知乎我也可以用JQuery写啊，为什么要用Vue-js呢？"><a href="#4-你前面说的网页版知乎我也可以用JQuery写啊，为什么要用Vue-js呢？" class="headerlink" title="4.你前面说的网页版知乎我也可以用JQuery写啊，为什么要用Vue.js呢？"></a>4.你前面说的网页版知乎我也可以用JQuery写啊，为什么要用Vue.js呢？</h2><p>讲到JQuery，就不得不说到JavaScript的DOM操作了。如果你用JQuery来开发一个知乎，那么你就需要用JQuery中的各种DOM操作方法去操作HTML的DOM结构了。</p>
+<p>现在我们把一个网页应用抽象一下，那么HTML中的DOM其实就是视图，一个网页就是通过DOM的组合与嵌套，形成了最基本的视图结构，再通过CSS的修饰，在基本的视图结构上“化妆”让他们看起来更加美观。最后涉及到交互部分，就需要用到JavaScript来接受用户的交互请求，并且通过事件机制来响应用户的交互操作，并且在事件的处理函数中进行各种数据的修改，比如说修改某个DOM中的innerHTML或者innerText部分。</p>
+<p>我们把HTML中的DOM就可以与其他的部分独立开来划分出一个层次，这个层次就叫做<strong>视图层</strong>。</p>
+<blockquote>
+<p>Vue 的核心库只关注视图层</p>
+</blockquote>
+<p>我们为什么要把视图层抽取出来并且单独去关注它呢？</p>
+<p>因为在像知乎这种页面元素非常多，结构很庞大的网页中，数据和视图如果全部混杂在一起，像传统开发一样全部混合在HTML中，那么要对它们进行处理会十分的费劲，并且如果其中有几个结构之间存在藕断丝连的关系，那么会导致代码上出现更大的问题，这什么问题呢？</p>
+<p>你是否还记得你当初写JQuery的时候，有写过$(‘#xxx’).parent().parent().parent()这种代码呢？当你第一次写的时候，你觉得页面元素不多，不就是找这个元素的爸爸的爸爸的爸爸吗，我大不了在注释里面写清楚这个元素的爸爸的爸爸的爸爸不就好了。但是万一过几天之后你的项目组长或者你的产品经理突然对你做的网页提出修改要求，这个修改要求将会影响页面的结构，也就是DOM的关联与嵌套层次要发生改变，那么$(‘#xxx’).parent().parent().parent()可能就会变成$(‘#xxx’).parent().parent().parent().parent().parent()了。</p>
+<p>这还不算什么，等以后产品迭代越来越快，修改越来越多，而且页面中类似的关联和嵌套DOM元素不止一个，那么修改起来将非常费劲。而且JQuery选择器查找页面元素以及DOM操作本身也是有性能损失的，可能到时候打开这个页面，会变得越来越卡，而你却无从下手。</p>
+<p>当你在编写项目的时候遇到了这种问题，你一定会抱怨，为什么世上会有HTML这种像盗梦空间一样的需要无数div嵌套才能做出页面的语言，为什么当初学JQuery看中的是它简洁的DOM操作，现在却一点也不觉得它有多简洁，难道我学的是假的JQuery？为什么写个代码这么难，你想砸电脑，你想一键盘拍在产品狗的脑袋上，责怪他天天改需求才让你原本花清香茶清味的代码变得如此又臭又长。</p>
+<p>这个时候如果你学过Vue.js，那么这些抱怨将不复存在。</p>
+<h2 id="5-Vue-js为什么能让基于网页的前端应用程序开发起来这么方便？"><a href="#5-Vue-js为什么能让基于网页的前端应用程序开发起来这么方便？" class="headerlink" title="5.Vue.js为什么能让基于网页的前端应用程序开发起来这么方便？"></a>5.Vue.js为什么能让基于网页的前端应用程序开发起来这么方便？</h2><p>因为Vue.js有声明式，响应式的数据绑定，与组件化的开发，并且还使用了Virtual DOM这个看名字就觉得高大上的技术。</p>
+<p>可是这些名词都是啥？</p>
+<h2 id="6-响应式的数据绑定"><a href="#6-响应式的数据绑定" class="headerlink" title="6.响应式的数据绑定"></a>6.响应式的数据绑定</h2><p>这里的响应式不是@media 媒体查询中的响应式布局，而是指vue.js会自动对页面中某些数据的变化做出响应。至于是如何响应的，大家可以先把下面这段代码随便粘贴到一个扩展名为html的文件然后用浏览器打开，随便在文本框里面输入一些文字，观察一下页面变化。</p>
+<p> <code class="language-text"><!DOCTYPE html></p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js测试 - 代码之美专栏</title>
+    <!-- author:昌维 代码之美 https://zhuanlan.zhihu.com/codes -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" name="" value="" placeholder="在这里输入文字，下面会跟着变化" v-model="message">
+        <hr>
+        <p>&#123;&#123; message &#125;&#125;</p>
+    </div>
+    <script type="text/javascript">
+        var app = new Vue(&#123;
+          el: '#app',
+          data: &#123;
+            message: 'Hello Vue!'
+          &#125;
+        &#125;)
+    </script>
+</body>
+</html></code>
+
+<p>是不是会发现一个很神奇的现象，文本框里面输入的文字和后面的p标签中的内容一起变化？</p>
+<p>换句话说，p标签里面通过这个写法与input标签中的value绑定在了一起，其中变化，另外一个和它绑定的数据就跟着变化。</p>
+<p>结合标题来说，就是vue.js会自动响应数据的变化情况，并且根据用户在代码中预先写好的绑定关系，对所有绑定在一起的数据和视图内容都进行修改。而这种绑定关系，在图上是以input 标签的v-model属性来声明的，因此你在别的地方可能也会看到有人粗略的称vue.js为声明式渲染的模版引擎。</p>
+<h2 id="7-组件化开发"><a href="#7-组件化开发" class="headerlink" title="7.组件化开发"></a>7.组件化开发</h2><p>还记得在传统前端开发的时候，我们都是每个人做一个页面，然后最后套入各种后端模版引擎，比如说PHP的Smarty或者Java的JSP等等。</p>
+<p>但是现在我们做单页应用，页面交互和结构十分复杂，一个页面上就有许许多多的模块需要编写，而且往往一个模块的代码量和工作量就非常庞大，如果还按照原先的方法来开发，那么会累死人。而且遇到以后的产品需求变更，修改起来也非常麻烦，生怕动了其中一个div之后，其他div跟着雪崩，整个页面全部乱套，或者由于JavaScript的事件冒泡机制，导致修改一些内层的DOM事件处理函数之后，出现各种莫名其妙的诡异BUG。</p>
+<p>在面向对象编程中，我们可以使用面向对象的思想将各种模块打包成类或者把一个大的业务模块拆分成更多更小的几个类。在面向过程编程中，我们也可以把一些大功能拆分成许多函数，然后分配给不同的人来开发。</p>
+<p>在前端应用，我们是否也可以像编程一样把模块封装呢？这就引入了组件化开发的思想。</p>
+<p>Vue.js通过组件，把一个单页应用中的各种模块拆分到一个一个单独的组件（component）中，我们只要先在父级应用中写好各种组件标签（占坑），并且在组件标签中写好要传入组件的参数（就像给函数传入参数一样，这个参数叫做组件的属性），然后再分别写好各种组件的实现（填坑），然后整个应用就算做完了。</p>
+<h2 id="8-Virtual-DOM"><a href="#8-Virtual-DOM" class="headerlink" title="8.Virtual DOM"></a>8.Virtual DOM</h2><p>现在的网速越来越快了，很多人家里都是几十甚至上百M的光纤，手机也是4G起步了，按道理一个网页才几百K，而且浏览器本身还会缓存很多资源文件，那么几十M的光纤为什么打开一个之前已经打开过，已经有缓存的页面还是感觉很慢呢？这就是因为浏览器本身处理DOM也是有性能瓶颈的，尤其是在传统开发中，用JQuery或者原生的JavaScript DOM操作函数对DOM进行频繁操作的时候，浏览器要不停的渲染新的DOM树，导致页面看起来非常卡顿。</p>
+<p>而Virtual DOM则是虚拟DOM的英文，简单来说，他就是一种可以预先通过JavaScript进行各种计算，把最终的DOM操作计算出来并优化，由于这个DOM操作属于预处理操作，并没有真实的操作DOM，所以叫做虚拟DOM。最后在计算完毕才真正将DOM操作提交，将DOM操作变化反映到DOM树上。</p>
+<p>对于vue.js的Virtual DOM，目前业界有着褒贬不一的评价。有人认为Vue.js作为一个轻量级框架，引入Virtual DOM会加大Vue.js本身的代码尺寸，也会消耗更多CPU（手机上会更耗电）（注意：消耗更多的CPU并不意味着会更卡，因为JavaScript计算是后台计算，他的计算量还不至于让DOM操作变得卡顿），并且在操作单个DOM元素的时候，反而多了一道计算工序，会更慢。但也有人认为基本上会用Vue.js开发的都是页面中内容很多的元素，肯定操作的DOM量级普遍较大，平均一下还是比较划算的。</p>
+<h2 id="9-我到底该怎么用Vue-js做单页应用开发？"><a href="#9-我到底该怎么用Vue-js做单页应用开发？" class="headerlink" title="9.我到底该怎么用Vue.js做单页应用开发？"></a>9.我到底该怎么用Vue.js做单页应用开发？</h2><p>说了这么多，我还是不知道怎么用它做出一个像知乎那样的页面啊，到底怎么学它呢？</p>
+<p>前面我们看了一个响应式的数据绑定案例，那只是一个DEMO，而且也看不出有什么实际意义，离真正的单页应用程序还差得远，到底怎么用它开发真实的项目呢？</p>
+<p>我的建议是，先把<a href="https://zshipu.com/t?url=http://cn.vuejs.org/v2/guide/index.html">介绍 - vue.js</a>官方文档的基础部分硬着头皮看一遍。除了组件这个小节涉及到了很多晦涩难懂的名词以外，前面几章完全就是把Vue.js当作一个模版引擎来用。</p>
+<p>然后开始学习ECMAScript6，Webpack，NPM以及Vue-Cli的基本用法，最好对Node.js也要有所了解。</p>
+<p>最后组件部分先大致看一遍，了解组件里面都有哪些概念之后，开始看网上各种实战视频以及文章还有别人开源的源代码。</p>
+<h2 id="10-在前面你提到过好几次ECMAScript，这是啥？"><a href="#10-在前面你提到过好几次ECMAScript，这是啥？" class="headerlink" title="10.在前面你提到过好几次ECMAScript，这是啥？"></a>10.在前面你提到过好几次ECMAScript，这是啥？</h2><p>ECMAScript听名字好像和JavaScript很像，难不成他们有什么千丝万缕的联系？</p>
+<p>没错你猜对了，他们之间还真有着很深的联系。</p>
+<p>引用阮一峰老师的话：（<a href="https://zshipu.com/t?url=http://es6.ruanyifeng.com/#docs/intro">ECMAScript 6入门</a>）</p>
+<blockquote>
+<p>要讲清楚这个问题，需要回顾历史。1996年11月，JavaScript 的创造者 Netscape 公司，决定将 JavaScript 提交给国际标准化组织ECMA，希望这种语言能够成为国际标准。次年，ECMA 发布262号标准文件（ECMA-262）的第一版，规定了浏览器脚本语言的标准，并将这种语言称为 ECMAScript，这个版本就是1.0版。</p>
+<p>该标准从一开始就是针对 JavaScript 语言制定的，但是之所以不叫 JavaScript，有两个原因。一是商标，Java 是 Sun 公司的商标，根据授权协议，只有 Netscape 公司可以合法地使用 JavaScript 这个名字，且 JavaScript 本身也已经被 Netscape 公司注册为商标。二是想体现这门语言的制定者是 ECMA，不是 Netscape，这样有利于保证这门语言的开放性和中立性。</p>
+<p>因此，ECMAScript 和 JavaScript 的关系是，前者是后者的规格，后者是前者的一种实现（另外的 ECMAScript 方言还有 Jscript 和 ActionScript）。日常场合，这两个词是可以互换的。</p>
+</blockquote>
+<p>而ECMAScript6就是新一代的JavaScript语言。</p>
+<p>这里也强烈推荐大家学习ECMAScript6的时候参考这本书<a href="https://zshipu.com/t?url=http://es6.ruanyifeng.com/">ECMAScript 6入门</a></p>
+<h2 id="11-我在学习Vue-js的时候老是听到Webpack，这是啥？"><a href="#11-我在学习Vue-js的时候老是听到Webpack，这是啥？" class="headerlink" title="11.我在学习Vue.js的时候老是听到Webpack，这是啥？"></a>11.我在学习Vue.js的时候老是听到Webpack，这是啥？</h2><p>Webpack是一个前端打包和构建工具。如果你之前一直是手写HTML，CSS，JavaScript，并且通过link标签将CSS引入你的HTML文件，以及通过Script标签的src属性引入外部的JS脚本，那么你肯定会对这个工具感到陌生。不要紧，我们先来了解一下为什么要用Webpack，然后带着原因去学习就好了。</p>
+<h2 id="12-为什么要用Webpack"><a href="#12-为什么要用Webpack" class="headerlink" title="12.为什么要用Webpack"></a>12.为什么要用Webpack</h2><p>前面说了，做一个单页应用程序本身就相当复杂，而且在做的时候肯定会使用到很多素材和别的第三方库，我们该如何去管理这些东西呢？</p>
+<p>还有前面讲到了Webpack是一个前端打包工具，前端代码为什么要打包呢？因为单页应用程序中用到很多素材，如果每一个素材都通过在HTML中以src属性或者link来引入，那么请求一个页面的时候，可能浏览器就要发起十多次请求，往往请求的这些资源都是一些脚本代码或者很小的图片，这些资源本身才几k，下载连1秒都不需要，但是由于HTTP是应用层协议，它的下层是TCP这个运输层协议，TCP的握手和挥手过程消耗的时间可能比下载资源本身还要长，所以需要把这些小文件全部打包成一个文件，这样只要一次TCP握手和挥手的过程，就把多个资源给下载下来了，并且多个资源由于都是共享一个HTTP请求，所以head等部分也是共享的，相当于形成了规模效应，让网页展现更快，用户体验更好。</p>
+<p>前面说到Webpack还有构建的功能，这就不得不提到了ECMAScript6这个新版本的JavaScript，但是现在国内外还有很多人用着老版本的浏览器，这些浏览器并不支持ECMAScript6，那么我们的前端项目如何在这种浏览器上运行呢？这就需要Webpack的Loader自动载入一个转换器来将我们写的ECMAScript6转换成浏览器能支持的老版本JavaScript语言，这个转换器的名字叫做babel，如果你以后听到或者看到了这个单词，应该要知道它就是一个ECMAScript6 to 老版本JavaScript的转换器了。这也是Webpack的构建功能。当然对前端有更深入的同学还会知道Sass，Less，stylus之类的CSS预处理器，我们也可以通过在Loader中编写特定的规则来实现自动将这些CSS预处理语言转换成普通浏览器能识别的CSS代码。</p>
+<p>开头的介绍提到了vue.js可以使用单文件组件开发项目，其实也是通过Webpack将单文件组件中的模版，样式以及JS转换到主页面中</p>
+<p>当然Webpack不止这点功能，它还可以通过安装各种插件来扩展，比如说热加载技术，就是解放键盘的F5键。让我们修改代码，并且按Ctrl+S保存之后，浏览器页面自动刷新变化，不需要我们去手动刷新，还有一些插件可以自动添加注释，自动给CSS代码加上一些浏览器内核对CSS3兼容前缀，就像webkit-xxx之类的一样。</p>
+<h2 id="13-NPM和Node-js又是什么？它们是什么关系？"><a href="#13-NPM和Node-js又是什么？它们是什么关系？" class="headerlink" title="13.NPM和Node.js又是什么？它们是什么关系？"></a>13.NPM和Node.js又是什么？它们是什么关系？</h2><p>首先讲讲Node.js。我们知道通常情况下，JavaScript的运行环境都是浏览器，因此JavaScript的能力也就局限于浏览器能赋予它的权限了。比如说读写本地系统文件这种操作，一般情况下运行在浏览器中的JavaScript代码是没有这个操作权限的。如果我们想用JavaScript写出一些能够运行在操作系统上的，能够具有像PHP，JAVA之类的编程语言具有的功能的程序该怎么办呢？Node.js就解决了这个问题。Node.js是一个服务端的JavaScript运行环境，通过Node.js可以实现用JavaScript写独立程序。像我们之前提到的Webpack就是Node.js写的，所以作为一个前端开发，即使你不用Node.js写独立程序，也得配一个Node.js运行环境，毕竟很多前端工具都是使用它写的。</p>
+<p>NPM是一个node.js的包管理器。我们在传统开发的时候，JQuery.js大多都是百度搜索，然后去官网下载，或者直接引入CDN资源，这种方法太过于麻烦。如果以后遇到其他的包，这个包的代码本身可能还调用了其他的包（也称这个包和其他的那几个包存在依赖关系），那么我们要在自己的项目中引入一个包将变得十分困难。现在我们有了NPM这个包管理器，直接可以通过</p>
+<p> <code class="language-text">npm install xxx包名称</code></p>
+<p>的方式引入它，比如说</p>
+<p> <code class="language-text">npm install vue</code></p>
+<p>就自动在当前项目文件夹下导入了这个包，并且npm自动下载好了vue这个包依赖的其他包。</p>
+<p>至于有的人在按照网上的npm教程配置的时候踩坑了，发现下载速度很慢或者完全下载不了，那是因为我国有着众所周知的原因，网上也有各种解决方法可以解决这个问题，大家多善用搜索引擎。</p>
+<p>前面提到了Webpack可以安装各种插件来扩展功能，其实也是通过这种方式扩展。</p>
+<p>如果你学过PHP的话，NPM就和PHP里面的Composer差不多。也和CentOS下的yum和Ubuntu下的apt-get差不多。</p>
+<h2 id="14-Vue-CLi又是啥？"><a href="#14-Vue-CLi又是啥？" class="headerlink" title="14.Vue-CLi又是啥？"></a>14.Vue-CLi又是啥？</h2><p>它是一个vue.js的脚手架工具。说白了就是一个自动帮你生成好项目目录，配置好Webpack，以及各种依赖包的工具，它可以通过</p>
+<p> <code class="language-text">npm install vue-cli -g</code></p>
+<p>的方式安装，后面的-g表示全局安装的意思，意味着你可以打开命令行之后直接通过vue命令调用它。</p>
+<h2 id="15-我该不该学Vue-js？"><a href="#15-我该不该学Vue-js？" class="headerlink" title="15.我该不该学Vue.js？"></a>15.我该不该学Vue.js？</h2><p>现在Vue.js无论是发展势头还是作者支持还是很好的，而且它本身中文资料就比较多，教程也很多，现在随随便便打开几个和前端开发有关的知乎专栏，基本上都能见到相关文章，社区也很活跃。</p>
+<p>至于你该不该学，取决于你自己，如果你当前只是做做以内容展示为主的项目，或者就是成天用各种CMS建站仿站，并且以后都不打算更换更好的工作，那么可以暂时不用学。如果你开发的项目交互非常多，而且前后端开发都对前后端分离有很清楚的认识，那么可以大胆的学习，并且在实际项目中运用。</p>
+<h2 id="16-Vue-js怎么火起来的？"><a href="#16-Vue-js怎么火起来的？" class="headerlink" title="16.Vue.js怎么火起来的？"></a>16.Vue.js怎么火起来的？</h2><p>关于这个问题，网上说法很多，我自己认为主要还是前些年大前端变革太快，而最近一年开始Vue.js+Webpack这个组合开始逐渐稳定下来了，而且已经有了很多中文资料。</p>
+<p>对比它的竞争对手AngularJS，新旧版本项目无法平滑升级，变革太大让用户感觉不安稳。</p>
+<p>而React本身主流推荐用的是JSX，需要额外学习一门语法（什么？学Vue.js还要学ECMAScript6？现在ECMAScript6是趋势，并不是因为Vue.js才要学的），并且React本身用的是render写法编写模版代码，这让很多用习惯了Smarty等后端模版引擎得人来使用感觉很不适应，现在看来React本身在中国一些论坛社区的火爆程度还是没有Vue.js高。</p>
+<p>当然也并不是说除了Vue.js以外其他框架都很差。像知乎新版也是用React开发的，他还是有各自优秀的地方大家可以深入学习之后做出自己的判断。</p>
+<h2 id="17-我在很多地方还看到Vuex和Vue-route，它们又是什么？"><a href="#17-我在很多地方还看到Vuex和Vue-route，它们又是什么？" class="headerlink" title="17.我在很多地方还看到Vuex和Vue-route，它们又是什么？"></a>17.我在很多地方还看到Vuex和Vue-route，它们又是什么？</h2><p>Vuex是vue的一个状态管理器。用于集中管理一个单页应用程序中的各种状态。</p>
+<p>Vue-route是vue的一个前端路由器，这个路由器不是我们上网用的路由器，而是一个管理请求入口和页面映射关系的东西。它可以实现对页面局部进行无刷新的替换，让用户感觉就像切换到了网页一样。</p>
+<p>要讲清楚这两个东西，又得花费大量篇幅，所以这里只是简单提一下，先学好vue.js本身才是最重要的。</p>
+<h2 id="18-我还在一些地方看到过Vue-resource和Axios，它们又是什么？"><a href="#18-我还在一些地方看到过Vue-resource和Axios，它们又是什么？" class="headerlink" title="18.我还在一些地方看到过Vue-resource和Axios，它们又是什么？"></a>18.我还在一些地方看到过Vue-resource和Axios，它们又是什么？</h2><p>我们在传统的前后端不分离的开发中，后端直接把数据通过模版引擎拼接进了返回的HTML中。而现在做单页应用程序属于前后端分离开发，那么这个单页应用程序中的数据就得通过ajax的方式获取，也要通过ajax的方式提交到后端。</p>
+<p>在传统开发中我们都是通过xmlhttprequest手动操作，或者通过JQuery的ajax方法来进行数据提交获取。</p>
+<p>vue.js本身没有封装ajax操作库，所以我们要通过Vue-resource和Axios来进行ajax操作，而因为种种原因，现在vue.js2.0已经将axios作为官方推荐的ajax库了。</p>
+<h2 id="19-我该学Vue-js2-0还是1-0呢？"><a href="#19-我该学Vue-js2-0还是1-0呢？" class="headerlink" title="19.我该学Vue.js2.0还是1.0呢？"></a>19.我该学Vue.js2.0还是1.0呢？</h2><p>现在很多框架和语言都是学新不学旧（Python慢慢也变得如此），因此如果不是为了维护老旧项目，肯定推荐学Vue.js2.0。而且学会了Vue.js2.0，再去学习Vue.js1.0也不是什么难事。</p>
+<h2 id="20-写Vue-js用什么开发工具和电脑呢？"><a href="#20-写Vue-js用什么开发工具和电脑呢？" class="headerlink" title="20.写Vue.js用什么开发工具和电脑呢？"></a>20.写Vue.js用什么开发工具和电脑呢？</h2><p>前端开发基本上不需要太高端的电脑都能胜任，现在这个时代是台电脑，装个编辑器都可以做前端开发的。</p>
+<p>Vue.js的组件文件本质上还是普通的代码文件，所以各种编辑器配合一些语法检查插件就足够了。我自己用的是sublime text 3，安装一些插件之后可以实现.vue单文件组件高亮代码以及各种自动完成。Webstorm中也有类似插件，大家可以在网上各种教学文章的指导下配置好环境。</p>
+<h2 id="结语："><a href="#结语：" class="headerlink" title="结语："></a>结语：</h2><p>可能包括我在内的很多人在看到Vue.js那神奇的双向绑定优雅写法都会有一种非常惊艳，而看到中文文档发布之后有种想立马学习的冲动。可惜大前端终究是大前端，如果一个对于前端各个方面没有深入认识就想着能一步登天，肯定对不起大前端的“大”字。原本看着只想学一个Vue.js，没想到顺带把ECMAScript6，Webpack配置，ESLint配置，bable配置，npm使用，node.js语法，以后vue全家桶中的vuex，vue-route等等等等都学了一遍。前段时间网上也流传出了一个职位叫做Webpack配置工程师，从这里也可以看出弄懂前端这个大杂烩确实不是那么容易。大家一起加油，有什么问题也可以在评论区回复，我会抽空补充在文章内容中。谢谢各位的支持！~</p>
+<p>本文章由</p>
+<p> <a href="https://zshipu.com/t?url=//www.zhihu.com/people/5fe93d9e436715d6d5cb49245af3b88c">@昌维</a></p>
+<p>原创，在知乎专栏-代码之美 <a href="https://zshipu.com/t?url=https://www.zhihu.com/codes">https://zhuanlan.zhihu.com/codes</a> 首发，转载请注明出处。大家喜欢和支持我的文章可以点开我的头像以及专栏名称进行关注，或是点击下方的打赏按钮进行支持，谢谢。^_^</p>
+<blockquote>
+<p>作者：昌维</p>
+</blockquote>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-05-30T03:59:58.000Z" title="2020-05-30T03:59:58.000Z">2020-05-30</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.390Z" title="2020-09-08T14:03:00.390Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">6 分钟读完 (大约858个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/05/30/Node.js%E7%9A%84%E6%9B%BF%E4%BB%A3%E8%80%85%EF%BC%8C%E5%88%9D%E8%AF%86Deno/">Node.js的替代者，初识Deno</a></h1><div class="content"><h2 id="欢迎来到-Deno-世界"><a href="#欢迎来到-Deno-世界" class="headerlink" title="欢迎来到 Deno 世界"></a>欢迎来到 Deno 世界</h2><blockquote>
+<p><a href="https://zshipu.com/t?url=https://hijiangtao.github.io/slides/s-YFD/Welcome-to-Deno-World#/">点击链接查看完整 Slides</a></p>
+</blockquote>
+<p>2018年在 JSConf EU 上，被称为 Node.js 之父的 Ryan 发表主题为「10 Things I Regret About Node.js」的演讲，并向大家介绍了他的“新玩具” Deno，两年过去，Deno 已于2020年5月13日发布1.0版本。你可能会疑惑 Deno 到底是什么，Deno 和 Node 有什么关系？Deno 和我有什么关系？</p>
+<p>在这接近两年的日子里 Deno 又经历了些什么，从我们普通开发者角度来看，又有哪些值得了解的 Deno 概念呢？本次分享为团队内分享，通过介绍 Deno 的发展历史以及一些研发工程师值得了解的 Deno 特点，以期将读者初步带入 Deno 世界。</p>
+<p>本次分享主要就三个问题展开：</p>
+<ol>
+<li>What is Deno?</li>
+<li>Why is Deno?</li>
+<li>How is Deno?</li>
+</ol>
+<p>本文的各项内容也同时采编自社区各活跃开发者的布道文章、演讲与各类材料，所以也可将此 Slides 认为是图文简易版入门教程​。更多参考资料以及文中各类​片段与图片出处，见 Slides 末尾罗列。以下为 Slides 截图。</p>
+<hr>
+<p><strong>关于 Deno 如果你还想了解更多，可以参照如下内容与链接</strong></p>
+<ol>
+<li>deno.land <a href="https://zshipu.com/t?url=https://deno.land/">https://deno.land/</a></li>
+<li>Deno GitHub <a href="https://zshipu.com/t?url=https://github.com/denoland/deno">https://github.com/denoland/deno</a></li>
+<li>Deno API <a href="https://zshipu.com/t?url=https://doc.deno.land/https/github.com/denoland/deno/releases/latest/download/lib.deno.d.ts">https://doc.deno.land/https/github.com/denoland/deno/releases/latest/download/lib.deno.d.ts</a></li>
+<li><a href="https://zshipu.com/t?url=https://www.youtube.com/watch?v=z6JRlx5NC9E&t=469s">https://www.youtube.com/watch?v=z6JRlx5NC9E</a></li>
+<li><a href="https://zshipu.com/t?url=https://www.youtube.com/watch?v=M3BM9TB-8yA&t=102s">https://www.youtube.com/watch?v=M3BM9TB-8yA</a></li>
+<li><a href="https://zshipu.com/t?url=https://tinyclouds.org/jsconf2018.pdf">https://tinyclouds.org/jsconf2018.pdf</a></li>
+<li><a href="https://zshipu.com/t?url=https://www.rust-lang.org/">https://www.rust-lang.org/</a></li>
+<li><a href="https://zshipu.com/t?url=https://v8.dev/">https://v8.dev/</a></li>
+<li><a href="https://zshipu.com/t?url=https://github.com/v8/v8">https://github.com/v8/v8</a></li>
+<li><a href="https://zshipu.com/t?url=https://github.com/tokio-rs/tokio">https://github.com/tokio-rs/tokio</a></li>
+<li><a href="https://zshipu.com/t?url=https://blog.logrocket.com/deno-1-0-what-you-need-to-know/">https://blog.logrocket.com/deno-1-0-what-you-need-to-know/</a></li>
+<li><a href="https://zshipu.com/t?url=https://www.ruanyifeng.com/blog/2020/01/deno-intro.html">https://www.ruanyifeng.com/blog/2020/01/deno-intro.html</a></li>
+<li><a href="https://zshipu.com/t?url=https://zhuanlan.zhihu.com/p/141832695">https://zhuanlan.zhihu.com/p/141832695</a></li>
+<li><a href="https://zshipu.com/t?url=https://zhuanlan.zhihu.com/p/140787128">https://zhuanlan.zhihu.com/p/140787128</a></li>
+<li><a href="https://zshipu.com/t?url=https://zhuanlan.zhihu.com/p/142002526">https://zhuanlan.zhihu.com/p/142002526</a></li>
+<li><a href="https://zshipu.com/t?url=https://github.com/dt-fe/weekly/issues/248">https://github.com/dt-fe/weekly/issues/248</a></li>
+<li><a href="https://zshipu.com/t?url=https://zhuanlan.zhihu.com/p/37637923">https://zhuanlan.zhihu.com/p/37637923</a></li>
+<li><a href="https://zshipu.com/t?url=https://www.youtube.com/embed/5nmpokoRaZI">https://www.youtube.com/embed/5nmpokoRaZI</a></li>
+<li><a href="https://zshipu.com/t?url=https://zhuanlan.zhihu.com/p/42630183">https://zhuanlan.zhihu.com/p/42630183</a></li>
+<li><a href="https://zshipu.com/t?url=https://zhuanlan.zhihu.com/p/38202123">https://zhuanlan.zhihu.com/p/38202123</a></li>
+</ol>
+<p>原文地址 <a href="https://zshipu.com/t?url=https://hijiangtao.github.io/2020/05/29/Welcome-to-Deno-World/">https://hijiangtao.github.io/2020/05/29/Welcome-to-Deno-World/</a></p>
+<hr>
+<p>个人公众号「<strong>黯晓</strong>」，微信搜索或扫这个<a href="https://zshipu.com/t?url=https://hijiangtao.github.io/assets/pic/qrcode_for_gh_4e090cdcbcc5_258.jpg">二维码</a>，交个朋友吧。</p>
+<p>知乎专栏「<a href="https://zshipu.com/t?url=https://zhuanlan.zhihu.com/makewebgreatagain">初级前端工程师</a>」，前端技术博客，欢迎投稿与关注。</p>
+<p>生活中难免犯错，请多多指教！</p>
+<blockquote>
+<p>作者：hijiangtao</p>
+</blockquote>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-05-30T03:58:18.000Z" title="2020-05-30T03:58:18.000Z">2020-05-30</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.451Z" title="2020-09-08T14:03:00.451Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">7 分钟读完 (大约976个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/05/30/%E5%88%9D%E5%AD%A6%E8%80%85%EF%BC%8C%E5%AD%A6%E4%B9%A0vue%E5%BA%94%E8%AF%A5%E4%BB%8E%E4%BD%95%E4%B8%8B%E6%89%8B%EF%BC%9F/">初学者，学习vue应该从何下手？</a></h1><div class="content"><p>  （如果你从没学过框架，那么跳过这一段直接看下面）你培训有没有学习框架这方面的知识？如果有其他框架的使用经验，那么学vue和其他框架一样学就行了，所谓一通百通。</p>
+<p>（由于你说你培训过，所以假设你有还行的js基础，熟悉es6语法，不然先学好这些）如果vue是你第一个接触的框架，你可以先去慕课网上看一个免费的vue基础教学，讲的比较基础，但足够让你对这个框架的使用有个大致的概念了。2小时不到看完，然后去vue官网看官网文档，因为vue开发者是中国人，所以中文文档做的还不错。19年的官方文档好像改变了不少，我感觉和我18年看的有很多不同，你就看最新的好了。像文档说的那样，在学到“深入了解组件”之前，你就已经掌握了vue基础知识了（你会觉得内容很短是吧），这时候文档会建议你先停下来，弄个简单的小demo做做，你听他的。把基础知识熟悉一点之后，再继续学下去。</p>
+<p>文档中有些地方可能讲的比较晦涩，你看不懂可以先跳过，并不影响使用，等你以后深入框架原理，再回头看看就茅塞顿开了。vue偏向新手，vue的使用就记住一点，多练练、熟悉各种api、语法规则 就行了。</p>
+<p>如果你以前没有接触过webpack、npm、模块化，你先不用看vue-cli，包括文档开头的vue npm安装。像文档建议的那样，先学好vue本身，然后去了解了解webpack、npm，再去学vue-cli，不然你会感觉怀疑人生的。</p>
+<p>学完vue和vue-cli（如果感觉vue-cli的一些配置理解不了，那么先尝试记住它们，等你以后工程化基础好了，会明白的。你到公司第一要务是快速上手出活，所以先不用太纠结一些东西），你可以找个小项目练练手，这里我还是推荐慕课网上的vue项目，我做过仿饿了么的SPA，感觉挺有帮助的。只不过由于这些课程是几年前的，所以可能和最新的vue语法不一样，全家桶也不一样。比如仿饿了么是vue1.0写的，ajax用的是vue-resource（vue2.0后已弃用），我是用vue2.x + axios + vue-cli3.0重写的。用最新的vue重写老vue项目，不也是一个锻炼吗。</p>
+<p>然后随着你接触的项目越来越复杂，组件通信越来越让你无从下手，你自然而然就知道有vuex这个东西了，那时由于你一路自学过来，已经掌握了一些学习方法，学习vuex也不算难事了</p>
+<p>ps：再过几个月，说不定你能用vue3.0写了……</p>
+<p>再ps：我写过vue对象、数组响应，双向绑定的源码，欢迎有缘人给star。</p>
+<p><a href="https://zshipu.com/t?url=https://github.com/HiWayne/Self-Vue">HiWayne/Self-Vue​github.com</a></p>
+<p>再再ps：另外还有一个有趣的js特效插件，其中的过渡动画使用风格有些类似vue，有兴趣的可以看看readme中的lazyfade教程，也欢迎有缘人给star。</p>
+<p><a href="https://zshipu.com/t?url=https://github.com/HiWayne/jsAnimate">HiWayne/jsAnimate​github.com</a>&gt; 作者：雨过天晴</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-05-30T03:57:22.000Z" title="2020-05-30T03:57:22.000Z">2020-05-30</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.443Z" title="2020-09-08T14:03:00.443Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">23 分钟读完 (大约3387个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/05/30/%E4%BB%8E0%E5%88%B01%EF%BC%8CVue%E5%A4%A7%E7%89%9B%E7%9A%84%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA%E2%80%94%E2%80%94%E5%BC%82%E5%B8%B8%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F/">从0到1，Vue大牛的前端搭建——异常监控系统</a></h1><div class="content"><h2 id="从0到1，Vue大牛的前端搭建——异常监控系统"><a href="#从0到1，Vue大牛的前端搭建——异常监控系统" class="headerlink" title="从0到1，Vue大牛的前端搭建——异常监控系统"></a>从0到1，Vue大牛的前端搭建——异常监控系统</h2><p><strong>本篇文章读后，你将GET的技能：</strong></p>
+<p>●收集前端错误（原生、React、Vue）</p>
+<p>●编写错误上报逻辑</p>
+<p>●利用Egg.js编写一个错误日志采集服务</p>
+<p>●编写webpack插件自动上传sourcemap</p>
+<p>●利用sourcemap还原压缩代码源码位置</p>
+<p>●利用Jest进行单元测试</p>
+<p>有没有心动的感觉？赶紧学起来吧！</p>
+<h2 id="（1）如何捕获异常"><a href="#（1）如何捕获异常" class="headerlink" title="（1）如何捕获异常"></a><strong>（1）如何捕获异常</strong></h2><p><strong>JS异常：</strong></p>
+<p>js异常的特点是,出现不会导致JS引擎崩溃 最多只会终止当前执行的任务。</p>
+<p>比如一个页面有两个按钮，如果点击按钮发生异常页面，这个时候页面不会崩溃。</p>
+<p>只是这个按钮的功能失效，其他按钮还会有效☟</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”1080” data-rawheight=”201” class=”origin_image zh-lightbox-thumb lazy” width=”1080” data-original=”<a target="_blank" rel="noopener" href="https://pic3.zhimg.com/v2-3c609d95941c98dafb11da8e67b9e1de_r.jpg&quot;">https://pic3.zhimg.com/v2-3c609d95941c98dafb11da8e67b9e1de_r.jpg&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic3.zhimg.com/v2-3c609d95941c98dafb11da8e67b9e1de_b.jpg&quot;&gt;">https://pic3.zhimg.com/v2-3c609d95941c98dafb11da8e67b9e1de_b.jpg&quot;&gt;</a></p>
+<p>上面的例子我们用setTimeout分别启动了两个任务。</p>
+<p><strong>虽然第一个任务执行了一个错误的方法。程序执行停止了。但是另外一个任务并没有收到影响。</strong></p>
+<p>其实如果你不打开控制台都看不到发生了错误。好像是错误是在静默中发生的。</p>
+<p>有意向深入了解 Vue，点击下方查看资料包括 web 全栈和 web 架构师的学习资料以及大厂面试指南等，点击即可 1 毛钱购买。</p>
+<p> 开课吧 的推荐<br> 2020 Vue 资料+最新面试大厂面试题，入手不亏！</p>
+<p> 点击购买</p>
+<p>下面我们来看看这样的错误该如何收集。</p>
+<p><strong>try-catch：</strong></p>
+<p>JS作为一门高级语言我们首先想到的使用try-catch来收集。</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”400” data-rawheight=”144” class=”content_image lazy” width=”400” data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic1.zhimg.com/v2-51eb4ad932ae4db5517168839c931c4c_b.jpg&quot;&gt;&quot;">https://pic1.zhimg.com/v2-51eb4ad932ae4db5517168839c931c4c_b.jpg&quot;&gt;&quot;</a> data-caption=”” data-size=”normal” data-rawwidth=”1080” data-rawheight=”212” class=”origin_image zh-lightbox-thumb lazy” width=”1080” data-original=”<a target="_blank" rel="noopener" href="https://pic4.zhimg.com/v2-f60fcaaf37f634c7e21840fddcbc0bcb_r.jpg&quot;">https://pic4.zhimg.com/v2-f60fcaaf37f634c7e21840fddcbc0bcb_r.jpg&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic4.zhimg.com/v2-f60fcaaf37f634c7e21840fddcbc0bcb_b.jpg&quot;&gt;">https://pic4.zhimg.com/v2-f60fcaaf37f634c7e21840fddcbc0bcb_b.jpg&quot;&gt;</a></p>
+<p>如果在函数中错误没有被捕获，错误会上抛。</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”404” data-rawheight=”189” class=”content_image lazy” width=”404” data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic2.zhimg.com/v2-363e6cbca691e973af69bf2023740615_b.jpg&quot;&gt;&quot;">https://pic2.zhimg.com/v2-363e6cbca691e973af69bf2023740615_b.jpg&quot;&gt;&quot;</a> data-caption=”” data-size=”normal” data-rawwidth=”1068” data-rawheight=”246” class=”origin_image zh-lightbox-thumb lazy” width=”1068” data-original=”<a target="_blank" rel="noopener" href="https://pic2.zhimg.com/v2-eb1f32f0859ff9b1d7e173440a33ef79_r.jpg&quot;">https://pic2.zhimg.com/v2-eb1f32f0859ff9b1d7e173440a33ef79_r.jpg&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic2.zhimg.com/v2-eb1f32f0859ff9b1d7e173440a33ef79_b.jpg&quot;&gt;">https://pic2.zhimg.com/v2-eb1f32f0859ff9b1d7e173440a33ef79_b.jpg&quot;&gt;</a></p>
+<p>控制台中打印出的分别是错误信息和错误堆栈。</p>
+<p>读到这里大家可能会想那就在最底层做一个错误try-catch不就好了吗。</p>
+<p>确实作为一个从java转过来的程序员也是这么想的。</p>
+<p>但是理想很丰满，现实很骨感。我们看看下一个例子。</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”401” data-rawheight=”213” class=”content_image lazy” width=”401” data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic1.zhimg.com/v2-3009ca23cd31746edc60dfccb214dd58_b.jpg&quot;&gt;&quot;">https://pic1.zhimg.com/v2-3009ca23cd31746edc60dfccb214dd58_b.jpg&quot;&gt;&quot;</a> data-caption=”” data-size=”normal” data-rawwidth=”1080” data-rawheight=”243” class=”origin_image zh-lightbox-thumb lazy” width=”1080” data-original=”<a target="_blank" rel="noopener" href="https://pic1.zhimg.com/v2-ee34d182fd272a2c7416846eda3a3598_r.jpg&quot;">https://pic1.zhimg.com/v2-ee34d182fd272a2c7416846eda3a3598_r.jpg&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic1.zhimg.com/v2-ee34d182fd272a2c7416846eda3a3598_b.jpg&quot;&gt;">https://pic1.zhimg.com/v2-ee34d182fd272a2c7416846eda3a3598_b.jpg&quot;&gt;</a></p>
+<p>大家注意运行结果，异常并没有被捕获。</p>
+<p>这是因为JS的try-catch功能非常有限一遇到异步就不好用了。</p>
+<p>那总不能为了收集错误给所有的异步都加一个try-catch吧，太坑爹了。</p>
+<p>其实你想想异步任务其实也不是由代码形式上的上层调用的就比如本例中的settimeout。</p>
+<p>大家想想eventloop就明白啦，其实这些一步函数都是就好比一群没娘的孩子出了错误找不到家大人。</p>
+<p>当然我也想过一些黑魔法来处理这个问题比如代理执行或者用过的异步方法。</p>
+<p>算了还是还是再看看吧。</p>
+<h2 id="（2）异常任务捕获"><a href="#（2）异常任务捕获" class="headerlink" title="（2）异常任务捕获"></a><strong>（2）异常任务捕获</strong></h2><p><strong>window.onerror:</strong></p>
+<p>window.onerror 最大的好处就是可以同步任务还是异步任务都可捕获。</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”401” data-rawheight=”187” class=”content_image lazy” width=”401” data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic4.zhimg.com/v2-24bed8baa980bec00959fe02855f2d77_b.jpg&quot;&gt;&quot;">https://pic4.zhimg.com/v2-24bed8baa980bec00959fe02855f2d77_b.jpg&quot;&gt;&quot;</a> data-caption=”” data-size=”normal” data-rawwidth=”1080” data-rawheight=”642” class=”origin_image zh-lightbox-thumb lazy” width=”1080” data-original=”<a target="_blank" rel="noopener" href="https://pic3.zhimg.com/v2-1a4bb9c84271b5b25b242ea463b3d89e_r.jpg&quot;">https://pic3.zhimg.com/v2-1a4bb9c84271b5b25b242ea463b3d89e_r.jpg&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic3.zhimg.com/v2-1a4bb9c84271b5b25b242ea463b3d89e_b.jpg&quot;&gt;">https://pic3.zhimg.com/v2-1a4bb9c84271b5b25b242ea463b3d89e_b.jpg&quot;&gt;</a></p>
+<p>onerror返回值</p>
+<p>onerror还有一个问题大家要注意 如果返回返回true 就不会被上抛了。</p>
+<p>不然控制台中还会看到错误日志。</p>
+<p>监听error事件:</p>
+<p>文件中的位置☟</p>
+<p>window.addEventListener(‘error’,() =&gt; {}）</p>
+<p>其实onerror固然好但是还是有一类异常无法捕获。这就是网络异常的错误。</p>
+<p>比如下面的例子。</p>
+<p> <code class="language-text"><img src="./xxxxx.png"></code></p>
+<p>试想一下我们如果页面上要显示的图片突然不显示了，而我们浑然不知那就是麻烦了。</p>
+<p>addEventListener就是☟</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”402” data-rawheight=”128” class=”content_image lazy” width=”402” data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic4.zhimg.com/v2-dcde4d67a39d808a95ec2cf3d6837563_b.jpg&quot;&gt;">https://pic4.zhimg.com/v2-dcde4d67a39d808a95ec2cf3d6837563_b.jpg&quot;&gt;</a></p>
+<p>运行结果如下☟</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”1080” data-rawheight=”579” class=”origin_image zh-lightbox-thumb lazy” width=”1080” data-original=”<a target="_blank" rel="noopener" href="https://pic2.zhimg.com/v2-dfd4f570225685b4ff0d45b59c60af49_r.jpg&quot;">https://pic2.zhimg.com/v2-dfd4f570225685b4ff0d45b59c60af49_r.jpg&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic2.zhimg.com/v2-dfd4f570225685b4ff0d45b59c60af49_b.jpg&quot;&gt;">https://pic2.zhimg.com/v2-dfd4f570225685b4ff0d45b59c60af49_b.jpg&quot;&gt;</a></p>
+<p><strong>Promise异常捕获：</strong></p>
+<p>Promise的出现主要是为了让我们解决回调地域问题。基本是我们程序开发的标配了。</p>
+<p>虽然我们提倡使用es7 async/await语法来写。</p>
+<p>但是不排除很多祖传代码还是存在Promise写法。</p>
+<p> <code class="language-text">new Promise((resolve, reject) => &#123;<br>  abcxxx()<br>&#125;);</code></p>
+<p>这种情况无论是onerror还是监听错误事件都是无法捕获的。</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”401” data-rawheight=”119” class=”content_image lazy” width=”401” data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic3.zhimg.com/v2-bb38e70990a048e6daefd6f83e60a0f2_b.jpg&quot;&gt;">https://pic3.zhimg.com/v2-bb38e70990a048e6daefd6f83e60a0f2_b.jpg&quot;&gt;</a></p>
+<p>除非每个Promise都添加一个catch方法。</p>
+<p>但显然，我们不能这样做。</p>
+<p> <code class="language-text">window.addEventListener("unhandledrejection", e => &#123;<br> console.log('unhandledrejection',e)<br>&#125;);</code></p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”1080” data-rawheight=”809” class=”origin_image zh-lightbox-thumb lazy” width=”1080” data-original=”<a target="_blank" rel="noopener" href="https://pic4.zhimg.com/v2-86c91b28e3e98d398cd111059a539053_r.jpg&quot;">https://pic4.zhimg.com/v2-86c91b28e3e98d398cd111059a539053_r.jpg&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic4.zhimg.com/v2-86c91b28e3e98d398cd111059a539053_b.jpg&quot;&gt;">https://pic4.zhimg.com/v2-86c91b28e3e98d398cd111059a539053_b.jpg&quot;&gt;</a></p>
+<p>我们可以考虑将unhandledrejection事件捕获错误抛出交由错误事件统一处理就可以了。</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”464” data-rawheight=”58” class=”origin_image zh-lightbox-thumb lazy” width=”464” data-original=”<a target="_blank" rel="noopener" href="https://pic4.zhimg.com/v2-095d67f6d6f509372148f50f03ad138f_r.jpg&quot;">https://pic4.zhimg.com/v2-095d67f6d6f509372148f50f03ad138f_r.jpg&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic4.zhimg.com/v2-095d67f6d6f509372148f50f03ad138f_b.png&quot;&gt;">https://pic4.zhimg.com/v2-095d67f6d6f509372148f50f03ad138f_b.png&quot;&gt;</a></p>
+<p><strong>async/await异常捕获：</strong></p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”406” data-rawheight=”160” class=”content_image lazy” width=”406” data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic3.zhimg.com/v2-40721f7dcef91b6583c9a553a77692e6_b.jpg&quot;&gt;">https://pic3.zhimg.com/v2-40721f7dcef91b6583c9a553a77692e6_b.jpg&quot;&gt;</a></p>
+<p>实际上async/await语法本质还是Promise语法。</p>
+<p>区别就是async方法可以被上层的try/catch捕获。</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”1072” data-rawheight=”206” class=”origin_image zh-lightbox-thumb lazy” width=”1072” data-original=”<a target="_blank" rel="noopener" href="https://pic4.zhimg.com/v2-202ea279c17b8bff96079be9b3810363_r.jpg&quot;">https://pic4.zhimg.com/v2-202ea279c17b8bff96079be9b3810363_r.jpg&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic4.zhimg.com/v2-202ea279c17b8bff96079be9b3810363_b.jpg&quot;&gt;">https://pic4.zhimg.com/v2-202ea279c17b8bff96079be9b3810363_b.jpg&quot;&gt;</a></p>
+<p>如果不去捕获的话就会和Promise一样，需要用unhandledrejection事件捕获。</p>
+<p>这样的话我们只需要在全局增加unhandlerejection就好了。</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”1080” data-rawheight=”547” class=”origin_image zh-lightbox-thumb lazy” width=”1080” data-original=”<a target="_blank" rel="noopener" href="https://pic2.zhimg.com/v2-76208837a31c285e2edcc0695fda0641_r.jpg&quot;">https://pic2.zhimg.com/v2-76208837a31c285e2edcc0695fda0641_r.jpg&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic2.zhimg.com/v2-76208837a31c285e2edcc0695fda0641_b.jpg&quot;&gt;">https://pic2.zhimg.com/v2-76208837a31c285e2edcc0695fda0641_b.jpg&quot;&gt;</a></p>
+<p><strong>小结：</strong></p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”803” data-rawheight=”194” class=”origin_image zh-lightbox-thumb lazy” width=”803” data-original=”<a target="_blank" rel="noopener" href="https://pic4.zhimg.com/v2-42c036f0328fb65eb3336fb5501b5fbb_r.jpg&quot;">https://pic4.zhimg.com/v2-42c036f0328fb65eb3336fb5501b5fbb_r.jpg&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic4.zhimg.com/v2-42c036f0328fb65eb3336fb5501b5fbb_b.jpg&quot;&gt;">https://pic4.zhimg.com/v2-42c036f0328fb65eb3336fb5501b5fbb_b.jpg&quot;&gt;</a></p>
+<p>实际上我们可以将unhandledrejection事件抛出的异常再次抛出就可以统一通过error事件进行处理了。</p>
+<p>最终用代码表示如下：</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”421” data-rawheight=”141” class=”origin_image zh-lightbox-thumb lazy” width=”421” data-original=”<a target="_blank" rel="noopener" href="https://pic4.zhimg.com/v2-abcb7cdcbe9b20a82f85ce1bc0d2f2f3_r.jpg&quot;">https://pic4.zhimg.com/v2-abcb7cdcbe9b20a82f85ce1bc0d2f2f3_r.jpg&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic4.zhimg.com/v2-abcb7cdcbe9b20a82f85ce1bc0d2f2f3_b.jpg&quot;&gt;">https://pic4.zhimg.com/v2-abcb7cdcbe9b20a82f85ce1bc0d2f2f3_b.jpg&quot;&gt;</a></p>
+<p>想更深入了解 Vue ，来 1 毛钱带走前端资料，包括 web 全栈和 web 架构师的学习资料以及大厂面试指南等，点击即可购买。</p>
+<p> 开课吧 的推荐<br> 2020 Vue 资料+最新面试大厂面试题，入手不亏！</p>
+<p> 点击购买</p>
+<h2 id="（3）前端工程化"><a href="#（3）前端工程化" class="headerlink" title="（3）前端工程化"></a><strong>（3）前端工程化</strong></h2><p><strong>Webpack工程化：</strong></p>
+<p>现在是前端工程化的时代,工程化导出的代码一般都是被压缩混淆后的。</p>
+<p>比如：</p>
+<p> <code class="language-text">setTimeout(() => &#123;<br>    xxx(1223)<br>&#125;, 1000)</code></p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”1080” data-rawheight=”211” class=”origin_image zh-lightbox-thumb lazy” width=”1080” data-original=”<a target="_blank" rel="noopener" href="https://pic2.zhimg.com/v2-c3d782d2032237beaa2d48c68c633691_r.jpg&quot;">https://pic2.zhimg.com/v2-c3d782d2032237beaa2d48c68c633691_r.jpg&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic2.zhimg.com/v2-c3d782d2032237beaa2d48c68c633691_b.jpg&quot;&gt;">https://pic2.zhimg.com/v2-c3d782d2032237beaa2d48c68c633691_b.jpg&quot;&gt;</a></p>
+<p>出错的代码指向被压缩后的JS文件，而JS文件长下图这个样子。</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”1080” data-rawheight=”538” class=”origin_image zh-lightbox-thumb lazy” width=”1080” data-original=”<a target="_blank" rel="noopener" href="https://pic1.zhimg.com/v2-2faf801967fa4b332ac2913d1fdd7230_r.jpg&quot;">https://pic1.zhimg.com/v2-2faf801967fa4b332ac2913d1fdd7230_r.jpg&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic1.zhimg.com/v2-2faf801967fa4b332ac2913d1fdd7230_b.jpg&quot;&gt;">https://pic1.zhimg.com/v2-2faf801967fa4b332ac2913d1fdd7230_b.jpg&quot;&gt;</a></p>
+<p>如果想将错误和原有的代码关联起来，那就需要sourcemap文件的帮忙了。</p>
+<p><strong>sourceMap是什么？</strong></p>
+<p>简单说，sourceMap就是一个文件，里面储存着位置信息。</p>
+<p>仔细点说，这个文件里保存的，是转换后代码的位置，和对应的转换前的位置。</p>
+<p>那么如何利用sourceMap对还原异常代码发生的位置这个问题，我们到异常分析这个章节再讲。</p>
+<h2 id="（4）VUE创建工程"><a href="#（4）VUE创建工程" class="headerlink" title="（4）VUE创建工程"></a><strong>（4）VUE创建工程</strong></h2><p>利用vue-cli工具直接创建一个项目。</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”402” data-rawheight=”156” class=”content_image lazy” width=”402” data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic1.zhimg.com/v2-4c139c35f19d7081d0c686370146677c_b.jpg&quot;&gt;">https://pic1.zhimg.com/v2-4c139c35f19d7081d0c686370146677c_b.jpg&quot;&gt;</a></p>
+<p>为了测试的需要我们暂时关闭eslint 这里面还是建议大家全程打开eslint。</p>
+<p>在vue.config.js进行配置</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”400” data-rawheight=”159” class=”content_image lazy” width=”400” data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic4.zhimg.com/v2-b4565492dc4f22c5fc96ca97e4bcc617_b.jpg&quot;&gt;">https://pic4.zhimg.com/v2-b4565492dc4f22c5fc96ca97e4bcc617_b.jpg&quot;&gt;</a></p>
+<p>我们故意在（文件位置☟）</p>
+<p>src/components/HelloWorld.vue</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”401” data-rawheight=”306” class=”content_image lazy” width=”401” data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic3.zhimg.com/v2-bfb5e58e71842af9349958f3eaf4a09e_b.jpg&quot;&gt;">https://pic3.zhimg.com/v2-bfb5e58e71842af9349958f3eaf4a09e_b.jpg&quot;&gt;</a></p>
+<p>这个时候 错误会在控制台中被打印出来,但是错误事件并没有监听到。</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”1074” data-rawheight=”560” class=”origin_image zh-lightbox-thumb lazy” width=”1074” data-original=”<a target="_blank" rel="noopener" href="https://pic2.zhimg.com/v2-dd07b60c535c7926772a5a2655040561_r.jpg&quot;">https://pic2.zhimg.com/v2-dd07b60c535c7926772a5a2655040561_r.jpg&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic2.zhimg.com/v2-dd07b60c535c7926772a5a2655040561_b.jpg&quot;&gt;">https://pic2.zhimg.com/v2-dd07b60c535c7926772a5a2655040561_b.jpg&quot;&gt;</a></p>
+<p><strong>handleError：</strong></p>
+<p>为了对Vue发生的异常进行统一的上报，需要利用vue提供的handleError句柄。</p>
+<p>一旦Vue发生异常都会调用这个方法。</p>
+<p>我们在src/main.js</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”447” data-rawheight=”55” class=”origin_image zh-lightbox-thumb lazy” width=”447” data-original=”<a target="_blank" rel="noopener" href="https://pic1.zhimg.com/v2-7704644c5b12b7114531809d5ebf7770_r.jpg&quot;">https://pic1.zhimg.com/v2-7704644c5b12b7114531809d5ebf7770_r.jpg&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic1.zhimg.com/v2-7704644c5b12b7114531809d5ebf7770_b.png&quot;&gt;&quot;">https://pic1.zhimg.com/v2-7704644c5b12b7114531809d5ebf7770_b.png&quot;&gt;&quot;</a> data-caption=”” data-size=”normal” data-rawwidth=”1080” data-rawheight=”531” class=”origin_image zh-lightbox-thumb lazy” width=”1080” data-original=”<a target="_blank" rel="noopener" href="https://pic3.zhimg.com/v2-268cfccd057a38248c873ff9c4fd4a3a_r.jpg&quot;">https://pic3.zhimg.com/v2-268cfccd057a38248c873ff9c4fd4a3a_r.jpg&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic3.zhimg.com/v2-268cfccd057a38248c873ff9c4fd4a3a_b.jpg&quot;&gt;">https://pic3.zhimg.com/v2-268cfccd057a38248c873ff9c4fd4a3a_b.jpg&quot;&gt;</a></p>
+<p><strong>React：</strong></p>
+<p>npx create-react-app react-sample</p>
+<p>cd react-sample</p>
+<p>yarn start</p>
+<p>我们l用useEffect hooks 制造一个错误：</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”402” data-rawheight=”275” class=”content_image lazy” width=”402” data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic1.zhimg.com/v2-a58566e129b9e03f2bef7941925cc49c_b.jpg&quot;&gt;">https://pic1.zhimg.com/v2-a58566e129b9e03f2bef7941925cc49c_b.jpg&quot;&gt;</a></p>
+<p>并且在src/index.js中增加错误事件监听逻辑：</p>
+<p> <code class="language-text">window.addEventListener('error', args => &#123;<br>    console.log('error', error)<br>&#125;)</code></p>
+<p>但是从运行结果看虽然输出了错误日志但是还是服务捕获。</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”1060” data-rawheight=”488” class=”origin_image zh-lightbox-thumb lazy” width=”1060” data-original=”<a target="_blank" rel="noopener" href="https://pic1.zhimg.com/v2-e5a572825df118a6444194ae2c506e54_r.jpg&quot;">https://pic1.zhimg.com/v2-e5a572825df118a6444194ae2c506e54_r.jpg&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic1.zhimg.com/v2-e5a572825df118a6444194ae2c506e54_b.jpg&quot;&gt;">https://pic1.zhimg.com/v2-e5a572825df118a6444194ae2c506e54_b.jpg&quot;&gt;</a></p>
+<h2 id="（5）Error-Boundary-标签"><a href="#（5）Error-Boundary-标签" class="headerlink" title="（5）Error Boundary 标签"></a><strong>（5）Error Boundary 标签</strong></h2><p>错误边界仅可以捕获其子组件的错误。</p>
+<p>错误边界无法捕获其自身的错误。</p>
+<p>如果一个错误边界无法渲染错误信息，则错误会向上冒泡至最接近的错误边界。</p>
+<p>这也类似于 JavaScript 中 catch {} 的工作机制。</p>
+<p>创建ErrorBoundary组件</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”476” data-rawheight=”235” class=”origin_image zh-lightbox-thumb lazy” width=”476” data-original=”<a target="_blank" rel="noopener" href="https://pic2.zhimg.com/v2-789d41b2f1068569f70388bc6dcb0655_r.jpg&quot;">https://pic2.zhimg.com/v2-789d41b2f1068569f70388bc6dcb0655_r.jpg&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic2.zhimg.com/v2-789d41b2f1068569f70388bc6dcb0655_b.jpg&quot;&gt;">https://pic2.zhimg.com/v2-789d41b2f1068569f70388bc6dcb0655_b.jpg&quot;&gt;</a></p>
+<p>在src/index.js中包裹App标签☟</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”401” data-rawheight=”114” class=”content_image lazy” width=”401” data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic4.zhimg.com/v2-52d556688681a17b90127876ac7c580f_b.jpg&quot;&gt;">https://pic4.zhimg.com/v2-52d556688681a17b90127876ac7c580f_b.jpg&quot;&gt;</a></p>
+<p>最终运行的结果：</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”1080” data-rawheight=”579” class=”origin_image zh-lightbox-thumb lazy” width=”1080” data-original=”<a target="_blank" rel="noopener" href="https://pic4.zhimg.com/v2-8f9aa3b565509c8b90e148e297c812d7_r.jpg&quot;">https://pic4.zhimg.com/v2-8f9aa3b565509c8b90e148e297c812d7_r.jpg&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic4.zhimg.com/v2-8f9aa3b565509c8b90e148e297c812d7_b.jpg&quot;&gt;">https://pic4.zhimg.com/v2-8f9aa3b565509c8b90e148e297c812d7_b.jpg&quot;&gt;</a></p>
+<p>关于Ajax的异常上报、搭建eggis工程、深度解析Error Staack等等操作，我正在拼命制作中，感兴趣的朋友记得关注我，产出后我会第一时间发出来~</p>
+<p>以上，希望能够帮助到各位。</p>
+<p>有意向深入了解 Vue，点击下方查看资料包括 web 全栈和 web 架构师的学习资料以及大厂面试指南等，点击即可 1 毛钱购买。</p>
+<p> 开课吧 的推荐<br> 2020 Vue 资料+最新面试大厂面试题，入手不亏！</p>
+<p> 点击购买</p>
+<blockquote>
+<p>作者：不露脸的web侠</p>
+</blockquote>
+</div></article></div><nav class="pagination is-centered mt-4" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/5/">上一页</a></div><div class="pagination-next"><a href="/page/7/">下一页</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/5/">5</a></li><li><a class="pagination-link is-current" href="/page/6/">6</a></li><li><a class="pagination-link" href="/page/7/">7</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/19/">19</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="https://www.gravatar.com/avatar/2396bdfe5aadb513e676094004dde830?s=128" alt="edwin"></figure><p class="title is-size-4 is-block line-height-inherit">edwin</p><p class="is-size-6 is-block">知识铺</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国 杭州</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">189</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">2</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/liliang8858" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/liliang8858"><i class="Github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="社区"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="设计"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/go/"><span class="level-start"><span class="level-item">go</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:43:02.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Spring%20Cloud%20Gateway+Nacos%EF%BC%8Cyml+properties%E4%B8%A4%E7%A7%8D%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%96%B9%E5%BC%8F%E6%90%AD%E5%BB%BA%E7%BD%91%E5%85%B3%E6%9C%8D%E5%8A%A1/">Spring Cloud Gateway+Nacos，yml+properties两种配置文件方式搭建网关服务</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:39:59.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Spring%20Cloud+nacos+Feign%EF%BC%8C%E5%AE%9E%E7%8E%B0%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%E5%8F%8A%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">Spring Cloud+nacos+Feign，实现注册中心及配置中心</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:32:26.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E6%97%B6%EF%BC%8C%E5%A4%9A%E4%B8%AA%E6%9C%8D%E5%8A%A1%E5%85%B1%E7%94%A8%E4%B8%80%E4%B8%AAdataId%E7%9A%84%E9%85%8D%E7%BD%AE/">Nacos作为配置中心时，多个服务共用一个dataId的配置</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T09:34:29.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/SpringCloudAlibaba(%E4%B8%89)%EF%BC%9A%E4%BD%BF%E7%94%A8Nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">SpringCloudAlibaba(三)：使用Nacos作为配置中心</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T09:31:53.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Nacos%20%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/">Nacos 集群部署</a></p><p class="is-uppercase"></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2020/07/"><span class="level-start"><span class="level-item">七月 2020</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/06/"><span class="level-start"><span class="level-item">六月 2020</span></span><span class="level-end"><span class="level-item tag">37</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/05/"><span class="level-start"><span class="level-item">五月 2020</span></span><span class="level-end"><span class="level-item tag">29</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/04/"><span class="level-start"><span class="level-item">四月 2020</span></span><span class="level-end"><span class="level-item tag">62</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/03/"><span class="level-start"><span class="level-item">三月 2020</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/12/"><span class="level-start"><span class="level-item">十二月 2019</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/11/"><span class="level-start"><span class="level-item">十一月 2019</span></span><span class="level-end"><span class="level-item tag">24</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/go/"><span class="tag">go</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/web/"><span class="tag">web</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button is-primary" type="submit" value="订阅"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="2183476622" data-ad-slot="pub-2874221941555456" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="知识铺" height="28"></a><p class="size-small"><span>&copy; 2020 edwin</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            site: {
+                url: 'https://zshipu.com',
+                external_link: {"enable":true,"exclude":[]}
+            },
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

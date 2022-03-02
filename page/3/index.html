@@ -1,0 +1,1013 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>知识铺</title><meta property="og:type" content="blog"><meta property="og:title" content="知识铺"><meta property="og:url" content="https://zshipu.com/"><meta property="og:site_name" content="知识铺"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://zshipu.com/img/og_image.png"><meta property="article:author" content="edwin"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://zshipu.com"},"headline":"知识铺","image":["https://zshipu.com/img/og_image.png"],"author":{"@type":"Person","name":"edwin"},"description":""}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600&amp;family=Roboto+Mono"><link rel="stylesheet" href="/css/cyberpunk.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><script data-ad-client="2183476622" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><meta name="generator" content="Hexo 5.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="知识铺" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-06-25T11:06:02.000Z" title="2020-06-25T11:06:02.000Z">2020-06-25</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.498Z" title="2020-09-08T14:03:00.498Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">21 分钟读完 (大约3077个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/06/25/%E7%94%A8%E4%BA%8E%20Flutter%20%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E6%96%B0%E5%B7%A5%E5%85%B7%EF%BC%8C%E5%86%85%E7%BD%AE%E4%BA%8E%20Flutter/">用于 Flutter 开发人员的新工具，内置于 Flutter</a></h1><div class="content"><p><font _mstmutation="1" _msthash="33423" _msttexthash="1973064262">发布新版本的 Dart DevTools，我们的工具套件用于对 Dart 和 Flutter 代码进行调试和性能分析。它在Flutter中从零开始重建。此版本添加了一些改进，例如对性能和内存页的更新，以及一个全新的网络页。</font></p>
+<p><font _mstmutation="1" _msthash="32331" _msttexthash="1345105047">许多人知道 Flutter 的热重新加载功能，允许您在移动应用运行时对其进行更改。但是，热重新加载只是我们为您提供的一套工具之一，可帮助您编写、测试、调试和分析你的应用。</font></p>
+<p> <img src="https://miro.medium.com/max/60/0*VLibsxLD9Wv35Pr8?q=20"></p>
+<p><img src="https://miro.medium.com/max/1600/0*VLibsxLD9Wv35Pr8"></p>
+<p><noscript><img src="https://miro.medium.com/max/3200/0*VLibsxLD9Wv35Pr8"></noscript></p>
+<p><font _mstmutation="1" _msthash="22854" _msttexthash="2502695780">让我们先花点时间讨论一下为什么我们首先重建了 DevTools。简短的回答是生产力和质量。Flutter 团队了解 Flutter 在构建美观、高性能的 UIs 时带来的生产力优势，我们希望这些好处。这种工作效率不仅使我们能够重建 DevTools，而且在此过程中添加新功能。</font></p>
+<p><font _mstmutation="1" _msthash="40586" _msttexthash="2276652937">我们选择将 DevTools 作为 Web 应用程序发货，因为我们很容易集成到所有目标平台和 IDEs 的现有工具体验中。以网络为头脑的建设也使我们能够走在客户的立场上;在此过程中，我们了解了（并修复了）一些性能问题，如滚动性能。</font></p>
+<p><font _mstmutation="1" _msthash="23855" _msttexthash="2858021894">我们还一直在评估作为编译的桌面应用程序运输 DevTools 的好处，到目前为止，结果很有希望。选择 Flutter 的一个主要好处是，选择分发模型是我们在编写代码_后_可以做的事情，而不是我们必须做出的第一个决定。许多客户还告诉我们，这是一个有吸引力的功能，Flutter。</font></p>
+<p><font _mstmutation="1" _msthash="32968" _msttexthash="1161633746">现在，我们已经讨论了一些关于 DevTools 的近过去和新的未来，让我们深入了解每个 Flutter 开发人员可用的_所有主要_工具的快速概述。因为 DevTools 并不是唯一值得您关注的工具。</font></p>
+<h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a><font _mstmutation="1" _msthash="27651" _msttexthash="13493779">基础知识</font></h1><p><font _mstmutation="1" _msthash="38116" _msttexthash="1589337737">当然，有该工具，它在调试模式下运行你的应用，执行热重新加载，生成APK和IPA，以及更多。该工具以 Dart 编写，并在命令行上运行，因此无论您喜欢哪个操作系统或编辑器，您都可以使用 Flutter。</font></p>
+<p> <img src="https://miro.medium.com/max/60/0*iVa4x2t2lP9ohPN4?q=20"></p>
+<p><img src="https://miro.medium.com/max/1600/0*iVa4x2t2lP9ohPN4"></p>
+<p><noscript><img src="https://miro.medium.com/max/3200/0*iVa4x2t2lP9ohPN4"></noscript></p>
+<p><font _mstmutation="1" _msthash="27456" _msttexthash="275535845">Dart 分析服务器在各种 IDE 中提供静态分析和智能。这意味着您能够完成代码…</font></p>
+<p> <img src="https://miro.medium.com/max/60/0*JElGgGi_Kf6KM7nx?q=20"></p>
+<p><img src="https://miro.medium.com/max/1592/0*JElGgGi_Kf6KM7nx"></p>
+<p><noscript><img src="https://miro.medium.com/max/3184/0*JElGgGi_Kf6KM7nx"></noscript></p>
+<p><font _mstmutation="1" _msthash="3440060" _msttexthash="192779574">这恰好是VS代码，但这里的所有示例当然在 Android Studio 中也起作用。</font></p>
+<p><font _mstmutation="1" _msthash="32357" _msttexthash="129761697">…错误突出显示链接到有关如何<a href="https://zshipu.com/t?url=https://dart.dev/tools/diagnostic-messages">修复它们</a>的文档…</font></p>
+<p> <img src="https://miro.medium.com/max/60/1*KRIuvikDtgXpHSIgGe9a9Q.png?q=20"></p>
+<p><img src="https://miro.medium.com/max/2734/1*KRIuvikDtgXpHSIgGe9a9Q.png"></p>
+<p><noscript><img src="https://miro.medium.com/max/5468/1*KRIuvikDtgXpHSIgGe9a9Q.png"></noscript></p>
+<p><font _mstmutation="1" _msthash="3440061" _msttexthash="402765363">对于最常见的静态错误，IEs 链接到错误消息的较长版本，包括示例代码和常见修补程序。</font></p>
+<p><font _mstmutation="1" _msthash="39429" _msttexthash="30581447">…和聪明的绒毛。</font></p>
+<p> <img src="https://miro.medium.com/max/60/1*VqwAbaGamLPA-v6icQJOVQ.png?q=20"></p>
+<p><img src="https://miro.medium.com/max/1572/1*VqwAbaGamLPA-v6icQJOVQ.png"></p>
+<p><noscript><img src="https://miro.medium.com/max/3144/1*VqwAbaGamLPA-v6icQJOVQ.png"></noscript></p>
+<p><font _mstmutation="1" _msthash="3440062" _msttexthash="175701981">在这里，分析器检测创建 Sink 但从不关闭 - 可能存在内存泄漏。</font></p>
+<p><font _mstmutation="1" _msthash="27599" _msttexthash="575125460">分析服务器也可以使用<a href="https://zshipu.com/t?url=https://microsoft.github.io/language-server-protocol/">语言服务器协议</a>，这意味着使用它的所有开发人员工具（<a href="https://zshipu.com/t?url=https://microsoft.github.io/language-server-protocol/implementors/tools/">并且有许多</a>）可以很容易地支持它。</font></p>
+<h1 id="UI-代码帮助器"><a href="#UI-代码帮助器" class="headerlink" title="UI 代码帮助器"></a><font _mstmutation="1" _msthash="28132" _msttexthash="16858998">UI 代码帮助器</font></h1><p><font _mstmutation="1" _msthash="33424" _msttexthash="693513860">使用 Flutter，您可以通过创建小部件树在代码中构建 UI。这意味着许多 Dart 代码以嵌套构造函数的形式出现，如下所示：</font></p>
+<p>return MaterialApp(<br>  title: ‘My app’,<br>  home: Scaffold(<br>    appBar: AppBar(<br>      title: Text(‘Welcome’),<br>    ),<br>    body: Column(<br>      …<br>    ),<br>  ),<br>);</p>
+<p><font _mstmutation="1" _msthash="27573" _msttexthash="274052792">颤动工具使使用这样的代码变得更加容易。UI 指南突出显示要构建的小部件树。</font></p>
+<p> <img src="https://miro.medium.com/max/60/1*iG8tpvV34F3XOXyzLC2U0Q.png?q=20"></p>
+<p><img src="https://miro.medium.com/max/1078/1*iG8tpvV34F3XOXyzLC2U0Q.png"></p>
+<p><noscript><img src="https://miro.medium.com/max/2156/1*iG8tpvV34F3XOXyzLC2U0Q.png"></noscript></p>
+<p><font _mstmutation="1" _msthash="3440063" _msttexthash="128627096">左侧的行称为 UI 参考线，显式可视化小部件树。</font></p>
+<p><font _mstmutation="1" _msthash="33930" _msttexthash="110350539">尾随注释可以显示哪个方括号属于哪个小部件。</font></p>
+<p> <img src="https://miro.medium.com/max/60/1*e2q4GYtedlU7b-TKLgnRyg.png?q=20"></p>
+<p><img src="https://miro.medium.com/max/1172/1*e2q4GYtedlU7b-TKLgnRyg.png"></p>
+<p><noscript><img src="https://miro.medium.com/max/2344/1*e2q4GYtedlU7b-TKLgnRyg.png"></noscript></p>
+<p><font _mstmutation="1" _msthash="3440064" _msttexthash="151469019">此处的注释由 IDE 显示，但实际上不是文件的一部分。</font></p>
+<p><font _mstmutation="1" _msthash="33956" _msttexthash="248199978">智能重构可帮助您在几个笔画中修改树，例如用新父项包装树的一部分…</font></p>
+<p> <img src="https://miro.medium.com/freeze/max/60/1*sVn-oXHO2jW9sWpxG82njg.gif?q=20"></p>
+<p><img src="https://miro.medium.com/max/1019/1*sVn-oXHO2jW9sWpxG82njg.gif"></p>
+<p><noscript><img src="https://miro.medium.com/max/2038/1*sVn-oXHO2jW9sWpxG82njg.gif"></noscript></p>
+<p><font _mstmutation="1" _msthash="3440065" _msttexthash="44018923">用大小框包装图标按钮。</font></p>
+<p><font _mstmutation="1" _msthash="39117" _msttexthash="37560302">…和移动小部件周围。</font></p>
+<p> <img src="https://miro.medium.com/freeze/max/60/1*umZpq9lqGCrOyBJiTPKHsw.gif?q=20"></p>
+<p><img src="https://miro.medium.com/max/602/1*umZpq9lqGCrOyBJiTPKHsw.gif"></p>
+<p><noscript><img src="https://miro.medium.com/max/1204/1*umZpq9lqGCrOyBJiTPKHsw.gif"></noscript></p>
+<h1 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a><font _mstmutation="1" _msthash="32877" _msttexthash="9968127">开发工具</font></h1><p><font _mstmutation="1" _msthash="33020" _msttexthash="608069930">然后是 DevTools，一套在浏览器中运行的独立工具套件。它们提供了其他遥测和功能，这些遥测和功能在 IDE 中不实用。</font></p>
+<p> <img src="https://miro.medium.com/freeze/max/60/1*hcoGwr98wOif8v6rNJajUw.gif?q=20"></p>
+<p><img src="https://miro.medium.com/max/973/1*hcoGwr98wOif8v6rNJajUw.gif"></p>
+<p><noscript><img src="https://miro.medium.com/max/1946/1*hcoGwr98wOif8v6rNJajUw.gif"></noscript></p>
+<p><font _mstmutation="1" _msthash="3440066" _msttexthash="70245695">开发人员工具在浏览器窗口中打开。</font></p>
+<p><font _mstmutation="1" _msthash="35438" _msttexthash="1087635107">我们本周推出的 DevTools 是用”颤动”编写的。（它们以前用飞镖编写，但不使用 Flutter 框架。这是从头开始完全重写，这为改进 UI 和添加全新的功能提供了机会。</font></p>
+<p> <img src="https://miro.medium.com/max/60/1*Z7TXqke4-9T7EaTKgNSTsw.png?q=20"></p>
+<p><img src="https://miro.medium.com/max/2724/1*Z7TXqke4-9T7EaTKgNSTsw.png"></p>
+<p><noscript><img src="https://miro.medium.com/max/5448/1*Z7TXqke4-9T7EaTKgNSTsw.png"></noscript></p>
+<p><font _mstmutation="1" _msthash="33306" _msttexthash="1155445928">第一个选项卡是<a href="https://zshipu.com/t?url=https://flutter.dev/docs/development/tools/devtools/inspector">“飘飘”检查器</a>，它是一个用于可视化和探索飞溅小部件树的工具。在此处，您可以在正在运行的应用中选择小部件、减慢所有动画速度、查看文本基线等。</font></p>
+<p><mark class="uw ux ms" _msthash="29159" _msttexthash="2957644768">新功能之一是布局资源管理器，您可以在”详细信息树”旁边的”飘动检查器”选项卡中找到该功能。布局资源管理器允许您检查 Flutter 的灵活布局模型。当您不确定为什么一排小部件看起来不像您预期的那样时，或者为什么您收到”RenderFlex 溢出 42 像素”错误时，这可能是一个救命稻草。</mark></p>
+<p> <img src="https://miro.medium.com/max/60/1*2trBIvd2s8ToANRxsA8FIg.png?q=20"></p>
+<p><img src="https://miro.medium.com/max/2718/1*2trBIvd2s8ToANRxsA8FIg.png"></p>
+<p><noscript><img src="https://miro.medium.com/max/5436/1*2trBIvd2s8ToANRxsA8FIg.png"></noscript></p>
+<p><font _mstmutation="1" _msthash="44044" _msttexthash="524621292">在”动态检查器”选项卡旁边，您将找到三个专用于性能分析的选项卡：时间轴视图、内存视图和性能视图。</font></p>
+<p><font _mstmutation="1" _msthash="34021" _msttexthash="693722185"><a href="https://zshipu.com/t?url=https://flutter.dev/docs/development/tools/devtools/timeline">“时间轴”视图</a>现在显示每个帧的生成时间以及火焰图。这样，在上下文中查看有问题的帧时，可以轻松地识别有问题的帧。</font></p>
+<p> <img src="https://miro.medium.com/max/60/1*8AbvqZly0A4dixM5yq6iQg.png?q=20"></p>
+<p><img src="https://miro.medium.com/max/2724/1*8AbvqZly0A4dixM5yq6iQg.png"></p>
+<p><noscript><img src="https://miro.medium.com/max/5448/1*8AbvqZly0A4dixM5yq6iQg.png"></noscript></p>
+<p><font _mstmutation="1" _msthash="27040" _msttexthash="2353444548">“时间轴”窗格还具有新的”轨道小部件生成”按钮，该按钮将应用中所有小部件的生成时间添加到时间线（牺牲配置文件生成性能为代价 - 这是默认情况下不打开的原因）。当您试图找出哪些小部件，确切地说，在慢帧后面时，这很方便。</font></p>
+<p><font _mstmutation="1" _msthash="34203" _msttexthash="625500187">通过<a href="https://zshipu.com/t?url=https://flutter.dev/docs/development/tools/devtools/memory">“内存”视图</a>，您可以查看应用在给定时刻如何使用内存。此视图现在显示已分配内存的热图，并允许跟踪平台内存。</font></p>
+<p> <img src="https://miro.medium.com/max/60/1*syZl4n3gicB-CknSTb6X_A.png?q=20"></p>
+<p><img src="https://miro.medium.com/max/2728/1*syZl4n3gicB-CknSTb6X_A.png"></p>
+<p><noscript><img src="https://miro.medium.com/max/5456/1*syZl4n3gicB-CknSTb6X_A.png"></noscript></p>
+<p><font _mstmutation="1" _msthash="35035" _msttexthash="828938006"><a href="https://zshipu.com/t?url=https://flutter.dev/docs/development/tools/devtools/performance">性能视图</a>是传统的 CPU 探查器。它允许您记录应用的会话，并查看 CPU 在哪些功能中花费了大部分时间。这通常用于决定将优化工作花费在何处。</font></p>
+<p> <img src="https://miro.medium.com/max/60/1*CE2_scmNy11X1Fl3zj7bGA.png?q=20"></p>
+<p><img src="https://miro.medium.com/max/2516/1*CE2_scmNy11X1Fl3zj7bGA.png"></p>
+<p><noscript><img src="https://miro.medium.com/max/5032/1*CE2_scmNy11X1Fl3zj7bGA.png"></noscript></p>
+<p><font _mstmutation="1" _msthash="35061" _msttexthash="862527952">DevTools甚至包括它自己的<a href="https://zshipu.com/t?url=https://flutter.dev/docs/development/tools/devtools/debugger">调试器</a>。如果您不使用 IDE 进行开发，但仍希望添加断点、单步执行代码、查看变量值等，则此功能非常有用。</font></p>
+<p> <img src="https://miro.medium.com/max/60/1*BPb2b4wqKgGsitAaKuShUw.png?q=20"></p>
+<p><img src="https://miro.medium.com/max/2724/1*BPb2b4wqKgGsitAaKuShUw.png"></p>
+<p><noscript><img src="https://miro.medium.com/max/5448/1*BPb2b4wqKgGsitAaKuShUw.png"></noscript></p>
+<p><font _mstmutation="1" _msthash="28093" _msttexthash="3948454874">下一个选项卡是完全新的。”网络”视图允许您检查网络流量。您猜到了。您可以看到应用自启动以来发出的请求的整个历史记录，以及有关每个请求的详细信息。这样，在尝试调试网络问题时，您不必自行记录这些事件。”网络”选项卡当前显示 HTTP 流量;”网络”选项卡当前显示 HTTP 流量。未来的改进包括显示<a href="https://zshipu.com/t?url=https://github.com/flutter/devtools/issues/2044">一般套接字 I/O 流量</a>。</font></p>
+<p> <img src="https://miro.medium.com/max/60/1*hdjm79pT22-sAwjQhFYr8A.png?q=20"></p>
+<p><img src="https://miro.medium.com/max/2726/1*hdjm79pT22-sAwjQhFYr8A.png"></p>
+<p><noscript><img src="https://miro.medium.com/max/5452/1*hdjm79pT22-sAwjQhFYr8A.png"></noscript></p>
+<p><font _mstmutation="1" _msthash="34164" _msttexthash="300993745">现在，您还可以在时间轴视图中查找网络请求，以便在上下文中看到这些请求。</font></p>
+<p><font _mstmutation="1" _msthash="23556" _msttexthash="1811217746"><a href="https://zshipu.com/t?url=https://flutter.dev/docs/development/tools/devtools/logging">“日志记录”视图</a>显示来自应用和框架的事件。有了它，您可以轻松地筛选消息（例如，您可以指定筛选出垃圾回收器事件，或仅显示帧事件）。在 Dart 中，日志记录消息<a href="https://zshipu.com/t?url=https://api.dart.dev/stable/dart-developer/log.html">可以结构化</a>，日志记录视图会利用这一点。</font></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-gc</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter.frame</span><br></pre></td></tr></table></figure>
+
+
+<p> <img src="https://miro.medium.com/max/60/1*s-H2qFeoTWmdEnJOhG39Vw.png?q=20"></p>
+<p><img src="https://miro.medium.com/max/2714/1*s-H2qFeoTWmdEnJOhG39Vw.png"></p>
+<p><noscript><img src="https://miro.medium.com/max/5428/1*s-H2qFeoTWmdEnJOhG39Vw.png"></noscript></p>
+<p><font _mstmutation="1" _msthash="38883" _msttexthash="121808804">DevTools 适用于移动应用、桌面应用_和_Web 应用。</font></p>
+<p> <img src="https://miro.medium.com/max/60/1*eIyRlQ_O5COR9cGuMubUZw.png?q=20"></p>
+<p><img src="https://miro.medium.com/max/2968/1*eIyRlQ_O5COR9cGuMubUZw.png"></p>
+<p><noscript><img src="https://miro.medium.com/max/5936/1*eIyRlQ_O5COR9cGuMubUZw.png"></noscript></p>
+<p><font _mstmutation="1" _msthash="22672" _msttexthash="2895331088">将 DevTools 重写为 Flutter 具有许多好处：提高生产率、在客户的鞋子中行走以及自由选择目标平台。我们没有提到的一个好处是：在 Flutter 中重建 DevTools 会邀请社区更轻松地做出贡献。DevTools 总是在<a href="https://zshipu.com/t?url=https://github.com/flutter/devtools/tree/master/packages/devtools_app">开放中开发</a>，但今天，大多数用户将熟悉其结构（从 ） 中开始。</font></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">runApp(DevToolsApp(…)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[lib&#x2F;main.dart](https:&#x2F;&#x2F;zshipu.com&#x2F;t?url&#x3D;https:&#x2F;&#x2F;github.com&#x2F;flutter&#x2F;devtools&#x2F;blob&#x2F;master&#x2F;packages&#x2F;devtools_app&#x2F;lib&#x2F;main.dart#L14-L16)</span><br></pre></td></tr></table></figure>
+
+
+<p> <img src="https://miro.medium.com/max/60/0*BHpYeXRNy6du98np?q=20"></p>
+<p><img src="https://miro.medium.com/max/536/0*BHpYeXRNy6du98np"></p>
+<p><noscript><img src="https://miro.medium.com/max/1072/0*BHpYeXRNy6du98np"></noscript></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a><font _mstmutation="1" _msthash="29536" _msttexthash="5618353">总结</font></h1><p><font _mstmutation="1" _msthash="31993" _msttexthash="615331327">工具对于 Flutter 开发人员体验至关重要。我们投入巨资，使之天更美好。但是，我们只能根据您的反馈做到这一点。</font></p>
+<p><font _mstmutation="1" _msthash="23205" _msttexthash="1026438842">因此，立即升级到最新的 DevTools，并在你的应用中进行测试。 阅读<a href="https://zshipu.com/t?url=https://flutter.dev/docs/development/tools/devtools/overview">文档</a>以了解所有隐藏的宝石。文件错误，如果你找到他们，或投票给<a href="https://zshipu.com/t?url=https://github.com/flutter/devtools/issues">GitHub上的</a>新功能。</font></p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-06-25T10:17:38.000Z" title="2020-06-25T10:17:38.000Z">2020-06-25</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.338Z" title="2020-09-08T14:03:00.338Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">14 分钟读完 (大约2137个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/06/25/Flutter%20%E5%85%AB%E5%A4%A7%E4%BC%98%E5%8A%BF/">Flutter 八大优势</a></h1><div class="content"><h2 id="Flutter的优势"><a href="#Flutter的优势" class="headerlink" title="Flutter的优势"></a>Flutter的优势</h2><p>您可能会假设每个跨平台框架都可以执行某些操作，并提供一些对作业至关重要的功能，您有观点。但！在一些关键方面，Flutter与竞争对手略有不同。</p>
+<p>1. 所有平台中的相同 UI 和业务逻辑</p>
+<p>我们，专家，知道基本上任何跨平台框架提供了一种在目标平台之间共享代码库的方法。但是，除了 Flutter 之外，没有这样的应用程序框架允许共享 UI 代码本身。</p>
+<p>为了说明这一点，下面是大多数跨平台框架中 UI 呈现的外观示例：</p>
+<p> <img src="https://qphs.fs.quoracdn.net/main-qimg-ce14d2f45509282fe86758d289912394"></p>
+<p>这种渲染过程使构建在每个平台上看起来本机的应用变得简单。但魔鬼在细节。依赖特定于平台的组件进行渲染，因此需要平台小部件的属性映射层和框架小部件数据同步。这就是需要将每个动画映射到特定于平台的小部件调用的原因。比它需要的要复杂得多，对吗？</p>
+<p>相反，Flutter 不需要任何特定于平台的 UI 组件来呈现它的 UI。Flutter 唯一需要显示应用程序 UI 的就是要绘制的画布。下面是它的外观：</p>
+<p> <img src="https://qphs.fs.quoracdn.net/main-qimg-c758d29dde190ae27dca3b4f2513fd0a"></p>
+<p>Flutter 的渲染方式使框架真正从人群中脱颖而出，消除了对不同平台上 UI 一致性的任何担忧。</p>
+<p>简而言之，与 Flutter 共享 UI 和业务逻辑可节省时间、精力和开发人员的运行状况，同时不影响最终产品的性能。</p>
+<p>2. 缩短代码开发时间</p>
+<p>根据我的经验，构建一个通常的中型 Android 应用程序至少需要 40 秒才能被运送到测试设备。有时，只需调整布局中的一个小视觉方面即可。你们中有些人可能会说，’等等，但Android工作室有一个布局预览。确实如此。然而，当然，有一个：功能是有限的，并不总是按预期工作，特别是自定义视图。</p>
+<p>Flutter 的”热重装”功能，反过来，允许几乎立即看到应用的更改，甚至不会丢失当前应用程序状态。而这正是由于开发速度提高，使 Flutter 应用程序开发速度提高数倍的原因。</p>
+<p>此外，Flutter 团队已投入大量精力来提供各种即用小部件。其中大部分是令人难以置信的可定制，节省你的时间像没有其他框架之前。除了许多核心布局小部件外，Flutter 还提供一大组材料和库比蒂诺小部件，可完美模仿每种设计语言的行为。以下是它们的工作原理：</p>
+<p> <img src="https://qphs.fs.quoracdn.net/main-qimg-90875fa6f1326f4a3e51b8f8c34b0751"></p>
+<p>总之，在使用 Flutter 时，您跳过了应用开发中几个耗时极其耗时的步骤，这使得整个过程更快、更简单、更令人担忧。</p>
+<p>3. 提高上市时间速度</p>
+<p>这一个非常简单。Flutter 开发框架的功能比其替代方法快。在大多数情况下，与为 Android 和 iOS 单独开发的同一应用相比，Flutterapp 应用至少需要两倍的工作时间。主要原因是简单：您无需编写任何特定于平台的代码即可在应用程序中实现所需的视觉对象。任何基于 2D 的 UI 都可以在 Flutter 中实现，而无需与本机应用程序对应项进行交互。</p>
+<p>除此之外，Flutter 还提供了用于构建 UI 的声明性 API，根据我的经验，它显著提高了性能。这在视觉调整方面最为明显。</p>
+<p>4. 与本机应用性能类似</p>
+<p>应用程序性能对于良好的 UX 至关重要。虽然很难分辨出确切的数字，但可以肯定地说，在大多数情况下，Flutter应用程序的性能与本机应用没有区别，在复杂的 UI 动画方案中甚至更好。</p>
+<p>为什么？与大多数跨平台框架的方法相反，Flutter 并不依赖于任何中间代码表示或解释。Flutter 应用程序直接内置到机器代码中，消除了解释过程的任何性能错误。</p>
+<p>最终，您提前使用 Flutter 编译了发布应用程序。</p>
+<p>5. 任何复杂性的自定义、动画 UI 可用</p>
+<p>Flutter 的最大优势之一是能够自定义在屏幕上看到的任何内容，而不管它有多复杂。虽然在本机平台上通常也可以执行非常自定义的 UI，但所需的工作量因顺序大小而异。下面是这样简单但自定义 UI 的示例：</p>
+<p> <img src="https://qphs.fs.quoracdn.net/main-qimg-4891ea445dedd1fcc7ad59d07c66ffa0"></p>
+<p>但是，Flutter 使流程更加灵活和通用，而不会增加工作负载。共享元素过渡、形状/颜色/阴影操作、剪切、转换 – Flutter 可让您轻松执行所有这些操作。这里有一些更多<a href="https://zshipu.com/t?url=https://itsallwidgets.com/" title="itsallwidgets.com">例子</a>它是如何工作的。</p>
+<p>6. 自己的渲染引擎</p>
+<p>Flutter 允许您使用其他平台上不可用的应用执行大量操作。显然，它需要框架非常强大。事实上，如果没有高性能的跨平台呈现引擎，上述大多数要点是不可能的。</p>
+<p>飞溅使用<a href="https://zshipu.com/t?url=https://skia.org/" title="skia.org">斯基亚</a>用于将自己渲染到平台提供的画布上。由于引擎，内置于 Flutter 的 UI 几乎可以在任何平台上启动。换个说法不同，您不再需要调整 UI 将其传输到平台，这大大简化了开发过程。</p>
+<p>7. 简单的平台特定逻辑实现</p>
+<p>除了 UI 之外，许多真实的移动应用程序还依赖于高级操作系统级功能，例如获取 GPS 坐标、蓝牙通信、收集传感器数据、权限处理、使用凭据等。在通过 Google 支持的即用插件开发 Flutter 应用程序时，其中许多都可用。</p>
+<p>当然，在某些情况下，您的应用程序可能依赖于操作系统级功能，该功能尚未作为插件提供。但是团队也把你也覆盖了！Flutter 提供了一种易于使用的方式，用于通过平台本机代码和 Dart 之间建立通信<a href="https://zshipu.com/t?url=https://flutter.dev/docs/development/platform-integration/platform-channels" title="flutter.dev">平台通道</a>.这样，您可以实现本机应用可以在 Flutter app 上执行的任何操作，只需在本机方面稍加一点功夫即可实现。下面是通道如何工作的示例：</p>
+<p> <img src="https://qphs.fs.quoracdn.net/main-qimg-c99a17fb70a5890c1d7117a42e9b526a"></p>
+<p>8. 超越移动的潜在能力</p>
+<p>使用 Flutter，您可以超越移动上的 Flutter 应用程序开发。现在也有”为 Web 和 颤动桌面嵌入而显示”。。例如，在今年的 I/O 会议上，Google 提供了<a href="https://zshipu.com/t?url=https://flutter.dev/web" title="flutter.dev">飞溅的 Web</a>使得可以在浏览器中运行纯 Flutter 应用程序，而无需修改源代码。检查会议视频：</p>
+<p>这一重要事件标志着 Flutter 从跨平台移动应用程序框架过渡到成熟的跨平台开发工具。</p>
+<p>尽管除了框架的移动部分之外的所有内容尚未被视为生产就绪，但经验丰富的开发人员可以让纯 Flutter 应用程序在如今的任何主要平台上运行，包括 Android、iOS、Web 浏览器、Windows、macOS、Linux，甚至嵌入式设备。应用程序将正常运行，无需更改 Dart 代码。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-06-25T10:05:10.000Z" title="2020-06-25T10:05:10.000Z">2020-06-25</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.411Z" title="2020-09-08T14:03:00.411Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">5 分钟读完 (大约685个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/06/25/Vue.js%20%E5%92%8C%20Angular%20%E6%AF%94%20jQuery%20%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E5%A4%84/">Vue.js 和 Angular 比 jQuery 有什么好处</a></h1><div class="content"><p>   想象一下，你正在建设一个美丽的天气应用程序。</p>
+<p>您希望允许用户检查当天、周和当前月份的预测。</p>
+<p>显然，您不是天气人，因此您必须为此使用外部数据 - 天气 API。</p>
+<p>现在，您需要决定如何构建 UI - 用户必须能够单击每日、每周和每月的选项卡，并更改他位于的城市，同时始终查看最准确的数据。</p>
+<p>JQuery 驱动的项目如下所示：</p>
+<ol>
+<li><p>构建 HTML/CSS 视图</p>
+</li>
+<li><p>将点击事件附加到每日、每周、每月天气选项卡和城市菜单</p>
+</li>
+<li><p>为每个单击事件编写函数：</p>
+</li>
+<li><p>调用 API 获取最新预测</p>
+</li>
+<li><p>使用 jQuery 根据收到的数据更新 HTML 视图</p>
+</li>
+<li><p>当您将人员带上板来帮助您扩展应用时，请确保他们都知道 jQuery 代码需要哪些元素类才能工作 - 如果您在 HTML 中更改类，一切都会中断</p>
+</li>
+</ol>
+<p>总体而言，这种方法没有错。但是，如果您想象一个 Web 应用程序是十倍大，您将开始看到这是多么混乱。</p>
+<p>使用角或 Vue，您的方法将完全不同：</p>
+<ol>
+<li>构建 HTML/CSS 视图</li>
+<li>在这些视图中，声明数据所在的位置以及哪些数据</li>
+<li>在单击选项卡或更改城市时，还要声明要调用的函数</li>
+<li>在函数中，只需加载新数据即可。角或 Vue 将自动为您更新 HTML 视图。</li>
+</ol>
+<p>您还可以自由修改 HTML 的任何你喜欢的方式，您的应用程序不会中断 - 角或 Vue 跟踪所有元素的内部。</p>
+<p>正如您所看到的，虽然您需要采取的步骤数量没有太大差异，但在系统设计上存在很大差异：</p>
+<ul>
+<li>使用 jQuery 时，您需要处理每次数据更改时更新视图的艰苦而脆弱的过程。</li>
+<li>使用 Angular 或 Vue，您可以小心 - 您只需担心更新基础数据，您的视图将自动更新</li>
+</ul>
+<p>最后一点或功能是所有模型视图框架（如”角”或”Vue”）的精髓。</p>
+<p>它们可帮助您保持 UI 与数据同步，而无需过多挣扎和意大利面条代码。</p>
+<p>jQuery 不会开箱即用，只是因为它是为更广泛和更通用的目的而构建的。</p>
+<p>这就是为什么jQuery真的不是这些产品的竞争对手，如果你愿意，你可以并排使用它们 -虽然你很少需要这样做。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-06-25T06:08:08.000Z" title="2020-06-25T06:08:08.000Z">2020-06-25</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.466Z" title="2020-09-08T14:03:00.466Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">1 小时读完 (大约6748个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/06/25/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E4%B8%93%E5%AE%B6%E5%BF%85%E4%BF%AE%E4%B9%8B%E8%B7%AF/">数据科学专家必修之路</a></h1><div class="content"><p>步骤 1.满足您的先决条件</p>
+<p>开始之前，您需要多变量微积分、线性代数和 Python。如果你的数学背景是多变量微积分和线性代数，你将有足够的背景来理解几乎所有的概率/统计/机器学习的工作。</p>
+<ul>
+<li>多变量微积分：掌握<a href="https://zshipu.com/t?url=https://www.quora.com/What-are-the-best-resources-for-mastering-multivariable-calculus" title="www.quora.com">多变量微积分的最佳资源是什么？</a></li>
+<li>数值线性代数 / 计算线性代数 / 矩阵代数： <a href="https://zshipu.com/t?url=http://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/" title="ocw.mit.edu">线性代数</a>,<a href="https://zshipu.com/t?url=https://www.edx.org/course/introduction-linear-models-matrix-harvardx-ph525-2x-0" title="www.edx.org">线性模型和矩阵代数简介</a>.避免线性代数类过于理论化，您需要一个与真实矩阵配合的线性代数类。</li>
+</ul>
+<p>多变量微积分对机器学习的某些部分非常有用，而且概率很大。线性/矩阵代数对于机器学习中的许多概念是绝对必要的。</p>
+<p>您还需要一些编程背景开始，最好是在 Python 中。本指南上的大部分其他内容都可以在工作中学习（如随机森林、熊猫、A/B 测试），但如果没有知道如何编程，您就无法逃脱！</p>
+<p>Python 是数据科学家学习的最重要语言。要学习编写代码、有关 Python 的更多以及为什么 Python 如此重要，请查看</p>
+<ul>
+<li><a href="https://zshipu.com/t?url=https://www.quora.com/How-do-I-learn-to-code-1" title="www.quora.com">如何学习编码？</a></li>
+<li><a href="https://zshipu.com/t?url=https://www.quora.com/How-do-I-learn-Python-3" title="www.quora.com">如何学习 Python？</a></li>
+<li><a href="https://zshipu.com/t?url=https://www.quora.com/Why-is-Python-a-language-of-choice-for-data-scientists" title="www.quora.com">为什么 Python 是数据科学家的首选语言？</a></li>
+<li><a href="https://zshipu.com/t?url=https://www.quora.com/Is-Python-the-most-important-programming-language-to-learn-for-aspiring-data-scientists-and-data-miners" title="www.quora.com">对于有抱负的数据科学家和数据挖掘者来说，Python 是最重要的编程语言吗？</a></li>
+</ul>
+<p>R是数据科学家学习的第二种最重要的语言。我说，这是一个人与统计背景，谁通过本科主要使用R。虽然 R 对于专用统计任务功能强大，但 Python 功能更通用，因为它将使您能够更多地连接到生产级工作。</p>
+<p>如果你目前在学校，参加统计学和计算机科学课程。看看<a href="https://zshipu.com/t?url=https://www.quora.com/What-classes-should-I-take-if-I-want-to-become-a-data-scientist" title="www.quora.com">如果我想成为数据科学家，我应该上什么课？</a></p>
+<p>步骤 2.将自己融入社区</p>
+<p>退房<a href="https://zshipu.com/t?url=http://meetup.com/" title="meetup.com">见面会</a>找到一些你感兴趣的！参加有趣的讲座，现场了解数据科学，并会见数据科学家和其他有抱负的数据科学家。开始阅读数据科学博客，关注有影响力的数据科学家：</p>
+<ul>
+<li><a href="https://zshipu.com/t?url=https://www.quora.com/What-are-the-best-insightful-blogs-about-data-including-how-businesses-are-using-data" title="www.quora.com">关于数据的最佳、有见地的博客是什么，包括企业如何使用数据？</a></li>
+<li><a href="https://zshipu.com/t?url=https://www.quora.com/What-is-your-source-of-machine-learning-and-data-science-news-Why" title="www.quora.com">您的机器学习和数据科学新闻的来源是什么？为什么？</a></li>
+<li><a href="https://zshipu.com/t?url=https://www.quora.com/What-are-some-best-data-science-accounts-to-follow-on-Twitter-Facebook-G+-and-LinkedIn" title="www.quora.com">在Twitter、Facebook、G+和LinkedIn上，哪些最好的数据科学账户可以关注？</a></li>
+<li><a href="https://zshipu.com/t?url=https://www.quora.com/What-are-the-best-Twitter-accounts-about-data" title="www.quora.com">关于数据的最佳 Twitter 帐户是什么？</a></li>
+</ul>
+<p>步骤 3.设置并学会使用工具</p>
+<p>Python</p>
+<ul>
+<li>安装 Python、iPython 和相关库（<a href="https://zshipu.com/t?url=https://github.com/cs109/content/wiki/Installing-Python" title="github.com">指导</a>)</li>
+<li><a href="https://zshipu.com/t?url=https://www.quora.com/How-do-I-learn-Python-3" title="www.quora.com">如何学习 Python？</a></li>
+</ul>
+<p>R</p>
+<ul>
+<li>安装<a href="https://zshipu.com/t?url=http://www.r-project.org/" title="www.r-project.org">R</a>和<a href="https://zshipu.com/t?url=http://www.rstudio.com/products/rstudio/download/" title="www.rstudio.com">RStudio</a>（最好同时了解 Python 和 R）</li>
+<li>学习 R<a href="https://zshipu.com/t?url=http://swirlstats.com/" title="swirlstats.com">旋流</a></li>
+</ul>
+<p>崇高的文本</p>
+<ul>
+<li>安装<a href="https://zshipu.com/t?url=http://www.sublimetext.com/" title="www.sublimetext.com">崇高的文本</a></li>
+<li><a href="https://zshipu.com/t?url=https://www.quora.com/Whats-the-best-way-to-learn-to-use-Sublime-Text" title="www.quora.com">学习使用崇高文本的最佳方式是什么？</a></li>
+</ul>
+<p>Sql</p>
+<ul>
+<li><a href="https://zshipu.com/t?url=https://www.quora.com/How-do-I-learn-SQL-What-are-some-good-online-resources-like-websites-blogs-or-videos" title="www.quora.com">如何学习 SQL？什么是一些良好的在线资源，如网站、博客或视频？</a>（您可以使用 Python 中的 sqlite 包来练习）</li>
+</ul>
+<p>步骤 4.学习概率和统计</p>
+<p>请务必完成涉及 R 或 Python 中大量应用的课程。只有实现所学知识，了解概率和统计数据才能真正有用。</p>
+<ul>
+<li>Python 应用程序：<a href="https://zshipu.com/t?url=http://greenteapress.com/thinkstats/" title="greenteapress.com">思考统计数据</a> (<a href="https://zshipu.com/t?url=http://greenteapress.com/thinkstats/thinkstats.pdf" title="greenteapress.com">免费 pdf</a>） （Python 焦点）</li>
+<li>R 应用： <a href="https://zshipu.com/t?url=http://www.amazon.com/gp/product/1461471370" title="www.amazon.com">统计学习导论</a> (免费 pdf)(<a href="https://zshipu.com/t?url=https://class.stanford.edu/courses/HumanitiesScience/StatLearning/Winter2014/about" title="class.stanford.edu">MOOC</a>） （R 焦点）</li>
+<li>打印出<a href="https://zshipu.com/t?url=http://www.wzchen.com/probability-cheatsheet/" title="www.wzchen.com">概率备忘表</a></li>
+</ul>
+<p>步骤 5.完成哈佛数据科学课程</p>
+<p>自 2015 年秋季起，该课程已进入第三年，力求对有兴趣成为数据科学家的学生尽可能适用和有帮助。从今年开始引入 Spark 和 SQL，就是如何发生这种情况的一个示例。</p>
+<p>我建议从2015年做实验室和讲座，从2013年做家庭作业（2015年家庭作业不向公众开放，2014年的家庭作业写在一个不同于原来的导师的指导下）。</p>
+<p>本课程部分由Quora用户乔<a href="https://zshipu.com/t?url=https://www.quora.com/profile/Joe-Blitzstein" title="www.quora.com">·布利茨坦</a>教授开发。这里是所有的材料！</p>
+<p>课堂简介</p>
+<ul>
+<li><a href="https://zshipu.com/t?url=https://www.quora.com/What-is-it-like-to-design-a-data-science-class-In-particular-what-was-it-like-to-design-Harvards-new-data-science-class-taught-by-professors-Joe-Blitzstein-and-Hanspeter-Pfister" title="www.quora.com">设计数据科学类是什么样的？特别是，设计由乔·布利茨坦教授和汉斯佩特·普菲斯特教授教授的哈佛新数据科学课程是什么感觉？</a></li>
+<li><a href="https://zshipu.com/t?url=https://www.quora.com/What-is-it-like-to-take-CS-109-Statistics-121-Data-Science-at-Harvard" title="www.quora.com">拿哈佛大学的CS 109/统计121（数据科学）是什么样的？</a></li>
+</ul>
+<p>课程材料</p>
+<ul>
+<li>类主页：<a href="https://zshipu.com/t?url=http://cs109.github.io/2015/" title="cs109.github.io">CS109 数据科学</a></li>
+<li>讲座、幻灯片和实验室：<a href="https://zshipu.com/t?url=http://cs109.github.io/2015/pages/videos.html" title="cs109.github.io">类材料</a></li>
+</ul>
+<p>作业</p>
+<ul>
+<li>Python、 Numpy、 Matplotlib （<a href="https://zshipu.com/t?url=http://nbviewer.ipython.org/urls/raw.github.com/cs109/content/master/HW0.ipynb" title="nbviewer.ipython.org">家庭作业 0</a>) (<a href="https://zshipu.com/t?url=http://nbviewer.ipython.org/urls/raw.github.com/cs109/content/master/HW0_solutions.ipynb" title="nbviewer.ipython.org">解决 方案</a>)</li>
+<li>轮询聚合、Web 抓取、绘图、模型评估和预测 （<a href="https://zshipu.com/t?url=http://nbviewer.ipython.org/urls/raw.github.com/cs109/content/master/HW1.ipynb" title="nbviewer.ipython.org">家庭作业 1</a>) (<a href="https://zshipu.com/t?url=http://nbviewer.ipython.org/urls/raw.github.com/cs109/content/master/HW1_solutions.ipynb" title="nbviewer.ipython.org">解决 方案</a>)</li>
+<li>数据预测、操作和评估 （<a href="https://zshipu.com/t?url=http://nbviewer.ipython.org/urls/raw.github.com/cs109/content/master/HW2.ipynb" title="nbviewer.ipython.org">家庭作业 2</a>) (<a href="https://zshipu.com/t?url=http://nbviewer.ipython.org/urls/raw.github.com/cs109/content/master/HW2_solutions.ipynb" title="nbviewer.ipython.org">解决 方案</a>)</li>
+<li>预测建模、模型校准、情绪分析（<a href="https://zshipu.com/t?url=http://nbviewer.ipython.org/urls/raw.github.com/cs109/content/master/HW3.ipynb" title="nbviewer.ipython.org">家庭作业 3</a>) (<a href="https://zshipu.com/t?url=http://nbviewer.ipython.org/urls/raw.github.com/cs109/content/master/HW3_solutions.ipynb" title="nbviewer.ipython.org">解决 方案</a>)</li>
+<li>建议引擎，使用映射缩减 （<a href="https://zshipu.com/t?url=http://nbviewer.ipython.org/urls/raw.github.com/cs109/content/master/HW4.ipynb" title="nbviewer.ipython.org">家庭作业 4</a>) (<a href="https://zshipu.com/t?url=http://nbviewer.ipython.org/urls/raw.github.com/cs109/content/master/HW4_solutions.ipynb" title="nbviewer.ipython.org">解决 方案</a>)</li>
+<li>网络可视化和分析（<a href="https://zshipu.com/t?url=http://nbviewer.ipython.org/urls/raw.github.com/cs109/content/master/HW5.ipynb" title="nbviewer.ipython.org">家庭作业 5</a>) (<a href="https://zshipu.com/t?url=http://nbviewer.ipython.org/urls/raw.github.com/cs109/content/master/HW5_solutions.ipynb" title="nbviewer.ipython.org">解决 方案</a>)</li>
+</ul>
+<p>实验室</p>
+<p>（这些是2013年的实验室。对于 2015 年实验室，请查看<a href="https://zshipu.com/t?url=http://cs109.github.io/2015/pages/videos.html" title="cs109.github.io">类材料</a>)</p>
+<ul>
+<li><a href="https://zshipu.com/t?url=https://github.com/cs109/content/tree/master/labs/lab2" title="github.com">实验 2：网络刮削</a></li>
+<li><a href="https://zshipu.com/t?url=http://nbviewer.ipython.org/urls/raw.github.com/cs109/content/master/labs/lab3/lab3full.ipynb" title="nbviewer.ipython.org">实验3：EDA，熊猫，马特普洛特利布</a></li>
+<li><a href="https://zshipu.com/t?url=http://nbviewer.ipython.org/urls/raw.github.com/cs109/content/master/labs/lab4/Lab4full.ipynb" title="nbviewer.ipython.org">实验 4： 科学学习， 回归， PCA</a></li>
+<li><a href="https://zshipu.com/t?url=http://nbviewer.ipython.org/urls/raw.github.com/cs109/content/master/labs/lab5/Lab5.ipynb" title="nbviewer.ipython.org">实验 5：偏差、方差、交叉验证</a></li>
+<li><a href="https://zshipu.com/t?url=http://nbviewer.ipython.org/urls/raw.github.com/cs109/content/master/labs/lab6/BayesLinear.ipynb" title="nbviewer.ipython.org">实验 6：贝叶、线性回归和大都市采样</a></li>
+<li><a href="https://zshipu.com/t?url=http://nbviewer.ipython.org/urls/raw.github.com/cs109/content/master/labs/lab7/GibbsSampler.ipynb" title="nbviewer.ipython.org">实验7：吉布斯采样</a></li>
+<li><a href="https://zshipu.com/t?url=http://nbviewer.ipython.org/urls/raw.github.com/cs109/content/master/labs/lab8/lab8_mapreduce.ipynb" title="nbviewer.ipython.org">实验 8：地图减少</a></li>
+<li><a href="https://zshipu.com/t?url=http://nbviewer.ipython.org/urls/raw.github.com/cs109/content/master/labs/lab9/lab_9.ipynb" title="nbviewer.ipython.org">实验 9：网络</a></li>
+<li><a href="https://zshipu.com/t?url=http://nbviewer.ipython.org/urls/raw.github.com/cs109/content/master/labs/lab10/Lab_10.ipynb" title="nbviewer.ipython.org">实验 10：支持矢量机</a></li>
+</ul>
+<p>步骤 6.做所有卡格尔的入门和游乐场比赛</p>
+<p>我不建议参加任何奖金竞赛。它们通常具有太大、复杂或恼人的数据集，并且不适合学习。比赛可在以下任何方面进行。<a href="https://zshipu.com/t?url=https://www.kaggle.com/competitions" title="www.kaggle.com">比赛 |卡格尔</a></p>
+<p>首先学习学习，四处玩耍，阅读教程和论坛，了解你正在做的比赛。接下来，玩一些更多，并检查教程<a href="https://zshipu.com/t?url=https://www.kaggle.com/c/titanic" title="www.kaggle.com">泰坦尼克号：从灾难中机器学习</a>对于二进制分类任务（具有分类变量、缺失值等）</p>
+<p>之后，尝试一些多类分类<a href="https://zshipu.com/t?url=https://www.kaggle.com/c/forest-cover-type-prediction" title="www.kaggle.com">森林覆盖类型预测</a>.现在，尝试回归任务<a href="https://zshipu.com/t?url=https://www.kaggle.com/c/house-prices-advanced-regression-techniques" title="www.kaggle.com">房价：高级回归技术</a>.尝试一些自然语言处理<a href="https://zshipu.com/t?url=https://www.kaggle.com/c/quora-question-pairs" title="www.kaggle.com">Quora 问题对 |卡格尔</a>.最后，尝试任何其他您感兴趣的知识竞赛！</p>
+<p>步骤 7.学习一些数据科学选修课</p>
+<p>数据科学是一个极其庞大和跨学科的领域，不同的工作需要不同的技能组合。下面是一些更常见的：</p>
+<ul>
+<li>产品指标将教您公司跟踪哪些内容、他们认为重要的指标以及公司如何衡量其成功：<a href="https://zshipu.com/t?url=http://jwegan.com/growth-hacking/27-metrics-pinterests-internal-growth-dashboard/" title="jwegan.com">兴趣内部增长仪表板中的 27 个指标</a></li>
+<li>机器学习<a href="https://zshipu.com/t?url=https://www.quora.com/How-do-I-learn-machine-learning-1" title="www.quora.com">如何学习机器学习？</a>这是一个极其丰富的领域，具有巨大的潜力，而且可能是当今数据科学的”最性感”领域。Andrew Ng 的 Coursera 机器学习课程是最受欢迎的 MOOC 之一，也是开始的好方法！<a href="https://zshipu.com/t?url=https://www.coursera.org/course/ml" title="www.coursera.org">吴安的机器学习 MOOC</a></li>
+<li>A/B 测试对于帮助为消费者应用制定产品决策提供信息非常重要。在此处了解有关 A/B 测试的更多详细信息：<a href="https://zshipu.com/t?url=https://www.quora.com/How-do-I-learn-about-A-B-testing" title="www.quora.com">如何了解 A/B 测试？</a></li>
+<li>可视化 - 我建议在R中拿起ggplot2，使简单但美丽的图形和只是浏览<a href="https://zshipu.com/t?url=http://www.reddit.com/r/dataisbeautiful" title="www.reddit.com">数据美观 = /r/数据美观</a>和<a href="https://zshipu.com/t?url=http://flowingdata.com/" title="flowingdata.com">流动数据</a>想法和灵感。</li>
+<li>用户行为 - 这组博客帖子看起来有用和有趣 -<a href="https://zshipu.com/t?url=http://www.productpsychology.com/category/user-behavior/" title="www.productpsychology.com">这解释了一切”用户行为</a></li>
+<li>功能工程 - 了解<a href="https://zshipu.com/t?url=https://www.quora.com/What-are-some-best-practices-in-Feature-Engineering" title="www.quora.com">功能工程中的一些最佳实践？</a>和这个伟大的例子：<a href="https://zshipu.com/t?url=http://nbviewer.ipython.org/github/aguschin/kaggle/blob/master/forestCoverType_featuresEngineering.ipynb" title="nbviewer.ipython.org">http://nbviewer.ipython.org/github/aguschin/kaggle/blob/master/forestCoverType_featuresEngineering.ipynb</a></li>
+<li>大数据技术 - 这些是专门为处理大量数据而开发的工具和框架。<a href="https://zshipu.com/t?url=https://www.quora.com/How-do-I-learn-big-data-technologies-1" title="www.quora.com">如何学习大数据技术？</a></li>
+<li>优化将帮助您了解统计数据和机器学习：<a href="https://zshipu.com/t?url=http://stanford.edu/~boyd/cvxbook/" title="stanford.edu">凸优化 - 博伊德和范登堡</a></li>
+<li>自然语言处理 - 这是将文本数据转换为数字数据，同时保留”含义”的做法。学习这一点将让你分析新的，令人兴奋的数据形式。<a href="https://zshipu.com/t?url=https://www.quora.com/How-do-I-learn-Natural-Language-Processing-NLP" title="www.quora.com">如何学习自然语言处理 （NLP）？</a></li>
+<li>时间序列分析 - <a href="https://zshipu.com/t?url=https://www.quora.com/How-do-I-learn-about-time-series-analysis-1" title="www.quora.com">如何了解时间序列分析？</a></li>
+</ul>
+<p>步骤 8.做一个顶石产品/侧项目</p>
+<p>使用你新的数据科学和软件工程技能来构建一些让其他人说哇的东西！这可以是一个网站，新的方式看数据集，很酷的可视化，或任何东西！</p>
+<ul>
+<li><a href="https://zshipu.com/t?url=https://www.quora.com/What-are-some-good-toy-problems-can-be-done-over-a-weekend-by-a-single-coder-in-data-science-Im-studying-machine-learning-and-statistics-and-looking-for-something-socially-relevant-using-publicly-available-datasets-APIs" title="www.quora.com">数据科学中有哪些好的玩具问题（一个周末由单个编码器完成）？我正在研究机器学习和统计，并使用公开提供的数据集/API 寻找与社会相关的内容。</a></li>
+<li><a href="https://zshipu.com/t?url=https://www.quora.com/How-can-I-start-building-a-recommendation-engine-Where-can-I-find-an-interesting-data-set-What-tools-technologies-algorithms-are-best-to-build-the-engine-with-How-do-I-check-the-effectiveness-of-recommendations" title="www.quora.com">如何开始构建推荐引擎？在哪里可以找到有趣的数据集？使用哪些工具/技术/算法来构建引擎是最佳工具/技术/算法？如何检查建议的有效性？</a></li>
+<li><a href="https://zshipu.com/t?url=https://www.quora.com/What-are-some-ideas-for-a-quick-weekend-Python-project-I-am-looking-to-gain-some-experience" title="www.quora.com">快速周末 Python 项目的一些想法是什么？我希望获得一些经验。</a></li>
+<li><a href="https://zshipu.com/t?url=https://www.quora.com/What-is-a-good-measure-of-the-influence-of-a-Twitter-user" title="www.quora.com">衡量Twitter用户影响力的好方法是什么？</a></li>
+<li><a href="https://zshipu.com/t?url=https://www.quora.com/Where-can-I-find-large-datasets-open-to-the-public" title="www.quora.com">在哪里可以找到向公众开放的大型数据集？</a></li>
+<li><a href="https://zshipu.com/t?url=https://www.quora.com/What-are-some-good-algorithms-for-a-prioritized-inbox" title="www.quora.com">对于优先级的收件箱，有哪些不错的算法？</a></li>
+<li><a href="https://zshipu.com/t?url=https://www.quora.com/What-are-some-good-data-science-projects" title="www.quora.com">什么是一些好的数据科学项目？</a></li>
+</ul>
+<p>创建公共 github 存储库，创建博客，并发布您的工作、附带项目、Kaggle 解决方案、见解和想法！这有助于您获得可见性，为您的简历构建投资组合，并与执行相同任务的其他人员建立联系。</p>
+<p>步骤 9.获得数据科学实习或工作</p>
+<ul>
+<li><a href="https://zshipu.com/t?url=https://www.quora.com/How-do-I-prepare-for-a-data-scientist-interview" title="www.quora.com">如何为数据科学家面试做好准备？</a></li>
+<li><a href="https://zshipu.com/t?url=https://www.quora.com/How-should-I-prepare-for-statistics-questions-for-a-data-science-interview-What-topics-should-I-brush-up-on" title="www.quora.com">如何为数据科学面试准备统计问题</a></li>
+<li><a href="https://zshipu.com/t?url=https://www.quora.com/What-kind-of-A-B-testing-questions-should-I-expect-in-a-data-scientist-interview-and-how-should-I-prepare-for-such-questions" title="www.quora.com">在数据科学家访谈中，我应该期待什么样的 A/B 测试问题，我应该如何为此类问题做好准备？</a></li>
+<li><a href="https://zshipu.com/t?url=https://www.quora.com/What-companies-have-data-science-internships-for-undergraduates" title="www.quora.com">哪些公司为本科生提供数据科学实习？</a></li>
+<li><a href="https://zshipu.com/t?url=https://www.quora.com/What-are-some-tips-to-choose-whether-I-want-to-apply-for-a-Data-Science-or-Software-Engineering-internship" title="www.quora.com">是想申请数据科学还是软件工程实习，有哪些提示？</a></li>
+<li><a href="https://zshipu.com/t?url=https://www.quora.com/When-is-the-best-time-to-apply-for-data-science-summer-internships" title="www.quora.com">什么时候是申请数据科学暑期实习的最佳时机？</a></li>
+</ul>
+<p>查看官方 Quora 数据科学常见问题解答，了解有关实习、工作和数据科学面试流程的更多讨论！数据科学常见问题解答还链接到此问题的更具体版本，例如<a href="https://zshipu.com/t?url=https://www.quora.com/How-do-I-become-a-data-scientist-without-a-PhD" title="www.quora.com">我如何成为没有博士学位的数据科学家？</a>或者同行，<a href="https://zshipu.com/t?url=https://www.quora.com/How-do-I-become-a-data-scientist-as-a-PhD-student-1" title="www.quora.com">作为博士生，我如何成为数据科学家？</a></p>
+<p>步骤 10.与数据科学社区分享您的智慧</p>
+<p>如果你已经做到了这一点，恭喜你成为一名数据科学家！我鼓励你与数据科学界分享你的知识以及你学到的知识。数据科学作为一个新生领域依赖于知识共享！</p>
+<hr>
+<p>像数据科学家一样思考</p>
+<p>除了上面列出的具体步骤，以开发数据科学家的技能集，我包括以下七个挑战，以便您可以学会像数据科学家一样思考，并培养正确的态度，成为一个。</p>
+<p>（1） 通过数据满足您的好奇心</p>
+<p>作为一名数据科学家，您编写自己的问题和答案。数据科学家自然对正在研究的数据感到好奇，并且创造性地处理和解决任何需要解决的问题。</p>
+<p>数据科学的大部分不是分析本身，而是发现一个有趣的问题，并找出如何回答它。</p>
+<p>下面是两个很好的例子：</p>
+<ul>
+<li><a href="https://zshipu.com/t?url=http://hilaryparker.com/2013/01/30/hilary-the-most-poisoned-baby-name-in-us-history/" title="hilaryparker.com">希拉里：美国历史上中毒最严重的婴儿名字</a></li>
+<li><a href="https://zshipu.com/t?url=http://blog.stevewhardin.com/2014/03/17/a-look-at-fire-response-data/" title="blog.stevewhardin.com">查看火灾响应数据</a></li>
+</ul>
+<p>挑战：想想你感兴趣的问题或话题，用数据来回答！</p>
+<p>（2） 用怀疑的眼光阅读新闻</p>
+<p>数据科学家（以及为什么很难用机器取代数据科学家）的贡献很大，就是数据科学家会告诉你什么是重要的，什么是虚假的。这种持续的怀疑在所有科学中都是健康的，尤其是在快节奏的环境中，让虚假的结果被曲解太容易了。</p>
+<p>你可以通过批判性地阅读新闻来采用这种心态。许多新闻文章本身都有缺陷的主要前提。试试这两篇文章。注释中提供了示例答案。</p>
+<p>容易：<a href="https://zshipu.com/t?url=http://www.nytimes.com/2011/10/01/opinion/you-love-your-iphone-literally.html?_r=0" title="www.nytimes.com">你喜欢你的iPhone从 字面 上。</a></p>
+<p>难：<a href="https://zshipu.com/t?url=http://www.washingtonpost.com/blogs/monkey-cage/wp/2014/03/12/who-predicted-russias-military-intervention-2/" title="www.washingtonpost.com">谁预测俄罗斯的军事干预？</a></p>
+<p>挑战：当你遇到新闻文章时，每天都这样做。评论这篇文章，指出缺陷。</p>
+<p>（3） 将数据视为改进消费品的工具</p>
+<p>访问一个消费类的互联网产品（可能你知道没有做广泛的A/B测试已经），然后想想他们的主要漏斗。他们有结帐漏斗吗？他们有注册漏斗吗？他们有活力机制吗？他们有订婚漏斗吗？</p>
+<p>多次浏览漏斗，并假设不同方法可以更好地增加核心指标（转化率、股票、注册等）。设计一个实验，以验证建议的更改是否实际可以更改核心指标。</p>
+<p>挑战： 分享它与消费者互联网网站的反馈电子邮件！</p>
+<p>（4） 像贝叶斯人一样思考</p>
+<p>想像贝叶斯人，避免<a href="https://zshipu.com/t?url=http://www.wikiwand.com/en/Base_rate_fallacy" title="www.wikiwand.com">基本费率谬误</a>.这意味着要形成新的信念，你必须合并新观察到的信息和通过直觉和经验形成的优先信息。</p>
+<p>检查仪表板时，用户参与度数字今天显著下降。以下哪一项最有可能？</p>
+<p>1. 用户突然参与度降低<br>2。网站功能打破了<br>3。日志记录功能中断</p>
+<p>尽管解释#1完全解释了下降的原因，但#2和#3的可能性应该更大，因为它们的先前概率要高得多。</p>
+<p>你在特斯拉的高级管理层，特斯拉的S型车有五个在过去五个月里着火了。哪个更可能？</p>
+<p>1. 制造质量下降，特斯拉现在应被视为不安全。<br>2. 安全没有改变，特斯拉S型的火灾仍然比汽油车的同行少得多。</p>
+<p>虽然#1是一个简单的解释（对媒体报道很好），但由于您定期进行质量测试，您的之前应该对#2很强。但是，您仍应寻求信息，以更新您对#1与#2的信仰（并且仍应设法提高安全性）。思考问题：您应该寻求哪些信息？</p>
+<p>挑战：确定上次提交基本费率谬误的时间。从现在开始避免犯谬论。</p>
+<p>（5） 了解工具的局限性</p>
+<blockquote>
+<p>“知识是知道番茄是水果，智慧不是把它放进水果沙拉里。</p>
+</blockquote>
+<p>知识是知道如何执行普通的线性回归，智慧正在意识到它在实践中净地应用是多么罕见。</p>
+<p>知识是知道 K - 意味着聚类的五种不同变化，智慧是意识到实际数据很少可以干净地净地聚类，以及 K - 意味着聚类的差值如何能够处理太多的特征。</p>
+<p>知识是了解广泛的尖端技术，但智慧是能够选择一个，将给予公司最大的影响在合理的时间。</p>
+<p>在浏览 Coursera 或 EdX 课程时，您可以开发各种工具，但在您知道要使用的工具之前，您的工具箱没有用处。</p>
+<p>挑战：将多个工具应用于实际数据集，并发现每个工具的权衡和限制。哪些工具效果最好，您能找出原因吗？</p>
+<p>（6） 教授一个复杂的概念</p>
+<p>理查德·费曼如何区分他理解哪些概念，哪些概念他不明白？</p>
+<blockquote>
+<p>费曼是一位真正伟大的老师。他为自己能够设计方法，向开始的学生解释即使是最深刻的想法而感到自豪。有一次，我对他说，”迪克，向我解释，这样我就能理解它，为什么旋转半个粒子服从费米-狄拉克的统计数据。费曼完美地调整他的听众规模，他说，”我会准备一个新生讲座。但几天后，他回来说，”我做不到。我不能把它降到新生水平。这意味着我们并不真正理解它。</p>
+</blockquote>
+<p>理查德·费曼的杰出成就在于他能够将复杂的概念提炼成可理解的想法。同样，顶级数据科学家与众不同的是，他们有能力令人信服地分享他们的想法并解释他们的分析。</p>
+<p>查看<a target="_blank" rel="noopener" href="https://www.quora.com/Edwin-Chen-1/answers%EF%BC%8C%E4%BA%86%E8%A7%A3%E5%85%B1%E5%90%8C%E8%A7%A3%E9%87%8A%E7%9A%84%E6%8A%80%E6%9C%AF%E6%A6%82%E5%BF%B5%E7%A4%BA%E4%BE%8B%E3%80%82">https://www.quora.com/Edwin-Chen-1/answers，了解共同解释的技术概念示例。</a></p>
+<p>挑战：向朋友或公共论坛（如 Quora 或 YouTube）传授技术概念。</p>
+<p>（7） 说服他人了解什么是重要的</p>
+<p>也许比数据科学家解释其分析的能力更重要的，是他们传达可操作见解的价值和潜在影响的能力。</p>
+<p>随着数据科学工具的越来越好，数据科学的某些任务将被商品化。新工具将使过时的某些任务（如编写仪表板、不必要的数据争论，甚至特定类型的预测建模）过时。</p>
+<p>但是，数据科学家提取和传达重要内容的需求永远不会过时。随着数据量和潜在见解的增加，公司始终需要数据科学家（或数据科学类似角色的人）来分流所有可以完成的工作，并根据影响确定任务的优先级。</p>
+<p>数据科学家在公司中的角色是充当数据和公司之间的大使。数据科学家的成功取决于他/她讲述故事和产生影响的效果。所有其他技能都被这种能力放大了。</p>
+<p>挑战：用统计数据讲述一个故事。传达数据集中的重要发现。做出听众关心的令人信服的演示。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-06-25T06:00:18.000Z" title="2020-06-25T06:00:18.000Z">2020-06-25</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.457Z" title="2020-09-08T14:03:00.457Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">12 分钟读完 (大约1760个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/06/25/%E5%AD%A6%E4%B9%A0%20JavaScript%20%E7%9A%84%E6%9C%80%E4%BD%B3%E6%96%B9%E5%BC%8F/">学习 JavaScript 的最佳方式</a></h1><div class="content"><blockquote>
+<p>您的第一个 JavaScript 教程</p>
+<p>————————————————————————————————————</p>
+</blockquote>
+<p>假设您使用第一个 JavaScript 教程表示，该教程显示当前日期。</p>
+<p>为此，JavaScript 代码是：</p>
+<ul>
+<li><button type="button" onclick="alert(Date())">
+</li>
+<li><p>Click me to display Date and Time</p>
+</li>
+<li></button>
+
+</li>
+</ul>
+<p>阅读本教程后，您应该在自己的计算机上实现它。以下是您应该遵循的实现步骤：</p>
+<ol>
+<li>创建新网页。</li>
+<li>将按钮和单击事件添加到该按钮中。</li>
+<li>添加警报以显示日期。</li>
+<li>在浏览器上运行网页以测试您刚刚创建的功能。</li>
+</ol>
+<p>现在，您知道如何实现代码。</p>
+<blockquote>
+<p>我应该使用哪个编辑器进行 JavaScript</p>
+<p>————————————————————————————————————</p>
+</blockquote>
+<p>作为初学者，您还会询问如何编写 JavaScript 代码？您可以使用窗口记事本，也可以下载记事本*，这是一个非常好的编辑器。</p>
+<p>然而，根据我最好的编辑将是<a href="https://zshipu.com/t?url=https://code.visualstudio.com/" title="code.visualstudio.com">视觉工作室代码</a>  <font _mstmutation="1" _msthash="7576154" _msttexthash="496962063">这是非常轻量级的只有45MB的大小，非常非常强大。它完全免费，并运行在每个操作系统 - 窗口，linux和mac。</font></p>
+<p>JavaScript 的初学者级别应介绍哪些内容</p>
+<p>您应该涵盖的主题是 |</p>
+<p>1. JavaScript 语法 -<a href="https://zshipu.com/t?url=https://www.w3schools.com/js/js_syntax.asp" title="www.w3schools.com">JavaScript 语法</a></p>
+<p>2. 变量 -<a href="https://zshipu.com/t?url=https://www.w3schools.com/js/js_variables.asp" title="www.w3schools.com">JavaScript 变量</a></p>
+<p>3. 数据类型 -<a href="https://zshipu.com/t?url=https://www.w3schools.com/js/js_datatypes.asp" title="www.w3schools.com">JavaScript 数据类型</a></p>
+<p>4. 操作员 -<a href="https://zshipu.com/t?url=https://www.w3schools.com/js/js_operators.asp" title="www.w3schools.com">JavaScript 运算符</a></p>
+<p>5. 算术运算 -<a href="https://zshipu.com/t?url=https://www.w3schools.com/js/js_arithmetic.asp" title="www.w3schools.com">JavaScript 算术</a></p>
+<p>6. 分配 -<a href="https://zshipu.com/t?url=https://www.w3schools.com/js/js_assignment.asp" title="www.w3schools.com">JavaScript 分配</a></p>
+<p>7. JS 输出 -<a href="https://zshipu.com/t?url=https://www.w3schools.com/js/js_output.asp" title="www.w3schools.com">JavaScript 输出</a></p>
+<p>8. 对象 -<a href="https://zshipu.com/t?url=https://www.w3schools.com/js/js_objects.asp" title="www.w3schools.com">JavaScript 对象</a></p>
+<p>9. 循环 -<a href="https://zshipu.com/t?url=http://www.yogihosting.com/multiple-ways-loop-array-jquery-javascript/" title="www.yogihosting.com">在 jQuery JavaScript 中循环循环数组的多种方法</a></p>
+<p>10. 休息并继续 -<a href="https://zshipu.com/t?url=https://www.w3schools.com/js/js_break.asp" title="www.w3schools.com">JavaScript 中断并继续</a></p>
+<p>适合初学者的 JavaScript 程序示例</p>
+<p>我还想列出一些初学者应该执行的方案。</p>
+<p>1. 创建一个程序，用户在 2 个输入框中输入 2 int 值，并在单击按钮时在警报框中显示其中最大的值。</p>
+<p>2. 创建一个程序，用户在文本框中输入数字，并且应在 div 上显示其表（最多 10）。应在按钮单击事件上创建该表。还防止用户在文本框中输入字符串（当输入为字符串时，在警报框上给出相应的错误）。</p>
+<p>3.为作业申请创建一个小窗体。它应该有5个字段 - 姓名，年龄，教育，地址和预期工资。这 5 个字段应具有 HTML 控件，其中用户输入其信息，单击时应显示 div 控件上的用户信息的按钮。</p>
+<p>4. 查找数字是否为正数。</p>
+<p>5. 创建具有共同功能的计算器 – 添加、减去、除法和乘法</p>
+<p>JavaScript 的中间级别应涵盖哪些内容</p>
+<p>1. 阿贾克斯</p>
+<p>a.<a href="https://zshipu.com/t?url=https://www.w3schools.com/xml/ajax_intro.asp" title="www.w3schools.com">AJAX 简介</a></p>
+<p>B。<a href="https://zshipu.com/t?url=https://www.w3schools.com/xml/ajax_database.asp" title="www.w3schools.com">AJAX数据库</a></p>
+<p>C。<a href="https://zshipu.com/t?url=https://www.w3schools.com/xml/ajax_applications.asp" title="www.w3schools.com">XML 应用程序</a></p>
+<p>2. 功能</p>
+<p>a.<a href="https://zshipu.com/t?url=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments" title="developer.mozilla.org">参数对象</a></p>
+<p>B。<a href="https://zshipu.com/t?url=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions" title="developer.mozilla.org">箭头函数</a></p>
+<p>C。<a href="https://zshipu.com/t?url=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters" title="developer.mozilla.org">默认参数</a></p>
+<p>D。<a href="https://zshipu.com/t?url=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Method_definitions" title="developer.mozilla.org">方法定义</a></p>
+<p>e.<a href="https://zshipu.com/t?url=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters" title="developer.mozilla.org">休息参数</a></p>
+<p>F。<a href="https://zshipu.com/t?url=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get" title="developer.mozilla.org">吸气</a></p>
+<p>G。<a href="https://zshipu.com/t?url=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set" title="developer.mozilla.org">Setter</a></p>
+<p>H。<a href="https://zshipu.com/t?url=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function" title="developer.mozilla.org">异步函数</a></p>
+<p>3. 使用课程</p>
+<p>a.<a href="https://zshipu.com/t?url=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class" title="developer.mozilla.org">类</a></p>
+<p>B。<a href="https://zshipu.com/t?url=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor" title="developer.mozilla.org">构造 函数</a></p>
+<p>C。<a href="https://zshipu.com/t?url=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/extends" title="developer.mozilla.org">延伸</a></p>
+<p>D。<a href="https://zshipu.com/t?url=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static" title="developer.mozilla.org">静态</a></p>
+<p>4. J<a href="https://zshipu.com/t?url=https://www.w3schools.com/js/js_cookies.asp" title="www.w3schools.com">avaScript 饼干</a></p>
+<p>JavaScript 的高级级别应介绍哪些内容</p>
+<p>当您处于高级级别时，这意味着您基本上知道如何处理 JavaScript。在高级级别中，您必须处理 JavaScript 与在 Python、Ruby、PHP、ASP NET 等上创建的应用程序的集成。</p>
+<p>Here your job would be to make features on JavaScript that communicate efficiently with the Server technology like databases, Python, Ruby, PHP,<a href="https://zshipu.com/t?url=https://www.yogihosting.com/category/aspnet-core/" title="www.yogihosting.com">ASP.NET核心</a>等</p>
+<p>使用 JavaScript 制作的高级功能的一些示例包括：</p>
+<p>1. 使用 AJAX 每隔几秒钟从数据库部分更新网页部分。</p>
+<p>2. 获取并在页面上显示实时股票价格。您可以通过使用 JavaScript 代码实现 API 来获得股票价格。</p>
+<p><font _mstmutation="1" _msthash="7651371" _msttexthash="203435765">3.在您的网站中创建交互式功能，以便提高转化率。示例可以是</font><a href="https://zshipu.com/t?url=http://www.yogihosting.com/jquery-autocomplete/" title="www.yogihosting.com">自动完成</a>可以使用 JavaSript 创建的功能。</p>
+<p><font _mstmutation="1" _msthash="7652905" _msttexthash="36222888">4. 外部 API 实现，如</font><a href="https://zshipu.com/t?url=http://www.yogihosting.com/implement-tmdb-api-with-jquery-ajax/" title="www.yogihosting.com">TMDB API</a>在 JavaScript 中，帮助用户获取任何电影、演员和系列的详细信息</p>
+<p>5.<a href="https://zshipu.com/t?url=http://www.yogihosting.com/jquery-infinite-scroll/" title="www.yogihosting.com">无限滚动或自动分页功能</a></p>
+<p>结论</p>
+<p>我只想直接指出你的权利，这样你就可以有效地学习JavaScript，同时你也喜欢这个网络语言。</p>
+<blockquote>
+<p>你需要一个良好的耐心来学习JavaScript，就像这个家伙：</p>
+</blockquote>
+<p>我希望你喜欢我的回答，我希望你给我一个赞成票，这样我就能知道我是否有帮助。</p>
+<p>谢谢你<br>奈娜</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-06-25T04:04:57.000Z" title="2020-06-25T04:04:57.000Z">2020-06-25</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.350Z" title="2020-09-08T14:03:00.350Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">3 分钟读完 (大约412个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/06/25/GraphQL%20%E6%9C%80%E4%BD%B3%E8%B5%84%E6%BA%90/">GraphQL 最佳资源</a></h1><div class="content"><p>   <font _mstmutation="1" _msthash="242749" _msttexthash="316752540">GraphQL 的”新”API 查询语言很棒，但一开始可能有点压倒性。我们最近写了一个</font><a href="https://zshipu.com/t?url=https://snipcart.com/blog/graphql-based-cms-tutorial-integration-with-graphcms-nodejs-and-apollo" title="snipcart.com">教程与图形供电的CMS</a>在我们的博客上，我们很好地概述了什么是GraphQL，以及它与REST有何不同。在此过程中，我们还编译了关键资源。它们是：</p>
+<ul>
+<li><p><a href="https://zshipu.com/t?url=http://graphql.org/learn/" title="graphql.org">图形QL官方文件</a>，最简洁和最好的地方之一，了解它。</p>
+</li>
+<li><p><a href="https://zshipu.com/t?url=https://facebook.github.io/graphql/" title="facebook.github.io">正式的Facebook草案RFC规范的图形QL</a>，重，但深入。</p>
+</li>
+<li><p><a href="https://zshipu.com/t?url=https://dev-blog.apollodata.com/the-anatomy-of-a-graphql-query-6dffa9e9e747" title="dev-blog.apollodata.com">萨什科·斯图巴伊洛的图形QL查询的剖析</a>，阿波罗开发博客上的杀手级帖子</p>
+</li>
+<li><p><a href="https://zshipu.com/t?url=https://philsturgeon.uk/api/2017/01/24/graphql-vs-rest-overview/" title="philsturgeon.uk">菲尔·斯图尔特的”GraphQL vs REST：概述”</a>，详细查看使用其中一种或一种时的原因和时间。</p>
+</li>
+<li><p><a href="https://zshipu.com/t?url=https://github.com/chentsulin/awesome-graphql" title="github.com">真棒-graphql</a>，一个巨大的 GitHub 存储库列出了许多与 GraphQL 相关的库、工具、示例和帖子。</p>
+</li>
+<li><p><a href="https://zshipu.com/t?url=https://graphqlweekly.com/" title="graphqlweekly.com">图表QL周刊</a>，关于图形QL和阿波罗所有事情的精心策划的通讯。</p>
+</li>
+</ul>
+<p>• Wes Bos 还在他的几集中讨论了 GraphQL、Graphcool 和阿波罗<a href="https://zshipu.com/t?url=https://syntax.fm/" title="syntax.fm">语法播客</a>.</p>
+<p>希望这有帮助！</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-06-25T04:02:49.000Z" title="2020-06-25T04:02:49.000Z">2020-06-25</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.440Z" title="2020-09-08T14:03:00.440Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">4 分钟读完 (大约667个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/06/25/%E4%B8%8E%20REST%20API%20%E7%9B%B8%E6%AF%94%EF%BC%8CGraphQL%20%E6%9C%89%E5%93%AA%E4%BA%9B%E4%BC%98%E5%8A%BF/">与 REST API 相比，GraphQL 有哪些优势</a></h1><div class="content"><p>   GraphQL 充当”编织”图层。</p>
+<p>您拥有所有 API 的终结点，GraphQL 允许您同时调用多个终结点并将它们编织在一起。</p>
+<p><font _mstmutation="1" _msthash="7565506" _msttexthash="744557697">GraphQL 方法的问题是，对于调用的每个终结点，它都会发出单独的请求/响应，而不是重用一个内部请求/响应。这是因为 GraphQL 基于</font><a href="https://zshipu.com/t?url=https://www.slideshare.net/bobdobbes/api-pattern#13" title="www.slideshare.net">旧 api 模式</a>其中通信逻辑/数据绑定到业务逻辑创建<a href="https://zshipu.com/t?url=https://en.wikipedia.org/wiki/Cross-cutting_concern" title="en.wikipedia.org">交叉切割问题</a>在你的架构中。</p>
+<p>在 REST 中，您可以执行与 GraphQL 完全相同的操作，除非通过实现<a href="https://zshipu.com/t?url=https://www.slideshare.net/bobdobbes/api-pattern" title="www.slideshare.net">新的 API 模式</a>并从业务逻辑中抽象通信逻辑。</p>
+<p>这反过来又允许您实现<a href="https://zshipu.com/t?url=https://orubel.github.io/Beapi-API-Framework/chain.html" title="orubel.github.io">API 链接（tm） 模式</a><font _mstmutation="1" _msthash="7568549" _msttexthash="612245166">它做完全相同的事情与GraphQL（即编织api调用在一起），除了它使用一个请求/响应，从而节省大量的开销。</font></p>
+<p>• 性能注意事项###</p>
+<ul>
+<li>如果将常规 api 调用视为基准，GraphQL 将始终变慢（因为所有附加处理），因为它必须为每个附加资源分别进行 REQUEST/响应并将其编织在一起。</li>
+<li>如果您考虑使用常规 api 调用<a href="https://zshipu.com/t?url=https://www.slideshare.net/bobdobbes/api-pattern#13" title="www.slideshare.net">旧的 api 模式</a>与<a href="https://zshipu.com/t?url=https://www.slideshare.net/bobdobbes/api-pattern#22" title="www.slideshare.net">新的 api 模式</a>，新的 api 模式将始终更快，因为它减少了代码膨胀和需要完成的处理量。</li>
+<li>如果您考虑<a href="https://zshipu.com/t?url=https://orubel.github.io/Beapi-API-Framework/chain.html" title="orubel.github.io">API 链接</a>vs 图形 QL，<a href="https://zshipu.com/t?url=https://orubel.github.io/Beapi-API-Framework/chain.html" title="orubel.github.io">API 链接</a>会一直更快，因为它只需要一个请求/响应任何给定的呼叫</li>
+</ul>
+<p>总之…GraphQL 是那些无法编写解决方案代码的用户的解决方案。而那些能够编写代码的人，拥有更可扩展、更快速的东西。不要粗鲁，但GraphQL只是猴子谁需要一个UI比devops或外壳的工具。</p>
+<p>但不要听我的话…下面是一个 100K 请求，在 1.8ghz 计算机上完成 80 个并发，4 个内核和 1GB 专用 RAM，显示 API 的速度：</p>
+<p>这是4700个reqs/秒的东西，实际上是一个树莓派的强大。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-06-25T03:59:41.000Z" title="2020-06-25T03:59:41.000Z">2020-06-25</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.351Z" title="2020-09-08T14:03:00.351Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">23 分钟读完 (大约3514个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/06/25/GraphQL%20%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E7%B3%BB%E5%88%97%20%E4%B8%80/">GraphQL 深入理解系列 一</a></h1><div class="content"><p> GraphQL 将执行 JSON 对 XML 所做的操作。</p>
+<p>GraphQL 解决的 3 个最重要的问题是：</p>
+<ul>
+<li>需要执行多次往返以获取视图所需的数据：使用 GraphQL，您始终可以通过单个往返服务器获取视图所需的所有初始数据。要对 REST API 执行相同的操作，我们需要引入难以管理和扩展的非结构化参数和条件。</li>
+<li>客户端依赖于服务器：使用 GraphQL，客户端会使用请求语言：1） 无需服务器硬编码数据的形状或大小，2） 将客户端与服务器分离。这意味着我们可以独立于服务器维护和改进客户端。</li>
+<li>糟糕的前端开发人员体验：使用 GraphQL，开发人员使用声明性语言表达其用户界面的数据要求。他们表达他们所需要的，而不是如何使它可用。UI 需要的数据与开发人员在 GraphQL 中表达数据描述的方式之间存在紧密关系。</li>
+</ul>
+<p>但是，REST API 有什么问题呢？</p>
+<p>REST API 的最大问题是多个终结点的性质。</p>
+<p>这要求客户端执行多次往返以获取其数据。</p>
+<p>REST API 通常是终结点的集合，其中每个终结点表示资源。因此，当客户端需要来自多个资源的数据时，它需要执行多个到 REST API 的往返，以组合所需的数据。</p>
+<p>在 REST API 中，没有客户端请求语言。客户端无法控制服务器将返回的数据。没有语言可以做到这一点。更准确地说，客户端可用的语言非常有限。</p>
+<p>例如，读取 REST API 终结点可以是：</p>
+<ul>
+<li><font _mstmutation="1" _msthash="410930" _msttexthash="110978244">GET - 从该资源获取所有记录的列表，或</font><code>/ResouceName</code></li>
+<li><font _mstmutation="1" _msthash="410931" _msttexthash="65713648">GET - 获取该 ID 标识的单个记录。</font><code>/ResourceName/ResourceID</code></li>
+</ul>
+<p>例如，客户端无法指定要为该资源中的记录选择哪些字段。该信息位于 REST API 服务本身中，REST API 服务将始终返回所有字段，而不管客户端实际需要哪个字段。GraphQL 针对此问题的术语是过度提取不需要的信息。这是客户端和服务器网络和内存资源的浪费。</p>
+<p>REST API 的另一个大问题是版本控制。如果需要支持多个版本，这通常意味着新的终结点。这在使用这些终结点时会导致更多问题，并且可能是服务器上代码重复的原因。</p>
+<p>上面提到的 REST API 问题是特定于 GraphQL 试图解决的问题。它们当然不是 REST API 的所有问题，我不想进入 REST API 是什么，不是。我主要谈论流行的基于资源的 HTTP 端点 API。这些 API 中的每一个最终都变成了具有常规 REST 终结点的混合 - 出于性能原因制作的自定义临时终结点。这是 GraphQL 提供了更好的替代方案。</p>
+<p>GraphQL 如何施展其魔力？</p>
+<p>GraphQL 背后有很多概念和设计决策，但最重要的可能是：</p>
+<ul>
+<li>GraphQL 架构是强类型架构。要创建 GraphQL 架构，我们定义具有类型的字段。这些类型可以是基元类型或自定义类型，并且架构中的其他所有类型都需要一个类型。这种丰富的类型系统允许丰富的功能，如具有内省 API 和可为客户端和服务器构建功能强大的工具。</li>
+<li>GraphQL 将数据作为图形表示，数据自然是图形。如果需要表示任何数据，正确的结构是图形。GraphQL 运行时允许我们使用与该数据的自然图形形状相匹配的图形 API 来表示数据。</li>
+<li>GraphQL 具有用于表示数据需求的声明性。GraphQL 为客户端提供了声明性语言，供他们表达其数据需求。这种声明性性质围绕使用 GraphQL 语言创建了一个心理模型，该语言与我们在英语中思考数据需求的方式非常接近，并且与替代方法相比，使用 GraphQL API 容易得多。</li>
+</ul>
+<p>最后一个概念是为什么我个人认为GraphQL是一个游戏规则的改变者。</p>
+<p>这些都是高层次的概念。让我们来了解一些细节。</p>
+<p>为了解决多个往返问题，GraphQL 使响应服务器只是单个终结点。基本上，GraphQL 将自定义终结点的想法提升到极致，只是使整个服务器成为单个自定义终结点，可以回复所有数据问题。</p>
+<p>与这个单一终结点概念相一起的另一个大概念是使用该自定义单终结点所需的丰富客户端请求语言。如果没有客户端请求语言，单个终结点是无用的。它需要一种语言来处理自定义请求，并响应该自定义请求的数据。</p>
+<p>具有客户端请求语言意味着客户端将处于控制之下。</p>
+<p>他们可以询问他们到底需要什么，服务器会回复他们到底要什么。这解决了过度提取的问题。</p>
+<p>当涉及到版本控制时，GraphQL 对此有一个有趣的介绍。可以一起避免版本控制。基本上，我们可以只添加新字段而不删除旧字段，因为我们有一个图形，并且可以通过添加更多节点灵活地增长图形。因此，我们可以在图形上保留旧 API 的路径，并引入新的路径，而无需将它们标记为新版本。API 刚刚增长。</p>
+<p>这对移动客户端尤其重要，因为我们无法控制他们使用的 API 版本。安装后，移动应用可能会继续使用同一旧版本的 API 多年。在 Web 上，很容易控制 API 的版本，因为我们只是推送新代码。对于移动应用来说，这要困难得多。</p>
+<p>还没有完全相信？在 GraphQL 和 REST 之间使用实际示例进行一对一比较怎么样？</p>
+<p>RESTful API 与图形QL API = 示例</p>
+<p>让我们想象一下，我们是负责构建一个闪亮的新用户界面来代表星球大战电影和人物的开发人员。</p>
+<p>我们负责构建的第一个 UI 很简单：显示有关单个星球大战人员信息的视图。例如，达斯·维德，以及这个人出演的所有电影。此视图应显示该人的姓名、出生年份、行星名称以及他们出现的所有影片的标题。</p>
+<p>As simple as that sounds, we’re actually dealing with 3 different resources here: Person, Planet, and Film. The relationship between these resources is simple and anyone can guess the shape of the data here. A person object belongs to one planet object and it will have one or more films objects.</p>
+<p>The JSON data for this UI could be something like:</p>
+<ul>
+<li><p>{</p>
+</li>
+<li><p>“data”: {    “person”: {</p>
+</li>
+<li><p>“name”: “Darth Vader”,</p>
+</li>
+<li><p>“birthYear”: “41.9BBY”,</p>
+</li>
+<li><p>“planet”: {</p>
+</li>
+<li><p>“name”: “Tatooine”</p>
+</li>
+<li><p>},</p>
+</li>
+<li><p>“films”: [</p>
+</li>
+<li><p>{ “title”: “A New Hope” },</p>
+</li>
+<li><p>{ “title”: “The Empire Strikes Back” },</p>
+</li>
+<li><p>{ “title”: “Return of the Jedi” },</p>
+</li>
+<li><p>{ “title”: “Revenge of the Sith” }</p>
+</li>
+<li><p>]</p>
+</li>
+<li><p>}</p>
+</li>
+<li><p>}</p>
+</li>
+<li><p>}</p>
+</li>
+</ul>
+<p>假设数据服务为我们提供了数据的这种精确结构，下面是一种用 React.js 表示其视图的一种可能方法：</p>
+<ul>
+<li><p>// The Container Component:</p>
+</li>
+<li><p><PersonProfile person={data.person} ></PersonProfile></p>
+</li>
+<li><p>// The PersonProfile Component:</p>
+</li>
+<li><p>Name: {person.name}</p>
+</li>
+<li><p>Birth Year: {person.birthYear}</p>
+</li>
+<li><p>Planet: {person.planet.name}</p>
+</li>
+<li><p>Films: {person.films.map(film =&gt; film.title)}</p>
+</li>
+</ul>
+<p>这是一个简单的例子，虽然我们与星球大战的经验可能帮助我们在这里一点点，UI和数据之间的关系是非常明确的。UI 使用了我们想象中的 JSON 数据对象中的所有”键”。</p>
+<p>现在，让我们看看如何使用 RESTful API 请求此数据。</p>
+<p>我们需要一个人的信息，假设我们知道此人的 ID，则 RESTful API 应公开该信息：</p>
+<ul>
+<li>GET - /people/{id}</li>
+</ul>
+<p>此请求将向我们提供姓名、出生年份和其他有关此人的信息。一个好的RESTful API也将给我们这个人的星球的ID和一系列ID的所有电影，这个人出现在。</p>
+<p>此请求的 JSON 响应可能类似于：</p>
+<ul>
+<li><p>{</p>
+</li>
+<li><p>“name”: “Darth Vader”,</p>
+</li>
+<li><p>“birthYear”: “41.9BBY”,</p>
+</li>
+<li><p>“planetId”: 1</p>
+</li>
+<li><p>“filmIds”: [1, 2, 3, 6],</p>
+</li>
+<li><p><strong>* other information we do not need *</strong></p>
+</li>
+<li><p>}</p>
+</li>
+</ul>
+<p>然后，要阅读行星的名称，我们问：</p>
+<ul>
+<li>GET - /planets/1</li>
+</ul>
+<p>要阅读电影标题，我们要求：</p>
+<ul>
+<li><p>GET - /films/1</p>
+</li>
+<li><p>GET - /films/2</p>
+</li>
+<li><p>GET - /films/3</p>
+</li>
+<li><p>GET - /films/6</p>
+</li>
+</ul>
+<p>一旦我们从服务器收到所有 6 个响应，我们可以将它们组合起来，以满足视图所需的数据。</p>
+<p>除了我们必须进行 6 次往返以满足简单 UI 的简单数据需求之外，我们这里的方法也是必不可少的。我们提供了有关如何获取数据以及如何处理数据以使其为视图做好准备的说明。</p>
+<p>如果你想明白我的意思，你可以自己试试这个。星球大战数据有一个RESTful API当前托管在<a href="https://zshipu.com/t?url=http://swapi.co/" title="swapi.co">http://swapi.co/</a>.继续尝试在那里构造我们的数据人员对象。密钥可能略有不同，但 API 终结点将相同。您需要执行 6 次 API 调用。此外，您必须获取视图不需要的信息。</p>
+<p>当然，这只是此数据的 RESTful API 的一个实现。可能有更好的实现，这将使此视图更容易实现。例如，如果 API 服务器实现了嵌套资源并理解人与胶片之间的关系，我们可以读取影片数据：</p>
+<ul>
+<li>GET - /people/{id}/films</li>
+</ul>
+<p>但是，纯 RESTful API 服务器很可能无法实现这一点，我们需要要求后端工程师为我们创建此自定义终结点。这就是扩展 RESTful API 的现实 - 我们只是添加自定义终结点，以有效满足不断增长的客户需求。管理这样的自定义终结点是很困难的。</p>
+<p><font _mstmutation="1" _msthash="258544" _msttexthash="2220180404">现在，让我们来看看 GraphQL 方法。服务器上的 GraphQL 包含自定义终结点的想法，并将其带到极致。服务器将只是单个终结点，通道无关紧要。如果我们通过 HTTP 执行此操作，HTTP 方法肯定也无关紧要。假设我们有一个 GraphQL 终结点在 HTTP 上公开。</font><code>/graphql</code></p>
+<p>由于我们希望在一次往返中请求所需的数据，我们需要一种方法来表达我们对服务器的完整数据需求。我们使用 GraphQL 查询执行此操作：</p>
+<ul>
+<li>GET or POST - /graphql?query={…}</li>
+</ul>
+<p>GraphQL 查询只是一个字符串，但它必须包含我们需要的所有数据部分。这就是声明性力量的用处。</p>
+<p>在英语中，我们是如何声明我们的数据要求：我们需要一个人的名字，出生年份，行星的名字，以及他们所有电影的标题。在 GraphQL 中，这转换为：</p>
+<ul>
+<li><p>{</p>
+</li>
+<li><p>person(ID: …) {</p>
+</li>
+<li><p>name,</p>
+</li>
+<li><p>birthYear,</p>
+</li>
+<li><p>planet {</p>
+</li>
+<li><p>name</p>
+</li>
+<li><p>},</p>
+</li>
+<li><p>films {</p>
+</li>
+<li><p>title</p>
+</li>
+<li><p>}</p>
+</li>
+<li><p>}</p>
+</li>
+<li><p>}</p>
+</li>
+</ul>
+<p>再阅读一次英语表达的要求，并将其与 GraphQL 查询进行比较。它尽可能接近。现在，将此 GraphQL 查询与我们开始的原始 JSON 数据进行比较。GraphQL 查询是 JSON 数据的确切结构，但不包括所有”值”部分。如果我们从问答关系的角度来考虑这个问题，问题就是没有答案部分的答案陈述。</p>
+<p>如果答案语句是：</p>
+<blockquote>
+<p>离太阳最近的行星是水星。</p>
+</blockquote>
+<p>问题的良好表现是同一陈述，没有答案部分：</p>
+<blockquote>
+<p>（什么是距离太阳最近的行星？</p>
+</blockquote>
+<p>相同的关系适用于 GraphQL 查询。采取 JSON 响应，删除所有”答案”部分（即值），您最终得到一个GraphQL查询，非常适合表示有关该 JSON 响应的问题。</p>
+<p>现在，将 GraphQL 查询与我们为数据定义的声明性 React UI 进行比较。GraphQL 查询中的所有内容都用于 UI，UI 中使用的所有内容都显示在 GraphQL 查询中。</p>
+<p>这是GraphQL的伟大心理模型。UI 知道它需要的确切数据，并提取该要求相当容易。提出 GraphQL 查询只是直接从 UI 中提取用作变量的内容。</p>
+<p>如果我们反转这个模型，它仍然会保持力量。如果我们有 GraphQLquery，我们确切知道如何在 UI 中使用其响应，因为查询将与响应”结构”相同。我们不需要检查响应来了解如何使用它，也不需要任何关于 API 的文档。都是内置的</p>
+<p>星球大战数据有一个图形QL API托管在<a href="https://zshipu.com/t?url=https://github.com/graphql/swapi-graphql" title="github.com">https://github.com/graphql/swapi-graphql</a>.继续尝试在那里构造我们的数据人员对象。稍后我们将解释一些小差异，但以下是您可以针对此 API 读取视图数据要求的官方查询（以达斯·维德为例）：</p>
+<ul>
+<li><p>{</p>
+</li>
+<li><p>person(personID: 4) {</p>
+</li>
+<li><p>name,</p>
+</li>
+<li><p>birthYear,</p>
+</li>
+<li><p>homeworld {</p>
+</li>
+<li><p>name</p>
+</li>
+<li><p>},</p>
+</li>
+<li><p>filmConnection {</p>
+</li>
+<li><p>films {</p>
+</li>
+<li><p>title</p>
+</li>
+<li><p>}</p>
+</li>
+<li><p>}</p>
+</li>
+<li><p>}</p>
+</li>
+<li><p>}</p>
+</li>
+</ul>
+<p>此请求为我们提供了非常接近视图使用的响应结构，请记住，我们在一次往返中获取所有这些数据。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-06-21T03:29:05.000Z" title="2020-06-21T03:29:05.000Z">2020-06-21</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.395Z" title="2020-09-08T14:03:00.395Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">20 分钟读完 (大约2994个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/06/21/Python%20%E4%B8%AD%E7%9A%84%E4%B8%BB%E8%A6%81%E7%BB%84%E4%BB%B6%E5%88%86%E6%9E%90%20-%20%E5%88%86%E6%AD%A5%E6%8C%87%E5%8D%97/">Python 中的主要组件分析 - 分步指南</a></h1><div class="content"><p>主要组件分析是一种无监督机器学习技术，用于探索性数据分析。</p>
+<p>更具体地说，数据科学家使用主要组件分析来转换数据集并确定对数据集影响最大的因素。</p>
+<p>本教程将教您如何在 Python 中执行主要组件分析。</p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>您可以使用下面的目录跳到此 Python 主体组件分析教程的特定部分：</p>
+<ul>
+<li><a href="https://zshipu.com/t?url=#the-libraries-we-will-be-using-in-this-tutorial">我们将在本教程中使用库</a></li>
+<li><a href="https://zshipu.com/t?url=#the-data-set-we-will-be-using-in-this-tutorial">我们将在本教程中使用数据集</a></li>
+<li><a href="https://zshipu.com/t?url=#performing-our-first-principal-component-transformation">执行我们的第一个主要组件转换</a></li>
+<li><a href="https://zshipu.com/t?url=#visualizing-our-principal-component">可视化我们的主要组件</a></li>
+<li><a href="https://zshipu.com/t?url=#what-the-heck-is-a-principal-component-anyway">到底是主要组成部分是什么？</a></li>
+<li><a href="https://zshipu.com/t?url=#how-to-use-principal-component-analysis-in-practice">在实践中如何使用主要组件分析</a></li>
+<li><a href="https://zshipu.com/t?url=#the-full-code-for-this-tutorial">本教程的完整代码</a></li>
+<li><a href="https://zshipu.com/t?url=#final-thoughts">最后的想法</a></li>
+</ul>
+<h2 id="我们将在本教程中使用库"><a href="#我们将在本教程中使用库" class="headerlink" title="我们将在本教程中使用库"></a>我们将在本教程中使用库</h2><p>本教程将使用许多开源软件库，包括NumPy、熊猫和matplotlib。</p>
+<p>因此，我们将通过添加以下导入来启动 Python 脚本：</p>
+<p>  <code>import pandas as pd</p>
+<p>import numpy as np</p>
+<p>import matplotlib.pyplot as plt</p>
+<p>import seaborn</p>
+<p>%matplotlib inline</code> </p>
+<p>接下来，让我们继续导入数据集。</p>
+<h2 id="我们将在本教程中使用数据集"><a href="#我们将在本教程中使用数据集" class="headerlink" title="我们将在本教程中使用数据集"></a>我们将在本教程中使用数据集</h2><p>在本课程的早些时候，您学习了如何在内置乳腺癌数据集上构建<a href="https://zshipu.com/t?url=https://nickmccullum.com/python-machine-learning/support-vector-machines-python/">支持载体机器</a>。<code>scikit-learn</code></p>
+<p>我们将在本教程中使用相同的数据集来了解主要组件分析。</p>
+<p>让我们通过加载函数开始导入此数据集。<code>scikit-learn``````load_breast_cancer</code></p>
+<p>  <code>from sklearn.datasets import load_breast_cancer</code> </p>
+<p>运行此函数时，它将生成数据集。让我们将数据集分配给一个变量：：<code>raw_data</code></p>
+<p>  <code>raw_data = load_breast_cancer()</code> </p>
+<p>如果运行以确定我们的变量是哪种类型的数据类型，它将返回 。这是属于 的特殊内置数据结构。<code>type(raw_data)``````raw_data``````sklearn.utils.Bunch``````scikit-learn</code></p>
+<p>幸运的是，此数据类型易于使用。事实上，它的行为类似于普通的<a href="https://zshipu.com/t?url=https://nickmccullum.com/python-course/dictionaries/">Python 字典。</a></p>
+<p>这个类似字典的对象的键之一是 。我们可以使用此键将数据集转换为熊猫数据帧，并具有以下语句：<code>data</code></p>
+<p>  <code>raw_data_frame = pd.DataFrame(raw_data['data'], columns = raw_data['feature_names'])</code> </p>
+<p>让我们通过打印来调查数据集包含的功能。这将生成：<code>raw_data_frame.columns</code></p>
+<p>  <code>Index(['mean radius', 'mean texture', 'mean perimeter', 'mean area',</p>
+<pre><code>   &#39;mean smoothness&#39;, &#39;mean compactness&#39;, &#39;mean concavity&#39;,
+
+   &#39;mean concave points&#39;, &#39;mean symmetry&#39;, &#39;mean fractal dimension&#39;,
+
+   &#39;radius error&#39;, &#39;texture error&#39;, &#39;perimeter error&#39;, &#39;area error&#39;,
+
+   &#39;smoothness error&#39;, &#39;compactness error&#39;, &#39;concavity error&#39;,
+
+   &#39;concave points error&#39;, &#39;symmetry error&#39;, &#39;fractal dimension error&#39;,
+
+   &#39;worst radius&#39;, &#39;worst texture&#39;, &#39;worst perimeter&#39;, &#39;worst area&#39;,
+
+   &#39;worst smoothness&#39;, &#39;worst compactness&#39;, &#39;worst concavity&#39;,
+
+   &#39;worst concave points&#39;, &#39;worst symmetry&#39;, &#39;worst fractal dimension&#39;],
+
+  dtype=&#39;object&#39;)&lt;/code&gt; </code></pre>
+<p>正如您所看到的，这是一个非常功能丰富的数据集。</p>
+<p>关于我们的数据集，最后需要注意的一个变量是，我们试图预测的变量——即特定的乳腺癌肿瘤是恶性还是良性——被放在关键项下的对象内。<code>raw_data``````target</code></p>
+<p>可以使用 访问目标值。值将用于恶性肿瘤和良性肿瘤。<code>raw_data[&#39;target&#39;]``````1``````0</code></p>
+<h2 id="执行我们的第一个主要组件转换"><a href="#执行我们的第一个主要组件转换" class="headerlink" title="执行我们的第一个主要组件转换"></a>执行我们的第一个主要组件转换</h2><p>正如我们在打印阵列时所看到的，我们的数据集具有许多功能。这使得使用传统可视化技术对数据集执行探索性数据分析变得困难。<code>raw_data_frame.columns</code></p>
+<p>为了解决这个问题，我们需要执行一个主组件转换，将我们的数据集转换为一个只有两个功能的功能，其中每个功能都是主要组件。</p>
+<p>首先，我们需要标准化我们的数据集。在机器学习中，仅指转换数据集中的所有观测值，使每个要素的大小大致相同的行为。<code>standardization</code></p>
+<p>我们使用 的类来执行此操作。我们需要做的第一件事是使用以下命令导入此类：<code>scikit-learn``````StandardScaler``````scikit-learn</code></p>
+<p>  <code>from sklearn.preprocessing import StandardScaler</code> </p>
+<p>接下来，我们需要创建此类的实例。我们将新创建的对象分配给名为 ： 的变量：<code>StandardScaler``````data_scaler</code></p>
+<p>  <code>data_scaler = StandardScaler()</code> </p>
+<p>现在，我们需要在本教程前面创建的数据集上训练变量。这让我们的对象能够观察数据集中每个要素的特征，以便它可以在本教程的后面部分将每个要素转换为相同的比例：<code>data_scaler``````raw_data_frame``````data_scaler</code></p>
+<p>  <code>data_scaler.fit(raw_data_frame)</code> </p>
+<p>我们的最后一步是调用对象上的方法。这将创建一个新的数据集，其中观测值已标准化。我们将将其分配给一个称为 的变量。<code>transform``````data_scaler``````scaled_data_frame</code></p>
+<p>  <code>scaled_data_frame = data_scaler.transform(raw_data_frame)</code> </p>
+<p>我们现在已经成功地标准化了乳腺癌数据集！</p>
+<p>现在是执行主要组件分析转换的时候了。</p>
+<p>我们需要做的第一件事是从 导入必要的类。下面是执行此操作的命令：<code>scikit-learn</code></p>
+<p>  <code>from sklearn.decomposition import PCA</code> </p>
+<p>现在我们需要创建此类的实例。为此，您需要指定主体组件的数量作为参数。我们将使用 2 个主要组件，因此类实例化命令如下所示：<code>PCA``````n_components</code></p>
+<p>  <code>pca = PCA(n_components = 2)</code> </p>
+<p>接下来，我们需要使用方法将模型拟合：<code>pca``````scaled_data_frame``````fit</code></p>
+<p>  <code>pca.fit(scaled_data_frame)</code> </p>
+<p>我们的主要组件分析模型现已创建，whch 意味着我们现在有一个模型，只需 2 个变量来解释原始数据集的一些方差。</p>
+<p>要查看此主体在操作中，运行以下命令：</p>
+<p>  <code>x_pca = pca.transform(scaled_data_frame)</p>
+<p>print(x_pca.shape)</p>
+<p>print(scaled_data_frame.shape)</code> </p>
+<p>这将返回：</p>
+<p>  <code>(569, 2)</p>
+<p>(569, 30)</code> </p>
+<p>正如您所看到的，我们已经将原始数据集从具有 30 个要素的数据集缩减为仅具有 2 个功能的主要组件的简单模型。</p>
+<h2 id="可视化我们的主要组件"><a href="#可视化我们的主要组件" class="headerlink" title="可视化我们的主要组件"></a>可视化我们的主要组件</h2><p>正如我们在本教程前面讨论的那样，几乎不可能从具有 30 个功能的数据集生成有意义的数据可视化效果。</p>
+<p>话虽如此，现在我们已经将数据集转换为 2 个主要组件，创建可视化效果非常简单。</p>
+<p>下面介绍如何从本教程中到目前为止使用的两个主要组件创建简单的散点图：</p>
+<p>  <code>plt.scatter(x_pca[:,0],x_pca[:,1])</p>
+<p>plt.xlabel(‘First Principal Component’)</p>
+<p>plt.ylabel(‘Second Principal Component’)</code> </p>
+<p>这将生成以下可视化效果：</p>
+<p><img src="https://nickmccullum.com/images/python-machine-learning/principal-component-analysis/principal-component-analysis-scatterplot.png" alt="A principal component analysis"></p>
+<p>此可视化显示每个数据点作为其第一个和第二个主要组件的函数。它不是非常有用的当前形式。</p>
+<p>让我们添加一个配色方案，根据它是恶性肿瘤还是良性肿瘤来修改每个数据点的颜色。以下代码可以操作：</p>
+<p>  <code>plt.scatter(x_pca[:,0],x_pca[:,1], c=raw_data['target'])</p>
+<p>plt.xlabel(‘First Principal Component’)</p>
+<p>plt.ylabel(‘Second Principal Component’)</code> </p>
+<p>这将生成：</p>
+<p><img src="https://nickmccullum.com/images/python-machine-learning/principal-component-analysis/principal-component-analysis-scatterplot-with-color.png" alt="A principal component analysis with color"></p>
+<p>正如您所看到的，仅使用 2 个主要成分即可准确划分基于恶性和良性肿瘤的数据集。</p>
+<p>换个说法，我们保持了对数据集进行准确预测的能力，但通过将原始数据集中的 30 个要素减少到现在的 2 个主要组件，大大提高了数据集的简单性。</p>
+<h2 id="到底是主要组成部分是什么？"><a href="#到底是主要组成部分是什么？" class="headerlink" title="到底是主要组成部分是什么？"></a>到底是主要组成部分是什么？</h2><p>在本教程（和上一个教程）中，我经常提到”主要组件”，但您可能仍然不确定这意味着什么。因此，我想花一些时间更好地解释主要组成部分的实际是什么。</p>
+<p>主要组件是数据集中原始要素的线性组合。换句话说，通过添加和减去数据集的原始特征来计算主体组件。</p>
+<p>您可以使用 生成这些线性组合的系数。只需键入，它将生成类似这样的内容：<code>scikit-learn``````pca.components_</code></p>
+<p>  <code>array([[ 0.21890244,  0.10372458,  0.22753729,  0.22099499,  0.14258969,</p>
+<pre><code>     0.23928535,  0.25840048,  0.26085376,  0.13816696,  0.06436335,
+
+     0.20597878,  0.01742803,  0.21132592,  0.20286964,  0.01453145,
+
+     0.17039345,  0.15358979,  0.1834174 ,  0.04249842,  0.10256832,
+
+     0.22799663,  0.10446933,  0.23663968,  0.22487053,  0.12795256,
+
+     0.21009588,  0.22876753,  0.25088597,  0.12290456,  0.13178394],
+
+   [-0.23385713, -0.05970609, -0.21518136, -0.23107671,  0.18611302,
+
+     0.15189161,  0.06016536, -0.0347675 ,  0.19034877,  0.36657547,
+
+    -0.10555215,  0.08997968, -0.08945723, -0.15229263,  0.20443045,
+
+     0.2327159 ,  0.19720728,  0.13032156,  0.183848  ,  0.28009203,
+
+    -0.21986638, -0.0454673 , -0.19987843, -0.21935186,  0.17230435,
+
+     0.14359317,  0.09796411, -0.00825724,  0.14188335,  0.27533947]])&lt;/code&gt; </code></pre>
+<p>这是一个二维 NumPy 数组，包含 2 行和 30 列。更具体地说，每个主体组件都有一行，原始数据集中的每个要素都有一列。此 NumPy 数组中的每个项的值对应于数据集中该特定要素上的系数。</p>
+<p>让我们以示例为例，调查第一个主体组件。它的前 2 个元素是 和 。这意味着用于计算此分量的方程看起来类似，并且此线性组合的其他系数可以在 NumPy 数组中找到。<code>0.21890244``````0.10372458``````0.21890244x1 + 0.10372458x2 + …``````pca.components_</code></p>
+<p>总之，主要组件分析是简单性和可解释性之间的权衡。</p>
+<p>使用它们大大提高了机器学习模型的简单性。</p>
+<p>但是，它们也会增加解释每个变量含义的难度，因为主要组件是数据集中实际实际变量的线性组合。</p>
+<h2 id="在实践中如何使用主要组件分析"><a href="#在实践中如何使用主要组件分析" class="headerlink" title="在实践中如何使用主要组件分析"></a>在实践中如何使用主要组件分析</h2><p>到目前为止，在本教程中，您已经学习了如何执行主要组件分析，将多功能数据集转换为仅包含主要组件的较小数据集。我们已经看到，这增加了简单性，但降低了可解释性。</p>
+<p>尽管您对主要组件分析有各种知识，但我们尚未对主要组件模型进行任何预测。</p>
+<p>这是有原因的。也就是说，主组件分析_must _be与分类模型（如逻辑回归或 k 最近邻域）结合使用，以做出有意义的预测。</p>
+<p>重要的是要牢记这一点向前发展。</p>
+<h2 id="本教程的完整代码"><a href="#本教程的完整代码" class="headerlink" title="本教程的完整代码"></a>本教程的完整代码</h2><p>您可以在<a href="https://zshipu.com/t?url=https://github.com/nicholasmccullum/python-machine-learning">此 GitHub 存储库</a>中查看本教程的完整代码。下面还粘贴如下，供参考：</p>
+<p> <code>import pandas as pd<br>import numpy as np</p>
+<p>import matplotlib.pyplot as plt<br>import seaborn<br>%matplotlib inline</p>
+<p>from sklearn.datasets import load_breast_cancer<br>raw_data = load_breast_cancer()</p>
+<p>raw_data_frame = pd.DataFrame(raw_data[‘data’], columns = raw_data[‘feature_names’])<br>raw_data_frame.columns</p>
+<p>#Standardize the data from sklearn.preprocessing import StandardScaler<br>data_scaler = StandardScaler()<br>data_scaler.fit(raw_data_frame)<br>scaled_data_frame = data_scaler.transform(raw_data_frame)</p>
+<p>#Perform the principal component analysis transformation from sklearn.decomposition import PCA<br>pca = PCA(n_components = 2)<br>pca.fit(scaled_data_frame)</p>
+<p>x_pca = pca.transform(scaled_data_frame)</p>
+<p>print(x_pca.shape)<br>print(scaled_data_frame.shape)</p>
+<p>#Visualize the principal components plt.scatter(x_pca[:,0],x_pca[:,1])<br>plt.xlabel(‘First Principal Component’)<br>plt.ylabel(‘Second Principal Component’)</p>
+<p>#Visualize the principal components with a color scheme plt.scatter(x_pca[:,0],x_pca[:,1], c=raw_data[‘target’])<br>plt.xlabel(‘First Principal Component’)<br>plt.ylabel(‘Second Principal Component’)</p>
+<p>#Investigating at the principal components pca.components_[0]</code> </p>
+<h2 id="最后的想法"><a href="#最后的想法" class="headerlink" title="最后的想法"></a>最后的想法</h2><p>在本教程中，您学习了如何在 Python 中执行主体组件分析。</p>
+<p>以下是我们讨论的主题的简要摘要：</p>
+<ul>
+<li>主要组件分析如何减少数据集中的要素数量</li>
+<li>主要组件如何是数据集原始特征的线性组合</li>
+<li>该主要组件分析必须与其他机器学习技术相结合，以便对实际数据集进行预测</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-06-21T03:28:18.000Z" title="2020-06-21T03:28:18.000Z">2020-06-21</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.379Z" title="2020-09-08T14:03:00.379Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">16 分钟读完 (大约2441个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/06/21/K%20%E8%A1%A8%E7%A4%BA%20Python%20%E4%B8%AD%E7%9A%84%E7%BE%A4%E9%9B%86%20-%20%E5%88%86%E6%AD%A5%E6%8C%87%E5%8D%97/">K 表示 Python 中的群集 - 分步指南</a></h1><div class="content"><p>K 表示聚类算法通常是学生将学习的第一个无监督机器学习模型。</p>
+<p>它允许机器学习从业者在具有相似定量特征的数据集内创建数据点组。它对于解决诸如创建客户细分或识别犯罪率高的城市中的地方等问题非常有用。</p>
+<p>在本教程中，您将学习如何在 Python 中构建第一个 K 表示聚类算法。</p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>您可以使用下面的目录跳到此 Python K 的特定部分，即聚类算法：</p>
+<ul>
+<li><a href="https://zshipu.com/t?url=#the-data-set-we-will-use-in-this-tutorial">我们将在本教程中使用数据集</a></li>
+<li><a href="https://zshipu.com/t?url=#the-imports-we-will-use-in-this-tutorial">我们将在本教程中使用导入</a></li>
+<li><a href="https://zshipu.com/t?url=#visualizing-our-data-set">可视化我们的数据集</a></li>
+<li><a href="https://zshipu.com/t?url=#building-and-training-our-k-means-clustering-model">构建与训练我们的 K 意味着聚类模型</a></li>
+<li><a href="https://zshipu.com/t?url=#making-predictions-with-our-k-means-clustering-model">使用我们的 K 表示聚类模型进行预测</a></li>
+<li><a href="https://zshipu.com/t?url=#visualizing-the-accuracy-of-our-model">可视化模型的准确性</a></li>
+<li><a href="https://zshipu.com/t?url=#the-full-code-for-this-tutorial">本教程的完整代码</a></li>
+<li><a href="https://zshipu.com/t?url=#final-thoughts">最后的想法</a></li>
+</ul>
+<h2 id="我们将在本教程中使用数据集"><a href="#我们将在本教程中使用数据集" class="headerlink" title="我们将在本教程中使用数据集"></a>我们将在本教程中使用数据集</h2><p>在本教程中，我们将使用 使用 生成的数据集。<code>scikit-learn</code></p>
+<p>让我们导入函数来创建此人工数据。打开<a href="https://zshipu.com/t?url=https://nickmccullum.com/python-course/jupyter-notebook-basics/">犹太笔记本</a>，用以下语句启动 Python 脚本：<code>scikit-learn``````make_blobs</code></p>
+<p>  <code>from sklearn.datasets import make_blobs</code> </p>
+<p>现在，让我们使用函数创建一些人工数据！<code>make_blobs</code></p>
+<p>更具体地说，下面介绍如何创建具有功能和群集中心的示例的数据集。每个群集中的标准差将设置为 。<code>200``````2``````4``````1.8</code></p>
+<p>  <code>raw_data = make_blobs(n_samples = 200, n_features = 2, centers = 4, cluster_std = 1.8)</code> </p>
+<p>如果打印此对象，您会注意到它实际上是一个 Python<a href="https://zshipu.com/t?url=https://nickmccullum.com/python-course/tuples/">元组</a>。此元组的第一个元素是具有 200 个观测值的<a href="https://zshipu.com/t?url=https://nickmccullum.com/advanced-python/numpy-arrays/">NumPy 数组</a>。每个观察包含 2 个要素（就像我们用函数指定的一样！<code>raw_data``````make_blobs</code></p>
+<p>现在，我们的数据已经创建，我们可以继续将其他重要的开源库导入到我们的 Python 脚本中。</p>
+<h2 id="我们将在本教程中使用导入"><a href="#我们将在本教程中使用导入" class="headerlink" title="我们将在本教程中使用导入"></a>我们将在本教程中使用导入</h2><p>本教程将利用许多流行的开源Python库，包括<a href="https://zshipu.com/t?url=https://nickmccullum.com/advanced-python/pandas/">熊猫</a><a href="https://zshipu.com/t?url=https://nickmccullum.com/advanced-python/numpy/">，NumPy，</a>和<a href="https://zshipu.com/t?url=https://nickmccullum.com/python-visualization/how-to-import-matplotlib/">matplotlib。</a>让我们通过添加以下导入来继续我们的 Python 脚本：</p>
+<p>  <code>import pandas as pd</p>
+<p>import numpy as np</p>
+<p>import seaborn</p>
+<p>import matplotlib.pyplot as plt</p>
+<p>%matplotlib inline</code> </p>
+<p>此代码块中的第一组导入用于操作大型数据集。第二组导入用于创建数据可视化效果。</p>
+<p>接下来，让我们继续可视化数据集。</p>
+<h2 id="可视化我们的数据集"><a href="#可视化我们的数据集" class="headerlink" title="可视化我们的数据集"></a>可视化我们的数据集</h2><p>在我们的函数中，我们为数据集指定了 4 个群集中心。验证正确处理这一点的最佳方法是创建一些快速数据可视化效果。<code>make_blobs</code></p>
+<p>首先，让我们使用以下命令根据数据集第二列中的所有行绘制数据集第一列中的所有行：</p>
+<p><img src="https://nickmccullum.com/images/python-machine-learning/k-means-clustering/first-scatterplot.png" alt="A scatterplot of our artificial data"></p>
+<p><em>注意：您的数据集的显示方式与我的不同，因为这是随机生成的数据。</em></p>
+<p>此图像似乎表明我们的数据集只有三个群集。这是因为两个群集彼此非常接近。</p>
+<p>为了解决这个问题，我们需要引用元组的第二个元素，这是一个 NumPy 数组，其中包含每个观测点所属的群集。<code>raw_data</code></p>
+<p>如果我们使用每个观测值的聚类对数据集进行着色，则唯一的群集很快就会变得清晰。下面是执行此操作的代码：</p>
+<p>  <code>plt.scatter(raw_data[0][:,0], raw_data[0][:,1], c=raw_data[1])</code> </p>
+<p><img src="https://nickmccullum.com/images/python-machine-learning/k-means-clustering/second-scatterplot.png" alt="A scatterplot of our artificial data"></p>
+<p>现在我们可以看到，我们的数据集有四个唯一的群集。让我们继续在 Python 中构建我们的 K 表示群集模型！</p>
+<h2 id="构建与训练我们的-K-意味着聚类模型"><a href="#构建与训练我们的-K-意味着聚类模型" class="headerlink" title="构建与训练我们的 K 意味着聚类模型"></a>构建与训练我们的 K 意味着聚类模型</h2><p>构建 K 意味着聚类算法的第一步是从 导入它。为此，请向 Python 脚本添加以下命令：<code>scikit-learn</code></p>
+<p>  <code>from sklearn.cluster import KMeans</code> </p>
+<p>接下来，让我们创建一个包含 的参数并将其分配给变量的此类实例：<code>KMeans``````n_clusters=4``````model</code></p>
+<p>  <code>model = KMeans(n_clusters=4)</code> </p>
+<p>现在，让我们通过调用模型上的方法并传入元组的第一个元素来训练模型：<code>fit``````raw_data</code></p>
+<p>  <code>model.fit(raw_data[0])</code> </p>
+<p>在下一节中，我们将探讨如何使用此 K 表示聚类模型进行预测。</p>
+<p>在继续之前，我想指出一个区别，即您可能已经注意到构建此 K 意味着聚类算法（这是一种无监督机器学习算法）的过程与本课程中到目前为止使用的受监督机器学习算法之间的差异。</p>
+<p>也就是说，我们不必将数据集拆分为训练数据和测试数据。这是一个重要的区别 - 事实上，在构建无监督机器学习模型时，您永远不需要在数据集上进行训练/测试拆分！</p>
+<h2 id="使用我们的-K-表示聚类模型进行预测"><a href="#使用我们的-K-表示聚类模型进行预测" class="headerlink" title="使用我们的 K 表示聚类模型进行预测"></a>使用我们的 K 表示聚类模型进行预测</h2><p>机器学习从业者通常使用 K 表示聚类算法进行两种类型的预测：</p>
+<ul>
+<li>每个数据点所属的群集</li>
+<li>每个群集的中心位于</li>
+</ul>
+<p>现在，我们的模型已经过训练，因此很容易生成这些预测。</p>
+<p>首先，让我们预测每个数据点属于哪个群集。为此，请使用点运算符从对象访问属性，如下所示：<code>labels_``````model</code></p>
+<p>  <code>model.labels_</code> </p>
+<p>这将生成一个 NumPy 数组，其中预测每个数据点如下所示：</p>
+<p>  <code>array([3, 2, 7, 0, 5, 1, 7, 7, 6, 1, 2, 4, 6, 7, 6, 4, 4, 3, 3, 6, 0, 0,</p>
+<pre><code>   6, 4, 5, 6, 0, 2, 6, 5, 4, 3, 4, 2, 6, 6, 6, 5, 6, 2, 1, 1, 3, 4,
+
+   3, 5, 7, 1, 7, 5, 3, 6, 0, 3, 5, 5, 7, 1, 3, 1, 5, 7, 7, 0, 5, 7,
+
+   3, 4, 0, 5, 6, 5, 1, 4, 6, 4, 5, 6, 7, 2, 2, 0, 4, 1, 1, 1, 6, 3,
+
+   3, 7, 3, 6, 7, 7, 0, 3, 4, 3, 4, 0, 3, 5, 0, 3, 6, 4, 3, 3, 4, 6,
+
+   1, 3, 0, 5, 4, 2, 7, 0, 2, 6, 4, 2, 1, 4, 7, 0, 3, 2, 6, 7, 5, 7,
+
+   5, 4, 1, 7, 2, 4, 7, 7, 4, 6, 6, 3, 7, 6, 4, 5, 5, 5, 7, 0, 1, 1,
+
+   0, 0, 2, 5, 0, 3, 2, 5, 1, 5, 6, 5, 1, 3, 5, 1, 2, 0, 4, 5, 6, 3,
+
+   4, 4, 5, 6, 4, 4, 2, 1, 7, 4, 6, 6, 0, 6, 3, 5, 0, 5, 2, 4, 6, 0,
+
+   1, 0], dtype=int32)&lt;/code&gt; </code></pre>
+<p>要查看每个群集的中心位置，请使用点运算符访问属性，如下所示：<code>cluster_centers_</code></p>
+<p>  <code>model.cluster_centers_</code> </p>
+<p>这将生成包含每个聚类中心的坐标的二维 NumPy 数组。如下所示：</p>
+<p>  <code>array([[ -8.06473328,  -0.42044783],</p>
+<pre><code>   [  0.15944397,  -9.4873621 ],
+
+   [  1.49194628,   0.21216413],
+
+   [-10.97238157,  -2.49017206],
+
+   [  3.54673215,  -9.7433692 ],
+
+   [ -3.41262049,   7.80784834],
+
+   [  2.53980034,  -2.96376999],
+
+   [ -0.4195847 ,   6.92561289]])&lt;/code&gt; </code></pre>
+<p>我们将在下一节中评估这些预测的准确性。</p>
+<h2 id="可视化模型的准确性"><a href="#可视化模型的准确性" class="headerlink" title="可视化模型的准确性"></a>可视化模型的准确性</h2><p>在本教程中，我们要做的最后一件事就是可视化模型的准确性。您可以使用以下代码执行此操作：</p>
+<p>  <code>f, (ax1, ax2) = plt.subplots(1, 2, sharey=True,figsize=(10,6))</p>
+<p>ax1.set_title(‘Our Model’)</p>
+<p>ax1.scatter(raw_data[0][:,0], raw_data[0][:,1],c=model.labels_)</p>
+<p>ax2.set_title(‘Original Data’)</p>
+<p>ax2.scatter(raw_data[0][:,0], raw_data[0][:,1],c=raw_data[1])</code> </p>
+<p>这将并排生成两个不同的绘图，其中一个绘图根据实际数据集显示聚类，另一个绘图根据我们的模型显示聚类。以下是输出的外观：</p>
+<p><img src="https://nickmccullum.com/images/python-machine-learning/k-means-clustering/k-means-clustering-subplots.png" alt="A scatterplot of our model&#39;s predictions"></p>
+<p>尽管两个绘图之间的着色不同，但您可以看到，我们的模型在预测数据集中的聚类方面做得很好。您还可以看到模型并不完美 - 如果您查看群集边缘的数据点，则可以看到它偶尔会从我们的数据集中错误分类观测值。</p>
+<p>关于测量模型的预测，还有最后一件事需要提及。在此示例中，我们知道每个观测值属于哪个群集，因为我们实际上自己生成了此数据集。</p>
+<p>这是非常不寻常的。K 表示在事先不知道群集时，更频繁地应用聚类。相反，机器学习从业者使用 K 表示聚类来查找他们在数据集中尚未知道的模式。</p>
+<h2 id="本教程的完整代码"><a href="#本教程的完整代码" class="headerlink" title="本教程的完整代码"></a>本教程的完整代码</h2><p>您可以在<a href="https://zshipu.com/t?url=https://github.com/nicholasmccullum/python-machine-learning">此 GitHub 存储库</a>中查看本教程的完整代码。下面还粘贴如下，供参考：</p>
+<p>  <code>#Create artificial data set<br>from sklearn.datasets import make_blobs</p>
+<p>raw_data = make_blobs(n_samples = 200, n_features = 2, centers = 4, cluster_std = 1.8)</p>
+<p>#Data imports<br>import pandas as pd</p>
+<p>import numpy as np</p>
+<p>#Visualization imports<br>import seaborn</p>
+<p>import matplotlib.pyplot as plt</p>
+<p>%matplotlib inline</p>
+<p>#Visualize the data<br>plt.scatter(raw_data[0][:,0], raw_data[0][:,1])</p>
+<p>plt.scatter(raw_data[0][:,0], raw_data[0][:,1], c=raw_data[1])</p>
+<p>#Build and train the model<br>from sklearn.cluster import KMeans</p>
+<p>model = KMeans(n_clusters=4)</p>
+<p>model.fit(raw_data[0])</p>
+<p>#See the predictions<br>model.labels_</p>
+<p>model.cluster_centers_</p>
+<p>#PLot the predictions against the original data set<br>f, (ax1, ax2) = plt.subplots(1, 2, sharey=True,figsize=(10,6))</p>
+<p>ax1.set_title(‘Our Model’)</p>
+<p>ax1.scatter(raw_data[0][:,0], raw_data[0][:,1],c=model.labels_)</p>
+<p>ax2.set_title(‘Original Data’)</p>
+<p>ax2.scatter(raw_data[0][:,0], raw_data[0][:,1],c=raw_data[1])</code> </p>
+<h2 id="最后的想法"><a href="#最后的想法" class="headerlink" title="最后的想法"></a>最后的想法</h2><p>在本教程中，您将在 Python 中构建了第一个 K 表示聚类算法。</p>
+<p>以下是您所学知识的简要摘要：</p>
+<ul>
+<li>如何使用函数创建人工数据<code>scikit-learn``````make_blobs</code></li>
+<li>如何构建和训练 K 意味着聚类模型</li>
+<li>这种无监督机器学习技术不需要将数据拆分为训练数据和测试数据</li>
+<li>如何使用聚类模型构建和训练 K<code>scikit-learn</code></li>
+<li>当您提前了解群集时，如何可视化 K 的性能意味着聚类算法</li>
+</ul>
+</div></article></div><nav class="pagination is-centered mt-4" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/2/">上一页</a></div><div class="pagination-next"><a href="/page/4/">下一页</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><a class="pagination-link" href="/page/2/">2</a></li><li><a class="pagination-link is-current" href="/page/3/">3</a></li><li><a class="pagination-link" href="/page/4/">4</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/19/">19</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="https://www.gravatar.com/avatar/2396bdfe5aadb513e676094004dde830?s=128" alt="edwin"></figure><p class="title is-size-4 is-block line-height-inherit">edwin</p><p class="is-size-6 is-block">知识铺</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国 杭州</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">189</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">2</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/liliang8858" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/liliang8858"><i class="Github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="社区"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="设计"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/go/"><span class="level-start"><span class="level-item">go</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:43:02.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Spring%20Cloud%20Gateway+Nacos%EF%BC%8Cyml+properties%E4%B8%A4%E7%A7%8D%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%96%B9%E5%BC%8F%E6%90%AD%E5%BB%BA%E7%BD%91%E5%85%B3%E6%9C%8D%E5%8A%A1/">Spring Cloud Gateway+Nacos，yml+properties两种配置文件方式搭建网关服务</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:39:59.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Spring%20Cloud+nacos+Feign%EF%BC%8C%E5%AE%9E%E7%8E%B0%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%E5%8F%8A%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">Spring Cloud+nacos+Feign，实现注册中心及配置中心</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:32:26.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E6%97%B6%EF%BC%8C%E5%A4%9A%E4%B8%AA%E6%9C%8D%E5%8A%A1%E5%85%B1%E7%94%A8%E4%B8%80%E4%B8%AAdataId%E7%9A%84%E9%85%8D%E7%BD%AE/">Nacos作为配置中心时，多个服务共用一个dataId的配置</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T09:34:29.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/SpringCloudAlibaba(%E4%B8%89)%EF%BC%9A%E4%BD%BF%E7%94%A8Nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">SpringCloudAlibaba(三)：使用Nacos作为配置中心</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T09:31:53.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Nacos%20%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/">Nacos 集群部署</a></p><p class="is-uppercase"></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2020/07/"><span class="level-start"><span class="level-item">七月 2020</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/06/"><span class="level-start"><span class="level-item">六月 2020</span></span><span class="level-end"><span class="level-item tag">37</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/05/"><span class="level-start"><span class="level-item">五月 2020</span></span><span class="level-end"><span class="level-item tag">29</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/04/"><span class="level-start"><span class="level-item">四月 2020</span></span><span class="level-end"><span class="level-item tag">62</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/03/"><span class="level-start"><span class="level-item">三月 2020</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/12/"><span class="level-start"><span class="level-item">十二月 2019</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/11/"><span class="level-start"><span class="level-item">十一月 2019</span></span><span class="level-end"><span class="level-item tag">24</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/go/"><span class="tag">go</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/web/"><span class="tag">web</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button is-primary" type="submit" value="订阅"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="2183476622" data-ad-slot="pub-2874221941555456" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="知识铺" height="28"></a><p class="size-small"><span>&copy; 2020 edwin</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            site: {
+                url: 'https://zshipu.com',
+                external_link: {"enable":true,"exclude":[]}
+            },
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

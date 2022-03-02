@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Python 中的逻辑回归 - 分步指南 - 知识铺</title><meta description="在上一篇文章中，我们了解了逻辑回归的理论基础，以及如何使用它来解决机器学习分类问题。 本教程将教您如何在 Python 中构建逻辑回归模型，从而教您有关逻辑回归机器学习技术的更多信息。 目录您可以使用下面的目录跳到此 Python 逻辑回归教程的特定部分：  我们将在本教程中使用数据集 我们将在本教程中使用导入 将数据集导入到我们的 Python 脚本中 通过探索性数据分析了解我们的数据集 每个分"><meta property="og:type" content="blog"><meta property="og:title" content="Python 中的逻辑回归 - 分步指南"><meta property="og:url" content="https://zshipu.com/2020/06/21/Python%20%E4%B8%AD%E7%9A%84%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%20-%20%E5%88%86%E6%AD%A5%E6%8C%87%E5%8D%97/"><meta property="og:site_name" content="知识铺"><meta property="og:description" content="在上一篇文章中，我们了解了逻辑回归的理论基础，以及如何使用它来解决机器学习分类问题。 本教程将教您如何在 Python 中构建逻辑回归模型，从而教您有关逻辑回归机器学习技术的更多信息。 目录您可以使用下面的目录跳到此 Python 逻辑回归教程的特定部分：  我们将在本教程中使用数据集 我们将在本教程中使用导入 将数据集导入到我们的 Python 脚本中 通过探索性数据分析了解我们的数据集 每个分"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://nickmccullum.com/images/python-machine-learning/logistic-regression/seaborn-countplot.png"><meta property="og:image" content="https://nickmccullum.com/images/python-machine-learning/logistic-regression/seaborn-countplot-hue-sex.png"><meta property="og:image" content="https://nickmccullum.com/images/python-machine-learning/logistic-regression/seaborn-countplot-hue-pclass.png"><meta property="og:image" content="https://nickmccullum.com/images/python-machine-learning/logistic-regression/age-histogram.png"><meta property="og:image" content="https://nickmccullum.com/images/python-machine-learning/logistic-regression/fare-histogram.png"><meta property="og:image" content="https://nickmccullum.com/images/python-machine-learning/logistic-regression/missing-values-dataframe.png"><meta property="og:image" content="https://nickmccullum.com/images/python-machine-learning/logistic-regression/missing-values-heatmap.png"><meta property="og:image" content="https://nickmccullum.com/images/python-machine-learning/logistic-regression/age-boxplot.png"><meta property="og:image" content="https://nickmccullum.com/images/python-machine-learning/logistic-regression/get-dummies.png"><meta property="og:image" content="https://nickmccullum.com/images/python-machine-learning/logistic-regression/final-data-frame.png"><meta property="article:published_time" content="2020-06-21T03:23:42.000Z"><meta property="article:modified_time" content="2020-09-08T14:03:00.398Z"><meta property="article:author" content="知识铺"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://nickmccullum.com/images/python-machine-learning/logistic-regression/seaborn-countplot.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://zshipu.com/2020/06/21/Python%20%E4%B8%AD%E7%9A%84%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%20-%20%E5%88%86%E6%AD%A5%E6%8C%87%E5%8D%97/"},"headline":"知识铺","image":["https://nickmccullum.com/images/python-machine-learning/logistic-regression/seaborn-countplot.png","https://nickmccullum.com/images/python-machine-learning/logistic-regression/seaborn-countplot-hue-sex.png","https://nickmccullum.com/images/python-machine-learning/logistic-regression/seaborn-countplot-hue-pclass.png","https://nickmccullum.com/images/python-machine-learning/logistic-regression/age-histogram.png","https://nickmccullum.com/images/python-machine-learning/logistic-regression/fare-histogram.png","https://nickmccullum.com/images/python-machine-learning/logistic-regression/missing-values-dataframe.png","https://nickmccullum.com/images/python-machine-learning/logistic-regression/missing-values-heatmap.png","https://nickmccullum.com/images/python-machine-learning/logistic-regression/age-boxplot.png","https://nickmccullum.com/images/python-machine-learning/logistic-regression/get-dummies.png","https://nickmccullum.com/images/python-machine-learning/logistic-regression/final-data-frame.png"],"datePublished":"2020-06-21T03:23:42.000Z","dateModified":"2020-09-08T14:03:00.398Z","author":{"@type":"Person","name":"知识铺"},"description":"在上一篇文章中，我们了解了逻辑回归的理论基础，以及如何使用它来解决机器学习分类问题。 本教程将教您如何在 Python 中构建逻辑回归模型，从而教您有关逻辑回归机器学习技术的更多信息。 目录您可以使用下面的目录跳到此 Python 逻辑回归教程的特定部分：  我们将在本教程中使用数据集 我们将在本教程中使用导入 将数据集导入到我们的 Python 脚本中 通过探索性数据分析了解我们的数据集 每个分"}</script><link rel="canonical" href="https://zshipu.com/2020/06/21/Python%20%E4%B8%AD%E7%9A%84%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%20-%20%E5%88%86%E6%AD%A5%E6%8C%87%E5%8D%97/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600&amp;family=Roboto+Mono"><link rel="stylesheet" href="/css/cyberpunk.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><script data-ad-client="2183476622" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><meta name="generator" content="Hexo 5.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="知识铺" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-06-21T03:23:42.000Z" title="2020-06-21T03:23:42.000Z">2020-06-21</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.398Z" title="2020-09-08T14:03:00.398Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">39 分钟读完 (大约5861个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">Python 中的逻辑回归 - 分步指南</h1><div class="content"><p>在上一篇文章中，我们了解了逻辑回归的理论基础，以及如何使用它来解决机器学习分类问题。</p>
+<p>本教程将教您如何在 Python 中构建逻辑回归模型，从而教您有关逻辑回归机器学习技术的更多信息。</p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>您可以使用下面的目录跳到此 Python 逻辑回归教程的特定部分：</p>
+<ul>
+<li><a href="https://zshipu.com/t?url=#the-data-set-we-will-be-using-in-this-tutorial">我们将在本教程中使用数据集</a></li>
+<li><a href="https://zshipu.com/t?url=#the-imports-we-will-be-using-in-this-tutorial">我们将在本教程中使用导入</a></li>
+<li><a href="https://zshipu.com/t?url=#importing-the-data-set-into-our-python-script">将数据集导入到我们的 Python 脚本中</a></li>
+<li><a href="https://zshipu.com/t?url=#learning-about-our-data-set-with-exploratory-data-analysis">通过探索性数据分析了解我们的数据集</a><ul>
+<li><a href="https://zshipu.com/t?url=#the-prevalence-of-each-classification-category">每个分类类别的流行程度</a></li>
+<li><a href="https://zshipu.com/t?url=#survival-rates-between-genders">性别之间的生存率</a></li>
+<li><a href="https://zshipu.com/t?url=#survival-rates-between-passenger-classes">乘客舱位之间的生存率</a></li>
+<li><a href="https://zshipu.com/t?url=#the-age-distribution-of-titanic-passengers">泰坦尼克号乘客的年龄分布</a></li>
+<li><a href="https://zshipu.com/t?url=#the-ticket-price-distribution-of-titanic-passengers">泰坦尼克号乘客的票价分配</a></li>
+</ul>
+</li>
+<li><a href="https://zshipu.com/t?url=#removing-null-data-from-our-data-set">从我们的数据集中删除空数据</a></li>
+<li><a href="https://zshipu.com/t?url=#building-a-logistic-regression-model">构建逻辑回归模型</a></li>
+<li><a href="https://zshipu.com/t?url=#removing-columns-with-too-much-missing-data">删除缺少过多数据的列</a></li>
+<li><a href="https://zshipu.com/t?url=#handling-categorical-data-with-dummy-variables">使用虚拟变量处理分类数据</a></li>
+<li><a href="https://zshipu.com/t?url=#adding-dummy-variables-to-the-pandas-dataframe">向<code>熊猫</code>数据帧添加虚拟变量</a></li>
+<li><a href="https://zshipu.com/t?url=#removing-unnecessary-columns-from-the-data-set">从数据集中删除不必要的列</a></li>
+<li><a href="https://zshipu.com/t?url=#creating-training-data-and-test-data">创建训练数据和测试数据</a></li>
+<li><a href="https://zshipu.com/t?url=#training-the-logistic-regression-model">训练逻辑回归模型</a></li>
+<li><a href="https://zshipu.com/t?url=#making-predictions-with-our-logistic-regression-model">使用我们的逻辑回归模型进行预测</a></li>
+<li><a href="https://zshipu.com/t?url=#measuring-the-performance-of-a-logistic-regression-machine-learning-model">衡量逻辑回归机器学习模型的性能</a></li>
+<li><a href="https://zshipu.com/t?url=#the-full-code-for-this-tutorial">本教程的完整代码</a></li>
+<li><a href="https://zshipu.com/t?url=#final-thoughts">最后的想法</a></li>
+</ul>
+<h2 id="我们将在本教程中使用数据集"><a href="#我们将在本教程中使用数据集" class="headerlink" title="我们将在本教程中使用数据集"></a>我们将在本教程中使用数据集</h2><p>泰坦尼克号数据集是一个非常著名的数据集，包含泰坦尼克号上乘客的特征。它通常用作逻辑回归问题的介绍性数据集。</p>
+<p>在本教程中，我们将使用泰坦尼克号数据集与 Python 逻辑回归模型相结合，以预测乘客是否在泰坦尼克号失事中幸存下来。</p>
+<p><a href="https://zshipu.com/t?url=https://www.kaggle.com/c/titanic">原始的泰坦尼克号数据集</a>在Kaggle.com上公开提供，这是一个托管数据集和数据科学竞赛的网站。</p>
+<p>为了让您在本课程中轻松学习，我们将使用半清洁版本的泰坦尼克号数据集，这将节省您在数据清理和操作方面的时间。</p>
+<p>清理过的泰坦尼克号数据集实际上已经可供你使用。您可以通过单击以下链接下载数据文件：</p>
+<ul>
+<li><a href="https://zshipu.com/t?url=https://nickmccullum.com/files/logistic-regression/titanic_train.csv">泰坦尼克号数据</a></li>
+</ul>
+<p>下载此文件后，在同一工作目录中打开<a href="https://zshipu.com/t?url=https://nickmccullum.com/python-course/jupyter-notebook-basics/">Jupyter 笔记本</a>，我们可以开始构建<a href="https://zshipu.com/t?url=https://nickmccullum.com/python-machine-learning/introduction-logistic-regression/">逻辑回归模型。</a></p>
+<h2 id="我们将在本教程中使用导入"><a href="#我们将在本教程中使用导入" class="headerlink" title="我们将在本教程中使用导入"></a>我们将在本教程中使用导入</h2><p>与之前一样，我们将在本教程中使用多个开源软件库。以下是在通过 Python 逻辑回归模型编写代码时需要运行的导入：</p>
+<p>  <code>import pandas as pd</p>
+<p>import numpy as np</p>
+<p>import matplotlib.pyplot as plt</p>
+<p>%matplotlib inline</p>
+<p>import seaborn as sns</code> </p>
+<p>接下来，我们需要将泰坦尼克号数据集导入到 Python 脚本中。</p>
+<h2 id="将数据集导入到我们的-Python-脚本中"><a href="#将数据集导入到我们的-Python-脚本中" class="headerlink" title="将数据集导入到我们的 Python 脚本中"></a>将数据集导入到我们的 Python 脚本中</h2><p>我们将使用熊猫的方法将我们的文件导入<a href="https://zshipu.com/t?url=https://nickmccullum.com/advanced-python/pandas-dataframes/">到熊猫数据帧</a>中。<code>read_csv``````csv``````titanic_data</code></p>
+<p>下面是执行此操作的代码：</p>
+<p>  <code>titanic_data = pd.read_csv('titanic_train.csv')</code> </p>
+<p>接下来，让我们调查泰坦尼克号数据集中实际包含的数据。有两种主要方法可以执行此操作（具体使用数据帧）：<code>titanic_data</code></p>
+<ul>
+<li>该方法将打印 DataFrame 的前 5 行。你可以用任何你想的号码来代替。<code>titanic_data.head(5)``````5</code></li>
+<li>您还可以打印 ，这将显示名为的列。<code>titanic_data.columns</code></li>
+</ul>
+<p>运行第二个命令 （） 生成以下输出：<code>titanic_data.columns</code></p>
+<p>  <code>Index(['PassengerId', 'Survived', 'Pclass', 'Name', 'Sex', 'Age', 'SibSp',</p>
+<pre><code>   &#39;Parch&#39;, &#39;Ticket&#39;, &#39;Fare&#39;, &#39;Cabin&#39;, &#39;Embarked&#39;],
+
+  dtype=&#39;object&#39;&lt;/code&gt; </code></pre>
+<p>这些是数据框架中列的名称。以下是每个数据点的简要说明：</p>
+<ul>
+<li><code>PassengerId</code>：泰坦尼克号上每位乘客的数字标识符。</li>
+<li><code>Survived</code>：一个二进制标识符，指示乘客是否在泰坦尼克号失事中幸存下来。此变量将保存的值，如果他们存活下来，如果他们没有生存。<code>1``````0</code></li>
+<li><code>Pclass</code>：乘客的舱位。这可以容纳 值 ， 或 ， 取决于乘客在船舶中的位置。<code>1``````2``````3</code></li>
+<li><code>Name</code>：乘客的名字。</li>
+<li><code>Sex</code>：男性或女性。</li>
+<li><code>Age</code>：乘客的年龄（以年数表示）。</li>
+<li><code>SibSp</code>：船上兄弟姐妹和配偶人数。</li>
+<li><code>Parch</code>：船上的父母和孩子的数量。</li>
+<li><code>Ticket</code>：乘客的票号。</li>
+<li><code>Fare</code>：乘客在泰坦尼克号上买票花了多少钱。</li>
+</ul>
+<p>接下来，我们将使用一些基本的探索性数据分析技术，详细了解我们的数据集。</p>
+<h2 id="通过探索性数据分析了解我们的数据集"><a href="#通过探索性数据分析了解我们的数据集" class="headerlink" title="通过探索性数据分析了解我们的数据集"></a>通过探索性数据分析了解我们的数据集</h2><h3 id="每个分类类别的流行程度"><a href="#每个分类类别的流行程度" class="headerlink" title="每个分类类别的流行程度"></a>每个分类类别的流行程度</h3><p>当使用机器学习技术对分类问题进行建模时，最好了解类别之间的比率。对于这个具体问题，了解我们的培训数据中有多少幸存者与非幸存者是很有用的。</p>
+<p>可视化的一种简单方法是使用绘图。在此示例中，您可以使用以下 Python 代码创建相应的绘图：<code>seaborn``````countplot``````seasborn</code></p>
+<p>  <code>sns.countplot(x='Survived', data=titanic_data)</code> </p>
+<p>这将生成以下绘图：</p>
+<p><img src="https://nickmccullum.com/images/python-machine-learning/logistic-regression/seaborn-countplot.png" alt="A seaborn countplot"></p>
+<p>正如你们所看到的，非幸存者的发生率比幸存者多得多。</p>
+<h3 id="性别之间的生存率"><a href="#性别之间的生存率" class="headerlink" title="性别之间的生存率"></a>性别之间的生存率</h3><p>比较与其他数据功能相关的存活率也很有用。例如，我们可以比较使用以下 Python 代码的值之间的生存率：<code>Male``````Female``````Sex</code></p>
+<p>  <code>sns.countplot(x='Survived', hue='Sex', data=titanic_data)</code> </p>
+<p>这将生成以下绘图：</p>
+<p><img src="https://nickmccullum.com/images/python-machine-learning/logistic-regression/seaborn-countplot-hue-sex.png" alt="A seaborn countplot with a Sex hue"></p>
+<p>正如您所看到的，有一个乘客更有可能是非幸存者比乘客与.<code>Sex``````Male``````Sex``````Female</code></p>
+<h3 id="乘客舱位之间的生存率"><a href="#乘客舱位之间的生存率" class="headerlink" title="乘客舱位之间的生存率"></a>乘客舱位之间的生存率</h3><p>我们可以使用变量执行类似的分析，看看哪些乘客级别是最有可能（也是最少）的乘客是幸存者。<code>Pclass</code></p>
+<p>下面是执行此操作的代码：</p>
+<p>  <code>sns.countplot(x='Survived', hue='Pclass', data=titanic_data)</code> </p>
+<p>这将生成以下绘图：</p>
+<p><img src="https://nickmccullum.com/images/python-machine-learning/logistic-regression/seaborn-countplot-hue-pclass.png" alt="A seaborn countplot with a Pclass hue"></p>
+<p>从这个阴谋中最引人注目的观察是，在泰坦尼克号坠毁时，价值为三等舱的乘客更有可能死亡。因为第三类飞机是最便宜的，最不豪华的。<code>Pclass``````3</code></p>
+<h3 id="泰坦尼克号乘客的年龄分布"><a href="#泰坦尼克号乘客的年龄分布" class="headerlink" title="泰坦尼克号乘客的年龄分布"></a>泰坦尼克号乘客的年龄分布</h3><p>我们可以进行的另一个有用的分析是调查泰坦尼克号乘客的年龄分布。<a href="https://zshipu.com/t?url=https://nickmccullum.com/python-visualization/histogram/">直方图</a>是一个很好的工具。</p>
+<p>您可以使用以下代码生成变量的直方图：<code>Age</code></p>
+<p>  <code>plt.hist(titanic_data['Age'].dropna())</code> </p>
+<p>请注意，该方法是必要的，因为<code>dropna()</code></p>
+<p>下面是此代码生成的直方图：</p>
+<p><img src="https://nickmccullum.com/images/python-machine-learning/logistic-regression/age-histogram.png" alt="A histogram of age variables from the titanic data set"></p>
+<p>正如您所看到的，泰坦尼克号乘客的集中值介于 和 之间。<code>Age``````20``````40</code></p>
+<h3 id="泰坦尼克号乘客的票价分配"><a href="#泰坦尼克号乘客的票价分配" class="headerlink" title="泰坦尼克号乘客的票价分配"></a>泰坦尼克号乘客的票价分配</h3><p>我们将使用的最后一种探索性数据分析技术是调查泰坦尼克号数据集中票价的分布情况。</p>
+<p>您可以使用以下代码执行此操作：</p>
+<p>  <code>plt.hist(titanic_data['Fare'])</code> </p>
+<p>这将生成以下绘图：</p>
+<p><img src="https://nickmccullum.com/images/python-machine-learning/logistic-regression/fare-histogram.png" alt="A histogram of fare variables from the titanic data set"></p>
+<p>正如您所看到的，泰坦尼克号数据集中有三个不同的价格组。这是有道理的，因为变量还有三个唯一值。差异组对应于不同的类别。<code>Fare``````Pclass``````Fare``````Pclass</code></p>
+<p>由于泰坦尼克号数据集是一个真实世界的数据集，它包含一些丢失的数据。我们将在下一节中<a href="https://zshipu.com/t?url=https://nickmccullum.com/advanced-python/missing-data-pandas/">学习如何处理缺失的数据</a>。</p>
+<h2 id="从我们的数据集中删除空数据"><a href="#从我们的数据集中删除空数据" class="headerlink" title="从我们的数据集中删除空数据"></a>从我们的数据集中删除空数据</h2><p>首先，让我们检查数据集包含缺失数据的位置。为此，运行以下命令：</p>
+<p>  <code>titanic_data.isnull()</code> </p>
+<p>这将生成布尔值的 DataFrame，如果单元格为空值，则单元格包含该值。下面是一个图像，如下所示：<code>True``````False</code></p>
+<p><img src="https://nickmccullum.com/images/python-machine-learning/logistic-regression/missing-values-dataframe.png" alt="A DataFrame of boolean values indicating where null data exists"></p>
+<p>评估此数据集中缺少的数据的一个更有用的方法是创建快速可视化。为此，我们可以使用可视化库。下面是可用于使用库创建 的快速命令：<code>seaborn``````heatmap``````seaborn</code></p>
+<p>  <code>sns.heatmap(titanic_data.isnull(), cbar=False)</code> </p>
+<p>下面是生成的可视化效果：</p>
+<p><img src="https://nickmccullum.com/images/python-machine-learning/logistic-regression/missing-values-heatmap.png" alt="A DataFrame of boolean values indicating where null data exists"></p>
+<p>在此可视化中，白线表示数据集中缺少的值。您可以看到 和 列包含泰坦尼克号数据集中的大部分缺失数据。<code>Age``````Cabin</code></p>
+<p>该列特别包含足够少的缺失量，以便我们可以使用某种形式的数学来填充缺失的数据。另一方面，数据缺少足够的数据，我们可能完全将其从模型中删除。<code>Age``````Cabin</code></p>
+<p>使用数据集的其余部分的平均数据填充缺失数据的过程称为 。现在，我们将使用 来填充列中缺少的数据。<code>imputation``````imputation``````Age</code></p>
+<p>最基本的形式是用整个数据集的平均值填充缺失的数据。但是，有更好的方法。<code>imputation``````Age``````Age</code></p>
+<p>我们将用乘客所属的特定乘客舱的平均值填充缺失值。要了解此功能为什么有用，请考虑以下框图：<code>Age``````Age``````Pclass</code></p>
+<p>  <code>sns.boxplot(titanic_data['Pclass'], titanic_data['Age'])</code> </p>
+<p><img src="https://nickmccullum.com/images/python-machine-learning/logistic-regression/age-boxplot.png" alt="A boxplot of age values stratified by passenger classes"></p>
+<p>正如您所看到的，价值（最昂贵的乘客舱）的乘客往往是最年长的，而价值（最便宜的）的乘客往往是最年轻的。这是非常合乎逻辑的，所以我们将使用不同数据中的平均值到列中缺少的数据。<code>Pclass``````1``````Pclass``````3``````Age``````Pclass``````imputate``````Age</code></p>
+<p>对像泰坦尼克号数据集这样的数据集执行最简单的方法是构建自定义函数。首先，我们需要确定每个值的平均值。<code>imputation``````Age``````Pclass</code></p>
+<p>  <code>#Pclass value 1<br>titanic_data[titanic_data['Pclass'] == 1]['Age'].mean()</p>
+<p>#Pclass value 2<br>titanic_data[titanic_data[‘Pclass’] == 2][‘Age’].mean()</p>
+<p>#Pclass 3<br>titanic_data[titanic_data[‘Pclass’] == 2][‘Age’].mean()</code> </p>
+<p>下面是我们将用于缺少变量的最终函数：<code>imputate``````Age</code></p>
+<p>  <code>def impute_missing_age(columns):</p>
+<pre><code>age = columns[0]
+
+passenger_class = columns[1]
+
+if pd.isnull(age):
+
+    if(passenger_class == 1):
+
+        return titanic_data[titanic_data[&#39;Pclass&#39;] == 1][&#39;Age&#39;].mean()
+
+    elif(passenger_class == 2):
+
+        return titanic_data[titanic_data[&#39;Pclass&#39;] == 2][&#39;Age&#39;].mean()
+
+    elif(passenger_class == 3):
+
+        return titanic_data[titanic_data[&#39;Pclass&#39;] == 3][&#39;Age&#39;].mean()
+
+else:
+
+    return age&lt;/code&gt; </code></pre>
+<p>现在，此归给函数已完成，我们需要将其应用于 DataFrame 中的每一行。Python 的方法是一个很好的工具：<code>titanic_data``````apply</code></p>
+<p>  <code>titanic_data['Age'] = titanic_data[['Age', 'Pclass']].apply(impute_missing_age, axis = 1)</code> </p>
+<p>现在，我们已经对每行执行了处理丢失数据，让我们来调查一下我们的原始框图：<code>imputation``````Age</code></p>
+<p>  <code>sns.heatmap(titanic_data.isnull(), cbar=False)</code> </p>
+<p>正如您所看到的，我们的熊猫数据框架的列中不再有任何缺失的数据！<code>Age</code></p>
+<p>您可能想知道为什么我们花了这么多时间专门处理列中缺少的数据。这是因为鉴于对大多数灾害和疾病生存的影响，它是一个变量，在我们的数据集中可能具有较高的预测价值。<code>Age``````Age</code></p>
+<p>现在，我们已经了解了此数据集的结构并删除了缺少的数据，让我们开始构建逻辑回归机器学习模型。</p>
+<h2 id="构建逻辑回归模型"><a href="#构建逻辑回归模型" class="headerlink" title="构建逻辑回归模型"></a>构建逻辑回归模型</h2><p>现在是删除逻辑回归模型的时候了。</p>
+<h3 id="删除缺少过多数据的列"><a href="#删除缺少过多数据的列" class="headerlink" title="删除缺少过多数据的列"></a>删除缺少过多数据的列</h3><p>首先，让我们删除该列。正如我们提到的，此列中缺失数据的高流行率意味着缺少的数据是不明智的，因此我们将使用以下代码完全删除它：<code>Cabin``````impute</code></p>
+<p>  <code>titanic_data.drop('Cabin', axis=1, inplace = True)</code> </p>
+<p>接下来，让我们删除包含熊猫方法缺少数据的任何其他列：<code>dropna()</code></p>
+<p>  <code>titanic_data.dropna(inplace = True)</code> </p>
+<h3 id="使用虚拟变量处理分类数据"><a href="#使用虚拟变量处理分类数据" class="headerlink" title="使用虚拟变量处理分类数据"></a>使用虚拟变量处理分类数据</h3><p>我们需要处理的下一个任务是处理分类功能。也就是说，我们需要找到一种方法，在数值上处理非自然数值的观测值。</p>
+<p>这方面的一个很好的例子是列，它有两个值： 和 。同样，该列包含一个字母，指示乘客离开哪个城市。<code>Sex``````Male``````Female``````Embarked</code></p>
+<p>为了解决这个问题，我们将创建 。这些为非数字要素的每个类别分配一个数值。<code>dummy variables</code></p>
+<p>幸运的是，有一个内置的方法，它可以很容易地创建虚拟变量。该方法确实存在一个问题 - 它将为 DataFrame 列中的每个值创建一个新列。<code>pandas``````get_dummies()``````get_dummies</code></p>
+<p>让我们考虑一个示例来帮助更好地理解这一点。如果我们在列上调用 方法，我们会得到以下输出：<code>get_dummies()``````Age</code></p>
+<p>  <code>pd.get_dummies(titanic_data['Sex'])</code> </p>
+<p><img src="https://nickmccullum.com/images/python-machine-learning/logistic-regression/get-dummies.png" alt="An example of the pandas get_dummies method"></p>
+<p>正如您所看到的，这将创建两个新列： 和 。这些列都是彼此的完美预测变量，因为列中的值表示列中的值，反之亦然。<code>female``````male``````0``````female``````1``````male</code></p>
+<p>这称为，它显著降低了算法的预测能力。要删除此参数，我们可以将 参数添加到如下所示的方法：<code>multicollinearity``````drop_first = True``````get_dummies</code></p>
+<p>  <code>pd.get_dummies(titanic_data['Sex'], drop_first = True)</code> </p>
+<p>现在，让我们为和列创建虚拟变量列，并将它们分配给调用 和 的变量。<code>Sex``````Embarked``````sex``````embarked</code></p>
+<p>  <code>sex_data = pd.get_dummies(titanic_data['Sex'], drop_first = True)</p>
+<p>embarked_data = pd.get_dummies(titanic_data[‘Embarked’], drop_first = True)</code> </p>
+<p>关于下面定义的变量，有一件重要的事情需要注意。它有两个列：和，但由于我们已经删除了另一列（列），其余两列都不是彼此的完美预测变量，因此在新的修改后的数据集中不存在。<code>embarked``````Q``````S``````C``````multicollinearity</code></p>
+<h3 id="将虚拟变量添加到数据帧pandas"><a href="#将虚拟变量添加到数据帧pandas" class="headerlink" title="将虚拟变量添加到数据帧pandas"></a>将虚拟变量添加到数据帧<code>pandas</code></h3><p>接下来，我们需要将我们的和列添加到 DataFrame 中。<code>sex``````embarked</code></p>
+<p>您可以使用以下代码将这些数据列<a href="https://zshipu.com/t?url=https://nickmccullum.com/advanced-python/how-to-concatenate-pandas-dataframes-practice-problems/">串联</a>到现有 DataFrame 中：<code>pandas</code></p>
+<p>  <code>titanic_data = pd.concat([titanic_data, sex_data, embarked_data], axis = 1)</code> </p>
+<p>现在，如果您运行该命令，您的 Jupyter 笔记本将生成以下输出：<code>print(titanic_data.columns)</code></p>
+<p>  <code>Index(['PassengerId', 'Survived', 'Pclass', 'Name', 'Sex', 'Age', 'SibSp',</p>
+<pre><code>   &#39;Parch&#39;, &#39;Ticket&#39;, &#39;Fare&#39;, &#39;Embarked&#39;, &#39;male&#39;, &#39;Q&#39;, &#39;S&#39;],
+
+  dtype=&#39;object&#39;)&lt;/code&gt; </code></pre>
+<p>和 列的存在表明我们的数据已成功串联。<code>male``````Q``````S</code></p>
+<h2 id="从数据集中删除不必要的列"><a href="#从数据集中删除不必要的列" class="headerlink" title="从数据集中删除不必要的列"></a>从数据集中删除不必要的列</h2><p>这意味着我们现在可以从 DataFrame 中删除原始和列。还有其他列（如，，）不预测泰坦尼克号的坠机存活率，所以我们也将删除这些。以下代码为我们处理此问题：<code>Sex``````Embarked``````Name``````PassengerId``````Ticket</code></p>
+<p>  <code>titanic_data.drop(['Name', 'Ticket', 'Sex', 'Embarked'], axis = 1, inplace = True)</code> </p>
+<p>如果现在打印，您的犹太笔记本将生成以下输出：<code>titanic_data.columns</code></p>
+<p>  <code>Index(['Survived', 'Pclass', 'Age', 'SibSp', 'Parch', 'Fare',</p>
+<pre><code>   &#39;male&#39;, &#39;Q&#39;, &#39;S&#39;],
+
+  dtype=&#39;object&#39;&lt;/code&gt; </code></pre>
+<p>DataFrame 现在具有以下外观：</p>
+<p><img src="https://nickmccullum.com/images/python-machine-learning/logistic-regression/final-data-frame.png" alt="The final DataFrame for our logistic regression model"></p>
+<p>正如您所看到的，此数据集中的每个字段现在都是数字字段，这使得它成为逻辑回归机器学习算法的优秀候选项。</p>
+<h2 id="创建训练数据和测试数据"><a href="#创建训练数据和测试数据" class="headerlink" title="创建训练数据和测试数据"></a>创建训练数据和测试数据</h2><p>接下来，是时候将我们拆分为训练数据和测试数据了。与以前一样，我们将使用内置功能来执行此操作。<code>titatnic_data``````scikit-learn</code></p>
+<p>首先，我们需要将数据划分为值（我们将用于预测的数据）和值（我们试图预测的数据）。以下代码处理此问题：<code>x``````y</code></p>
+<p>  <code>y_data = titanic_data['Survived']</p>
+<p>x_data = titanic_data.drop(‘Survived’, axis = 1)</code> </p>
+<p>接下来，我们需要从 导入 函数。以下代码执行此导入：<code>train_test_split``````scikit-learn</code></p>
+<p>  <code>from sklearn.model_selection import train_test_split</code> </p>
+<p>最后，我们可以使用该函数与列表解包相结合来生成我们的训练数据和测试数据：<code>train_test_split</code></p>
+<p>  <code>x_training_data, x_test_data, y_training_data, y_test_data = train_test_split(x_data, y_data, test_size = 0.3)</code> </p>
+<p>请注意，在这种情况下，测试数据是参数指定的原始数据集的 30%。<code>test_size = 0.3</code></p>
+<p>现在，我们已经为我们的逻辑回归模型创建了我们的培训数据和测试数据。我们将在本教程的下一节中训练我们的模型。</p>
+<h2 id="训练逻辑回归模型"><a href="#训练逻辑回归模型" class="headerlink" title="训练逻辑回归模型"></a>训练逻辑回归模型</h2><p>要训练模型，我们首先需要使用以下命令导入相应的模型：<code>scikit-learn</code></p>
+<p>  <code>from sklearn.linear_model import LogisticRegression</code> </p>
+<p>接下来，我们需要通过实例化对象的实例来创建模型：<code>LogisticRegression</code></p>
+<p>  <code>model = LogisticRegression()</code> </p>
+<p>要训练模型，我们需要调用我们刚刚创建并在和变量中传递的对象上的方法，如下所示：<code>fit``````LogisticRegression``````x_training_data``````y_training_data</code></p>
+<p>  <code>model.fit(x_training_data, y_training_data)</code> </p>
+<p>我们的模型现在已经接受培训。我们将在本教程的下一节中使用此模型进行预测。</p>
+<h2 id="使用我们的逻辑回归模型进行预测"><a href="#使用我们的逻辑回归模型进行预测" class="headerlink" title="使用我们的逻辑回归模型进行预测"></a>使用我们的逻辑回归模型进行预测</h2><p>让我们使用我们刚刚创建的逻辑回归模型对我们的测试数据进行一组预测。我们将将这些预测存储在一个变量中，称为 ：<code>model``````predictions</code></p>
+<p>  <code>predictions = model.predict(x_test_data)</code> </p>
+<p>我们的预测已经作出。接下来，让我们来检查模型的准确性。</p>
+<h2 id="衡量逻辑回归机器学习模型的性能"><a href="#衡量逻辑回归机器学习模型的性能" class="headerlink" title="衡量逻辑回归机器学习模型的性能"></a>衡量逻辑回归机器学习模型的性能</h2><p><code>scikit-learn</code>具有出色的内置模块，便于测量分类机器学习模型的性能。我们将使用此模块来测量我们刚刚创建的模型的性能。<code>classification_report</code></p>
+<p>首先，让我们导入模块：</p>
+<p>  <code>from sklearn.metrics import classification_report</code> </p>
+<p>接下来，让我们使用该模块计算逻辑回归机器学习模块的性能指标：</p>
+<p>  <code>classification_report(y_test_data, predictions)</code> </p>
+<p>下面是此命令的输出：</p>
+<p>  <code>precision    recall  f1-score   support</p>
+<pre><code>       0       0.83      0.87      0.85       169
+
+       1       0.75      0.68      0.72        98
+
+accuracy                           0.80       267</code></pre>
+<p>   macro avg       0.79      0.78      0.78       267</p>
+<p>weighted avg       0.80      0.80      0.80       267</code> </p>
+<p>如果您有兴趣查看原始混淆矩阵并手动计算性能指标，则可以使用以下代码执行此操作：</p>
+<p>  <code>from sklearn.metrics import confusion_matrix</p>
+<p>print(confusion_matrix(y_test_data, predictions))</code> </p>
+<p>这将生成以下输出：</p>
+<p>  <code>[[145  22]</p>
+<p> [ 30  70]]</code> </p>
+<h2 id="本教程的完整代码"><a href="#本教程的完整代码" class="headerlink" title="本教程的完整代码"></a>本教程的完整代码</h2><p>您可以在<a href="https://zshipu.com/t?url=https://github.com/nicholasmccullum/python-machine-learning">此 GitHub 存储库</a>中查看本教程的完整代码。下面还粘贴如下，供参考：</p>
+<p>  <code>import pandas as pd</p>
+<p>import numpy as np</p>
+<p>import matplotlib.pyplot as plt</p>
+<p>%matplotlib inline</p>
+<p>import seaborn as sns</p>
+<p>#Import the data set<br>titanic_data = pd.read_csv(‘titanic_train.csv’)</p>
+<p>#Exploratory data analysis<br>sns.heatmap(titanic_data.isnull(), cbar=False)</p>
+<p>sns.countplot(x=’Survived’, data=titanic_data)</p>
+<p>sns.countplot(x=’Survived’, hue=’Sex’, data=titanic_data)</p>
+<p>sns.countplot(x=’Survived’, hue=’Pclass’, data=titanic_data)</p>
+<p>plt.hist(titanic_data[‘Age’].dropna())</p>
+<p>plt.hist(titanic_data[‘Fare’])</p>
+<p>sns.boxplot(titanic_data[‘Pclass’], titanic_data[‘Age’])</p>
+<p>#Imputation function<br>def impute_missing_age(columns):</p>
+<pre><code>age = columns[0]
+
+passenger_class = columns[1]
+
+if pd.isnull(age):
+
+    if(passenger_class == 1):
+
+        return titanic_data[titanic_data[&#39;Pclass&#39;] == 1][&#39;Age&#39;].mean()
+
+    elif(passenger_class == 2):
+
+        return titanic_data[titanic_data[&#39;Pclass&#39;] == 2][&#39;Age&#39;].mean()
+
+    elif(passenger_class == 3):
+
+        return titanic_data[titanic_data[&#39;Pclass&#39;] == 3][&#39;Age&#39;].mean()
+
+else:
+
+    return age</code></pre>
+<p>#Impute the missing Age data<br>titanic_data[‘Age’] = titanic_data[[‘Age’, ‘Pclass’]].apply(impute_missing_age, axis = 1)</p>
+<p>#Reinvestigate missing data<br>sns.heatmap(titanic_data.isnull(), cbar=False)</p>
+<p>#Drop null data<br>titanic_data.drop(‘Cabin’, axis=1, inplace = True)</p>
+<p>titanic_data.dropna(inplace = True)</p>
+<p>#Create dummy variables for Sex and Embarked columns<br>sex_data = pd.get_dummies(titanic_data[‘Sex’], drop_first = True)</p>
+<p>embarked_data = pd.get_dummies(titanic_data[‘Embarked’], drop_first = True)</p>
+<p>#Add dummy variables to the DataFrame and drop non-numeric data<br>titanic_data = pd.concat([titanic_data, sex_data, embarked_data], axis = 1)</p>
+<p>titanic_data.drop([‘Name’, ‘PassengerId’, ‘Ticket’, ‘Sex’, ‘Embarked’], axis = 1, inplace = True)</p>
+<p>#Print the finalized data set<br>titanic_data.head()</p>
+<p>#Split the data set into x and y data<br>y_data = titanic_data[‘Survived’]</p>
+<p>x_data = titanic_data.drop(‘Survived’, axis = 1)</p>
+<p>#Split the data set into training data and test data<br>from sklearn.model_selection import train_test_split</p>
+<p>x_training_data, x_test_data, y_training_data, y_test_data = train_test_split(x_data, y_data, test_size = 0.3)</p>
+<p>#Create the model<br>from sklearn.linear_model import LogisticRegression</p>
+<p>model = LogisticRegression()</p>
+<p>#Train the model and create predictions<br>model.fit(x_training_data, y_training_data)</p>
+<p>predictions = model.predict(x_test_data)</p>
+<p>#Calculate performance metrics<br>from sklearn.metrics import classification_report</p>
+<p>print(classification_report(y_test_data, predictions))</p>
+<p>#Generate a confusion matrix<br>from sklearn.metrics import confusion_matrix</p>
+<p>print(confusion_matrix(y_test_data, predictions))</code> </p>
+<h2 id="最后的想法"><a href="#最后的想法" class="headerlink" title="最后的想法"></a>最后的想法</h2><p>在本教程中，您学习了如何在 Python 中构建逻辑回归机器学习模型。</p>
+<p>以下是您在本文中学到的内容的简要摘要：</p>
+<ul>
+<li>为什么泰坦尼克号数据集经常用于学习机器学习分类技术</li>
+<li>在使用分类机器学习问题的数据集时如何执行探索性数据分析</li>
+<li>如何处理熊猫数据框架中缺少的数据</li>
+<li>使用它来填充缺失的数据意味着什么以及如何<code>imputation</code></li>
+<li>如何为机器学习数据集中的分类数据创建虚拟变量</li>
+<li>如何在Python中训练逻辑回归机器学习模型</li>
+<li>如何使用 Python 中的逻辑回归模型进行预测</li>
+<li>如何快速计算机器学习分类问题的性能指标<code>scikit-learn``````classification_report</code></li>
+</ul>
+</div><div class="article-licensing box"><div class="licensing-title"><p>Python 中的逻辑回归 - 分步指南</p><p><a href="https://zshipu.com/2020/06/21/Python%20%E4%B8%AD%E7%9A%84%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%20-%20%E5%88%86%E6%AD%A5%E6%8C%87%E5%8D%97/">https://zshipu.com/2020/06/21/Python%20%E4%B8%AD%E7%9A%84%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%20-%20%E5%88%86%E6%AD%A5%E6%8C%87%E5%8D%97/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>知识铺</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2020-06-21</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2020-09-08</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=5f58e448b1477000121881fb&amp;product=inline-share-buttons" defer></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button is-info donate"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="/img/alipay.jpg" alt="支付宝"></span></a><a class="button is-success donate"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="/img/weixin.jpg" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2020/06/21/Python%20%E4%B8%AD%E7%9A%84%20K%20%E6%9C%80%E8%BF%91%E9%82%BB%E5%B1%85%20-%20%E5%88%86%E6%AD%A5%E6%8C%87%E5%8D%97/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Python 中的 K 最近邻居 - 分步指南</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2020/06/21/Python%20%E4%B8%AD%E7%9A%84%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%20-%20%E5%88%86%E6%AD%A5%E6%8C%87%E5%8D%97/"><span class="level-item">Python 中的线性回归 - 分步指南</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'https://zshipu.com/2020/06/21/Python%20%E4%B8%AD%E7%9A%84%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%20-%20%E5%88%86%E6%AD%A5%E6%8C%87%E5%8D%97/';
+            this.page.identifier = '2020/06/21/Python 中的逻辑回归 - 分步指南/';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');  
+            s.src = '//' + 'zsp' + '.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="https://www.gravatar.com/avatar/2396bdfe5aadb513e676094004dde830?s=128" alt="edwin"></figure><p class="title is-size-4 is-block line-height-inherit">edwin</p><p class="is-size-6 is-block">知识铺</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国 杭州</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">189</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">2</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/liliang8858" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/liliang8858"><i class="Github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="社区"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="设计"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/go/"><span class="level-start"><span class="level-item">go</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:43:02.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Spring%20Cloud%20Gateway+Nacos%EF%BC%8Cyml+properties%E4%B8%A4%E7%A7%8D%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%96%B9%E5%BC%8F%E6%90%AD%E5%BB%BA%E7%BD%91%E5%85%B3%E6%9C%8D%E5%8A%A1/">Spring Cloud Gateway+Nacos，yml+properties两种配置文件方式搭建网关服务</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:39:59.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Spring%20Cloud+nacos+Feign%EF%BC%8C%E5%AE%9E%E7%8E%B0%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%E5%8F%8A%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">Spring Cloud+nacos+Feign，实现注册中心及配置中心</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:32:26.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E6%97%B6%EF%BC%8C%E5%A4%9A%E4%B8%AA%E6%9C%8D%E5%8A%A1%E5%85%B1%E7%94%A8%E4%B8%80%E4%B8%AAdataId%E7%9A%84%E9%85%8D%E7%BD%AE/">Nacos作为配置中心时，多个服务共用一个dataId的配置</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T09:34:29.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/SpringCloudAlibaba(%E4%B8%89)%EF%BC%9A%E4%BD%BF%E7%94%A8Nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">SpringCloudAlibaba(三)：使用Nacos作为配置中心</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T09:31:53.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Nacos%20%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/">Nacos 集群部署</a></p><p class="is-uppercase"></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2020/07/"><span class="level-start"><span class="level-item">七月 2020</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/06/"><span class="level-start"><span class="level-item">六月 2020</span></span><span class="level-end"><span class="level-item tag">37</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/05/"><span class="level-start"><span class="level-item">五月 2020</span></span><span class="level-end"><span class="level-item tag">29</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/04/"><span class="level-start"><span class="level-item">四月 2020</span></span><span class="level-end"><span class="level-item tag">62</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/03/"><span class="level-start"><span class="level-item">三月 2020</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/12/"><span class="level-start"><span class="level-item">十二月 2019</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/11/"><span class="level-start"><span class="level-item">十一月 2019</span></span><span class="level-end"><span class="level-item tag">24</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/go/"><span class="tag">go</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/web/"><span class="tag">web</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button is-primary" type="submit" value="订阅"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="2183476622" data-ad-slot="pub-2874221941555456" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="知识铺" height="28"></a><p class="size-small"><span>&copy; 2020 知识铺</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            site: {
+                url: 'https://zshipu.com',
+                external_link: {"enable":true,"exclude":[]}
+            },
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

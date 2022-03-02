@@ -1,0 +1,1137 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>知识铺</title><meta property="og:type" content="blog"><meta property="og:title" content="知识铺"><meta property="og:url" content="https://zshipu.com/"><meta property="og:site_name" content="知识铺"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://zshipu.com/img/og_image.png"><meta property="article:author" content="edwin"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://zshipu.com"},"headline":"知识铺","image":["https://zshipu.com/img/og_image.png"],"author":{"@type":"Person","name":"edwin"},"description":""}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600&amp;family=Roboto+Mono"><link rel="stylesheet" href="/css/cyberpunk.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><script data-ad-client="2183476622" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><meta name="generator" content="Hexo 5.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="知识铺" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-06-17T08:47:00.000Z" title="2020-06-17T08:47:00.000Z">2020-06-17</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.380Z" title="2020-09-08T14:03:00.380Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">1 分钟读完 (大约175个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/06/17/Linux%E7%9A%84du%E7%94%A8%E6%B3%95%E6%8E%92%E9%99%A4%E6%9F%90%E4%B8%AA%E7%9B%AE%E5%BD%95/">Linux的du用法排除某个目录</a></h1><div class="content"><ul>
+<li>例如我想得到根目录下所有目录或文件的占用空间大小，并且想要排除名字中包含 proc 的文件或目录，可以使用如下命令</li>
+</ul>
+<pre><code class="du">或使用 模糊匹配 都行
+du -sh /* --exclude=&quot;*proc*&quot;``` 
+
+*   1
+*   2
+*   3
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20190415101755609.png)
+
+*   扩展内容，想要排除多个文件或文件夹，且只想看到空间大于 G 的结果
+
+```du -sh /* \
+--exclude=&quot;proc&quot; \
+--exclude=&quot;cgroup&quot; \
+--exclude=&quot;selinux&quot; \
+--exclude=&quot;*bin&quot; \
+--exclude=&quot;lib*&quot; \
+--exclude=&quot;etc&quot; \
+--exclude=&quot;sys&quot; \
+--exclude=&quot;boot&quot; \
+--exclude=&quot;data*&quot; | grep G``` 
+
+*   1
+*   2
+*   3
+*   4
+*   5
+*   6
+*   7
+*   8
+*   9
+*   10
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20190415101836497.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2FieXNsbGw=,size_16,color_FFFFFF,t_70)</code></pre>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-06-16T08:03:40.000Z" title="2020-06-16T08:03:40.000Z">2020-06-16</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.424Z" title="2020-09-08T14:03:00.424Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">23 分钟读完 (大约3514个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/06/16/dubbo%20go%20%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/">dubbo go 初步使用</a></h1><div class="content"><h3 id="dubbo-go-可信-RPC-调用实现-阿里巴巴中间件-CSDN博客"><a href="#dubbo-go-可信-RPC-调用实现-阿里巴巴中间件-CSDN博客" class="headerlink" title="dubbo-go 可信 RPC 调用实现_阿里巴巴中间件-CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/weixin_39860915/article/details/106270958"><em>dubbo-go</em> 可信 RPC 调用实现_阿里巴巴中间件-CSDN博客</a></h3><p> 2020年5月21日 - Apache Dubbo/<em>Dubbo-Go</em> 作为阿里巴巴开源的一款服务治理框架,因其适应 Java/Go 开发者面向接口的编程习惯、完全透明的调用方式、优越的性能以及强大的…</p>
+<h3 id="Dubbo-go-k8s注册中心设计方案与实现-阿里云云栖号-CSDN博客"><a href="#Dubbo-go-k8s注册中心设计方案与实现-阿里云云栖号-CSDN博客" class="headerlink" title="_Dubbo-go_k8s注册中心设计方案与实现_阿里云云栖号-CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/yunqiinsight/article/details/106673125">_Dubbo-go_k8s注册中心设计方案与实现_阿里云云栖号-CSDN博客</a></h3><p> 5天前 - <em>Dubbo-go_k8s注册中心设计方案与实现随着云原生的推广,越来越多的公司或组织将服务容器化,并将容器化后的服务部署在k8s集群中。今天这篇文章将会介绍_du</em>…</p>
+<h3 id="涂鸦智能-dubbo-go-亿级流量的实践与探索-dubbo-go-博客园"><a href="#涂鸦智能-dubbo-go-亿级流量的实践与探索-dubbo-go-博客园" class="headerlink" title="涂鸦智能 dubbo-go 亿级流量的实践与探索 - dubbo-go - 博客园"></a><a href="https://zshipu.com/t?url=https://www.cnblogs.com/dubbo-go/p/13096439.html">涂鸦智能 <em>dubbo-go</em> 亿级流量的实践与探索 - <em>dubbo-go</em> - 博客园</a></h3><p> 4天前 - dubbo 是一个基于 Java 开发的高性能的轻量级 RPC 框架,dubbo 提供了丰富的服务治理功能和优秀的扩展能力。而 <em>dubbo-go</em> 在 java 与 golang 之间提供统一的服务化…</p>
+<h3 id="…Dubbo-生态一周年-已和-Spring-Cloud、gRPC-互通-dubbo-go…"><a href="#…Dubbo-生态一周年-已和-Spring-Cloud、gRPC-互通-dubbo-go…" class="headerlink" title="…Dubbo 生态一周年:已和 Spring Cloud、gRPC 互通 - dubbo-go…"></a><a href="https://zshipu.com/t?url=https://www.cnblogs.com/dubbo-go/articles/13055126.html">…<em>Dubbo</em> 生态一周年:已和 Spring Cloud、gRPC 互通 - <em>dubbo-go</em>…</a></h3><p> 2020年6月6日 - 去年5月,阿里开源的高性能 RPC 框架 Dubbo 从 ASF 毕业并晋升顶级项目,同时,还宣布 Go 语言版本的 <em>Dubbo-go</em>…</p>
+<h3 id="曹大谈-dubbo-mesh-在-MOSN-中玩转-dubbo-go-dubbo-go-开源…"><a href="#曹大谈-dubbo-mesh-在-MOSN-中玩转-dubbo-go-dubbo-go-开源…" class="headerlink" title="曹大谈 dubbo mesh : 在 MOSN 中玩转 dubbo-go - _dubbo-go_开源…"></a><a href="https://zshipu.com/t?url=https://my.oschina.net/dubbogo/blog/4309475/print">曹大谈 <em>dubbo</em> mesh : 在 MOSN 中玩转 <em>dubbo-go</em> - _dubbo-go_开源…</a></h3><p> 3天前 - 为了避免这些隐式的 init 行为,我们实际上是 fork 了 <em>dubbo-go</em> 并进行了少量修改的。当然,改动并不多,未来如果 <em>dubbo-go</em> 有更好的模块化方法的话,我们…</p>
+<h3 id="dubbo-go-dubbo-go-·-GopherChina"><a href="#dubbo-go-dubbo-go-·-GopherChina" class="headerlink" title="dubbo-go (dubbo-go) · GopherChina"></a><a href="https://zshipu.com/t?url=https://2345browser.gocn.vip/dubbo-go?locale=zh-CN"><em>dubbo-go</em> (<em>dubbo-go</em>) · GopherChina</a></h3><p> 2020年6月2日 - 回帖 JulAugSepOctNovDecJanFebMarAprMayJun 热门话题 最近回帖 原创分享 记一次在 mosn 对 dubbo、<em>dubbo-go</em>-hessian2 的性能优化 0 个赞 / 0 条回复…</p>
+<h3 id="dubbo-go-可信-RPC-调用实现-云栖社区-阿里云"><a href="#dubbo-go-可信-RPC-调用实现-云栖社区-阿里云" class="headerlink" title="dubbo-go 可信 RPC 调用实现-云栖社区-阿里云"></a><a href="https://zshipu.com/t?url=https://yq.aliyun.com/articles/762837"><em>dubbo-go</em> 可信 RPC 调用实现-云栖社区-阿里云</a></h3><p> 2020年5月28日 - Apache Dubbo/<em>Dubbo-Go</em> 作为阿里巴巴开源的一款服务治理框架,因其适应 Java/Go 开发者面向接口的编程习惯、完全透明的调用方式、优越的性能以及强大的…</p>
+<h3 id="khmsa21136-关于-Dubbo-go-在Java和Go运行时毖永-联商专栏"><a href="#khmsa21136-关于-Dubbo-go-在Java和Go运行时毖永-联商专栏" class="headerlink" title="khmsa21136:关于_Dubbo-go_在Java和Go运行时毖永_联商专栏"></a><a href="https://zshipu.com/t?url=http://blog.linkshop.com.cn/u/15568597724/404272.html">khmsa21136:关于_Dubbo-go_在Java和Go运行时毖永_联商专栏</a></h3><p> 2020年5月31日 - 关于_Dubbo-go_在Java和Go运行时毖永 05月31日 22:47 浏览数(0) 评论数(0) 好评数(0) 沈向洋的新工作:美国最火新闻资讯平台董事长前微软全球执行副总裁…</p>
+<h3 id="Dubbo-go-k8s注册中心设计方案与实现-教程文章-时代Java-与您…"><a href="#Dubbo-go-k8s注册中心设计方案与实现-教程文章-时代Java-与您…" class="headerlink" title="Dubbo-go k8s注册中心设计方案与实现 - 教程文章 - 时代Java,与您…"></a><a href="https://zshipu.com/t?url=https://nowjava.com/article/31365"><em>Dubbo-go</em> k8s注册中心设计方案与实现 - 教程文章 - 时代Java,与您…</a></h3><p> 5天前 - <em>Dubbo-go</em> k8s注册中心设计方案与实现主要内容是随着云原生的推广,越来越多的公司或组织将服务容器化,并将容器化后的服务部署在k8s集群中。</p>
+<h3 id="Dubbo-泛化调用入门到精通-汪小哥-CSDN博客"><a href="#Dubbo-泛化调用入门到精通-汪小哥-CSDN博客" class="headerlink" title="_Dubbo_泛化调用入门到精通_汪小哥-CSDN博客"></a><a href="https://zshipu.com/t?url=https://wangji.blog.csdn.net/article/details/106512572">_Dubbo_泛化调用入门到精通_汪小哥-CSDN博客</a></h3><p> 2020年6月3日 - <em>Dubbo_泛化调用、阿里的好舒服的泛化调用都是类似的功能。最近给同事排查一个_dubbo</em>-admin控制台调用报错的问题的小研究,为此还给社区提了一个issue,具…</p>
+<h3 id="首页-Go-语言中文网-Go-lang中文社区"><a href="#首页-Go-语言中文网-Go-lang中文社区" class="headerlink" title="首页- _Go_语言中文网 - _Go_lang中文社区"></a><a href="https://zshipu.com/t?url=https://studygolang.com/?fr=blog">首页- _Go_语言中文网 - _Go_lang中文社区</a></h3><p> 5天前 - <em>Go_语言中文网,中国 _Go_lang 社区,_Go_语言学习园地,致力于构建完善的 _Go_lang 中文社区,_Go_语言爱好者的学习家园。分享 _Go</em> 语言知识,交流使用经验</p>
+<h3 id="GitHub-apache-dubbo-samples-samples-for-Apache-Dubbo"><a href="#GitHub-apache-dubbo-samples-samples-for-Apache-Dubbo" class="headerlink" title="GitHub - apache/dubbo-samples: samples for Apache Dubbo"></a><a href="https://zshipu.com/t?url=https://github.com/dubbo/dubbo-samples.git">GitHub - apache/<em>dubbo</em>-samples: samples for Apache <em>Dubbo</em></a></h3><p> 2020年5月18日 - samples for Apache <em>Dubbo</em>. Contribute to apache/<em>dubbo</em>-samples development by creating an account on GitHub.</p>
+<h3 id="Go-CN每日新闻-2020-06-11-哔哩哔哩"><a href="#Go-CN每日新闻-2020-06-11-哔哩哔哩" class="headerlink" title="_Go_CN每日新闻(2020-06-11) - 哔哩哔哩"></a><a href="https://zshipu.com/t?url=https://www.bilibili.com/read/cv6427790/">_Go_CN每日新闻(2020-06-11) - 哔哩哔哩</a></h3><p> 1天前 - ## <em>Go_CN每日新闻(2020-06-11)1. _Go</em> 字符串和转换优化 <a target="_blank" rel="noopener" href="https://medium.com/a-journey-with-_go_/_go_-string-conversion-optimization-767">https://medium.com/a-journey-with-_go_/_go_-string-conversion-optimization-767</a>…</p>
+<h3 id="阿里巴巴-dubbo-服务-Java代码类资源-CSDN下载"><a href="#阿里巴巴-dubbo-服务-Java代码类资源-CSDN下载" class="headerlink" title="阿里巴巴_dubbo_服务-Java代码类资源-CSDN下载"></a><a href="https://zshipu.com/t?url=https://download.csdn.net/download/okkeqin/9782117">阿里巴巴_dubbo_服务-Java代码类资源-CSDN下载</a></h3><p> 5天前 - _dubbo_jdk1.8root/root更多下载资源、学习资料请访问CSDN下载频道…. 下载 java并发编程阿里巴巴-梁飞_Dubbo_作者 下载 _dubbo_x 2.8.4 版本 maven 依赖 …</p>
+<h3 id="Go-版本入-Dubbo-生态一周年-已和-Spring-Cloud、gRPC-互…-博客园"><a href="#Go-版本入-Dubbo-生态一周年-已和-Spring-Cloud、gRPC-互…-博客园" class="headerlink" title="Go 版本入 Dubbo 生态一周年:已和 Spring Cloud、gRPC 互…_博客园"></a><a href="https://zshipu.com/t?url=https://news.cnblogs.com/n/662986/"><em>Go</em> 版本入 <em>Dubbo</em> 生态一周年:已和 Spring Cloud、gRPC 互…_博客园</a></h3><p> 2020年5月29日 - 去年5月,阿里开源的高性能RPC框架Dubbo从ASF毕业并晋升顶级项目,同时,还宣布Go语言版本的_Dubbo-go_正式加入Dubbo官方生态。经过一年的发展,_Dubbo-go_在…</p>
+<h3 id="Go-版本入-Dubbo-生态一周年-已和-Spring-Cloud、gRPC-互通-顶…"><a href="#Go-版本入-Dubbo-生态一周年-已和-Spring-Cloud、gRPC-互通-顶…" class="headerlink" title="Go 版本入 Dubbo 生态一周年:已和 Spring Cloud、gRPC 互通 顶…"></a><a href="https://zshipu.com/t?url=https://whutech.com/article/662986.html"><em>Go</em> 版本入 <em>Dubbo</em> 生态一周年:已和 Spring Cloud、gRPC 互通 顶…</a></h3><p> 2020年5月29日 - 去年5 月,阿里开源的高性能 RPC 框架 Dubbo 从 ASF 毕业并晋升顶级项目,同时,还宣布 Go 语言版本的 <em>Dubbo-go</em> 正式加入 Dubbo 官方生态。经过一年…</p>
+<h3 id="涂鸦智能-dubbo-go-亿级流量的实践与探索-ITPUB博客"><a href="#涂鸦智能-dubbo-go-亿级流量的实践与探索-ITPUB博客" class="headerlink" title="涂鸦智能 dubbo-go 亿级流量的实践与探索_ITPUB博客"></a><a href="https://zshipu.com/t?url=http://blog.itpub.net/69953029/viewspace-2698400/">涂鸦智能 <em>dubbo-go</em> 亿级流量的实践与探索_ITPUB博客</a></h3><p> 1天前 - dubbo 是一个基于 Java 开发的高性能的轻量级 RPC 框架,dubbo 提供了丰富的服务治理功能和优秀的扩展能力。而 <em>dubbo-go</em> 在 java 与 golang 之间提供统…</p>
+<h3 id="涂鸦智能-dubbo-go-亿级流量的实践与探索-云-社区-腾讯云"><a href="#涂鸦智能-dubbo-go-亿级流量的实践与探索-云-社区-腾讯云" class="headerlink" title="涂鸦智能 dubbo-go 亿级流量的实践与探索 - 云+社区 - 腾讯云"></a><a href="https://zshipu.com/t?url=https://cloud.tencent.com/developer/news/642064">涂鸦智能 <em>dubbo-go</em> 亿级流量的实践与探索 - 云+社区 - 腾讯云</a></h3><p> 4天前 - dubbo 是一个基于 Java 开发的高性能的轻量级 RPC 框架,dubbo 提供了丰富的服务治理功能和优秀的扩展能力。而 <em>dubbo-go</em> 在 java 与 golang 之间提供统…</p>
+<h3 id="涂鸦智能-dubbo-go-亿级流量的实践与探索-alibabass的博客-51CTO…"><a href="#涂鸦智能-dubbo-go-亿级流量的实践与探索-alibabass的博客-51CTO…" class="headerlink" title="涂鸦智能 dubbo-go 亿级流量的实践与探索-alibabass的博客-51CTO…"></a><a href="https://zshipu.com/t?url=https://blog.51cto.com/13778063/2504632?source=dra">涂鸦智能 <em>dubbo-go</em> 亿级流量的实践与探索-alibabass的博客-51CTO…</a></h3><p> 1天前 - dubbo 是一个基于 Java 开发的高性能的轻量级 RPC 框架,dubbo 提供了丰富的服务治理功能和优秀的扩展能力。而 <em>dubbo-go</em> 在 java 与 golang 之间提供统…</p>
+<h3 id="dubbo-go-可信-RPC-调用实现-云栖社区"><a href="#dubbo-go-可信-RPC-调用实现-云栖社区" class="headerlink" title="dubbo-go 可信 RPC 调用实现-云栖社区"></a><a href="https://zshipu.com/t?url=http://yq.aliyun.com/articles/762837"><em>dubbo-go</em> 可信 RPC 调用实现-云栖社区</a></h3><p> 2020年5月28日 - Apache Dubbo/<em>Dubbo-Go</em> 作为阿里巴巴开源的一款服务治理框架,因其适应 Java/Go 开发者面向接口的编程习惯、完全透明的调用方式、优越的性能以及强大的…</p>
+<h3 id="dubbo-go-K8s注册中心的设计方案与实现-阿里云技术-CSDN博客"><a href="#dubbo-go-K8s注册中心的设计方案与实现-阿里云技术-CSDN博客" class="headerlink" title="_dubbo-go_K8s注册中心的设计方案与实现_阿里云技术-CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/weixin_43970890/article/details/106663641">_dubbo-go_K8s注册中心的设计方案与实现_阿里云技术-CSDN博客</a></h3><p> 6天前 - _Dubbo-go_k8s注册中心设计方案与实现随着云原生的推广,越来越多的公司或组织将服务容器化,并将容器化后的服务部署在k8s集群中。今天这篇文章将会介绍_dubbo-go_将k8s…</p>
+<h3 id="涂鸦智能-dubbo-go-亿级流量的实践与探索-阿里巴巴云原生-博…"><a href="#涂鸦智能-dubbo-go-亿级流量的实践与探索-阿里巴巴云原生-博…" class="headerlink" title="涂鸦智能 dubbo-go 亿级流量的实践与探索 - 阿里巴巴云原生 - 博…"></a><a href="https://zshipu.com/t?url=https://www.cnblogs.com/alisystemsoftware/p/13130667.html">涂鸦智能 <em>dubbo-go</em> 亿级流量的实践与探索 - 阿里巴巴云原生 - 博…</a></h3><p> 1天前 - dubbo 是一个基于 Java 开发的高性能的轻量级 RPC 框架,dubbo 提供了丰富的服务治理功能和优秀的扩展能力。而 <em>dubbo-go</em> 在 java 与 golang 之间提供统一的服务化…</p>
+<h3 id="Go-版本入-Dubbo-生态一周年-已和SpringCloud、gRPC互通-j…-CSDN博客"><a href="#Go-版本入-Dubbo-生态一周年-已和SpringCloud、gRPC互通-j…-CSDN博客" class="headerlink" title="_Go_版本入_Dubbo_生态一周年:已和SpringCloud、gRPC互通_j…_CSDN博客"></a><a href="https://zshipu.com/t?url=http://blog.csdn.net/joke59/article/details/106581518/">_Go_版本入_Dubbo_生态一周年:已和SpringCloud、gRPC互通_j…_CSDN博客</a></h3><p> 2020年6月6日 - 去年5月,阿里开源的高性能RPC框架Dubbo从ASF毕业并晋升顶级项目,同时,还宣布Go语言版本的<em>Dubbo-go</em>(<a target="_blank" rel="noopener" href="https://github.com/apache/_dubbo-go_)%E6%AD%A3%E5%BC%8F%E5%8A%A0%E5%85%A5Dubbo%E5%AE%98%E6%96%B9%E7%94%9F%E6%80%81%E3%80%82">https://github.com/apache/_dubbo-go_)正式加入Dubbo官方生态。</a>…</p>
+<h3 id="涂鸦智能-dubbo-go-亿级流量的实践与探索-Go中国-CSDN博客"><a href="#涂鸦智能-dubbo-go-亿级流量的实践与探索-Go中国-CSDN博客" class="headerlink" title="涂鸦智能_dubbo-go_亿级流量的实践与探索_Go中国-CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/RA681t58CJxsgCkJ31/article/details/106699990">涂鸦智能_dubbo-go_亿级流量的实践与探索_Go中国-CSDN博客</a></h3><p> 5天前 - dubbo是一个基于Java开发的高性能的轻量级RPC框架,dubbo提供了丰富的服务治理功能和优秀的扩展能力。而_dubbo-go_在java与golang之间提供…</p>
+<h3 id="记一次在MOSN对Dubbo、Dubbo-go-hessian2的性能优化-金…-CSDN博客"><a href="#记一次在MOSN对Dubbo、Dubbo-go-hessian2的性能优化-金…-CSDN博客" class="headerlink" title="记一次在MOSN对Dubbo、Dubbo-go-hessian2的性能优化_金…_CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/SOFAStack/article/details/106654274">记一次在MOSN对Dubbo、<em>Dubbo-go</em>-hessian2的性能优化_金…_CSDN博客</a></h3><p> 6天前 - 我们发现在支持 <em>Dubbo</em> 协议过程中,经过 Mesh 流量代理后,性能有非常大的性能损耗,在大商户落地 Mesh 中也对性能有较高要求,因此本文会重点描述在基于 <em>Go</em> 语言库…</p>
+<h3 id="记一次在-MOSN-对-Dubbo、Dubbo-go-hessian2-的性能优…-CSDN博客"><a href="#记一次在-MOSN-对-Dubbo、Dubbo-go-hessian2-的性能优…-CSDN博客" class="headerlink" title="记一次在 MOSN 对 Dubbo、Dubbo-go-hessian2 的性能优…_CSDN博客"></a><a href="https://zshipu.com/t?url=http://blog.csdn.net/weixin_38754564/article/details/106700392?%3E">记一次在 MOSN 对 Dubbo、<em>Dubbo-go</em>-hessian2 的性能优…_CSDN博客</a></h3><p> 5天前 - <em>dubbo</em> 的 body 可以获得以下信息,调用的目标接口(interface)和调用方法的服务分组(group)等信息,但是需要跳过所有业务方法参数,目前使用开源的 hessia…</p>
+<h3 id="dubbo-go-K8s-注册中心的设计方案与实现-osc-gh0ost1g的个人…"><a href="#dubbo-go-K8s-注册中心的设计方案与实现-osc-gh0ost1g的个人…" class="headerlink" title="dubbo-go K8s 注册中心的设计方案与实现 - osc_gh0ost1g的个人…"></a><a href="https://zshipu.com/t?url=https://my.oschina.net/u/4397718/blog/4285083/print"><em>dubbo-go</em> K8s 注册中心的设计方案与实现 - osc_gh0ost1g的个人…</a></h3><p> 2020年5月20日 - 可是dubbo现有方案为每个_dubbo-go_进程独立注册,因此_dubbo-go_选择将该进程具有的独有的元数据写入运行该_dubbo-go_进程的Pod在k8s中的Pod资源对象的描述…</p>
+<h3 id="Go-版本入-Dubbo-生态一周年-已和SpringCloud、gRPC互通-G…-CSDN博客"><a href="#Go-版本入-Dubbo-生态一周年-已和SpringCloud、gRPC互通-G…-CSDN博客" class="headerlink" title="_Go_版本入_Dubbo_生态一周年:已和SpringCloud、gRPC互通_G…_CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/RA681t58CJxsgCkJ31/article/details/106561171">_Go_版本入_Dubbo_生态一周年:已和SpringCloud、gRPC互通_G…_CSDN博客</a></h3><p> 2020年6月4日 - 去年5月,阿里开源的高性能RPC框架Dubbo从ASF毕业并晋升顶级项目,同时,还宣布Go语言版本的_Dubbo-go_正式加入Dubbo官方生态。经过一年的发展,…</p>
+<h3 id="涂鸦智能-dubbo-go-亿级流量的实践与探索-joke59的博客-CSDN博客"><a href="#涂鸦智能-dubbo-go-亿级流量的实践与探索-joke59的博客-CSDN博客" class="headerlink" title="涂鸦智能_dubbo-go_亿级流量的实践与探索_joke59的博客-CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/joke59/article/details/106676238/">涂鸦智能_dubbo-go_亿级流量的实践与探索_joke59的博客-CSDN博客</a></h3><p> 5天前 - 涂鸦智能<em>dubbo-go_亿级流量的实践与探索dubbo是一个基于Java开发的高性能的轻量级RPC框架,dubbo提供了丰富的服务治理功能和优秀的扩展能力。而_dubbo-go</em>…</p>
+<h3 id="曹大谈-dubbo-mesh-在MOSN中玩转-dubbo-go-joke59的博客-CSDN博客"><a href="#曹大谈-dubbo-mesh-在MOSN中玩转-dubbo-go-joke59的博客-CSDN博客" class="headerlink" title="曹大谈_dubbo_mesh:在MOSN中玩转_dubbo-go__joke59的博客-CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/joke59/article/details/106725749">曹大谈_dubbo_mesh:在MOSN中玩转_dubbo-go__joke59的博客-CSDN博客</a></h3><p> 3天前 - 除了依赖问题以外,<em>dubbo-go</em> 最初的设计大量使用了 init 函数。init 函数用来实现一些初始化和依赖注入确实比较方便,但如果一个项目中的模块会被其它外部项目依赖时…</p>
+<h3 id="记一次在mosn对dubbo、dubbo-go-hessian2的性能优化-jo…-CSDN博客"><a href="#记一次在mosn对dubbo、dubbo-go-hessian2的性能优化-jo…-CSDN博客" class="headerlink" title="记一次在mosn对dubbo、dubbo-go-hessian2的性能优化_jo…_CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/joke59/article/details/106507703/">记一次在mosn对dubbo、<em>dubbo-go</em>-hessian2的性能优化_jo…_CSDN博客</a></h3><p> 2020年6月2日 - 我们发现在支持 <em>dubbo</em> 协议过程中,经过 Mesh 流量代理后,性能有非常大的性能损耗,在大商户落地 Mesh 中也对性能有较高要求,因此本文会重点描述在基于 <em>…</em></p>
+<h3 id="曹大谈-dubbo-mesh-在MOSN中玩转-dubbo-go-joke59的博客-CSDN博客-1"><a href="#曹大谈-dubbo-mesh-在MOSN中玩转-dubbo-go-joke59的博客-CSDN博客-1" class="headerlink" title="曹大谈_dubbo_mesh:在MOSN中玩转_dubbo-go__joke59的博客-CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/joke59/article/details/106725749/">曹大谈_dubbo_mesh:在MOSN中玩转_dubbo-go__joke59的博客-CSDN博客</a></h3><p> 3天前 - MOSN 是蚂蚁金服出品的用 <em>Go</em> 语言实现的 service mesh 数据面,在蚂蚁内部已大规模落地,在开源过程中我们了解到外部用户有较多的 <em>dubbo</em> 用户,这些 <em>dubb</em>…</p>
+<h3 id="涂鸦智能-dubbo-go-亿级流量的实践与探索-joke59的博客-CSDN博客-1"><a href="#涂鸦智能-dubbo-go-亿级流量的实践与探索-joke59的博客-CSDN博客-1" class="headerlink" title="涂鸦智能_dubbo-go_亿级流量的实践与探索_joke59的博客-CSDN博客"></a><a href="https://zshipu.com/t?url=http://blog.csdn.net/joke59/article/details/106676238/">涂鸦智能_dubbo-go_亿级流量的实践与探索_joke59的博客-CSDN博客</a></h3><p> 5天前 - 涂鸦智能_dubbo-go_亿级流量的实践与探索dubbo是一个基于Java开发的高性能的轻量级RPC框架,dubbo提供了丰富的服务治理功能和优秀的扩展能力。而_dubbo-go_在java与golang…</p>
+<h3 id="记一次在-MOSN-对-Dubbo、Dubbo-go-hessian2-的性能优化-云海天教程"><a href="#记一次在-MOSN-对-Dubbo、Dubbo-go-hessian2-的性能优化-云海天教程" class="headerlink" title="记一次在 MOSN 对 Dubbo、Dubbo-go-hessian2 的性能优化-云海天教程"></a><a href="https://zshipu.com/t?url=https://www.yht7.com/news/93890">记一次在 MOSN 对 Dubbo、<em>Dubbo-go</em>-hessian2 的性能优化-云海天教程</a></h3><p> 6天前 - 蚂蚁金服内部对 Service Mesh 的稳定性和性能要求是比较高的,内部 MOSN 广泛用于生产环境。在云上和开源社区,RPC 领域 <em>Dubbo</em> 和 Spring Cloud 同样…</p>
+<h3 id="斗鱼-没人比我更懂微服务–Go-微服务框架-Jupiter-V2EX"><a href="#斗鱼-没人比我更懂微服务–Go-微服务框架-Jupiter-V2EX" class="headerlink" title="[斗鱼]没人比我更懂微服务–Go 微服务框架 Jupiter - V2EX"></a><a href="https://zshipu.com/t?url=https://www.v2ex.com/t/677533">[斗鱼]没人比我更懂微服务–<em>Go</em> 微服务框架 Jupiter - V2EX</a></h3><p> 2020年6月1日 - • 与 Java <em>Dubbo</em> 流量互通。<em>dubbo</em> 支持 gRPC 协议,因此在协议层,<em>dubbo</em> 与 grpc-<em>go</em> 是可以流量互通的。Jupiter 通过增加一个基于接口(<em>dubbo</em> 的默认注…</p>
+<h3 id="CSDN-个人空间"><a href="#CSDN-个人空间" class="headerlink" title="CSDN-个人空间"></a><a href="https://zshipu.com/t?url=https://me.csdn.net/RA681t58CJxsgCkJ31">CSDN-个人空间</a></h3><p> 5天前 - dubbo 是一个基于 Java 开发的高性能的轻量级 RPC 框架,dubbo 提供了丰富的服务治理功能和优秀的扩展能力。而 <em>dubbo-go</em> 在 java 与 golang 之间提供…</p>
+<h3 id="营口-Dubbo-培训短期培训-上海曙海信息网络科技"><a href="#营口-Dubbo-培训短期培训-上海曙海信息网络科技" class="headerlink" title="营口_Dubbo_培训短期培训 -上海曙海信息网络科技"></a><a href="https://zshipu.com/t?url=http://www.coatingol.com/shangye/jsedrb7/16846.html">营口_Dubbo_培训短期培训 -上海曙海信息网络科技</a></h3><p> 2020年5月31日 - 营口_Dubbo_培训短期培训编码器端与PLC输端连接,A、B…“”移动到选中的方式上,然后再按【_GO_】键,就进入</p>
+<h3 id="Go-Web框架-Go-语言中文社区-Go-lang中文网-Go-lang程序员社区"><a href="#Go-Web框架-Go-语言中文社区-Go-lang中文网-Go-lang程序员社区" class="headerlink" title="Go Web框架-_Go_语言中文社区-_Go_lang中文网-_Go_lang程序员社区"></a><a href="https://zshipu.com/t?url=http://www.coder55.com/articles/gokuangjia"><em>Go</em> Web框架-_Go_语言中文社区-_Go_lang中文网-_Go_lang程序员社区</a></h3><p> 2020年6月6日 - 大家好,我是<em>Dubbo</em>!我是阿里开源的分布式服务框架,最大的特点是按照分层的方式来…如何使用 <em>Go_lang 日志监控你的应用程序? 推荐 java是否会被取代?_Go</em>…</p>
+<h3 id="【社招】【网联清算】测试岗位-业务测试-性能测试-社会招聘…"><a href="#【社招】【网联清算】测试岗位-业务测试-性能测试-社会招聘…" class="headerlink" title="【社招】【网联清算】测试岗位/业务测试/性能测试 - 社会招聘…"></a><a href="https://zshipu.com/t?url=https://exp.newsmth.net/topic/8ea6a8dca7848d63434de79cf31d567c">【社招】【网联清算】测试岗位/业务测试/性能测试 - 社会招聘…</a></h3><p> 20小时前 - 4、熟悉Java/python等至少一种编程语言,Java,python,shell,JS,_GO_语言优先考虑; 5、理解性能相关的Linux,nginx,Java,JVM,MySQL ,HTTP,_dubbo_等知识,具…</p>
+<h3 id="记一次在-mosn-对-dubbo、dubbo-go-hessian2-的性能优…-CSDN博客"><a href="#记一次在-mosn-对-dubbo、dubbo-go-hessian2-的性能优…-CSDN博客" class="headerlink" title="记一次在 mosn 对 dubbo、dubbo-go-hessian2 的性能优…_CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/joke59/article/details/106507703">记一次在 mosn 对 dubbo、<em>dubbo-go</em>-hessian2 的性能优…_CSDN博客</a></h3><p> 2020年6月2日 - 我们发现在支持 <em>dubbo</em> 协议过程中,经过 Mesh 流量代理后,性能有非常大的性能损耗,在大商户落地 Mesh 中也对性能有较高要求,因此本文会重点描述在基于 <em>Go</em> 语言库…</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-06-15T10:36:56.000Z" title="2020-06-15T10:36:56.000Z">2020-06-15</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.352Z" title="2020-09-08T14:03:00.352Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">33 分钟读完 (大约4900个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/06/15/GraphQL%E6%9E%B6%E6%9E%84%E6%8B%BC%E6%8E%A5%E8%A7%A3%E9%87%8A%EF%BC%9A%E6%9E%B6%E6%9E%84%E5%A7%94%E6%B4%BE/">GraphQL架构拼接解释：架构委派</a></h1><div class="content"><p>架构拼接是 GraphQL 社区中的一个全新的主题。通常，它是指合并和连接多个 GraphQL 架构（或<a href="https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9ibG9nLmdyYXBoLmNvb2wvaG93LWRvLWdyYXBocWwtcmVtb3RlLXNjaGVtYXMtd29yay03MTE4MjM3Yzg5ZDcjMzFiMg=="><em>架构定义</em></a>）以创建单个 GraphQL API 的行为。</p>
+<p><img src="https://img.colabug.com/noimg.png#aaiMVna.jpg"></p>
+<p>架构拼接是一种新的、简便的方法来组合和重用 GraphQL API</p>
+<p>架构拼接有两个主要概念：</p>
+<ul>
+<li><strong>架构委派</strong>：架构委派的核心思想是将特定解析器的调用转发（_委托_）到另一个解析器。从本质上讲，架构定义的相应字段正在”重新布线”。</li>
+<li><strong>架构合并：</strong>架构合并是创建两个（或更多）现有 GraphQL API_的联合_的想法。如果所涉及的架构完全分离，这没有问题-如果没有，则需要有一种方法来解决它们的命名冲突。</li>
+</ul>
+<p>请注意，在大多数情况下，委派和合并实际上将一起使用，我们最终将<strong>采用一种混合方法，该方法同时使用这两种方法</strong>。在本系列文章中，我们将单独介绍它们，以确保每个概念都能很好地理解。</p>
+<h3 id="示例：构建自定义-GitHub-API"><a href="#示例：构建自定义-GitHub-API" class="headerlink" title="示例：构建自定义 GitHub API"></a>示例：构建自定义 GitHub API</h3><p>让我们从基于公共<a href="https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9kZXZlbG9wZXIuZ2l0aHViLmNvbS92NC8=">GitHub GraphQL API</a>的示例开始。假设我们想要构建一个小型应用程序，提供有关<a href="https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9naXRodWIuY29tL2dyYXBoY29vbA==">Graphcool GitHub 组织</a>的信息。</p>
+<p>应用所需的 API 应公开以下功能：</p>
+<ul>
+<li>检索有关 Graphcool 组织的信息（如其<em>ID、__电子邮件地址_、_头像 URL_或_固定存储库</em> )</li>
+<li>按名称从 Graphcool 组织检索存储库列表</li>
+<li>检索有关应用本身的简短说明</li>
+</ul>
+<p>让我们从<a href="https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vZ2MtY29kZXNuaXBwZXRzL2E1NGFiMjc5ZjZlYTE4MWYxM2EwMWEyMzJmMWFhOTU4I2ZpbGUtZ2l0aHViLWdyYXBocWwtTDQ1OTg=">GitHub 的 GraphQL 架构定义</a>中探索类型，了解如何将需求映射到架构的根字段。<code>[Query](https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vZ2MtY29kZXNuaXBwZXRzL2E1NGFiMjc5ZjZlYTE4MWYxM2EwMWEyMzJmMWFhOTU4I2ZpbGUtZ2l0aHViLWdyYXBocWwtTDQ1OTg=)</code></p>
+<h4 id="要求-1：检索有关-Graphcool-组织的信息"><a href="#要求-1：检索有关-Graphcool-组织的信息" class="headerlink" title="要求 1：检索有关 Graphcool 组织的信息"></a>要求 1：检索有关 Graphcool 组织的信息</h4><p>第一个功能，检索有关 Graphcool 组织的信息，可以通过使用类型上的根字段来实现：<code>repositoryOwner``````Query</code></p>
+<p>我们可以发送以下查询来询问有关 Graphcool 组织的信息：</p>
+<p>当我们提供作为字段时，它的工作原理。<code>&quot;graphcool&quot;``````login``````repositoryOwner</code></p>
+<p>这里的一个问题是，我们不能以简单的方式要求，因为只是一个没有字段的接口。但是，由于我们知道 Graphcool 组织的具体类型确实如此，因此我们可以在查询中使用<a href="https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cDovL2dyYXBocWwub3JnL2xlYXJuL3F1ZXJpZXMvI2lubGluZS1mcmFnbWVudHM="><em>内联片段</em></a>来解决此问题：<code>email``````[RepositoryOwner](https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vZ2MtY29kZXNuaXBwZXRzL2E1NGFiMjc5ZjZlYTE4MWYxM2EwMWEyMzJmMWFhOTU4I2ZpbGUtZ2l0aHViLWdyYXBocWwtTDYxNjE=)``````email``````[Organization](https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vZ2MtY29kZXNuaXBwZXRzL2E1NGFiMjc5ZjZlYTE4MWYxM2EwMWEyMzJmMWFhOTU4I2ZpbGUtZ2l0aHViLWdyYXBocWwtTDMwMDU=)</code></p>
+<p>好的，这样这将起作用，但我们已经触及了一些摩擦点，不允许为了我们的应用而直接使用 GitHub GraphQL API。</p>
+<p>理想情况下，我们的 API 只会公开一个根字段，该字段允许直接请求我们想要的信息，而无需在每个查询上提供参数，并让我们直接请求字段：<code>Organization</code></p>
+<h4 id="要求-2：按名称检索-Graphcool-存储库列表"><a href="#要求-2：按名称检索-Graphcool-存储库列表" class="headerlink" title="要求 2：按名称检索 Graphcool 存储库列表"></a>要求 2：按名称检索 Graphcool 存储库列表</h4><p>第二个要求如何，按它们的名称检索 Graphcool 存储库的列表。再次查看类型，这变得有点复杂。API 不允许直接检索存储库列表，而是可以通过使用以下根字段提供 和 存储库来请求单个存储库：<code>Query``````owner``````name</code></p>
+<p>下面是相应的查询：</p>
+<p>但是，我们_实际上_需要的应用程序（为了避免发出多个请求）是一个根字段，如下所示：</p>
+<h4 id="要求-3：检索有关应用本身的简短说明"><a href="#要求-3：检索有关应用本身的简短说明" class="headerlink" title="要求 3：检索有关应用本身的简短说明"></a>要求 3：检索有关应用本身的简短说明</h4><p>我们的 API 应该能够返回描述应用的句子，例如 。<code>This app provides information about the Graphcool GitHub organization</code></p>
+<p>这当然是一个完全自定义的要求，我们不能满足基于 GitHub API - 但很明显，我们需要实现它自己，可能与一个简单的根字段像这样：<code>Query</code></p>
+<h4 id="定义应用程序架构"><a href="#定义应用程序架构" class="headerlink" title="定义应用程序架构"></a>定义应用程序架构</h4><p>现在，我们了解 API 所需的功能以及为架构定义的理想类型：<code>Query</code></p>
+<p>显然，此架构定义本身是不完整的：它错过了 和 类型的定义。解决此问题的一个简单方法是手动复制和粘贴 GitHub 架构定义中的定义。<code>[Organization](https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vZ2MtY29kZXNuaXBwZXRzL2E1NGFiMjc5ZjZlYTE4MWYxM2EwMWEyMzJmMWFhOTU4I2ZpbGUtZ2l0aHViLWdyYXBocWwtTDMwMDU=)``````[Repository](https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vZ2MtY29kZXNuaXBwZXRzL2E1NGFiMjc5ZjZlYTE4MWYxM2EwMWEyMzJmMWFhOTU4I2ZpbGUtZ2l0aHViLWdyYXBocWwtTDUzNDA=)</code></p>
+<p>此方法很快就会变得麻烦，因为这些类型定义本身依赖于架构中的其他类型（例如，类型具有类型字段），然后还需要手动复制这些字段。此依赖关系链进入架构的深度没有限制，您甚至可能最终手动复制完整的架构定义。<code>Repository``````[codeOfconduct](https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vZ2MtY29kZXNuaXBwZXRzL2E1NGFiMjc5ZjZlYTE4MWYxM2EwMWEyMzJmMWFhOTU4I2ZpbGUtZ2l0aHViLWdyYXBocWwtTDUzNTc=)``````[CodeOfConduct](https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vZ2MtY29kZXNuaXBwZXRzL2E1NGFiMjc5ZjZlYTE4MWYxM2EwMWEyMzJmMWFhOTU4I2ZpbGUtZ2l0aHViLWdyYXBocWwtTDQyMA==)</code></p>
+<p>请注意，手动复制类型时，可通过三种方式完成此操作：</p>
+<ul>
+<li>整个类型复制过来，不添加其他字段</li>
+<li>复制整个类型并添加其他字段（或重命名现有字段）</li>
+<li>仅复制类型字段的子集</li>
+</ul>
+<p>简单地复制完整类型的第一种方法是最直接的方法。这可以使用 自动使用，如下一节所述。<code>[graphql-import](https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9naXRodWIuY29tL2dyYXBoY29vbC9ncmFwaHFsLWltcG9ydA==)</code></p>
+<p>如果将其他字段添加到类型定义或重命名现有字段，则需要确保实现相应的解析器，因为基础 API 当然不能处理解析这些新字段的问题。</p>
+<p>最后，您可能决定仅复制类型字段的子集。如果不想公开类型的所有字段（基础架构可能具有不希望在应用程序架构中公开的类型上的字段），则可能是可取的。<code>password``````User</code></p>
+<h4 id="导入GraphQL类型定义"><a href="#导入GraphQL类型定义" class="headerlink" title="导入GraphQL类型定义"></a>导入GraphQL类型定义</h4><p>该程序包允许您跨不同的文件共享类型定义，从而为您节省该手动工作。可以从另一个 GraphQL 架构定义导入类型，如下所示：<code>[graphql-import](https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9naXRodWIuY29tL2dyYXBoY29vbC9ncmFwaHFsLWltcG9ydA==)``````.graphql</code></p>
+<p>在 JavaScript 代码中，您现在可以使用函数，它将为您解析依赖项，确保架构定义完成。<code>importSchema</code></p>
+<h4 id="实现-API"><a href="#实现-API" class="headerlink" title="实现 API"></a>实现 API</h4><p>有了上面的架构定义，我们才只过了一半。仍然缺少的是架构以_解析器_函数的形式_实现的_实现。</p>
+<p>如果您此时感到迷失，请务必阅读本文，其中介绍了 GraphQL 架构的基本机制和内部工作原理。</p>
+<p>让我们来思考如何实现这些解析器！第一个版本可以如下所示：</p>
+<p>解析器是微不足道的，我们可以返回一个描述我们的应用程序的简单字符串。但是，如何处理我们实际需要从 GitHub GraphQL API 返回信息的那些和那里的信息？<code>info``````graphcool``````graphcoolRepositories</code></p>
+<p>在此处实现此项的天真方法是查看参数以检索传入查询_的选择集_，然后从头开始构造另一个具有相同选择集的 GraphQL 查询并将其发送到 GitHub API。为 GitHub GraphQL API 创建<a href="https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9ibG9nLmdyYXBoLmNvb2wvaG93LWRvLWdyYXBocWwtcmVtb3RlLXNjaGVtYXMtd29yay03MTE4MjM3Yzg5ZDc="><em>远程架构</em></a>甚至可以促进这一点，但总体而言，过程仍是一个相当冗长且繁琐的过程。<code>info</code></p>
+<p>这正是_架构委派_发挥作用的地方！我们之前看到 GitHub 的架构公开了两个根字段，这两个根字段（在某种程度上）满足我们的需求：和 。我们现在可以利用它来保存创建一个全新的查询的工作，而不是_转发_传入的查询。<code>repositoryOwner``````repository</code></p>
+<h4 id="委派到其他架构"><a href="#委派到其他架构" class="headerlink" title="委派到其他架构"></a>委派到其他架构</h4><p>因此，我们不是试图构造一个全新的查询，而是简单地将传入_查询委托给另_一个架构。我们将用于的 API 称为 。提供。<code>[delegateToSchema](https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9naXRodWIuY29tL2Fwb2xsb2dyYXBocWwvZ3JhcGhxbC10b29scy9ibG9iL21hc3Rlci9zcmMvc3RpdGNoaW5nL2RlbGVnYXRlVG9TY2hlbWEudHMjTDMx)``````[graphql-tools](https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly93d3cuYXBvbGxvZ3JhcGhxbC5jb20vZG9jcy9ncmFwaHFsLXRvb2xzLw==)</code></p>
+<p><code>delegateToSchema</code>接收七个参数（按以下顺序排列）：</p>
+<ol>
+<li><code>schema</code>：可执行实例（这是我们想要将执行委托给_的目标架构_）<code>[GraphQLSchema](https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cDovL2dyYXBocWwub3JnL2dyYXBocWwtanMvdHlwZS8jZ3JhcGhxbHNjaGVtYQ==)</code></li>
+<li><code>fragmentReplacements</code>：包含内联片段的对象（这是针对本文中不会讨论的更高级的案例）</li>
+<li><code>operation</code>： 具有三个值 （、 或 ） 之一的字符串，指示要委派给哪个根类型<code>&quot;query&quot;``````&quot;mutation&quot;``````&quot;subscription&quot;</code></li>
+<li><code>fieldName</code>：我们要委派给的根字段的名称</li>
+<li><code>args</code>：我们委派给的根字段的输入参数</li>
+<li><code>context</code>：通过目标的解析器链传递的上下文对象<code>schema</code></li>
+<li><code>info</code>：包含有关要委派的查询的信息的对象</li>
+</ol>
+<p>为了让我们使用此方法，我们首先需要一个表示 GitHub GraphQL API 的可执行实例。我们可以从 获取它使用 。<code>GraphQLSchema``````[makeRemoteExecutableSchema](https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9ibG9nLmdyYXBoLmNvb2wvaG93LWRvLWdyYXBocWwtcmVtb3RlLXNjaGVtYXMtd29yay03MTE4MjM3Yzg5ZDc=)``````graphql-tools</code></p>
+<p>请注意，GitHub 的 GraphQL API 需要身份验证，因此您需要身份验证<a href="https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9naXRodWIuY29tL3NldHRpbmdzL3Rva2Vucw==">令牌</a>才能实现此工作。您可以按照<a href="https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9kZXZlbG9wZXIuZ2l0aHViLmNvbS92NC9ndWlkZXMvZm9ybWluZy1jYWxscy8jYXV0aGVudGljYXRpbmctd2l0aC1ncmFwaHFs">本指南</a>获取本指南。</p>
+<p>为了为 GitHub API 创建远程架构，我们需要两件事：</p>
+<ul>
+<li>其_架构定义_（以实例的形式）<code>GraphQLSchema</code></li>
+<li>知道如何从中获取数据<code>[HttpLink](https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9naXRodWIuY29tL2Fwb2xsb2dyYXBocWwvYXBvbGxvLWxpbmsvdHJlZS9tYXN0ZXIvcGFja2FnZXMvYXBvbGxvLWxpbmstaHR0cA==)</code></li>
+</ul>
+<p>我们可以使用以下代码来实现此目的：</p>
+<p><code>[GitHubLink](https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9naXRodWIuY29tL25pa29sYXNidXJrL2dpdGh1Yi1zY2hlbWEtZGVsZWdhdGlvbi9ibG9iL21hc3Rlci9zcmMvR2l0SHViTGluay5qcw==)</code>只是一个简单的包装顶部，提供了一些方便围绕创建所需的Link组件。<code>HttpLink</code></p>
+<p>真棒，我们现在有一个可执行版本的GitHubGraphQL API，我们可以委托在我们的解析器！：塔达：让我们首先实现解析器：<code>graphcool</code></p>
+<p>我们传递函数预期的七个参数。总体而言，没有意外：是 GitHub GraphQL API 的远程可执行架构。在那里，我们希望将我们自己的查询的执行委托给 GitHub API 的查询。由于该字段需要一个参数，因此我们将其作为值提供。最后，我们只是通过解析器链传递 和 对象。<code>delegateToSchema``````schema``````graphcool``````repositoryOwner``````login``````&quot;graphcool&quot;``````info``````context</code></p>
+<p>解析器可以以类似的方式接近，但它有点棘手。与以前的实现不同的是，GitHub 架构定义中我们和原始字段的类型与以前不相上下。我们现在需要返回一个存储库数组，而不是单个存储库数组。<code>graphcoolRepositories``````graphcoolRepositories: [Repository!]!``````repository: Repository</code></p>
+<p>因此，我们继续使用，以确保我们可以同时委派多个查询，并将其执行结果捆绑到一系列承诺中：<code>Promise.all</code></p>
+<p>就是这样！现在，我们已经为自定义 GraphQL API 实现了所有三个解析器。虽然第一个 （for ） 微不足道，只是返回一个自定义字符串，并且使用_架构委派_将查询的执行转发到基础 GitHub API。<code>info``````graphcool``````graphcoolRepositories</code></p>
+<p>如果要查看此代码的工作示例，请查看此<a href="https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9naXRodWIuY29tL25pa29sYXNidXJrL2dpdGh1Yi1zY2hlbWEtZGVsZWdhdGlvbg==">存储库</a>。</p>
+<h3 id="使用Graphql工具的架构委派"><a href="#使用Graphql工具的架构委派" class="headerlink" title="使用Graphql工具的架构委派"></a>使用Graphql工具的架构委派</h3><p>在上面在 GitHub 上构建自定义 GraphQL API 的示例中，我们看到了如何从编写样板代码以进行查询执行中节省我们。我们可以使用 提供的 API 将查询的执行委托给 的另一个（可执行的）实例，而不是从头开始构造新查询，并使用 或使用 一些其他 HTTP 工具将其发送过来。方便地，此实例可以创建为远程架构。<code>[delegateToSchema](https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9naXRodWIuY29tL2Fwb2xsb2dyYXBocWwvZ3JhcGhxbC10b29scy9ibG9iL21hc3Rlci9zcmMvc3RpdGNoaW5nL2RlbGVnYXRlVG9TY2hlbWEudHM=)``````fetch``````[graphql-request](https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9naXRodWIuY29tL2dyYXBoY29vbC9ncmFwaHFsLXJlcXVlc3Q=)``````graphql-tools``````GraphQLSchema</code></p>
+<p>在高级别上，只需充当<a href="https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cDovL2dyYXBocWwub3JnL2dyYXBocWwtanM=">GraphQL.js</a>函数的”代理”。这意味着，在引擎盖下，它将根据作为参数传递的信息重新组合 GraphQL 查询（或突变）。构造查询后，它所做的只是<a href="https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9naXRodWIuY29tL2Fwb2xsb2dyYXBocWwvZ3JhcGhxbC10b29scy9ibG9iL21hc3Rlci9zcmMvc3RpdGNoaW5nL2RlbGVnYXRlVG9TY2hlbWEudHMjTDg0">使用架构和查询调用</a>。<code>delegateToSchema``````[execute](https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cDovL2dyYXBocWwub3JnL2dyYXBocWwtanMvZXhlY3V0aW9uLyNleGVjdXRl)``````[execute](https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9naXRodWIuY29tL2Fwb2xsb2dyYXBocWwvZ3JhcGhxbC10b29scy9ibG9iL21hc3Rlci9zcmMvc3RpdGNoaW5nL2RlbGVnYXRlVG9TY2hlbWEudHMjTDg0)</code></p>
+<p>因此，架构委派不一定要求目标架构是远程架构，也可以使用本地架构来完成。在这方面，架构委派是一个非常灵活的工具 — 您甚至可能希望_在同_一架构中委派。这基本上是从 中采用的方法，其中多个架构首先合并到单个架构中，然后解析器重新布线。<code>[mergeSchemas](https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly93d3cuYXBvbGxvZ3JhcGhxbC5jb20vZG9jcy9ncmFwaHFsLXRvb2xzL3NjaGVtYS1zdGl0Y2hpbmcuaHRtbCNtZXJnZVNjaGVtYXM=)``````graphql-tools</code></p>
+<p>从本质上讲，架构委派是能够轻松地将查询转发到现有的 GraphQL API。</p>
+<h3 id="架构绑定：重用-GraphQL-API-的简便方法"><a href="#架构绑定：重用-GraphQL-API-的简便方法" class="headerlink" title="架构绑定：重用 GraphQL API 的简便方法"></a>架构绑定：重用 GraphQL API 的简便方法</h3><p>具备我们新获得的架构委派知识，我们可以引入一个新概念，它只不过是架构委托之上的一个薄的便利层，称为_架构绑定_。</p>
+<h4 id="公共GraphQL-API-的绑定"><a href="#公共GraphQL-API-的绑定" class="headerlink" title="公共GraphQL API 的绑定"></a>公共GraphQL API 的绑定</h4><p>架构绑定的核心思想是提供一种使现有 GraphQL API 可重用的简单方法，以便其他开发人员现在可以通过 NPM 将其项目拉入其中。这允许一种全新的方法来构建 GraphQL”网关”，其中非常容易组合多个 GraphQL API 的功能。</p>
+<p>使用 GitHub API 的专用绑定，我们现在可以从上面简化示例。现在，此部分不是手动创建远程可执行架构，而是由包完成。以下是完整实现在删除以前委托给 GitHub API 所需的所有初始设置代码的位置：<code>[graphql-binding-github](https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9naXRodWIuY29tL2dyYXBoY29vbC9ncmFwaHFsLWJpbmRpbmctZ2l0aHVi)</code></p>
+<p>我们不是自己创建远程架构，而是实例化从导入的类并使用其函数。然后，它将在引擎盖下实际执行请求。<code>[GitHub](https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9naXRodWIuY29tL2dyYXBoY29vbC9ncmFwaHFsLWJpbmRpbmctZ2l0aHViL2Jsb2IvbWFzdGVyL3NyYy9pbmRleC50cyNMMjA=)``````graphql-binding-github``````delegate``````delegateToSchema</code></p>
+<p>公共 GraphQL API 的架构绑定可以在开发人员之间共享。旁边还有一个绑定可用于 Yelp GraphQL API：由<a href="https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly90d2l0dGVyLmNvbS9kZXZhbmJlaXRlbA==">Devan Beitel</a><code>[graphql-binding-github](https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly93d3cuZ29vZ2xlLmRlL3NlYXJjaD9xPWdyYXBocWwtZ2l0aHViLWJpbmRpbmcmYW1wO29xPWdyYXBocWwtZ2l0aHViLWJpbmRpbmcmYW1wO2Fxcz1jaHJvbWUuLjY5aTU3LjQ4NTlqMGoxJmFtcDtzb3VyY2VpZD1jaHJvbWUmYW1wO2llPVVURi04)``````[graphql-binding-yelp](https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9naXRodWIuY29tL0RldmFuQi9ncmFwaHFsLWJpbmRpbmcteWVscA==)</code></p>
+<h4 id="自动生成的委托函数"><a href="#自动生成的委托函数" class="headerlink" title="自动生成的委托函数"></a>自动生成的委托函数</h4><p>这些类型的架构绑定的 API 甚至可以改进到_自动生成_委托函数的级别。绑定可以公开以相应的根字段命名的函数：，而不是编写以下内容。<code>github.delegate(&#39;query&#39;, &#39;repository&#39;, ... )``````github.query.repository( ... )</code></p>
+<p>当这些委托函数在生成步骤中生成，并且基于强类型语言（如 TypeScript 或 Flow），此方法甚至会为与其他 GraphQL API 交互提供编译时类型安全性！</p>
+<p>要了解此方法的外观，请查看允许轻松为 Graphcool 服务生成架构绑定的存储库，并使用上述自动生成委托函数的方法。<code>[graphcool-binding](https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9naXRodWIuY29tL2dyYXBoY29vbC9ncmFwaGNvb2wtYmluZGluZw==)</code></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这是我们系列”理解GraphQL架构拼接”的第二篇文章。在第一篇文章中，我们做了一些基础工作，并了解了远程（可执行）架构，这些架构是大多数架构拼接方案的基础。</p>
+<p>在本文中，我们主要通过基于<a href="https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9kZXZlbG9wZXIuZ2l0aHViLmNvbS92NC8=">GitHub GraphQL API（</a>该示例的代码<a href="https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9naXRodWIuY29tL25pa29sYXNidXJrL2dpdGh1Yi1zY2hlbWEtZGVsZWdhdGlvbg==">可在此处</a>提供）来讨论_架构委派_的概念。架构委派是一种机制，用于将解析器函数的执行转发（_委托_）到不同（或甚至相同）的 GraphQL 架构中的另一个解析器。它的关键好处是，我们不必从头开始构造一个全新的查询，而是可以重用和转发传入查询的（部分）。</p>
+<p>使用架构委派作为基础时，可以创建专用 NPM 包，以便轻松共享现有 GraphQL API 的可重用_架构绑定_。要了解这些外观，可以签出<a href="https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9naXRodWIuY29tL2dyYXBoY29vbC9ncmFwaHFsLWJpbmRpbmctZ2l0aHVi">GitHub API 的绑定</a>，以及允许轻松为任何 Graphcool 服务生成绑定的绑定。<code>[graphcool-binding](https://zshipu.com/t?url=https://www.colabug.com/goto/aHR0cHM6Ly9naXRodWIuY29tL2dyYXBoY29vbC9ncmFwaGNvb2wtYmluZGluZw==)</code></p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-06-14T13:10:27.000Z" title="2020-06-14T13:10:27.000Z">2020-06-14</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.345Z" title="2020-09-08T14:03:00.345Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">25 分钟读完 (大约3724个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/06/14/GraphQL%20%E4%BD%9C%E4%B8%BA%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%20API%20%E7%BD%91%E5%85%B3/">GraphQL 作为微服务的 API 网关</a></h1><div class="content"><p><a href="https://zshipu.com/t?url=http://graphql.org/">GraphQL</a>早在2015年就向公众发布，就像一只在圈养中饲养的动物一样，它在野外的第一步是胆怯的，基本上被忽视了。然而，到目前为止，它已经获得了一些重大的轰动，而且有充分的理由：它解决了标准 REST API 体系结构中固有的一些最棘手的问题。</p>
+<p>具体来说，GraphQL 允许您在不进行版本控制的情况下自然地发展 API，它提供了可行的文档，避免了过度和不足提取的问题，并且它提供了一种通过单个请求聚合来自多个源的数据的便捷方法。一旦您通过非常规的方法和欺骗性的”类似 JSON”语法（这来自那些带给我们 React 及其”类似 HTML”语法的人），您可以开始欣赏其功能和灵活性。</p>
+<p>如何在 API 网关中利用 GraphQL？它似乎是一个完美的解决方案，用于与多个微服务交互，每个微服务都专用于单个资源类型。好消息是，_您可以在_API 网关中使用 GraphQL，并且它可以与标准 REST 路由并驾齐驱。所以在某些情况下，你可以有你的蛋糕，也吃它。</p>
+<p>[推文””GraphQL 可能是与多个微服务交互的完美解决方案”]</p>
+<h2 id="GraphQL-in-a-Nutshell"><a href="#GraphQL-in-a-Nutshell" class="headerlink" title="GraphQL in a Nutshell"></a>GraphQL in a Nutshell</h2><p>在进入网关代码之前，让我们先回顾一下 GraphQL 的横向。与 REST 应用程序不同，GraphQL 实现依赖于单个终结点。所有 GraphQL 都使用查询向该终结点请求将数据（_始终_发布，永远不会获取）到该终结点，该查询描述正在请求哪些资源和字段。</p>
+<p>GraphQL 将读取操作区分为”查询”，将操作区分为”突变”。为了支持查询，GraphQL 实现将定义一个根查询对象，该对象枚举所有可供查询的资源类型（以及它们的字段和数据类型）。您可以将其视为定义表和列的数据库架构。</p>
+<p>为了支持突变，GraphQL 实现将定义一个根突变对象，该对象枚举所有可用的突变及其属性。突变可以被认为是行动，_例如_，或。即使在单个语言或框架中，对于这些 GraphQL 组件应存在的位置也没有标准结构，但这些关键元素必须存在于任何 GraphQL 实现中的某处。<code>createUser``````updateOrder</code></p>
+<h2 id="同时使用GraphQL-和-REST-端点"><a href="#同时使用GraphQL-和-REST-端点" class="headerlink" title="同时使用GraphQL 和 REST 端点"></a>同时使用GraphQL 和 REST 端点</h2><p>仅仅因为我们的 API 网关定义了 GraphQL 终结点，并不意味着我们也不能有其他终结点！完全可以在相同的应用程序中定义传统的 REST 路由。</p>
+<p>由于我们希望避免在网关中复制代码，尤其是向微服务发出请求的代码，因此我们必须选择由哪种方法负责。我们可以剖析 GraphQL 查询并将其转换为相应的 REST 请求，也可以将 REST 请求转换为其 GraphQL 等效项。</p>
+<p>事实证明，后者更简单，所以我们建议的诀窍是：将对REST路由的请求转换为GraphQL。不需要复制与微服务交互的代码，因为 REST 路由只是充当 GraphQL 的转换层。</p>
+<h2 id="在代码中"><a href="#在代码中" class="headerlink" title="在代码中"></a>在代码中</h2><p>现在我们已经描述了我们的攻击计划，让我们来看看一些代码！演示这些示例的<a href="https://zshipu.com/t?url=https://github.com/fireproofsocks/graphql-example">存储库</a>在<a href="https://zshipu.com/t?url=https://github.com/fireproofsocks/graphql-example">Github</a>上可用</p>
+<p>这是一个Node.js应用程序使用流行的<a href="https://zshipu.com/t?url=http://expressjs.com/">快速框架</a>。您应该能够按照 README 中的说明克隆和安装应用程序。</p>
+<p>从命令行运行应启动应用程序并开始侦听端口 4000。将浏览器指向查看 GraphQL 终结点。右侧将显示任何已注册的资源类型及其字段，因此您可以马上查看 GraphQL 如何提供一些可行的文档。<code>yarn run start``````http://localhost:4000/graphql</code></p>
+<p>我们可以运行示例查询来按其 ID 查找单个用户：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123; users(_id: 3)&#123; name &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The result should be:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;data&quot;: &#123;</span><br><span class="line">    &quot;users&quot;: [</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;name&quot;: &quot;Tammy&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>处理此代码位于 内部，它围绕对象旋转。这就是响应的结构并提供可行的文档的原因。<code>src/users.js``````GraphQLObjectType</code></p>
+<h2 id="REST-等效项"><a href="#REST-等效项" class="headerlink" title="REST 等效项"></a>REST 等效项</h2><p>接下来，让我们来看看如何支持获取相同数据的 REST 终结点。查找单个用户记录的传统路由将遵循 的模式。查看 内部，看看它是如何注册路由的：<code>/users/:userId``````index.js</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const users &#x3D; require(&#39;.&#x2F;src&#x2F;rest&#x2F;user&#39;);</span><br><span class="line">&#x2F;&#x2F; ... app.use(&#39;&#x2F;users&#39;, users);</span><br></pre></td></tr></table></figure>
+
+<p>这是相当标准的快速路由的东西。让我们看一下该文件，看看它是如何将请求转换为 GraphQL 的。<code>src/rest/user.js</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">const app &#x3D; require(&#39;express&#39;);</span><br><span class="line">const router &#x3D; app.Router();</span><br><span class="line">import rootSchema from &#39;..&#x2F;app&#39;;</span><br><span class="line">import &#123;graphql&#125; from &#39;graphql&#39;</span><br><span class="line">const query &#x3D; (q, vars) &#x3D;&gt; &#123;</span><br><span class="line">    return graphql(rootSchema, q, null, null, vars)</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; Transform response to JSON API format</span><br><span class="line">&#x2F;&#x2F; (if desired)</span><br><span class="line">const transform &#x3D; (result) &#x3D;&gt; &#123;</span><br><span class="line">    const user &#x3D; result.data.users[0];</span><br><span class="line">    return &#123; data: &#123; type: &#39;user&#39;, id: user._id, attributes: &#123; name: user.name &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; REST request to get a user router.get(&#39;&#x2F;:userId&#39;, (req, res) &#x3D;&gt; &#123;</span><br><span class="line">    &#x2F;&#x2F; Convert the request into a GraphQL query string query(&quot;query&#123;users(_id:&quot; + req.params.userId + &quot;)&#123;_id, name&#125;&#125;&quot;)</span><br><span class="line">        .then(result &#x3D;&gt; &#123;</span><br><span class="line">            const transformed &#x3D; transform(result) res.send(transformed)</span><br><span class="line">        &#125;)</span><br><span class="line">        .catch(err &#x3D;&gt; &#123; res.sendStatus(500)</span><br><span class="line">        &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">module.exports &#x3D; router;</span><br></pre></td></tr></table></figure>
+
+<p>这真的是魔法发生的地方。路由的已注册回调将收集查询字符串并将其传递给 GraphQL：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">query(&quot;query&#123;users(_id:&quot; + req.params.userId + &quot;)&#123;_id, name&#125;&#125;&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>查询字符串映射出该”类似 JSON”语法中的查询对象 - 是的，它似乎是多余的，但有一个根查询节点，它包裹我们在交互式 GraphQL 页上使用的查询部分。</p>
+<p>此方法可能会提醒您以前，在 ORM 之前，您必须手动组装查询字符串。在将请求参数放入查询字符串之前对其进行筛选可能更合适，但由于它由 GraphQL 解释，因此可能是安全的 — 如果字符串无效，GraphQL 会简单地阻塞。</p>
+<p>此输出中包括一个变压器功能，该函数将默认 GraphQL 响应转换为<a href="https://zshipu.com/t?url=http://jsonapi.org/">JSON API</a>格式，但这可能是您希望保留的内容，也可能不是您希望保留的内容。</p>
+<p>您应该能够通过请求<a href="https://zshipu.com/t?url=http://localhost:4000/users/2">http://localhost:4000/users/2</a>等 URL 并获取响应（如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;data&quot;: &#123;</span><br><span class="line">        &quot;type&quot;: &quot;user&quot;,</span><br><span class="line">        &quot;id&quot;: &quot;2&quot;,</span><br><span class="line">        &quot;attributes&quot;: &#123;</span><br><span class="line">            &quot;name&quot;: &quot;João&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="微服务的请求"><a href="#微服务的请求" class="headerlink" title="微服务的请求"></a>微服务的请求</h2><p>更复杂的示例涉及使用web请求实际触及微服务。这可以通过请求某天的励志名言来实现 <a href="https://zshipu.com/t?url=http://quotes.rest/qod.json?category=inspire">http://quotes.rest/qod.json?category=inspire</a>.</p>
+<p>为了为这个数据添加GraphQL支持，我们需要做三件事:</p>
+<ol>
+<li>修改根查询对象 <code>src/app.js</code></li>
+<li>中定义引用资源类型 .<code>src/quote.js</code></li>
+<li>定义一个将从远程API中获取数据的服务<code>src/services/quote.js</code></li>
+</ol>
+<h3 id="修改根查询"><a href="#修改根查询" class="headerlink" title="修改根查询"></a>修改根查询</h3><p>首先，我们需要将资源类型添加到内部的GraphQL根查询对象</p>
+<p>inside :<code>src/app.js</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; src&#x2F;app.js</span><br><span class="line">import &#123;</span><br><span class="line">    GraphQLObjectType,</span><br><span class="line">    GraphQLSchema,</span><br><span class="line">&#125; from &#39;graphql&#x2F;type&#39;;</span><br><span class="line">import userQuery from &#39;.&#x2F;users&#39;;</span><br><span class="line">import agendaQuery from &#39;.&#x2F;agenda-interface&#39;;</span><br><span class="line">import quoteQuery from &#39;.&#x2F;quote&#39;;</span><br><span class="line">const query &#x3D; new GraphQLObjectType(&#123; name: &#39;RootQueryType&#39;, fields: &#123; users: userQuery, agenda: agendaQuery, quote: quoteQuery &#125;,</span><br><span class="line">&#125;);</span><br><span class="line">export default new GraphQLSchema(&#123; query,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="定义查询类型"><a href="#定义查询类型" class="headerlink" title="定义查询类型"></a>定义查询类型</h3><p>引号查询对象在 中定义 - 这几乎与用于用户查询的结构完全相同，但它引用一个服务类，其作业将是与远程微服务交互。<code>src/quote.js</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; src&#x2F;quote.js</span><br><span class="line">import &#123;</span><br><span class="line">    GraphQLObjectType,</span><br><span class="line">    GraphQLNonNull,</span><br><span class="line">    GraphQLString</span><br><span class="line">&#125; from &#39;graphql&#x2F;type&#39;;</span><br><span class="line">import &#123; getQuote &#125; from &#39;.&#x2F;services&#x2F;quote&#39;</span><br><span class="line">export const QuoteType &#x3D; new GraphQLObjectType(&#123; name: &#39;Quote&#39;, description: &#39;Quote of the day from API service&#39;, fields: () &#x3D;&gt; (&#123; id: &#123; type: GraphQLString, description: &#39;Quote id&#39;,</span><br><span class="line">        &#125;, quote: &#123; type: new GraphQLNonNull(GraphQLString), description: &#39;The text of the quote&#39;,</span><br><span class="line">        &#125;, author: &#123; type: GraphQLString, description: &#39;The person to whom the quote is attributed&#39;,</span><br><span class="line">        &#125;, date: &#123; type: GraphQLString, description: &#39;Date in YYYY-MM-DD format&#39;,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line">export default &#123; type: QuoteType, resolve: getQuote &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这完全取决于函数，我们接下来将讨论该函数。<code>getQuote()</code></p>
+<h3 id="定义用于检索远程数据的服务"><a href="#定义用于检索远程数据的服务" class="headerlink" title="定义用于检索远程数据的服务"></a>定义用于检索远程数据的服务</h3><p>函数在 中定义：<code>getQuote()``````src/services/quote.js</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; src&#x2F;services&#x2F;quote.js</span><br><span class="line">&#x2F;**</span><br><span class="line"> * This is where the app calls the microservice responsible for the &quot;Quote&quot; resource type.</span><br><span class="line"> *&#x2F;</span><br><span class="line">import fetch from &#39;universal-fetch&#39;</span><br><span class="line">export const getQuote &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">        const url &#x3D; &#39;http:&#x2F;&#x2F;quotes.rest&#x2F;qod.json?category&#x3D;inspire&#39;</span><br><span class="line">        return fetch(url)</span><br><span class="line">            .then(response &#x3D;&gt; &#123;</span><br><span class="line">                return response.json()</span><br><span class="line">            &#125;)</span><br><span class="line">            .then(json &#x3D;&gt; &#123;</span><br><span class="line">                return transform(json)</span><br><span class="line">            &#125;)</span><br><span class="line">            .catch(err &#x3D;&gt; &#123; console.trace(err)</span><br><span class="line">            &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#x2F;&#x2F; Transform the raw microservice output into</span><br><span class="line">&#x2F;&#x2F; fields&#x2F;types defined by the GraphQL type</span><br><span class="line">const transform &#x3D; (json) &#x3D;&gt; &#123;</span><br><span class="line">    const</span><br><span class="line">        &#123; contents &#125; &#x3D; json,</span><br><span class="line">        &#123; quotes &#125; &#x3D; contents, quote &#x3D; quotes[0]</span><br><span class="line">    return &#123; id: quote.id, quote: quote.quote, author: quote.author, date: quote.date &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此处的方法将微服务使用的任何格式转换为 GraphQL 为此资源类型定义的格式。如果需要将字段添加到响应中，必须将它们添加到 中的对象。<code>transform``````QuoteType``````src/quote.js</code></p>
+<p>完成这些部件后，您应该能够使用 GraphQL 进行查询：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123; quote&#123; quote, author &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="添加-REST-支持"><a href="#添加-REST-支持" class="headerlink" title="添加 REST 支持"></a>添加 REST 支持</h3><p>与以前一样，路由在文件中注册：<code>index.js</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const quotes &#x3D; require(&#39;.&#x2F;src&#x2F;rest&#x2F;quote&#39;);</span><br><span class="line">&#x2F;&#x2F; ... app.use(&#39;&#x2F;quote&#39;, quotes);</span><br></pre></td></tr></table></figure>
+
+<p>REST 请求充当 GraphQL 语法的转换器。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; src&#x2F;rest&#x2F;quote.js</span><br><span class="line">const app &#x3D; require(&#39;express&#39;);</span><br><span class="line">const router &#x3D; app.Router();</span><br><span class="line">import rootSchema from &#39;..&#x2F;app&#39;;</span><br><span class="line">import &#123;graphql&#125; from &#39;graphql&#39;</span><br><span class="line">const query &#x3D; (q, vars) &#x3D;&gt; &#123;</span><br><span class="line">    return graphql(rootSchema, q, null, null, vars)</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; Transform response to JSON API format</span><br><span class="line">const transform &#x3D; (result) &#x3D;&gt; &#123;</span><br><span class="line">    const quote &#x3D; result.data.quote;</span><br><span class="line">    return &#123; data: &#123; type: &#39;quote&#39;, id: quote.id, attributes: &#123; quote: quote.quote, author: quote.author, date: quote.date &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; REST request to get a quote router.get(&#39;&#x2F;&#39;, (req, res) &#x3D;&gt; &#123;</span><br><span class="line">    &#x2F;&#x2F; Convert the request into a GraphQL query string query(&quot;query&#123;quote&#123;id, quote, author, date&#125;&#125;&quot;)</span><br><span class="line">        .then(result &#x3D;&gt; &#123;</span><br><span class="line">            const transformed &#x3D; transform(result) res.send(transformed)</span><br><span class="line">        &#125;)</span><br><span class="line">        .catch(err &#x3D;&gt; &#123; res.sendStatus(500)</span><br><span class="line">        &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">module.exports &#x3D; router;</span><br></pre></td></tr></table></figure>
+
+
+<p>完成后，REST 终结点在<a href="https://zshipu.com/t?url=http://localhost:4000/quote">http://localhost:4000/quote</a>可用。</p>
+<blockquote>
+<p>请注意，报价服务每小时有 10 个请求的限制，因此只能适度使用演示。</p>
+</blockquote>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><p>现在，您已经了解如何将 API 网关既具有 GraphQL 实现，又支持标准 REST 路由，因此优势应该显而易见：</p>
+<ul>
+<li>你可以有你的API蛋糕，也吃它。图形QL还是REST？两者！</li>
+<li>您可以利用 GraphQL 的内置优势，从多个服务聚合数据。</li>
+</ul>
+<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><p>这种方法的大多数缺点通常与 GraphQL 有关。在填充 API 网关的角色时，GraphQL 最大的问题是它在_单个_终结点上运行。</p>
+<p>API 网关通常_为每个路由_定义授权规则、限制速率和缓存时间。但是，由于 GraphQL 仅使用一个终结点，因此几乎不可能为任何内容定义特定于路由的规则。因此，您可能需要在单独的层中，甚至微服务本身中写入授权、限制和缓存逻辑。</p>
+<p>这会产生自己的臭代码混乱，因为解决方案最终将削弱我们期望从网关获得的一些最基本的功能。</p>
+<p>如果您的 API 未公开使用，则您不会进行无限数量的查询变体，因此，使用允许客户端请求任何可能的资源和字段组合的 GraphQL 解释器可以说是超量计算。长期以来，支持少数具有已知响应属性的用例在很多设置中效果很好，因此可能不需要重新发明该特定车轮。</p>
+<p>尝试同时使用 GraphQL 和 REST 的另一个缺点是文档：无法保证 REST 终结点具有任何文档，更不用说与 GraphQL 查询对象保持同步的文档，因此，如果您选择在 API 网关中同时支持 GraphQL 和 REST，则可能会邀请一些不一致和忙碌工作。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>我在这里介绍的解决方案对一些人来说可能是一个有趣的分心，或者它可能是一个可行的解决方案，这取决于您的需求。尽管可以在单个应用程序中将 GraphQL 和 REST API 共存，但更困难的问题是这种组合是否可行。</p>
+<p>与围绕微服务和 API 网关的大多数问题一样，没有简单的正确和错误答案，只有权衡，只有您才能决定哪些解决方案最适合您的需求。</p>
+<p>[通过@fireproofsocks”将”GraphQL 作为微服务的 API 网关”推文”</p>
+<h3 id="与朋友分享这个帖子！"><a href="#与朋友分享这个帖子！" class="headerlink" title="与朋友分享这个帖子！"></a>与朋友分享这个帖子！</h3><h3 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a><em>相关内容</em></h3><p> [<img src="https://i1.wp.com/blog.codeship.com/wp-content/uploads/2017/03/scopes.png?resize=350,200&ssl=1" alt="An Introduction to GraphQL via the GitHub API">](<a href="https://zshipu.com/t?url=https://rollout.io/blog/an-introduction-to-graphql-via-the-github-api/">https://zshipu.com/t?url=https://rollout.io/blog/an-introduction-to-graphql-via-the-github-api/</a> “An Introduction to GraphQL via the GitHub API</p>
+<p>RESTful, JSON-delivering APIs are today’s default choice when building an API. However, there’s a new API kid on the block that’s generating considerable attention: GraphQL. GraphQL is an entirely new way to consume and build APIs. Done right, you can build wonderfully tight integrations that aren’t possible with REST APIs.…”)</p>
+<h4 id="通过-GitHub-API-对-GraphQL-的简介-https-zshipu-com-t-url-https-rollout-io-blog-an-introduction-to-graphql-via-the-github-api-“An-Introduction-to-GraphQL-via-the-GitHub-API"><a href="#通过-GitHub-API-对-GraphQL-的简介-https-zshipu-com-t-url-https-rollout-io-blog-an-introduction-to-graphql-via-the-github-api-“An-Introduction-to-GraphQL-via-the-GitHub-API" class="headerlink" title="[通过 GitHub API 对 GraphQL 的简介](https://zshipu.com/t?url=https://rollout.io/blog/an-introduction-to-graphql-via-the-github-api/ “An Introduction to GraphQL via the GitHub API"></a>[通过 GitHub API 对 GraphQL 的简介](<a href="https://zshipu.com/t?url=https://rollout.io/blog/an-introduction-to-graphql-via-the-github-api/">https://zshipu.com/t?url=https://rollout.io/blog/an-introduction-to-graphql-via-the-github-api/</a> “An Introduction to GraphQL via the GitHub API</h4><p>RESTful, JSON-delivering APIs are today’s default choice when building an API. However, there’s a new API kid on the block that’s generating considerable attention: GraphQL. GraphQL is an entirely new way to consume and build APIs. Done right, you can build wonderfully tight integrations that aren’t possible with REST APIs.…”)</p>
+<p>RESTful, JSON-delivering APIs are today’s default choice when building an API. However, there’s a new API kid on the block that’s generating considerable attention: GraphQL. GraphQL is an entirely new way to consume and build APIs. Done right, you can build wonderfully tight integrations that aren’t possible with REST APIs.…</p>
+<p>三月 8， 2017</p>
+<p>在”发展”</p>
+<h4 id="API-网关和微服务的设计模式-https-zshipu-com-t-url-https-rollout-io-blog-design-patterns-in-api-gateways-and-microservices-“Design-Patterns-in-API-Gateways-and-Microservices"><a href="#API-网关和微服务的设计模式-https-zshipu-com-t-url-https-rollout-io-blog-design-patterns-in-api-gateways-and-microservices-“Design-Patterns-in-API-Gateways-and-Microservices" class="headerlink" title="[API 网关和微服务的设计模式](https://zshipu.com/t?url=https://rollout.io/blog/design-patterns-in-api-gateways-and-microservices/ “Design Patterns in API Gateways and Microservices"></a>[API 网关和微服务的设计模式](<a href="https://zshipu.com/t?url=https://rollout.io/blog/design-patterns-in-api-gateways-and-microservices/">https://zshipu.com/t?url=https://rollout.io/blog/design-patterns-in-api-gateways-and-microservices/</a> “Design Patterns in API Gateways and Microservices</h4><p>For all the buzz about microservices and API gateways, finding specifics can prove surprisingly difficult. I am reminded of the cartoon by Sidney Harris where the first step of a complex mathematical formula is presented, then a miracle occurs, and the sudden appearance of the glorious solution prompts an observer…”)</p>
+<p>对于关于微服务和 API 网关的所有热议，查找细节可能证明极其困难。我想起了西德尼·哈里斯的漫画，其中提出了复杂数学公式的第一步，然后奇迹发生，而光荣解决方案的突然出现促使观察者…</p>
+<p>十月 26， 2017</p>
+<p>在”发展”</p>
+<h4 id="如何在-Rails-中实现图形QL-API-https-zshipu-com-t-url-https-rollout-io-blog-how-to-implement-a-graphql-api-in-rails-“How-to-Implement-a-GraphQL-API-in-Rails"><a href="#如何在-Rails-中实现图形QL-API-https-zshipu-com-t-url-https-rollout-io-blog-how-to-implement-a-graphql-api-in-rails-“How-to-Implement-a-GraphQL-API-in-Rails" class="headerlink" title="[如何在 Rails 中实现图形QL API](https://zshipu.com/t?url=https://rollout.io/blog/how-to-implement-a-graphql-api-in-rails/ “How to Implement a GraphQL API in Rails"></a>[如何在 Rails 中实现图形QL API](<a href="https://zshipu.com/t?url=https://rollout.io/blog/how-to-implement-a-graphql-api-in-rails/">https://zshipu.com/t?url=https://rollout.io/blog/how-to-implement-a-graphql-api-in-rails/</a> “How to Implement a GraphQL API in Rails</h4><p>GraphQL came out of Facebook a number of years ago as a way to solve a few different issues that typical RESTful APIs are prone to. One of those was the issue of under- or over-fetching data. Under-fetching is when the client has to make multiple roundtrips to the server…”)</p>
+<p>GraphQL在几年前从Facebook上出来，作为解决一些典型的RESTful API容易出现的不同问题的方法。其中之一是数据提取不足或过度提取的问题。正在获取不足是客户端必须多次往返服务器…</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-06-14T12:54:37.000Z" title="2020-06-14T12:54:37.000Z">2020-06-14</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.348Z" title="2020-09-08T14:03:00.348Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">1 小时读完 (大约12327个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/06/14/GraphQL%20%E5%9C%A8%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E4%B8%AD%E7%9A%84%E5%AE%9E%E8%B7%B5/">GraphQL 在微服务架构中的实践</a></h1><div class="content"><p>在过去的将近半年的时间里，作者一直在使用 GraphQL 这门相对新兴的技术开发 Web 服务，与更早出现的 SOAP 和 REST 相比，GraphQL 其实提供的是一套相对完善的查询语言，而不是类似 REST 的设计规范，所以需要语言的生态提供相应的框架支持，但是由于从它开源至今也只有两三年的时间，所以在使用的过程中，尤其是在微服务架构中实践时确实还会遇到很多问题。</p>
+<h4 id="GraphQL"><a href="#GraphQL" class="headerlink" title="GraphQL"></a>GraphQL</h4><p>简单对象访问协议（SOAP）从今天来看已经是一门非常古老的 Web 服务技术了，虽然很多服务仍然在使用遵循 SOAP 的接口，但是到今天 REST 风格的面向资源的 API 接口已经非常深入人心，也非常的成熟；但是这篇文章要介绍的主角其实是另一门更加复杂、完备的查询语言 GraphQL。</p>
+<p>作为 Facebook 在 2015 年推出的查询语言，GraphQL 能够对 API 中的数据提供一套易于理解的完整描述，使得客户端能够更加准确的获得它需要的数据，目前包括 Facebook、Twitter、GitHub 在内的很多公司都已经在生产环境使用 GraphQL 提供 API；其实无论我们是否决定生产环境中使用 GraphQL，它确实是一门值得学习的技术。</p>
+<h4 id="类型系统"><a href="#类型系统" class="headerlink" title="类型系统"></a>类型系统</h4><p>GraphQL 的强大表达能力主要还是来自于它完备的类型系统，与 REST 不同，它将整个 Web 服务中的全部资源看成一个有连接的图，而不是一个个资源孤岛，在访问任何资源时都可以通过资源之间的连接访问其它的资源。</p>
+<p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevhBdsuY1lFQvrLxicjpCjkdmcpIPia0XA4LuBpBgPVbk4sLMxdgqYE18MP3rBDBbu7HLrnkpOOBAIEA/640?wx_fmt=png" alt="640?wx_fmt=png"></p>
+<p>如上图所示，当我们访问 User 资源时，就可以通过 GraphQL 中的连接访问当前 User 的 Repo 和 Issue 等资源，我们不再需要通过多个 REST 的接口分别获取这些资源，只需要通过如下所示的查询就能一次性拿到全部的结果：</p>
+<ol>
+<li><p>{ user { id</p>
+</li>
+<li><p>email</p>
+</li>
+<li><p>username</p>
+</li>
+<li><p>repos(first: 10) { id</p>
+</li>
+<li><p>url</p>
+</li>
+<li><p>name</p>
+</li>
+<li><p>issues(first: 20) { id</p>
+</li>
+<li><p>author</p>
+</li>
+<li><p>title            } } }  }</p>
+</li>
+</ol>
+<p>GraphQL 这种方式能够将原有 RESTful 风格时的多次请求聚合成一次请求，不仅能够减少多次请求带来的延迟，还能够降低服务器压力，加快前端的渲染速度。它的类型系统也非常丰富，除了标量、枚举、列表和对象等类型之外，还支持接口和联合类型等高级特性。</p>
+<p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevhBdsuY1lFQvrLxicjpCjkdmbd0t3oJQ37qgxVlVoQ6py49zII09JVcyUYDuaicUUDClRibDVdhsOT5Q/640?wx_fmt=png" alt="640?wx_fmt=png"></p>
+<p>为了能够更好的表示非空和空字段，GraphQL 也引入了 Non-Null 等标识代表非空的类型，例如 String! 表示非空的字符串。</p>
+<p><code class="hljs css js-evernote-checked" data-evernote-id="2783">schema &#123; query: Query mutation: Mutation  &#125;</code></p>
+<p>Schema 中绝大多数的类型都是普通的对象类型，但是每一个 Schema 中都有两个特殊类型：query 和 mutation，它们是 GraphQL 中所有查询的入口，在使用时所有查询接口都是 query 的子字段，所有改变服务器资源的请求都应该属于 mutation 类型。</p>
+<h4 id="集中式-vs-分散式"><a href="#集中式-vs-分散式" class="headerlink" title="集中式 vs 分散式"></a>集中式 vs 分散式</h4><p>GraphQL 以图的形式将整个 Web 服务中的资源展示出来，其实我们可以理解为它将整个 Web 服务以 “SQL” 的方式展示给前端和客户端，服务端的资源最终都被聚合到一张完整的图上，这样客户端可以按照其需求自行调用，类似添加字段的需求其实就不再需要后端多次修改了。</p>
+<p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevhBdsuY1lFQvrLxicjpCjkdmyR71x7DiaGnqibenBAmYcYMInTnYYpgTQmQNJgxJHia7cHuP49voOKgbQ/640?wx_fmt=png" alt="640?wx_fmt=png"></p>
+<p>与 RESTful 不同，每一个的 GraphQL 服务其实对外只提供了一个用于调用内部接口的端点，所有的请求都访问这个暴露出来的唯一端点。</p>
+<p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevhBdsuY1lFQvrLxicjpCjkdmplG5bX8tQMAGsqYlibhDV7XlXumVccDEwvmOGokLNfkb1bSpCDaQGuw/640?wx_fmt=png" alt="640?wx_fmt=png"></p>
+<p>GraphQL 实际上将多个 HTTP 请求聚合成了一个请求，它只是将多个 RESTful 请求的资源变成了一个从根资源 Post 访问其他资源的 Comment 和 Author 的图，多个请求变成了一个请求的不同字段，从原有的分散式请求变成了集中式的请求，这种方式非常适合单体服务直接对外提供 GraphQL 服务，能够在数据源和展示层建立一个非常清晰的分离，同时也能够通过一些强大的工具，例如 GraphiQL 直接提供可视化的文档；但是在业务复杂性指数提升的今天，微服务架构成为了解决某些问题时必不可少的解决方案，所以如何在微服务架构中使用 GraphQL 提高前后端之间的沟通效率并降低开发成本成为了一个值得考虑的问题。</p>
+<h4 id="Relay-标准"><a href="#Relay-标准" class="headerlink" title="Relay 标准"></a>Relay 标准</h4><p>如果说 RESTful 其实是客户端与服务端在 HTTP 协议通信时定义的固定标准，那么 Relay 其实也是我们在使用 GraphQL 可以遵循的一套规范。</p>
+<p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevhBdsuY1lFQvrLxicjpCjkdmOEBU6kSG169nbricLGB4Fic0CK0gK9JEl7kxaficjMTpibJ3SFqSJlPbTg/640?wx_fmt=png" alt="640?wx_fmt=png"></p>
+<p>这种标准的出现能够让不同的工程师开发出较为相似的通信接口，在一些场景下，例如标识对象和分页这种常见的需求，引入设计良好的标准能够降低开发人员之间的沟通成本。</p>
+<p>Relay 标准其实为三个与 API 有关的最常见的问题制定了一些规范：</p>
+<ul>
+<li><p>提供能够重新获取对象的机制；</p>
+</li>
+<li><p>提供对如何对连接进行分页的描述；</p>
+</li>
+<li><p>标准化 mutation 请求，使它们变得更加可预测；</p>
+</li>
+</ul>
+<p>通过将上述的三个问题规范化，能够极大地增加前后端对于接口制定和对接时的工作效率。</p>
+<h4 id="对象标识符"><a href="#对象标识符" class="headerlink" title="对象标识符"></a>对象标识符</h4><p>Node 是 Relay 标准中定义的一个接口，所有遵循 Node 接口的类型都应该包含一个 id 字段：</p>
+<p><code class="hljs css js-evernote-checked" data-evernote-id="2787">interface Node &#123; id: ID!  &#125; type Faction : Node &#123; id: ID! name: String ships: ShipConnection  &#125; type Ship : Node &#123; id: ID! name: String  &#125;</code></p>
+<p>Faction 和 Ship 两个类型都拥有唯一标识符 id 字段，我们可以通过该标识符重新从服务端取回对应的对象，Node 接口和字段在默认情况下会假定整个服务中的所有资源的 id 都是不同的，但是很多时候我们都会将类型和 id 绑定到一起，组合后才能一个类型特定的 ID；为了保证 id 的不透明性，返回的 id 往往都是 Base64 编码的字符串，GraphQL 服务器接收到对应 id 时进行解码就可以得到相关的信息。</p>
+<h4 id="连接与分页"><a href="#连接与分页" class="headerlink" title="连接与分页"></a>连接与分页</h4><p>在一个常见的数据库中，一对多关系是非常常见的，一个 User 可以同时拥有多个 Post 以及多个 Comment，这些资源的数量在理论上不是有穷的，没有办法在同一个请求全部返回，所以要对这部分资源进行分页。</p>
+<ol>
+<li><p>query { viewer { name</p>
+</li>
+<li><p>email</p>
+</li>
+<li><p>posts(first: 1) { edge { cursor</p>
+</li>
+<li><p>node { title} } } }  }</p>
+</li>
+</ol>
+<p>Relay 通过抽象出的『连接模型』为一对多的关系提供了分片和分页的支持，在 Relay 看来，当我们获取某一个 User 对应的多个 Post 时，其实是得到了一个 PostConnection，也就是一个连接：</p>
+<p><code class="hljs perl js-evernote-checked" data-evernote-id="2809">&#123; "viewer": &#123; "name": "Draveness", "email": "<a href="mailto:&#105;&#64;&#100;&#114;&#97;&#x76;&#101;&#110;&#x65;&#x73;&#115;&#46;&#109;&#101;">&#105;&#64;&#100;&#114;&#97;&#x76;&#101;&#110;&#x65;&#x73;&#115;&#46;&#109;&#101;</a>", "posts": &#123; "edges": [ "cursor": "YXJyYXljb25uZWN0aW9uOjI=", "node": &#123; "title": "Post title", &#125; ] &#125; &#125;  &#125;</code></p>
+<p>在一个 PostConnection 中会存在多个 PostEdge 对象，其中的 cursor 就是我们用来做分页的字段，所有的 cursor 其实都是 Base64 编码的字符串，这能够提醒调用方 cursor 是一个不透明的指针，拿到当前 cursor 后就可以将它作为 after 参数传到下一个查询中：</p>
+<ol>
+<li><p>query { viewer { name</p>
+</li>
+<li><p>email</p>
+</li>
+<li><p>posts(first: 1, after: “YXJyYXljb25uZWN0aW9uOjI=”) { edge { cursor</p>
+</li>
+<li><p>node { title} } } }  }</p>
+</li>
+</ol>
+<p>当我们想要知道当前页是否是最后一页时，其实只需要使用每一个连接中的 PageInfo 对象，其中包含了很多与分页相关的信息，一个连接对象中一般都有以下的结构和字段，例如：Edge、PageInfo 以及游标和节点等。</p>
+<p><code class="hljs js-evernote-checked" data-evernote-id="2833">PostConnection  ├── PostEdge  │  ├── cursor │  └── Post  └── PageInfo ├── hasNextPage├── hasPreviousPage├── startCursor└── endCursor</code></p>
+<p>Relay 使用了非常多的功能在连接周围构建抽象，让我们能够更加方便地管理客户端中的游标，整个连接相关的规范其实特别复杂，可以阅读 Relay Cursor Connections Specification 了解更多与连接和游标有关的设计。</p>
+<h4 id="可变请求"><a href="#可变请求" class="headerlink" title="可变请求"></a>可变请求</h4><p>每一个 Web 服务都可以看做一个大型的复杂状态机，这个状态机对外提供两种不同的接口，一种接口是查询接口，它能够查询状态机的当前状态，而另一种接口是可以改变服务器状态的可变操作，例如 POST、DELETE 等请求。</p>
+<p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevhBdsuY1lFQvrLxicjpCjkdmibMePsENX8ENiaqYibujcpMsU1pon5NH0NN0qkicZRlCFvemUcjib4TXusA/640?wx_fmt=png" alt="640?wx_fmt=png"></p>
+<p>按照约定，所有的可变请求都应该以动词开头并且它们的输入都以 Input 结尾，与之相对应的，所有的输出都以 Payload 结尾：</p>
+<p><code class="hljs css js-evernote-checked" data-evernote-id="2842">input IntroduceShipInput &#123; factionId: ID! shipName: String! clientMutationId: String!  &#125; type IntroduceShipPayload &#123; faction: Faction ship: Ship clientMutationId: String!  &#125;</code></p>
+<p>除此之外，可变请求还可以通过传入 clientMutationId 保证请求的幂等性。</p>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p>Facebook 的 Relay 标准其实是一个在 GraphQL 上对于常见领域问题的约定，通过这种约定我们能够减少工程师的沟通成本和项目的维护成本并在多人协作时保证服务对外提供接口的统一。</p>
+<h4 id="N-1-问题"><a href="#N-1-问题" class="headerlink" title="N + 1 问题"></a>N + 1 问题</h4><p>在传统的后端服务中，N + 1 查询的问题就非常明显，由于数据库中一对多的关系非常常见，再加上目前大多服务都使用 ORM 取代了数据层，所以在很多时候相关问题都不会暴露出来，只有真正出现性能问题或者慢查询时才会发现。</p>
+<p><code class="hljs sql js-evernote-checked" data-evernote-id="2852">SELECT * FROM users LIMIT 3; SELECT * FROM posts WHERE user_id = 1; SELECT * FROM posts WHERE user_id = 2; SELECT * FROM posts WHERE user_id = 3; SELECT * FROM users LIMIT 3; SELECT * FROM posts WHERE user_id IN (1, 2, 3);</code></p>
+<p>GraphQL 作为一种更灵活的 API 服务提供方式，相比于传统的 Web 服务更容易出现上述问题，类似的问题在出现时也可能更加严重，所以我们更需要避免 N + 1 问题的发生。</p>
+<p>数据库层面的 N + 1 查询我们可以通过减少 SQL 查询的次数来解决，一般我们会将多个 = 查询转换成 IN 查询；但是 GraphQL 中的 N + 1 问题就有些复杂了，尤其是当资源需要通过 RPC 请求从其他微服务中获取时，更不能通过简单的改变 SQL 查询来解决。</p>
+<p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevhBdsuY1lFQvrLxicjpCjkdmaJ2uAMbAicrT1fZSVWd9S3HuCwE3kfgPRIHrib9kQ61cOLJnbdIKm4gw/640?wx_fmt=png" alt="640?wx_fmt=png"></p>
+<p>在处理 N + 1 问题之前，我们要真正了解如何解决这一类问题的核心逻辑，也就是将多次查询变成一次查询，将多次操作变成一次操作，这样能够减少由于多次请求增加的额外开销 —— 网络延迟、请求解析等；GraphQL 使用了 DataLoader 从业务层面解决了 N + 1 问题，其核心逻辑就是整个多个请求，通过批量请求的方式解决问题。</p>
+<h4 id="微服务架构"><a href="#微服务架构" class="headerlink" title="微服务架构"></a>微服务架构</h4><p>微服务架构在当下已经成为了遇到业务异常复杂、团队人数增加以及高并发等需求或者问题时会使用的常见解决方案，当微服务架构遇到 GraphQL 时就会出现很多理论上的碰撞，会出现非常多的使用方法和解决方案。</p>
+<p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevhBdsuY1lFQvrLxicjpCjkdmbWYW9WdX0ZCWVXDARKxOXQ96bHX9XKeuZe1jx47KkUJh0ehCdM46hA/640?wx_fmt=png" alt="640?wx_fmt=png"></p>
+<p>在这一节中，我们将介绍在微服务架构中使用 GraphQL 会遇到哪些常见的问题，对于这些问题有哪些解决方案需要权衡，同时也会分析 GraphQL 的设计理念在融入微服务架构中应该注意什么。</p>
+<p>当我们在微服务架构中融入 GraphQL 的标准时，会遇到三个核心问题，这些问题其实主要是从单体服务迁移到微服务架构这种分布式系统时引入的一系列技术难点，这些技术难点以及选择之间的折衷是在微服务中实践 GraphQL 的关键。</p>
+<h4 id="Schema-设计"><a href="#Schema-设计" class="headerlink" title="Schema 设计"></a>Schema 设计</h4><p>GraphQL 独特的 Schema 设计其实为整个服务的架构带来了非常多的变数，如何设计以及暴露对外的接口决定了我们内部应该如何实现用户的认证与鉴权以及路由层的设计。</p>
+<p>从总体来看，微服务架构暴露的 GraphQL 接口应该只有两种；一种接口是分散式的，每一个微服务对外暴露不同的端点，分别对外界提供服务。</p>
+<p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevhBdsuY1lFQvrLxicjpCjkdmsUI0n8GhwTEicRjNFFARNNb5gkI5RibRfJxKQreHIibBQqsPQT4bk0MLg/640?wx_fmt=png" alt="640?wx_fmt=png"></p>
+<p>在这种情况下，流量的路由是根据用户请求的不同服务进行分发的，也就是我们会有以下的一些 GraphQL API 服务：</p>
+<p><code class="hljs ruby js-evernote-checked" data-evernote-id="2858"><a target="_blank" rel="noopener" href="http://draveness.me/posts/api/graphql">http://draveness.me/posts/api/graphql</a> <a target="_blank" rel="noopener" href="http://draveness.me/comments/api/graphql">http://draveness.me/comments/api/graphql</a> <a target="_blank" rel="noopener" href="http://draveness.me/subscriptions/api/graphql">http://draveness.me/subscriptions/api/graphql</a></code></p>
+<p>我们可以看到当前博客服务总共由内容、评论以及订阅三个不同的服务来提供，在这时其实并没有充分利用 GraphQL 服务的好处，当客户端或前端同时需要多个服务的资源时，需要分别请求不同服务上的资源，并不能通过一次 HTTP 请求满足全部的需求。</p>
+<p>另一种方式其实提供了一种集中式的接口，所有的微服务对外共同暴露一个端点，在这时流量的路由就不是根据请求的 URL 了，而是根据请求中不同的字段进行路由。</p>
+<p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevhBdsuY1lFQvrLxicjpCjkdm2NuPxKvzabM2jJ4ic4qxsfZFAAaCwQQGzTMzXIuxh6ntTiaHw6OYKE1w/640?wx_fmt=png" alt="640?wx_fmt=png"></p>
+<p>这种路由的方式并不能够通过传统的 nginx 来做，因为在 nginx 看来整个请求其实只有一个 URL 以及一些参数，我们只有解析请求参数中的查询才能知道客户端到底访问了哪些资源。</p>
+<p><code class="hljs java js-evernote-checked" data-evernote-id="2861"><a target="_blank" rel="noopener" href="http://draveness.me/api/graphql">http://draveness.me/api/graphql</a></code></p>
+<p>请求的解析其实是对一颗树的解析，这部分解析其实是包含业务逻辑的，在这里我们需要知道的是，这种 Schema 设计下的请求是按照 field 进行路由的，GraphQL 其实帮助我们完成了解析查询树的过程，我们只需要对相应字段实现特定的 Resolver 处理返回的逻辑就可以了。</p>
+<p>然而在多个微服务提供 Schema 时，我们需要通过一种机制将多个服务的 Schema 整合起来，这种整合 Schema 的思路最重要的就是需要解决服务之间的重复资源和冲突字段问题，如果多个服务需要同时提供同一个类型的基础资源，例如：User 可以从多种资源间接访问到。</p>
+<ol>
+<li><p>{ post(id: 1) { user { id</p>
+</li>
+<li><p>email    } id</p>
+</li>
+<li><p>title</p>
+</li>
+<li><p>content  }</p>
+</li>
+</ol>
+<p>作为微服务的开发者或者提供方来讲，不同的微服务之间的关系是平等的，我们需要一个更高级别或者更面向业务的服务对提供整合 Schema 的功能，确保服务之间的字段与资源类型不会发生冲突。</p>
+<p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevhBdsuY1lFQvrLxicjpCjkdmp18XteibswCFAplqcWvdY0VrDC5ZP0icjA8Mic7FmLcJFK2STvSTtXW4Q/640?wx_fmt=png" alt="640?wx_fmt=png"></p>
+<h4 id="前缀"><a href="#前缀" class="headerlink" title="前缀"></a>前缀</h4><p>如何解决冲突资源从目前来看有两种不同的方式，一种是为多个服务提供的资源添加命名空间，一般来说就是前缀，在合并 Schema 时，通过添加前缀能够避免不同服务出现重复字段造成冲突的可能。</p>
+<p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevhBdsuY1lFQvrLxicjpCjkdmTJY8pGylPSxBPib7fFo8dYoMvnajp6r4UwzcibT3Xjg8ianbIicauXf9zw/640?wx_fmt=png" alt="640?wx_fmt=png"></p>
+<p>SourceGraph 在实践 GraphQL 时其实就使用了这种增加前缀的方式，这种方式的实现成本比较低，能够快速解决微服务中 Schema 冲突的问题，读者可以阅读 GraphQL at massive scale: GraphQL as the glue in a microservice architecture 一文了解这种做法的实现细节；这种增加前缀解决冲突的方式优点就是开发成本非常低，但是它将多个服务的资源看做孤岛，没有办法将多个不同服务中的资源关系串联起来，这对于中心化设计的 GraphQL 来说其实会造成一定体验上的丢失。</p>
+<h4 id="粘合"><a href="#粘合" class="headerlink" title="粘合"></a>粘合</h4><p>除了增加前缀这种在工程上开发成本非常低的方法之外，GraphQL 官方提供了一种名为 Schema Stitching 的方案，能够将不同服务的 GraphQL Schema 粘合起来并对外暴露统一的接口，这种方式能够将多个服务中的不同资源粘合起来，能够充分利用 GraphQL 的优势。</p>
+<p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevhBdsuY1lFQvrLxicjpCjkdmZOTx7cBM04ficrjzfQXpf95vFUB6FTMe62qqTU4TCCibl8vLWMSw5ryw/640?wx_fmt=png" alt="640?wx_fmt=png"></p>
+<p>为了打通不同服务之间资源的壁垒、建立合理并且完善的 GraphQL API，我们其实需要付出一些额外的工作，也就是在上层完成对公共资源的处理；当对整个 Schema 进行合并时，如果遇到公共资源，就会选用特定的 Resolver 进行解析，这些解析器的逻辑是在 Schema Stitching 时指定的。</p>
+<ol>
+<li><p>const linkTypeDefs = `<br> extend type User {</p>
+</li>
+<li><p>chirps: [Chirp]</p>
+</li>
+<li><p>}</p>
+</li>
+<li><p>`;</p>
+</li>
+</ol>
+<p>我们需要在服务层上的业务层对服务之间的公共资源进行定义，并为这些公共资源建立新的 Resolver，当 GraphQL 解析当公共资源时，就会调用我们在合并 Schema 时传入的 Resolver 进行解析和处理。</p>
+<p><code class="hljs go js-evernote-checked" data-evernote-id="2869">const mergedSchema = mergeSchemas(&#123; schemas: [ chirpSchema, authorSchema, linkTypeDefs, ], resolvers: &#123; User: &#123; chirps: &#123; fragment: <code>... on User &#123; id &#125;</code>, resolve(user, args, context, info) { return info.mergeInfo.delegateToSchema({ schema: chirpSchema, operation: 'query', fieldName: 'chirpsByAuthorId', args: { authorId: user.id, }, context, info, }); }, }, }, },  });</code></p>
+<p>在整个 Schema Stitching 的过程中，最重要的方法其实就是 mergeSchemas，它总共接受三个参数，需要粘合的 Schema 数组、多个 Resolver 以及类型出现冲突时的回调：</p>
+<p><code class="hljs vbscript js-evernote-checked" data-evernote-id="2895">mergeSchemas(&#123; schemas: Array<string | GraphQLSchema | Array<GraphQLNamedType>>; resolvers?: Array<IResolvers> | IResolvers; onTypeConflict?: ( left: GraphQLNamedType, right: GraphQLNamedType, info?: &#123; left: &#123; schema?: GraphQLSchema; &#125;; right: &#123; schema?: GraphQLSchema; &#125;; &#125;, ) => GraphQLNamedType;  &#125;)</code></p>
+<p>Schema Stitching 其实是解决多服务共同对外暴露 Schema 时比较好的方法，这种粘合 Schema 的方法其实是 GraphQL 官方推荐的做法，同时它们也为使用者提供了 JavaScript 的工具，但是它需要我们在合并 Schema 的地方手动对不同 Schema 之间的公共资源以及冲突类型进行处理，还要定义一些用于解析公共类型的 Resolver；除此之外，目前 GraphQL 的 Schema Stitching 功能对于除 JavaScript 之外的语言并没有官方的支持，作为一个承载了服务发现以及流量路由等功能的重要组件，稳定是非常重要的，所以应该慎重考虑是否应该自研用于 Schema Stitching 组件。</p>
+<h4 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h4><p>除了上述的两种方式能够解决对外暴露单一 GraphQL 的问题之外，我们也可以使用非常传统的 RPC 方式组合多个微服务的功能，对外提供统一的 GraphQL 接口：</p>
+<p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevhBdsuY1lFQvrLxicjpCjkdmTtawJ3oALa6vFgwCiachAW4so55MQopOUd7Rj833u3329Lm5dibwzf5g/640?wx_fmt=png" alt="640?wx_fmt=png"></p>
+<p>当我们使用 RPC 的方式解决微服务架构下 GraphQL Schema 的问题时，内部的所有服务组件其实与其他微服务架构中的服务没有太多区别，它们都会对外提供 RPC 接口，只是我们通过另一种方式 GraphQL 整合了多个微服务中的资源。</p>
+<p>使用 RPC 解决微服务中的问题其实是一个比较通用同时也是比较稳定的解决方案，GraphQL 作为一种中心化的接口提供方式，通过 RPC 调用其他服务的接口并进行合并和整合其实也是一个比较合理的事情；在这种架构下，我们其实可以在提供 GraphQL 接口的情况下，也让各个微服务直接或者通过其他业务组件对外暴露 RESTful 接口，提供更多的接入方式。</p>
+<p>虽然 RPC 的使用能为我们的服务提供更多的灵活性，同时也能够将 GraphQL 相关的功能拆分到单独的服务中，但是这样给我们带来了一些额外的工作量，它需要工程师手动拼接各个服务的接口并对外提供 GraphQL 服务，在遇到业务需求变更时也可能会导致多个服务的修改和更新。</p>
+<h4 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h4><p>从使用前缀、粘合到使用 RPC 组合各个微服务提供的接口，对外暴露的 Schema 其实是一个由点到面逐渐聚合的过程，同时实现的复杂度也会逐步上升。</p>
+<p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevhBdsuY1lFQvrLxicjpCjkdmVdN3Ru7VtJtoGcGpj6uVia2WUsjdhswvFWx7FJHSibw11pibyntgDmoOA/640?wx_fmt=png" alt="640?wx_fmt=png"></p>
+<p>在这三种方式中，作者并不推荐使用前缀的方式隔离多个微服务提供的接口，这种做法并没有充分利用 GraphQL 的好处，不如使用 RESTful 将多个服务的接口直接解耦，使用 GraphQL 反而是有一些滥用的感觉。</p>
+<p>除了使用前缀的做法之外，无论是粘合还是组合都能够提供一个完整的 GraphQL 接口，它们两者都需要在直接对接用户的 GraphQL 服务中对各个微服务提供的接口进行整合，当我们使用 Schema Stitching 时，其实对后面的服务提出了更多的要求 —— 开发微服务的工程师需要掌握 GraphQL Schema 的设计与开发方法，与此同时，各个微服务之间的类型也可能出现冲突，需要在上层进行解决，不过这也减少了一些最前面的 GraphQL 服务的工作量。</p>
+<p>在最后，使用组合方式就意味着整个架构中的 GraphQL 服务需要通过组合 RPC 的方式处理与 GraphQL 相关的全部逻辑，相当于把 GraphQL 相关的全部逻辑都抽离到了最前面。</p>
+<p>经过几次架构的重构之后，在微服务架构中，作者更倾向于使用 RPC 组合各个微服务功能的方式提供 GraphQL 接口，虽然这样带来了更多的工作量，但是却能拥有更好的灵活性，也不需要其他微服务的开发者了解 GraphQL 相关的设计规范以及约定，让各个服务的职责更加清晰与可控。</p>
+<h4 id="认证与授权"><a href="#认证与授权" class="headerlink" title="认证与授权"></a>认证与授权</h4><p>在一个常见的 Web 服务中，如何处理用户的认证以及鉴权是一个比较关键的问题，因为我们需要了解在使用 GraphQL 的服务中我们是如何进行用户的认证与授权的。</p>
+<p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevhBdsuY1lFQvrLxicjpCjkdmGXjBcl2FIEOsJnTq0LeMzC4pibqm6jFjPsvDoiaSsI6VmhwHwcINn2SA/640?wx_fmt=png" alt="640?wx_fmt=png"></p>
+<p>如果我们决定 Web 服务作为一个整体对外暴露的是 GraphQL 的接口，那么在很大程度上，Schema 设计的方式决定了认证与授权应该如何组织；作为一篇介绍 GraphQL 在微服务架构中实践的文章，我们也自然会介绍在不同 Schema 设计下，用户的认证与授权方式应该如何去做。</p>
+<p>上一节中总共提到了三种不同的 Schema 设计方式，分别是：前缀、粘合和组合，这些设计方式在最后都会给出一个如下所示的架构图：</p>
+<p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevhBdsuY1lFQvrLxicjpCjkdmW0CsibDfM4ibX8UicYDkqicibzwARjN85Lwrk6V1u7LfESz0hWSNxaGdjeQ/640?wx_fmt=png" alt="640?wx_fmt=png"></p>
+<p>使用 GraphQL 的所有结构最终都会由一个中心化的服务对外接受来自客户端的 GraphQL 请求，哪怕它仅仅是一个代理，当我们有了这张 GraphQL 服务的架构图，如何对用户的认证与授权进行设计就变得非常清晰了。</p>
+<h4 id="认证"><a href="#认证" class="headerlink" title="认证"></a>认证</h4><p>首先，用户的认证在多个服务中分别实现是大不合理的，如果需要在多个服务中处理用户认证相关的逻辑，相当于将一个服务的职责同时分给了多个服务，这些服务需要共享用户认证相关的表，users、sessions 等等，所以在整个 Web 服务中，由一个服务来处理用户认证相关的逻辑是比较合适的。</p>
+<p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevhBdsuY1lFQvrLxicjpCjkdmQmRzXB38pqNsG8SaMTKYUSfUKkHyiaDQuQSwH7yozBlPIg8IXKjZn0g/640?wx_fmt=png" alt="640?wx_fmt=png"></p>
+<p>这个服务既可以是作为网关代理的 GraphQL 服务本身，也可以是一个独立的用户认证服务，在每次用户请求时都会通过 RPC 或者其他方式调用该服务提供的接口对用户进行认证，用户的授权功能与认证就有一些不同了。</p>
+<h4 id="授权"><a href="#授权" class="headerlink" title="授权"></a>授权</h4><p>我们可以选择在 GraphQL 服务中增加授权的功能，也可以选择在各个微服务中判断当前用户是否对某一资源有权限进行操作，这其实是集中式跟分布式之间的权衡，两种方式都有各自的好处，前者将鉴权的权利留给了各个微服务，让它们进行自治，根据其业务需要判断请求者是否可以访问后者修改资源，而后者其实把整个鉴权的过程解耦了，内部的微服务无条件的信任来自 GraphQL 服务的请求并提供所有的服务。</p>
+<p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevhBdsuY1lFQvrLxicjpCjkdmvLI4r09tSn9u0F6luuBuapia54ica68pB5EvfqpGDu9hkWPCNLdxVOag/640?wx_fmt=png" alt="640?wx_fmt=png"></p>
+<p>上面的设计其实都是在我们只需要对外提供一个 GraphQL 端点时进行的，当业务需要同时提供 B 端、C 端或者管理后台的接口时，设计可能就完全不同了。</p>
+<p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevhBdsuY1lFQvrLxicjpCjkdmFFwSSicJicUPMAzPx2BEIfloPsGpQpt6owibnHYrl6Picw12E5qdPhQH0Q/640?wx_fmt=png" alt="640?wx_fmt=png"></p>
+<p>在这时，如果我们将鉴权的工作分给多个内部的微服务，每个服务都需要对不同的 GraphQL 服务（或者 Web 服务）提供不同的接口，然后分别进行鉴权；但是将鉴权的工作交给 GraphQL 服务就是一种比较好的方式了，内部的微服务不需要关心调用者是否有权限访问该资源，鉴权都由最外层的业务服务来处理，实现了比较好的解耦。</p>
+<p>当然，完全的信任其他服务的调用其实是一个比较危险的事情，对于一些重要的业务或者请求调用可以通过外部的风控系统进行二次检查判断当前请求方调用的合法性。</p>
+<p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevhBdsuY1lFQvrLxicjpCjkdm1XpOrwYEm04X30eYp6S4DEQdxriaA8NWoyIP7ppZnVzKO9telXAG5Tw/640?wx_fmt=png" alt="640?wx_fmt=png"></p>
+<blockquote>
+<p>如何实现一个完备并且有效的风控系统并不是这篇文章想要主要介绍的内容，读者可以寻找相关的资料了解风控系统的原理以及模型。</p>
+</blockquote>
+<h4 id="小结-2"><a href="#小结-2" class="headerlink" title="小结"></a>小结</h4><p>认证与授权的设计本来是系统中一件比较灵活的事情，无论我们是否在微服务架构中使用 GraphQL 作为对外的接口，将这部分逻辑交由直接对外暴露的服务是一种比较好的选择，因为直接对外暴露的服务中掌握了更多与当前请求有关的上下文，能够更容易地对来源用户以及其权限进行认证，而重要或者高危的业务操作可以通过额外增加风控服务管理风险，或者在路由层对 RPC 的调用方通过白名单进行限制，这样能够将不同的功能解耦，减少多个服务之间的重复工作。</p>
+<h4 id="路由设计"><a href="#路由设计" class="headerlink" title="路由设计"></a>路由设计</h4><p>作为微服务中非常重要的一部分，如何处理路由层的设计也是一个比较关键的问题；但是与认证与鉴权相似的是，Schema 的设计最终其实就决定了请求的路由如何去做。</p>
+<p>GraphQL Schema Stitching 其实已经是一套包含路由系统的 GraphQL 在微服务架构的解决方案了，它能够在网关服务器 Resolve 请求时，通过 HTTP 协议将对应请求的片段交由其他微服务进行处理，整个过程不需要手动介入，只有在类型出现冲突时会执行相应的回调。</p>
+<p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevhBdsuY1lFQvrLxicjpCjkdmgiaOQkia6BWOgk6ajYmMZXlQlib0FDu1awBEDo3riaUdCdzmcSQic41w6Pg/640?wx_fmt=png" alt="640?wx_fmt=png"></p>
+<p>而组合的方式其实就相当于要手动实现 Schema Stitching 中转发请求的工作了，我们需要在对外暴露的 GraphQL 服务中实现相应字段的解析器调用其他服务提供的 HTTP 或者 RPC 接口取到相应的数据。</p>
+<p>在 GraphQL 中的路由设计其实与传统微服务架构中的路由设计差不多，只是 GraphQL 提供了 Stitching 的相关工具用来粘合不同服务中的 Schema 并提供转发服务，我们可以选择使用这种粘合的方式，也可以选择在 Resolver 中通过 HTTP 或者 RPC 的方式来自获取用户请求的资源。</p>
+<h4 id="架构的演进"><a href="#架构的演进" class="headerlink" title="架构的演进"></a>架构的演进</h4><p>从今年年初选择使用 GraphQL 作为服务对外暴露的 API 到现在大概有半年的事件，服务的架构也在不断演进和改变，在这个过程中确实经历了非常多的问题，也一次一次地对现有的服务架构进行调整，整个演进的过程其实可以分为三个阶段，从使用 RPC 组合的方式到 Schema Stitching 最后再回到使用 RPC。</p>
+<p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevhBdsuY1lFQvrLxicjpCjkdmshLxI23picVUMGZEAbzgAbRraLyHEFqQAkFDHqDk7Z62T6EEjyEZdqw/640?wx_fmt=png" alt="640?wx_fmt=png"></p>
+<p>虽然在整个架构演进的过程中，最开始和最终选择的技术方案虽然都是使用 RPC 进行通信，但是在实现的细节上却有着很多的不同以及差异，这也是我们在业务变得逐渐复杂的过程发现的。</p>
+<h4 id="中心化-Schema-与-RPC"><a href="#中心化-Schema-与-RPC" class="headerlink" title="中心化 Schema 与 RPC"></a>中心化 Schema 与 RPC</h4><p>当整个项目刚刚开始启动时，其实就已经决定了使用微服务架构进行开发，但是由于当时选择使用的技术栈是 Elixir + Phoenx，所以很多基础设施并不完善，例如 gRPC 以及 Protobuf 就没有官方版本的 Elixir 实现，虽然有一些开源项目作者完成的项目，但是都并不稳定，所以最终决定了在 RabbitMQ 上简单实现了一个基于消息队列的 RPC 框架，并通过组合的方式对外提供 GraphQL 的接口。</p>
+<p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevhBdsuY1lFQvrLxicjpCjkdmDubMcem1PRvnaGhTExBgM75VT4850gd6S9Qy3gwBia47R2vN8L2ibjpw/640?wx_fmt=png" alt="640?wx_fmt=png"></p>
+<p>RabbitMQ 在微服务架构中承担了消息总线的功能，所有的 RPC 请求其实都被转换成了消息队列中的消息，服务在调用 RPC 时会向 RabbitMQ 对应的队列投递一条消息并持续监听消息的回调，等待其他服务的响应。</p>
+<p>这种做法的好处就是 RabbitMQ 中的队列承担了『服务发现』的职能，通过队列的方式将请求方与服务方解耦，对 RPC 请求进行路由，所以下游的消费者（服务方）可以水平扩展，但是这种方式其实也可以由负载均衡来实现，虽然负载均衡由于并不清楚服务方的负载，所以在转发请求时的效果可能没有服务方作为消费者主动拉的效率高。</p>
+<p>最关键的问题是，手搓的 RPC 框架作为基础服务如果没有经过充分的测试以及生产环境的考验是不成熟的，而且作为语言无关的一种调用方式，我们可能需要为很多语言同时实现 RPC 框架，这其实就带来了非常高的人力、测试和维护成本，现在来看不是一个非常可取的方法。</p>
+<p>如果我们抛开语言不谈，在一个比较成熟的语言中使用 RPC 的方式进行通信，确实能降低很多开发和维护的成本，但是也有另外一个比较大的代价，当业务并不稳定需要经常变更时，内部服务会经常为对外暴露的 RPC 接口添加额外的字段，而这也会要求最前面的 GraphQL 服务做额外的工作：</p>
+<p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevhBdsuY1lFQvrLxicjpCjkdmrhmKiaRxs9VZukfZ9XQjARdjX5DYIIjN5pia8zxnmrbib3FffpVchYt1A/640?wx_fmt=png" alt="640?wx_fmt=png"></p>
+<p>每一次服务的修改都会导致三个相关服务或仓库进行更新，这虽然是在微服务架构中是一件比较正常合理的事情，但是在项目的早期阶段这会导致非常多额外的工作量，这也是我们进行第一次架构迁移的主要原因。</p>
+<h4 id="去中心化管理的-Schema"><a href="#去中心化管理的-Schema" class="headerlink" title="去中心化管理的 Schema"></a>去中心化管理的 Schema</h4><p>这里的去中心化其实并不是指 GraphQL 对外暴露多个端点，而是指 GraphQL 不同 field 的开发过程去中心化，为了解决中心化的 Schema 加上 RPC 带来的开发效率问题并且实践 GraphQL 官方提供的 Schema Stitching 解决方案，我们决定将 Schema 的管理去中心化，由各个微服务对外直接暴露 GraphQL 请求，同时将多个服务的 Schema 进行合并，以此来解决开发的效率问题。</p>
+<p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevhBdsuY1lFQvrLxicjpCjkdmKEJhzx7s9P9iaaXA1LLkrbicOL1tAhZVRxNfN4tzqbeJgfNvrTer9edQ/640?wx_fmt=png" alt="640?wx_fmt=png"></p>
+<p>使用 Schema Stitching 的方式能够将多个服务中不同的 GraphQL Schema 粘合成一个更大的 Schema，这种架构下最关键的组件就是用于 Schema 粘合的工具，在上面已经说到，除了 Javascript 之外的其他语言并没有官方的工具支持，也没有在生产环境中大规模使用，同时因为我们使用的也是一个比较小众的语言 Elixir，所以更不存在一个可以拆箱即用的工具了。</p>
+<p>经过评估之后，我们决定在 GraphQL Elixir 实现 Absinthe 上进行一层包装，并对客户端的请求进行语法与语义的解析，将字段对应的树包装成子查询发送给下游的服务，最终再由最前面的 GraphQL 服务组合起来：</p>
+<p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevhBdsuY1lFQvrLxicjpCjkdmPa81JefcV98ZuNiaesq87KkvyZ9dicibeFD1BLibCoM3WZ8PicU1rdVZz1g/640?wx_fmt=png" alt="640?wx_fmt=png"></p>
+<p>GraphQL 前端服务总共包含两个核心组件，分别是 GraphQL Stitcher 和 Dispatcher，其中前者负责向各个 GraphQL 服务请求 IntrospectionQuery 并将获得的所有 Schema 粘合成一颗巨大的树；当客户端进行请求时，Graphql Dispatcher 会通过语法解析当前的请求，并将其中不同的字段以及子字段转换成树后转发给对应的服务。</p>
+<p>在实现 GraphQL Stitcher 的过程中，需要格外注意不同服务之间类型冲突的情况，我们在实现的过程中并没有支持类型冲突以及跨服务资源的问题，而是采用了覆盖的方式，这其实有很大的问题，内部的 GraphQL 服务其实并不知道整个 Schema 中有哪些类型是已经被使用的，所以经常会造成服务之间的类型冲突，我们只有在发现时手动增加前缀来解决冲突。</p>
+<blockquote>
+<p>增加前缀是一个比较容易的解决冲突的办法，但是却并不是特别的优雅，使用这种方式的主要原因是，我们发现了由于权限系统的设计缺陷 —— 在引入 B 端用户时无法优雅的实现鉴权，所以选择使用一种比较简单的办法临时解决类型冲突的问题。</p>
+</blockquote>
+<p>在开发各种内部服务时，我们通过 scope 的方式对用户是否有权限读写资源做了限制，内部服务在执行操作前会先检查请求的用户是否能够读写该资源，然后开始处理真正的业务逻辑，也就是说用户鉴权是发生在所有的内部服务中的。</p>
+<p>当我们对外暴露的 GraphQL 服务仅仅是面向 C 端用户的时候，使用 scope 并且让内部服务进行鉴权其实能够满足 C 端对于接口的需求，但是当我们需要同时为 B 端用户提供 GraphQL 或者 RESTful 接口时，这种鉴权方式其实就非常尴尬了。</p>
+<p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevhBdsuY1lFQvrLxicjpCjkdmRvFu5TEUoLj06YSqNpQe5VaE17ic0ibUCv1eN4AO05RnrOCdsxbRqICw/640?wx_fmt=png" alt="640?wx_fmt=png"></p>
+<p>在微服务架构中，由于各个服务之间的数据库是隔离的，对于一条数据库记录来说，很多内部服务都只能知道当前记录属于哪个用户或者那些用户，所以对于 scope 来说传递资源、读写请求加上来源用户就能够让处理请求的服务判断当前的来源用户是否有权限访问该条记录。</p>
+<p>这种结论基于我们做的一条假设 —— 微服务收到的所有请求其实都要求读写来源用户拥有的资源，所以在引入 B 端用户时就遇到了比较大的困难，我们采用的临时解决方案就是在当前用户的 scope 中添加一些额外的信息并在内部服务中添加新的接口满足 B 端查询的需要，但是由于 B 端对于资源的查询要求可能非常多样，当我们需要为不同的查询接口进行不同的权限限制，并且在 B 端用户也不能访问全部用户的资源时，scope 的方式就很难表现这种复杂的鉴权需求。</p>
+<p>在这种 Schema 管理去中心化的架构中，我们遇到了两个比较重要的问题：</p>
+<ul>
+<li><p>用于 Schema Stitching 的组件对于 Elixir 语言并没有官方或者大型开源项目的支持，手搓的组件在承载较大的服务负载时会有很大的压力，同时功能也有非常多不完善的地方；</p>
+</li>
+<li><p>在内部服务对于整个请求没有太多上下文的情况下，一旦遇到复杂的鉴权需求时，将鉴权交给内部服务的的设计方式会导致服务之间的耦合增加 —— 微服务之间需要不断传递请求的上下文用于鉴权，同时也增加了开发的成本；</p>
+</li>
+</ul>
+<h4 id="服务网格与-RPC"><a href="#服务网格与-RPC" class="headerlink" title="服务网格与 RPC"></a>服务网格与 RPC</h4><p>使用去中心化管理的 Schema 虽然在一定程度上减少了开发的工作，但是在这种架构下我们也遇到了两个不能接受的问题，为了解决这些问题，我们准备对当前的技术架构做出以下的修改，让各个服务能够更加灵活的通信： </p>
+<p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevhBdsuY1lFQvrLxicjpCjkdmLeYMvbhs53qpDl6caJssFQCVyTyj4qukKibmcJVz9blAIC1lia0ibncsw/640?wx_fmt=png" alt="640?wx_fmt=png"></p>
+<p>最新的架构设计中，我们使用 linkerd 来处理服务之间的通信，所有的内部服务不在独立对来源请求进行鉴权，它们只负责对外提供 RPC 接口，在这里使用 gRPC 和 Protobuf 对不同服务的接口进行管理，所有的鉴权都发生在最外层的 Web 服务中，面向 C 端用户的 GraphQL 服务以及面向 B 端用户的 Web 服务，分别会对来源的请求进行鉴权，通过鉴权后再向对应服务发起 RPC 请求，请求的路由和流量的转发都由 linkerd 完成。</p>
+<blockquote>
+<p>linkerd 是服务网格（Service Mesh）技术的一个实现，它是一个开源的网络代理，能够在不改变现有服务的基础上为服务提供服务发现、管理、监控等功能，我们在这篇文章中并不会展开介绍服务网格这门技术，有兴趣的读者可以查找相关的资料。</p>
+</blockquote>
+<p>由于面向 B 端用户可能涉及到较多的查询请求，并且这些请求非常复杂，我们可以选择使用从库的方式同步其他服务的数据，在服务内部实现相应的查询功能，当然也可以使用数据中心或者仓库的方式将数据处理后提供给面向 B 端用户的外部服务。</p>
+<p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevhBdsuY1lFQvrLxicjpCjkdmmNCcJ0icPQjFdjPuVcTwm5RU5uBeSIbTRMMpBBJ2Ft2e2Gglpiad3nUQ/640?wx_fmt=png" alt="640?wx_fmt=png"></p>
+<p>这种服务组织方式其实更像是对第一版架构的修改，通过引入 linkerd 解决服务发现、路由以及治理的问题，将一些微服务通用的基础设施交给相对成熟的开源项目负责，而鉴权逻辑被上移到了几个直接对外暴露的 Web 服务中，内部的服务不再承担鉴权的工作，虽然在这时依然会存在一次服务接口的改动，会导致多处进行修改的问题，但是从现在来看这是为了保持服务的灵活带来的代价。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>从刚开始使用 GraphQL 到现在已经过去了将近半年的时间，在微服务中实践 GraphQL 的过程中，我们发现了微服务与 GraphQL 之间设计思路冲突的地方，也就是去中心化与中心化。</p>
+<p>作为一门中心化的查询语言，GraphQL 在最佳实践中应该只对外暴露一个端点，这个端点会包含当前 Web 服务应该提供的全部资源，并把它们合理的连接成图，但是微服务架构恰恰是相反的思路，它的初衷就是将大服务拆分成独立部署的服务，所以在最后对架构进行设计时，我们分离了这两部分的逻辑，使用微服务架构对服务进行拆分，通过 GraphQL 对微服务接口进行组合并完成鉴权功能，同时满足了两种不同设计的需求。</p>
+<p>在架构演进的过程中，我们遇到了很多设计不合理的地方，也因为没有预见到业务扩展带来需求改动，由此导致架构上无法优雅地实现新的需求；最后选择使用服务网格（Service Mesh）的方式对现有的架构进行重构，也是因为微服务治理相关的事情应该由统一的中间层来做，自己重新实现服务治理相关的逻辑成本也非常高，使用服务网格已经与 GraphQL 没有太多的联系了，GraphQL 服务也只是作为一个对外暴露的端点组合内部服务提供的接口，我们也可以将接口换成 RESTful 或者其他形式，这对于整体的架构设计没有太多的影响；回过头来看，当项目刚刚启动时不应该将 GraphQL 接口摆在一个特别重要的位置上，划分服务之间的边界并进行合理的解耦才是影响比较深远的事情。</p>
+<p>到最后，我们会发现在微服务架构中，GraphQL 其实只是整个链路中的一环，或许官方提供的一些工具与微服务中的一些问题有关，但是从整个架构来看对外是否使用 GraphQL 其实不是特别的重要，将服务之间的职责进行解耦并对外提供合理的接口才是最关键的，只要架构上的设计合理，我们可以随时引入一个 GraphQL 服务来组合其他服务的功能，其优点在于：</p>
+<ul>
+<li><p>将多个网络请求合并成一个，减少前后端之间的网络请求次数，加快前端页面的渲染；</p>
+</li>
+<li><p>提供了体验非常好的调试工具 GraphiQL，并可以通过代码生成文档，节约文档的维护成本和沟通成本；</p>
+</li>
+</ul>
+<p>不得不说 GraphQL 作为一门新兴的技术有着非常多的优点，很多公司都在尝试使用 GraphQL 对外提供 API，虽然目前来说这门技术不算特别成熟，但是却也有巨大的潜力。</p>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li><p>Web 服务编程，REST 与 SOAP</p>
+</li>
+<li><p>GraphQL Relay</p>
+</li>
+<li><p>GraphQL Server Specification</p>
+</li>
+<li><p>Relay Cursor Connections Specification</p>
+</li>
+<li><p>Solving the N+1 Problem for GraphQL through Batching – Shopify Engineering</p>
+</li>
+<li><p>How Facebook organizes their GraphQL code</p>
+</li>
+<li><p>How to structure GraphQL server code</p>
+</li>
+<li><p>GraphQL as an API Gateway to Microservices</p>
+</li>
+<li><p>GraphQL at massive scale: GraphQL as the glue in a microservice architecture</p>
+</li>
+<li><p>GrAMPS Documentation</p>
+</li>
+<li><p>Using GraphQL with Microservices in Go</p>
+</li>
+<li><p>Linkerd</p>
+</li>
+</ul>
+<p>这篇文章中，首先会简单介绍 GraphQL 是什么，它能够解决的问题；在这之后，我们会重点分析 GraphQL 在微服务架构中的使用以及在实践过程中遇到的棘手问题，在最后作者将给出心中合理的 GraphQL 微服务架构的设计，希望能为同样在微服务架构中使用 GraphQL 的工程师提供一定的帮助，至于给出的建议是否能够满足读者在特定业务场景下的需求就需要读者自行判断了。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-06-14T12:52:36.000Z" title="2020-06-14T12:52:36.000Z">2020-06-14</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.349Z" title="2020-09-08T14:03:00.349Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">18 分钟读完 (大约2653个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/06/14/GraphQL%20%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%8C%96/">GraphQL 微服务化</a></h1><div class="content"><h3 id="GraphQL-在-微服务-架构中的实践-前端大全-CSDN博客"><a href="#GraphQL-在-微服务-架构中的实践-前端大全-CSDN博客" class="headerlink" title="GraphQL 在_微服务_架构中的实践 - 前端大全 - CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/VhWfR2u02Q/article/details/81278717"><em>GraphQL</em> 在_微服务_架构中的实践 - 前端大全 - CSDN博客</a></h3><p> 2018年7月29日 - 这篇文章中,首先会简单介绍 <em>GraphQL</em> 是什么,它能够解决的问题;在这之后,我们会重点分析 <em>GraphQL</em> 在_微服务_架构中的使用以及在实践过程中遇到的棘手问题…</p>
+<h3 id="GraphQL-在-微服务-架构中的实践-Docker的专栏-CSDN博客-graphql微服务"><a href="#GraphQL-在-微服务-架构中的实践-Docker的专栏-CSDN博客-graphql微服务" class="headerlink" title="GraphQL_在_微服务_架构中的实践_Docker的专栏-CSDN博客__graphql微服务"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/M2l0ZgSsVc7r69eFdTj/article/details/81117092"><em>GraphQL_在_微服务_架构中的实践_Docker的专栏-CSDN博客__graphql微服务</em></a></h3><p> 2018年7月19日 - 在过去的将近半年的时间里,作者一直在使用_GraphQL_这门相对新兴的技术开发Web服务,与更早出现的SOAP和REST相比,_GraphQL_其实提供的是一…__graphql微服务_</p>
+<h3 id="在微服务-下基于-GraphQL-构建-BFF-前端里"><a href="#在微服务-下基于-GraphQL-构建-BFF-前端里" class="headerlink" title="在微服务_下基于 _GraphQL 构建 BFF-前端里"></a><a href="https://zshipu.com/t?url=http://www.yyyweb.com/5122.html">在<em>微服务_下基于 _GraphQL</em> 构建 BFF-前端里</a></h3><p> 2018年8月4日 - <em>GraphQL</em> 只是解析客户端请求,知道客户端的“意图”之后,再通过对_微服务_API的访问获取到数据,对数据进行一系列的组装或者过滤。 5. 无须版本化 const PhotoType =…</p>
+<h3 id="实践微服务-第14部分-GraphQL-云-社区-腾讯云"><a href="#实践微服务-第14部分-GraphQL-云-社区-腾讯云" class="headerlink" title="实践微服务,第14部分:GraphQL - 云+社区 - 腾讯云"></a><a href="https://zshipu.com/t?url=https://cloud.tencent.com/developer/article/1152796">实践<em>微服务</em>,第14部分:<em>GraphQL</em> - 云+社区 - 腾讯云</a></h3><p> 2018年6月27日 - 在实践_微服务_系列博客的这一篇中,我们将看看如何使用_GraphQL_将Account对象提供给我们的客户端。</p>
+<h3 id="【转载】-微服务-下使用-GraphQL-构建BFF-简书"><a href="#【转载】-微服务-下使用-GraphQL-构建BFF-简书" class="headerlink" title="【转载】_微服务_下使用_GraphQL_构建BFF - 简书"></a><a href="https://zshipu.com/t?url=https://www.jianshu.com/p/859bf1b8d904">【转载】_微服务_下使用_GraphQL_构建BFF - 简书</a></h3><p> 2018年11月22日 - 本文摘自ThoughtWorks: <a target="_blank" rel="noopener" href="https://insights.thoughtworks.cn/use-_graphql_-build-bff-in-microservices/">https://insights.thoughtworks.cn/use-_graphql_-build-bff-in-microservices/</a> _微服务_架构,这个在几年前还算比较前卫的技术在如今遍地开花。得…</p>
+<h3 id="GraphQL-BFF-微服务-背景下的前后端数据交互方案-云-社区-腾讯云"><a href="#GraphQL-BFF-微服务-背景下的前后端数据交互方案-云-社区-腾讯云" class="headerlink" title="GraphQL-BFF:_微服务_背景下的前后端数据交互方案 - 云+社区 - 腾讯云"></a><a href="https://zshipu.com/t?url=https://cloud.tencent.com/developer/article/1477870"><em>GraphQL</em>-BFF:_微服务_背景下的前后端数据交互方案 - 云+社区 - 腾讯云</a></h3><p> 2019年8月1日 - 从SearchParams, FormData 到 JSON,再到 <em>GraphQL</em> 查询语句,我们看到不断有新的数据通讯方式出现,满足不同的场景和复杂度的要求。 站在这个层面上看,<em>Gr</em>…</p>
+<h3 id="基于-graphql-的-微服务-基础框架-Golang-中国"><a href="#基于-graphql-的-微服务-基础框架-Golang-中国" class="headerlink" title="基于_graphql_的_微服务_基础框架 - Golang 中国"></a><a href="https://zshipu.com/t?url=http://www.golangtc.com/t/5c232d2b4ce40d257b1592d6">基于_graphql_的_微服务_基础框架 - Golang 中国</a></h3><p> 2018年12月26日 - base是一个小而美的业务基础框架,它使用_graphql_作为api通信协议基础。然后提供了一些…支持_微服务_之间的rpc调用和数据解析 轻易支持立即容器化 目录…</p>
+<h3 id="基于-graphql-的-微服务-基础框架首页、文档和下载-小而美-Go语言…"><a href="#基于-graphql-的-微服务-基础框架首页、文档和下载-小而美-Go语言…" class="headerlink" title="基于_graphql_的_微服务_基础框架首页、文档和下载 - 小而美 - Go语言…"></a><a href="https://zshipu.com/t?url=https://studygolang.com/p/base?fr=sidebar">基于_graphql_的_微服务_基础框架首页、文档和下载 - 小而美 - Go语言…</a></h3><p> 2018年12月26日 - base是一个小而美的业务基础框架,它使用_graphql_作为api通信协议基础。然后提供了一些…支持_微服务_之间的rpc调用和数据解析 轻易支持立即容器化 目录结构 .├── REA…</p>
+<h3 id="微服务-下使用-GraphQL-构建BFF的实践"><a href="#微服务-下使用-GraphQL-构建BFF的实践" class="headerlink" title="_微服务_下使用_GraphQL_构建BFF的实践"></a><a href="https://zshipu.com/t?url=http://www.360doc.com/content/18/0502/04/46368139_750368275.shtml">_微服务_下使用_GraphQL_构建BFF的实践</a></h3><p> 2018年5月2日 - <em>GraphQL</em> 查询请求,同时我们在 BFF 端增加了 /api/${serviceName} 进行API 透传,对于一些没有必要进行 <em>GraphQL</em> 封装的请求,可以直接通过透传访问到相关…</p>
+<h3 id="译-使用-Go-编写微服务-及其-GraphQL-网关-码农网"><a href="#译-使用-Go-编写微服务-及其-GraphQL-网关-码农网" class="headerlink" title="[译] 使用 Go 编写微服务_及其 _GraphQL 网关 | 码农网"></a><a href="https://zshipu.com/t?url=https://www.codercto.com/a/24720.html">[译] 使用 Go 编写<em>微服务_及其 _GraphQL</em> 网关 | 码农网</a></h3><p> 2019年5月22日 - 几个月前,一个优秀的 <em>GraphQL</em> Go 包下面列出的一些代码可能存在一些缺失,完整的代码请访问Spidey 包含了三个不同的<em>服务_并暴露给了 _GraphQL</em> 网关。集群内部的通信…</p>
+<h3 id="【第1683期】GraphQL-BFF-微服务-背景下的前后端数据交互方案-接口"><a href="#【第1683期】GraphQL-BFF-微服务-背景下的前后端数据交互方案-接口" class="headerlink" title="【第1683期】GraphQL-BFF:_微服务_背景下的前后端数据交互方案_接口"></a><a href="https://zshipu.com/t?url=https://www.sohu.com/a/329970078_463970">【第1683期】<em>GraphQL</em>-BFF:_微服务_背景下的前后端数据交互方案_接口</a></h3><p> 2019年7月29日 - 任何接口设计复杂到一定程度后,都会包含一个临时开发的、不合规范的、只有一半功能的 <em>GraphQL</em> 实现。 从SearchParams, FormData 到 JSON,再到 <em>GraphQL</em> 查询语句,…</p>
+<h3 id="GraphQL-在-微服务-架构中实践架构-豆丁网"><a href="#GraphQL-在-微服务-架构中实践架构-豆丁网" class="headerlink" title="_GraphQL_在_微服务_架构中实践架构 - 豆丁网"></a><a href="https://zshipu.com/t?url=https://www.docin.com/p-2126660351.html">_GraphQL_在_微服务_架构中实践架构 - 豆丁网</a></h3><p> 2018年8月13日 - 来源:CDA数据分析 <em>GraphQL_在_微服务_架构中的实践架构 目录 _GraphQL</em> 是什么?… _GraphQL_在_微服务_架构中的使用 _GraphQL_在实践过程中遇到的棘手问题…</p>
+<h3 id="GraphQL-在-微服务-架构中的实践架构-百度文库"><a href="#GraphQL-在-微服务-架构中的实践架构-百度文库" class="headerlink" title="_GraphQL_在_微服务_架构中的实践架构_百度文库"></a><a href="https://zshipu.com/t?url=https://wenku.baidu.com/view/a9d8002c1fd9ad51f01dc281e53a580217fc5069.html">_GraphQL_在_微服务_架构中的实践架构_百度文库</a></h3><p> 评分:5/5 41页</p>
+<p> 2018年8月8日 - 二、<em>GraphQL</em> 在<em>微服务_架构中的使用 类型系统 _GraphQL</em> 的强大表达能力主要还是来自于它完备的类型系统,与 REST 不同,它将整个 Web 服务中的全部资源看…</p>
+<h3 id="基于RESTful-API-的-GraphQL-服务-构建实践-慕课手记"><a href="#基于RESTful-API-的-GraphQL-服务-构建实践-慕课手记" class="headerlink" title="基于RESTful API 的 GraphQL _服务_构建实践_慕课手记"></a><a href="https://zshipu.com/t?url=http://www.imooc.com/article/291926?block_id=tuijian_wz">基于RESTful API 的 <em>GraphQL</em> _服务_构建实践_慕课手记</a></h3><p> 2019年9月2日 - 前不久看了工业聚的文章《<em>GraphQL</em>-BFF:<em>微服务_背景下的前后端数据交互方案》[2],非常非常精彩,又重新拾起了对 _GraphQL</em> 的兴趣。本身在工作的项目中,已…</p>
+<h3 id="GraphQL-在-微服务-架构中的实践这篇文章…-来自分布式实验室-微博"><a href="#GraphQL-在-微服务-架构中的实践这篇文章…-来自分布式实验室-微博" class="headerlink" title="GraphQL 在_微服务_架构中的实践这篇文章… 来自分布式实验室 - 微博"></a><a href="https://zshipu.com/t?url=https://weibo.com/5360910133/GqBPw0nu1?type=comment"><em>GraphQL</em> 在_微服务_架构中的实践这篇文章… 来自分布式实验室 - 微博</a></h3><p> 2018年7月19日 - 在最后作者将给出心中合理的 <em>GraphQL</em> <em>微服务_架构的设计,希望能为同样在_微服务_架构中使用 _GraphQL</em> 的工程师提供一定的帮助,至于给出的建议是否能够满足…</p>
+<h3 id="python-如何为-微服务-创建-Graphql-服务器-——CSDN问答频道"><a href="#python-如何为-微服务-创建-Graphql-服务器-——CSDN问答频道" class="headerlink" title="python-如何为_微服务_创建_Graphql_服务器?——CSDN问答频道"></a><a href="https://zshipu.com/t?url=https://ask.csdn.net/questions/1016122">python-如何为_微服务_创建_Graphql_服务器?——CSDN问答频道</a></h3><p> 2018年11月6日 - 通常,他们建议在<em>GraphQL_中也使用_微服务</em>,并在_GraphQL_网关中执行模式检测。我认为这不是理想的选择,因为使用模式缝合时,存在进行最佳_GraphQL_模式设计的…</p>
+<h3 id="GraphQL-在-微服务-查询中实现聚合器与搜索索引的作用-Netflix-Tech…"><a href="#GraphQL-在-微服务-查询中实现聚合器与搜索索引的作用-Netflix-Tech…" class="headerlink" title="_GraphQL_在_微服务_查询中实现聚合器与搜索索引的作用 -Netflix Tech…"></a><a href="https://zshipu.com/t?url=https://www.jdon.com/53377">_GraphQL_在_微服务_查询中实现聚合器与搜索索引的作用 -Netflix Tech…</a></h3><p> 2019年11月7日 - 展示了Netflix如何利用_GraphQL_和Kafka和Elasticsearch来建立索引,通过总的查询聚合器以跨多个松耦合_服务_搜索数据。如何使用_GraphQL_中定义的关系和架构…</p>
+<h3 id="…一个开源后端开发框架来开发和部署生产就绪的-GraphQL微服务-器…"><a href="#…一个开源后端开发框架来开发和部署生产就绪的-GraphQL微服务-器…" class="headerlink" title="…一个开源后端开发框架来开发和部署生产就绪的_GraphQL微服务_器…"></a><a href="https://zshipu.com/t?url=http://download.csdn.net/detail/weixin_39841848/11490506">…一个开源后端开发框架来开发和部署生产就绪的_GraphQL微服务_器…</a></h3><p> 2019年8月7日 - Graphcool⚡️一个开源后端开发框架来开发和部署生产就绪的_GraphQL微服务_器。使用Gr更多下载资源、学习资料请访问CSDN下载频道.</p>
+<h3 id="GraphQL-BFF-微服务-背景下的前后端数据交互方案-码农头条"><a href="#GraphQL-BFF-微服务-背景下的前后端数据交互方案-码农头条" class="headerlink" title="GraphQL-BFF:_微服务_背景下的前后端数据交互方案 - 码农头条"></a><a href="https://zshipu.com/t?url=http://hao.caibaojian.com/121028.html"><em>GraphQL</em>-BFF:_微服务_背景下的前后端数据交互方案 - 码农头条</a></h3><p> 2019年8月11日 - <em>GraphQL</em>-BFF:<em>微服务_背景下的前后端数据交互方案 “我们对 _GraphQL</em> 的期望,不仅仅停留在 BFF 层。我们希望通过积累在 BFF 层使用 <em>GraphQL</em> 的成功经验,…</p>
+<h3 id="从gRPC-微服务-和其他Protobuf源生成统一的GraphQL-schema-Java…"><a href="#从gRPC-微服务-和其他Protobuf源生成统一的GraphQL-schema-Java…" class="headerlink" title="从gRPC_微服务_和其他Protobuf源生成统一的GraphQL schema - Java…"></a><a href="https://zshipu.com/t?url=http://php.ctolib.com/google-rejoiner.html">从gRPC_微服务_和其他Protobuf源生成统一的<em>GraphQL</em> schema - Java…</a></h3><p> <em>GraphQL</em> Queryfinal class TodoQuerySchemaModule extends SchemaModule { @Query(“listTodo”) ListenableFuture<ListTodoResponse> listTodo(ListTodoRequest request,…</p>
+<h3 id="GraphQL-在-微服务-架构中的实践-360linker-CSDN博客"><a href="#GraphQL-在-微服务-架构中的实践-360linker-CSDN博客" class="headerlink" title="GraphQL 在_微服务_架构中的实践_360linker-CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/belalds/article/details/88638115"><em>GraphQL</em> 在_微服务_架构中的实践_360linker-CSDN博客</a></h3><p> 2019年3月18日 - 作者:draveness<a target="_blank" rel="noopener" href="https://draveness.me/_graphql_-microserv">https://draveness.me/_graphql_-microserv</a>… 在<em>微服务_架构中的使用以及在实践过程中遇到的棘手问题,在最后作者将给出心中合理的 _GraphQ</em>…</p>
+<h3 id="微服务-下使用-GraphQL-构建BFF-z69183787的专栏-CSDN博客-graphql-bff"><a href="#微服务-下使用-GraphQL-构建BFF-z69183787的专栏-CSDN博客-graphql-bff" class="headerlink" title="_微服务_下使用_GraphQL_构建BFF_z69183787的专栏-CSDN博客__graphql_bff"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/z69183787/article/details/79992285">_微服务_下使用_GraphQL_构建BFF_z69183787的专栏-CSDN博客__graphql_bff</a></h3><p> 2018年4月18日 - 在<em>微服务_下基于 _GraphQL</em> 构建 BFF,我们在项目中已经开始了相关的实践。在我们项目对应的业务场景下,<em>微服务_后台有近 10 个_微服务</em>,客户端包括针对不同角…</p>
+<h3 id="基于-graphql-的-微服务-基础框架-java-weixin-33794672的博客-CSDN博客"><a href="#基于-graphql-的-微服务-基础框架-java-weixin-33794672的博客-CSDN博客" class="headerlink" title="基于_graphql_的_微服务_基础框架_java_weixin_33794672的博客-CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/weixin_33794672/article/details/92381177">基于_graphql_的_微服务_基础框架_java_weixin_33794672的博客-CSDN博客</a></h3><p> 2018年12月25日 - base是一个小而美的业务基础框架,它使用_graphql_作为api通信协议基础。然后提供了一些可以直接使用的后端存储_服务_。 基础特性 只支持_graphql_协议通信;…</p>
+<h3 id="译-使用-Go-编写微服务-及其-GraphQL-网关-weixin-3…-CSDN博客"><a href="#译-使用-Go-编写微服务-及其-GraphQL-网关-weixin-3…-CSDN博客" class="headerlink" title="[译] 使用 Go 编写微服务_及其 _GraphQL 网关 - weixin_3…-CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/weixin_34163553/article/details/87942150">[译] 使用 Go 编写<em>微服务_及其 _GraphQL</em> 网关 - weixin_3…-CSDN博客</a></h3><p> 2018年9月9日 - 几个月前,一个优秀的 <em>GraphQL</em> Go 包 vektah/gqlgen 开始流行。本文描述了在 Spidey 项目(一个在线商店的基本<em>微服务</em>)中如何实现 _GraphQL_。 下面列出的…</p>
+<h3 id="…一个开源后端开发框架来开发和部署生产就绪的-GraphQL微服务-器…-1"><a href="#…一个开源后端开发框架来开发和部署生产就绪的-GraphQL微服务-器…-1" class="headerlink" title="…一个开源后端开发框架来开发和部署生产就绪的_GraphQL微服务_器…"></a><a href="https://zshipu.com/t?url=http://www.ctolib.com/graphcool-framework.html">…一个开源后端开发框架来开发和部署生产就绪的_GraphQL微服务_器…</a></h3><p> Graphcool ⚡️ 一个开源后端开发框架来开发和部署生产就绪的<em>GraphQL微服务_器。使用Graphcool,您可以设计数据模型,并在几分钟内即可在线制作生产就绪的_GraphQL</em> …</p>
+<h3 id="译-怎样使用GraphQL-4-大局-架构-从前端到上天-Segment…"><a href="#译-怎样使用GraphQL-4-大局-架构-从前端到上天-Segment…" class="headerlink" title="[译] 怎样使用GraphQL - 4.大局(架构) - 从前端到上天 - Segment…"></a><a href="https://zshipu.com/t?url=https://segmentfault.com/a/1190000010335925">[译] 怎样使用<em>GraphQL</em> - 4.大局(架构) - 从前端到上天 - Segment…</a></h3><p> 2017年7月25日 - 如果你想使用<em>GraphQL</em>,你必须自己去搭建<em>GraphQL服务_。你可以选择任何编程语言来实现(例如这些可参考的实现方式)或通过选用像Graphcool这样的_服务</em>,它提…</p>
+<h3 id="Node-js-GraphQL微服务GraphQL-Microservice下载-CSDN论坛"><a href="#Node-js-GraphQL微服务GraphQL-Microservice下载-CSDN论坛" class="headerlink" title="Node.js-_GraphQL微服务GraphQL_Microservice下载-CSDN论坛"></a><a href="https://zshipu.com/t?url=https://bbs.csdn.net/topics/395474837">Node.js-_GraphQL微服务GraphQL_Microservice下载-CSDN论坛</a></h3><p> 2019年12月28日 - 前端每周清单第 26 期:Node.js <em>微服务_实践,Vue.js 与 _GraphQL</em>,Angular 组件技巧,HeadlessChrome 攻防作者:王下邀月熊 编辑:徐川前端每周清单专注前端…</p>
+<h3 id="GraphQL-在微服务-架构中的实践-微服务"><a href="#GraphQL-在微服务-架构中的实践-微服务" class="headerlink" title="GraphQL 在微服务_架构中的实践 -_微服务"></a><a href="https://zshipu.com/t?url=http://www.uml.org.cn/wfw/201808294.asp"><em>GraphQL</em> 在<em>微服务_架构中的实践 -_微服务</em></a></h3><p> 2018年8月29日 - 本文来自于微信,介绍了<em>GraphQL</em> 是什么, <em>GraphQL</em> 在<em>微服务_架构中的使用以及在实践过程中遇到的棘手问题。 _GraphQL</em> 简单对象访问协议(SOAP)从今天来看已…</p>
+<h3 id="GraphQL-在-微服务-架构中的实践"><a href="#GraphQL-在-微服务-架构中的实践" class="headerlink" title="GraphQL 在_微服务_架构中的实践"></a><a href="https://zshipu.com/t?url=https://www.sohu.com/a/242072527_198222"><em>GraphQL</em> 在_微服务_架构中的实践</a></h3><p> 2018年7月19日 - 这篇文章中,首先会简单介绍 <em>GraphQL</em> 是什么,它能够解决的问题;在这之后,我们会重点分析 <em>GraphQL</em> 在_微服务_架构中的使用以及在实践过程中遇到的棘手问题,在最后作者…</p>
+<h3 id="GraphQL-在-微服务-架构中的实践-java-不好好做安全的运…-CSDN博客"><a href="#GraphQL-在-微服务-架构中的实践-java-不好好做安全的运…-CSDN博客" class="headerlink" title="GraphQL 在_微服务_架构中的实践_java_不好好做安全的运…_CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/shana_8/article/details/82014015"><em>GraphQL</em> 在_微服务_架构中的实践_java_不好好做安全的运…_CSDN博客</a></h3><p> 2018年8月24日 - _GraphQL_类型系统集中式 vs 分散式Relay 标准对象标识符连接与分页可变请求小结N + 1 问题 _微服务_架构Schema 设计前缀粘合组合小结认证与授权认证授权…</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-06-12T05:44:34.000Z" title="2020-06-12T05:44:34.000Z">2020-06-12</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.384Z" title="2020-09-08T14:03:00.384Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">22 分钟读完 (大约3301个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/06/12/MySQL%20%E4%B8%8A%E6%9E%84%E9%80%A0%E5%8D%B3%E6%97%B6%20Graphql%20API/">MySQL 上构造即时 Graphql API</a></h1><div class="content"><p>在本指南中，我将介绍如何在几分钟内使用<a href="https://zshipu.com/t?url=https://github.com/spaceuptech/space-cloud">空间云</a>轻松为 MySQL 设置 GraphQL API 层。</p>
+<p>此处要注意的关键字是<strong>即时</strong>的。这意味着您不必自己编写 GraphQL 后端。听起来像个魔法，对吗？让我在一分钟内给你解释一下。</p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><a href="https://zshipu.com/t?url=#mysql-and-graphql-intro">MySQL 和 GraphQL 简介</a></li>
+<li><a href="https://zshipu.com/t?url=#what-is-space-cloud">什么是空间云？</a></li>
+<li><a href="https://zshipu.com/t?url=#what-if-i-don-t-use-mysql">如果我不使用 MySQL 怎么办？</a></li>
+<li><a href="https://zshipu.com/t?url=#getting-started-with-graphql-and-mysql">开始使用 GraphQL 和 MySQL</a></li>
+<li><a href="https://zshipu.com/t?url=#setup">设置</a></li>
+<li><a href="https://zshipu.com/t?url=#creating-mysql-schema">创建 MySQL 架构</a></li>
+<li><a href="https://zshipu.com/t?url=#running-graphql-queries-on-space-cloud">在空间云上运行 GraphQL 查询</a></li>
+<li><a href="https://zshipu.com/t?url=#conclusion">结论</a></li>
+</ul>
+<h2 id="MySQL-和-GraphQL-简介"><a href="#MySQL-和-GraphQL-简介" class="headerlink" title="MySQL 和 GraphQL 简介"></a>MySQL 和 GraphQL 简介</h2><p><a href="https://zshipu.com/t?url=https://www.mysql.com/">MySQL</a>是最受欢迎的 SQL 数据库之一，<a href="https://zshipu.com/t?url=https://db-engines.com/en/ranking">仅次于 Oracle</a>。易于设置和学习 MySQL 使其成为大多数 Web 项目的热门选择。如果您是需要强大的数据库管理工具但预算之内的组织，那么 MySQL 可能是您的理想选择。</p>
+<p>另一方面，GraphQL 是 API 的查询语言，逐渐取代 REST。它允许您精确描述数据需求，并为您提供所需的确切数据，解决提取下的旧数据以及过度提取问题。如果你是新到GraphQL，并希望了解更多关于它，看看它的<a href="https://zshipu.com/t?url=https://graphql.org">官方网站</a>。</p>
+<p>但是，要利用这些出色的优势，您需要通过<a href="https://zshipu.com/t?url=https://graphql.org/learn/execution/">编写解析器</a>在后端设置 GraphQL API。必须编写 GraphQL 服务器会增加其采用的摩擦。虽然许多工具可帮助您自动生成 Postgres 的 GraphQL API，但使用 MySQL 的图形数量并不多。这就是空间云进入图片的地方，它<strong>为您的MySQL提供GraphQL API，而无需编写后端</strong>。因此，让我们看看空间云是什么。</p>
+<h2 id="什么是空间云？"><a href="#什么是空间云？" class="headerlink" title="什么是空间云？"></a>什么是空间云？</h2><p>为了简单化，</p>
+<p><q>Space Cloud 是一个开源 Web 服务器，可在您选择的数据库上提供即时 GraphQL 和 REST API。</q></p>
+<p>关于空间云最酷的部分是所有的 API 都是实时的。您可以选择_订阅_数据库中的更改。此功能在制作实时应用时非常有用。</p>
+<p>由于 Space Cloud 中还内置了一个强大的安全模块，因此可以直接从前端使用这些 API。因此，在大多数用例中，只需使用空间云 API 制作角或 React 应用程序，就应该是您编写的唯一代码！</p>
+<p>为了表示你的支持❤️， ️*你可以<a href="https://zshipu.com/t?url=https://github.com/spaceuptech/space-cloud">给它一个明星在Github。</a></p>
+<h2 id="如果我不使用-MySQL-怎么办？"><a href="#如果我不使用-MySQL-怎么办？" class="headerlink" title="如果我不使用 MySQL 怎么办？"></a>如果我不使用 MySQL 怎么办？</h2><p>空间云为蒙戈DB、Postgres 和 MySQL（及其兼容数据库）提供开箱即用的 GraphQL API。如果您使用除 MySQL 之外的任何其他数据库，则这些指南可以帮助您入门：</p>
+<ul>
+<li><a href="https://zshipu.com/t?url=https://blog.spaceuptech.com/posts/getting-started-with-graphql-and-postgres/">开始使用 Postgres</a></li>
+<li><a href="https://zshipu.com/t?url=https://blog.spaceuptech.com/posts/getting-started-with-graphql-and-mongo/">开始使用蒙戈DB</a></li>
+</ul>
+<p>酷，这足以记录历史和功能。让我们直接潜入它！</p>
+<h2 id="开始使用-GraphQL-和-MySQL"><a href="#开始使用-GraphQL-和-MySQL" class="headerlink" title="开始使用 GraphQL 和 MySQL"></a>开始使用 GraphQL 和 MySQL</h2><p>在本指南中，我们将在 MySQL 上构建一个简单的博客应用程序，该应用程序具有作者和帖子。</p>
+<p>每个作者可以有多个帖子，而一个帖子只能属于一个作者。请注意，这是一对<strong>多关系</strong>。</p>
+<blockquote>
+<p><strong>注：</strong>如果你被困在某个地方，别担心。你总是可以在我们的<a href="https://zshipu.com/t?url=https://discord.gg/RkGjW93">不和频道</a>上平我一声。</p>
+</blockquote>
+<h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>我们使用<a href="https://zshipu.com/t?url=https://docs.docker.com/compose/">Docker Compose</a>为我们运行空间云和 MySQL。</p>
+<h3 id="第-1-步：获取-Docker-组合文件"><a href="#第-1-步：获取-Docker-组合文件" class="headerlink" title="第 1 步：获取 Docker 组合文件"></a>第 1 步：获取 Docker 组合文件</h3><p><a href="https://zshipu.com/t?url=https://github.com/spaceuptech/space-cloud/tree/master/install-manifests">空间技术/空间云/安装清单</a>回购包含在任何地方部署空间云所需的所有安装清单。从那里获取 Docker 组合文件：</p>
+<p> <code class="language-bash hljs" data-lang="bash">wget <a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/spaceuptech/space-cloud/master/install-manifests/quick-start/docker-compose/mysql/docker-compose.yaml">https://raw.githubusercontent.com/spaceuptech/space-cloud/master/install-manifests/quick-start/docker-compose/mysql/docker-compose.yaml</a></code></p>
+<p>您应该能够看到包含以下内容的文件：<code>docker-compose.yaml</code></p>
+<p> <code class="language-yaml hljs" data-lang="yaml">version: '3.6'<br>services:<br>  mysql:<br>    image: mysql<br>    restart: always<br>  space-cloud:<br>    image: spaceuptech/space-cloud<br>    ports:</p>
+<ul>
+<li>“4122:4122”</li>
+<li>“4126:4126”<br> depends_on:</li>
+<li>“mysql”<br> restart: always<br> environment:<h2 id="The-DEV-environment-lets-you-use-Mission-Control-Admin-UI-without-login"><a href="#The-DEV-environment-lets-you-use-Mission-Control-Admin-UI-without-login" class="headerlink" title="The DEV environment lets you use Mission Control (Admin UI) without login"></a>The DEV environment lets you use Mission Control (Admin UI) without login</h2><h2 id="Change-the-dev-mode-to-false-if-you-want-a-login-to-your-Mission-Control-UI"><a href="#Change-the-dev-mode-to-false-if-you-want-a-login-to-your-Mission-Control-UI" class="headerlink" title="Change the dev mode to false if you want a login to your Mission Control UI"></a>Change the dev mode to false if you want a login to your Mission Control UI</h2>   DEV: “true”<h2 id="Uncomment-next-lines-to-change-the-login-credentials-of-Mission-Control-UI"><a href="#Uncomment-next-lines-to-change-the-login-credentials-of-Mission-Control-UI" class="headerlink" title="Uncomment next lines to change the login credentials of Mission Control UI"></a>Uncomment next lines to change the login credentials of Mission Control UI</h2><h1 id="ADMIN-USER-“admin”"><a href="#ADMIN-USER-“admin”" class="headerlink" title="ADMIN_USER: “admin”"></a>ADMIN_USER: “admin”</h1><h1 id="ADMIN-PASS-“123”"><a href="#ADMIN-PASS-“123”" class="headerlink" title="ADMIN_PASS: “123”"></a>ADMIN_PASS: “123”</h1><h1 id="ADMIN-SECRET-“some-secret”-This-is-the-JWT-secret-used-for-login-authentication-in-Mission-Control"><a href="#ADMIN-SECRET-“some-secret”-This-is-the-JWT-secret-used-for-login-authentication-in-Mission-Control" class="headerlink" title="ADMIN_SECRET: “some-secret” # This is the JWT secret used for login authentication in Mission Control"></a>ADMIN_SECRET: “some-secret” # This is the JWT secret used for login authentication in Mission Control</code></h1></li>
+</ul>
+<h3 id="第-2-步：运行空间云和-MySQL"><a href="#第-2-步：运行空间云和-MySQL" class="headerlink" title="第 2 步：运行空间云和 MySQL"></a>第 2 步：运行空间云和 MySQL</h3><p> <code class="language-bash hljs" data-lang="bash">docker-compose up -d</code></p>
+<p>检查容器是否正在运行：</p>
+<p> <code class="language-bash hljs" data-lang="bash">docker ps</code></p>
+<h3 id="第-3-步：配置空间云"><a href="#第-3-步：配置空间云" class="headerlink" title="第 3 步：配置空间云"></a>第 3 步：配置空间云</h3><p>如果执行到空间云的 Docker 容器中，则可以在主目录中看到空间云生成的文件。<code>config.yaml</code></p>
+<p>空间云需要这个配置文件来运行。配置文件用于加载各种信息，例如要使用的数据库、其连接字符串和安全规则。</p>
+<p>空间云有自己的任务控制（管理员 UI）来快速配置所有这些。</p>
+<p><strong>开放式任务控制：</strong></p>
+<p>前往<a target="_blank" rel="noopener" href="http://localhost:4122/mission-control%E6%89%93%E5%BC%80%E4%BB%BB%E5%8A%A1%E6%8E%A7%E5%88%B6%E3%80%82">http://localhost:4122/mission-control打开任务控制。</a></p>
+<blockquote>
+<p><strong>注：</strong>如果您不在本地运行空间云的地址，请替换为该地址。<code>localhost</code></p>
+</blockquote>
+<p><strong>创建项目：</strong></p>
+<p>单击按钮可打开以下屏幕：<code>Create a Project</code></p>
+<p><img src="../images/create-project.png"></p>
+<p>给您的项目。<code>name</code></p>
+<p>按按按钮以创建项目。<code>Create Project</code></p>
+<p><strong>将数据库添加到项目</strong></p>
+<p>创建项目后，下一步是向项目添加数据库：</p>
+<p><img src="../images/add-database.png"></p>
+<p>选择作为数据库并复制粘贴以下连接字符串：<code>MySQL</code></p>
+<p> <code class="language-html hljs xml" data-lang="html">root:my-secret-pw@tcp(mysql:3306)/</code></p>
+<p>按键。如果连接成功，您将获得成功连接的通知。<code>Add database</code></p>
+<h2 id="创建-MySQL-架构"><a href="#创建-MySQL-架构" class="headerlink" title="创建 MySQL 架构"></a>创建 MySQL 架构</h2><p>空间云为您提供了一个整洁的<strong>GraphQL SDL</strong>来描述 MySQL 表的架构，如下所示：</p>
+<p> <code class="language-graphql" data-lang="graphql">type author &#123;<br>  id: ID! @primary<br>  name: String!<br>&#125;</code></p>
+<p>空间云根据架构在 MySQL 中自动创建名为作者的表。因此，<strong>无需处理 SQL 语句</strong>来创建表。</p>
+<p>最好的部分是空间云提供的架构SDL本质上是<strong>声明性的</strong>。</p>
+<p>这意味着空间云总是试图通过只进行所需的更改来完成您提供的架构。例如，假设您向架构添加了一个字段，如下所示：</p>
+<p> <code class="language-graphql" data-lang="graphql">type author &#123;<br>  id: ID! @primary<br>  name: String!<br>  description: String<br>&#125;</code></p>
+<blockquote>
+<p><strong>注：</strong>空间云不会再创建整个表，因为它已经在那里。相反，它只是使用 语句添加列。空间云中的这种能力使我们能够专注于我们的应用程序，而不是数据库。<code>ALTER TABLE</code></p>
+</blockquote>
+<h3 id="创建作者表"><a href="#创建作者表" class="headerlink" title="创建作者表"></a>创建作者表</h3><p>前往该部分。<code>Database</code></p>
+<p>单击部分中的按钮以打开以下窗体：<code>Add a table``````Database</code></p>
+<p><img src="../images/create-table-mysql.png"></p>
+<p>将表名称命名为 。<code>author</code></p>
+<p><strong>复制粘贴以下架构并点击保存</strong>：</p>
+<p> <code class="language-graphql" data-lang="graphql">type author &#123;<br>  id: ID! @primary<br>  name: String!<br>  posts: [post] @link(table: "post", from: "id", to: "author_id")<br>&#125;</code></p>
+<p>此架构创建具有 ID 和名称字段的表作者。该类型只不过是自动生成的唯一 ID，而指令告诉空间云将字段作为表的主键。在<a href="https://zshipu.com/t?url=https://docs.spaceuptech.com/essentials/data-modelling/">空间云中签出数据建模</a>以了解更多信息。<code>ID``````@primary``````id</code></p>
+<blockquote>
+<p><strong>注：</strong>该字段不是表中的物理字段。它只是一个虚拟字段，链接到表，使 GraphQL 查询和突变从前端更简单。我们将在下面详细介绍它。<code>posts``````author``````post</code></p>
+</blockquote>
+<h3 id="创建过帐表"><a href="#创建过帐表" class="headerlink" title="创建过帐表"></a>创建过帐表</h3><p>再次单击部分中的按钮。<code>Add``````Database</code></p>
+<p>将表名称命名为 。<code>post</code></p>
+<p>复制粘贴以下架构并点击保存：</p>
+<p> <code class="language-graphql" data-lang="graphql">type post &#123;<br>  id: ID! @primary<br>  title: String!<br>  author_id: ID @foreign(table: "author", field: "id")<br>&#125;</code></p>
+<p>请注意该指令。它在作者表上创建一个外键，以保持关系的完整性。了解更多关于<a href="https://zshipu.com/t?url=https://docs.spaceuptech.com/essentials/data-modelling/relations/">空间云建模关系的</a><code>@foreign</code></p>
+<p>伟大！我们创建了本指南所需的所有表。它使用自动生成的 GraphQL API 与 MySQL 一起玩的时间。</p>
+<h2 id="在空间云上运行-GraphQL-查询"><a href="#在空间云上运行-GraphQL-查询" class="headerlink" title="在空间云上运行 GraphQL 查询"></a>在空间云上运行 GraphQL 查询</h2><p>任务控制具有嵌入式 GraphiQL IDE，它允许我们触发查询，而无需构建前端。</p>
+<p>前往该部分。<code>Explorer</code></p>
+<p><img src="../images/graphiql-explorer.png"></p>
+<p>让我们从创建一些作者和帖子开始，这翻译为在 MySQL 中插入一些记录。</p>
+<h3 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h3><p>将数据插入 MySQL 非常简单，只需为我们触发 GraphQL 查询即可。因此，让我们尝试插入一些作者连同他们的帖子。下面是一个 GraphQL 查询，它帮助我们做到这一点。请尝试在 GraphiQL 编辑器中运行此 GraphQL 查询：</p>
+<p> <code class="language-graphql" data-lang="graphql">mutation &#123;<br> insert_author(<br>   docs: [<br>    &#123;<br>      id: "1",<br>      name: "Dan",<br>      posts: [<br>        &#123; id: "1", title: "Introducing Hooks" &#125;,<br>        &#123; id: "2", title: "React vs Vue" &#125;<br>      ]<br>    &#125;,<br>    &#123;<br>      id: "2",<br>      name: "Ryan",<br>      posts: [<br>        &#123; id: "3", title: "Context API" &#125;,<br>        &#123; id: "4", title: "React + Redux" &#125;<br>      ]<br>    &#125;<br>  ]<br> ) @mysql &#123;<br>   status<br> &#125;<br>&#125;</code></p>
+<p>成功插入时，您应该能够看到状态，因为这意味着您已成功将文档插入 MySQL 中。<code>200</code></p>
+<p>参数只不过是要插入表中的记录数组。<code>docs</code></p>
+<p>如果您还记得，我们提到了表中字段的指令以及参数 - 。空间云使用此信息将帖子数组正确插入到表中。它还根据我们提到的外键自动插入该字段。<code>@link``````posts``````author``````table: &quot;post&quot;``````post``````post.author_id</code></p>
+<blockquote>
+<p><strong>注：</strong>即使我们将字段留空，空间云也会自动生成一个唯一的随机字符串作为 id。<code>id</code></p>
+</blockquote>
+<p>如果您注意到，我们在上述查询中使用了指令。对于 MongoDB 或 Postgres，将其更改为或分别更改为或。就这个！<code>@mysql``````@mongo``````@postgres</code></p>
+<h3 id="使用筛选器查询数据"><a href="#使用筛选器查询数据" class="headerlink" title="使用筛选器查询数据"></a>使用筛选器查询数据</h3><p>插入作者及其帖子后，让我们尝试查询特定作者的帖子。它只不过是一个筛选操作。</p>
+<p>请尝试在 GraphiQL 编辑器中运行以下查询：</p>
+<p> <code class="language-graphql" data-lang="graphql">query &#123;<br> post (<br>   where: &#123;author_id: "1"&#125;<br> ) @mysql &#123;<br>   id<br>   title<br> &#125;<br>&#125;</code></p>
+<p>正如您所看到的，我们只有属于author_id1的帖子。请查看本指南，了解<a href="https://zshipu.com/t?url=https://docs.spaceuptech.com/essentials/queries/filtering">筛选选项的完整列表</a>。</p>
+<h3 id="更新数据"><a href="#更新数据" class="headerlink" title="更新数据"></a>更新数据</h3><p>更新需要两个信息 - 筛选要更新的文档的子句和至少一个更新运算符。<code>where</code></p>
+<p>假设您要更新 MySQL 中特定作者的名称。下面是一个 GraphQL 查询， 执行它：</p>
+<p> <code class="language-graphql" data-lang="graphql">mutation &#123;<br> update_author (<br>   where: &#123; id: "2"&#125;,<br>   set: &#123;name: "Ryan Florence"&#125;<br> ) @mysql &#123;<br>   status<br> &#125;<br>&#125;</code></p>
+<p>您还可以执行各种操作，如递增、递减、乘法。请查看本指南，了解<a href="https://zshipu.com/t?url=https://docs.spaceuptech.com/essentials/mutations/update">更新操作的完整列表</a>。</p>
+<h3 id="获取嵌套-关系数据"><a href="#获取嵌套-关系数据" class="headerlink" title="获取嵌套/关系数据"></a>获取嵌套/关系数据</h3><p>现在出现了有趣的部分，即从 MySQL 获取关系数据，作为前端的嵌套 JSON。</p>
+<p>假设我们要显示作者列表以及他们的帖子标题。您可以通过空间云的简单 GraphQL 查询从 MySQL 轻松查询此类关系数据。请尝试运行以下 GraphQL 查询：</p>
+<p> <code class="language-graphql" data-lang="graphql">query &#123;<br> author @mysql &#123;<br>   id<br>   name<br>   posts &#123;<br>     title<br>   &#125;<br> &#125;<br>&#125;</code></p>
+<p>响应应如下所示：</p>
+<p> <code class="language-graphql" data-lang="graphql">&#123;<br>  "author": [<br>    &#123;<br>      "id": "1",<br>      "name": "Dan",<br>      "posts": [<br>        &#123;<br>          "title": "Introducing Hooks"<br>        &#125;,<br>        &#123;<br>          "title": "React vs Vue"<br>        &#125;<br>      ]<br>    &#125;,<br>    &#123;<br>      "id": "2",<br>      "name": "Ryan Florence",<br>      "posts": [<br>        &#123;<br>          "title": "Context API"<br>        &#125;,<br>        &#123;<br>          "title": "React + Redux"<br>        &#125;<br>      ]<br>    &#125;<br>  ]<br>&#125;</code></p>
+<p>上面使用的查询在 条件 - 的和表之间的后端执行联接操作。此条件由指令的参数 （、 、 ） 派生，我们前面提到过。你可以<a href="https://zshipu.com/t?url=../essentials/data-modelling/types-and-directives/#link-directive">从这里</a>阅读更多关于指令。<code>author``````post``````author.id == post.author_id``````table``````from``````to``````@link``````@link</code></p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>在 MySQL 顶部设置 GraphQL 层并不难。只需将空间云指向 MySQL 实例，即可在应用程序中使用 GraphQL。</p>
+<p>作为一种优势，GraphQL 开辟了大量新的可能性，如执行联接，使已经流行的 MySQL 更易于使用。我们对此非常兴奋，并且将加倍降低我们的 GraphQL 支持更加稳健。</p>
+<p>MySQL 的声明性架构使我们能够将更多精力放在应用程序上，而不是数据库上。</p>
+<p>然而，未来似乎是惊人的。能够与 MySQL 和其他 NoSQL 数据库进行<a href="https://zshipu.com/t?url=https://docs.spaceuptech.com/essentials/queries/joins/">跨数据库联接</a>，这意味着我们可以构建企业级应用，利用两全其美的优势。</p>
+<p>显示你的支持❤️<a href="https://zshipu.com/t?url=https://github.com/spaceuptech/space-cloud">给它一个明星在Github。</a></p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-06-11T01:12:48.000Z" title="2020-06-11T01:12:48.000Z">2020-06-11</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.426Z" title="2020-09-08T14:03:00.426Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">19 分钟读完 (大约2904个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/06/11/golang%20gateway%20%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B/">golang gateway 从零开始</a></h1><div class="content"><h3 id="从零开始-搭建创业公司后台技术栈-MarkerHub的博客-CSDN博客"><a href="#从零开始-搭建创业公司后台技术栈-MarkerHub的博客-CSDN博客" class="headerlink" title="_从零开始_搭建创业公司后台技术栈_MarkerHub的博客-CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/MarkerHub/article/details/106450179">_从零开始_搭建创业公司后台技术栈_MarkerHub的博客-CSDN博客</a></h3><p> 2020年5月30日 - 以上的这些内容都需要我们<em>从零开始_搭建,在创业公司,…的分布式的 RPC 服务框架,基于 _Golang</em> net/rpc …Push <em>Gateway</em> 支持临时性 Job 主动推送指标的中间网关…</p>
+<h3 id="goku-api-gateway-A-Powerful-HTTP-API-Gateway-in-pure-golang…"><a href="#goku-api-gateway-A-Powerful-HTTP-API-Gateway-in-pure-golang…" class="headerlink" title="goku-api-gateway: A Powerful HTTP API Gateway in pure golang…"></a><a href="https://zshipu.com/t?url=https://gitee.com/eolink/goku-api-gateway">goku-api-<em>gateway</em>: A Powerful HTTP API <em>Gateway</em> in pure <em>golang</em>…</a></h3><p> 2020年5月31日 - Goku API <em>Gateway</em> (中文名:悟空 API 网关)是一个基于 <em>Golang</em> 开发的微服务网关,能够实现高性能 HTTP API 转发、多租户管理、API 访问权限控制等目的,…</p>
+<h3 id="开源项目-Go-语言中文网-Golang-中文社区"><a href="#开源项目-Go-语言中文网-Golang-中文社区" class="headerlink" title="开源项目 - _Go_语言中文网 - _Golang_中文社区"></a><a href="https://zshipu.com/t?url=https://studygolang.com/projects">开源项目 - _Go_语言中文网 - _Golang_中文社区</a></h3><p> 2020年5月13日 - 7天用Go_从零_实现系列 7days-<em>golang</em> 7天能写什么呢?类似 gin 的 web 框架…Goku API <em>Gateway</em> (中文名:悟空 API 网关)是一个基于 _Golang_开发的微服务网关…</p>
+<h3 id="Springcloud之-Gateway-组件-u014042372的专栏-CSDN博客"><a href="#Springcloud之-Gateway-组件-u014042372的专栏-CSDN博客" class="headerlink" title="Springcloud之_Gateway_组件_u014042372的专栏-CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/u014042372/article/details/106491446">Springcloud之_Gateway_组件_u014042372的专栏-CSDN博客</a></h3><p> 2020年6月2日 - Spring Cloud <em>Gateway_网关_从零开始_搭建之路 1.网关…异常信息:java._lang</em>.IllegalArgumentException: Unable…_Go_语言 R语言 Assembly language Swift Ruby MATLAB …</p>
+<h3 id="Golang-性能优化实战-码农网"><a href="#Golang-性能优化实战-码农网" class="headerlink" title="Golang 性能优化实战 | 码农网"></a><a href="https://zshipu.com/t?url=https://www.codercto.com/a/110404.html"><em>Golang</em> 性能优化实战 | 码农网</a></h3><p> 2020年5月11日 - 在<em>golang</em> 中,遇到不需要解析的 json 数据,可以将其类型声明为 json.RawMessage . 即,可以将上述 2 个方法优化为 type _Gateway_ReqBody struct { Heade…</p>
+<h3 id="Golang-连接数据库-阿里云"><a href="#Golang-连接数据库-阿里云" class="headerlink" title="Golang - 连接数据库| 阿里云"></a><a href="https://zshipu.com/t?url=https://www.alibabacloud.com/help/zh/doc-detail/158773.htm"><em>Golang</em> - 连接数据库| 阿里云</a></h3><p> 2020年5月29日 - 本文介绍如何使用_Golang_连接AnalyticDB for MySQL。 …//理论上,ConnMaxLifetime越短,_从0开始_创建连接的</p>
+<h3 id="micro-gateway-一些参考资料-荣锋亮-博客园"><a href="#micro-gateway-一些参考资料-荣锋亮-博客园" class="headerlink" title="micro_gateway_ 一些参考资料 - 荣锋亮 - 博客园"></a><a href="https://zshipu.com/t?url=https://www.cnblogs.com/rongfengliang/p/13020078.html">micro_gateway_ 一些参考资料 - 荣锋亮 - 博客园</a></h3><p> 2020年5月31日 - micro_gateway_ 是apigee 开源的自家edgemicro <em>gateway</em>,…10.<em>golang_几个不错的运行_golang</em> 应用为系统服务的…@ 鱼络您好,从官方文档的配置说明了解到…</p>
+<h3 id="Golang-热更新原理-–-CoLaBug-com"><a href="#Golang-热更新原理-–-CoLaBug-com" class="headerlink" title="_Golang_热更新原理 – CoLaBug.com"></a><a href="https://zshipu.com/t?url=https://www.colabug.com/2020/0527/7411879/">_Golang_热更新原理 – CoLaBug.com</a></h3><p> 2020年5月27日 - <em>Golang_如何做热更新 主动流量调度 一般的做法是 Api_Gateway</em> + CD, 发布的时候…3. 将socket“交给”新进程,新进程开始接受新连接请求 4. 旧进程处理…</p>
+<h3 id="go-504-Gateway-Time-out-on-GRPC-Stack-Overflow"><a href="#go-504-Gateway-Time-out-on-GRPC-Stack-Overflow" class="headerlink" title="go - 504 Gateway Time-out on GRPC - Stack Overflow"></a><a href="https://zshipu.com/t?url=https://stackoverflow.com/questions/58163750/504-gateway-time-out-on-grpc"><em>go</em> - 504 <em>Gateway</em> Time-out on GRPC - Stack Overflow</a></h3><p> 2020年5月26日 - handshake, response: &quot;HTTP/1.<em>0</em> 504 <em>Gateway</em> Time-out\r\nConnection: …But when i learn rpc in <em>golang</em>, use my intranet ip in the server an…</p>
+<h3 id="Golang-、python中登录开源中国-并发表博客-400-报错-问答-阿里云…"><a href="#Golang-、python中登录开源中国-并发表博客-400-报错-问答-阿里云…" class="headerlink" title="_Golang_、python中登录开源中国,并发表博客? 400 报错-问答-阿里云…"></a><a href="https://zshipu.com/t?url=http://developer.aliyun.com/ask/294014">_Golang_、python中登录开源中国,并发表博客? 400 报错-问答-阿里云…</a></h3><p> 2020年6月1日 - {“channelstr”:”从安全型到内存型、从进阶型到入门型的云服务器”,”tce_rule…api_gateway_”,”title”:”api网关”},{“channelstr”:”从代码到应用的持续集…</p>
+<h3 id="基于-go-语言的开源网关GokuAPI-Gateway-CE部署指南-Go-调试吧"><a href="#基于-go-语言的开源网关GokuAPI-Gateway-CE部署指南-Go-调试吧" class="headerlink" title="基于_go_语言的开源网关GokuAPI_Gateway_CE部署指南__Go__调试吧"></a><a href="https://zshipu.com/t?url=https://www.debug8.com/golang/t_49453.html">基于_go_语言的开源网关GokuAPI_Gateway_CE部署指南__Go__调试吧</a></h3><p> 2020年5月22日 - 1.控制台docker:<a target="_blank" rel="noopener" href="https://hub.docker.com/r/eolinker/goku-api-_gateway_-ce-console">https://hub.docker.com/r/eolinker/goku-api-_gateway_-ce-console</a> 2.网关节点docker:<a target="_blank" rel="noopener" href="https://hub.docker.com/r/eolinker/goku-api-_gat">https://hub.docker.com/r/eolinker/goku-api-_gat</a>_…</p>
+<h3 id="go-504-Gateway-Time-out-on-GRPC-Stack-Overflow-1"><a href="#go-504-Gateway-Time-out-on-GRPC-Stack-Overflow-1" class="headerlink" title="go - 504 Gateway Time-out on GRPC - Stack Overflow"></a><a href="https://zshipu.com/t?url=https://stackoverflow.com/questions/58163750/504-gateway-time-out-on-grpc"><em>go</em> - 504 <em>Gateway</em> Time-out on GRPC - Stack Overflow</a></h3><p> 2020年5月26日 - handshake, response: &quot;HTTP/1.<em>0</em> 504 <em>Gateway</em> Time-out\r\nConnection: …But when i learn rpc in <em>golang</em>, use my intranet ip in the server an…</p>
+<h3 id="Golang-、python中登录开源中国-并发表博客-400-报错-问答-阿里云…-1"><a href="#Golang-、python中登录开源中国-并发表博客-400-报错-问答-阿里云…-1" class="headerlink" title="_Golang_、python中登录开源中国,并发表博客? 400 报错-问答-阿里云…"></a><a href="https://zshipu.com/t?url=http://developer.aliyun.com/ask/294014">_Golang_、python中登录开源中国,并发表博客? 400 报错-问答-阿里云…</a></h3><p> 2020年6月1日 - {“channelstr”:”从安全型到内存型、从进阶型到入门型的云服务器”,”tce_rule…api_gateway_”,”title”:”api网关”},{“channelstr”:”从代码到应用的持续集…</p>
+<h3 id="几种部署GokuAPI-Gateway-的方式-最快一分钟可使用上网关-Go-调试吧"><a href="#几种部署GokuAPI-Gateway-的方式-最快一分钟可使用上网关-Go-调试吧" class="headerlink" title="几种部署GokuAPI_Gateway_的方式,最快一分钟可使用上网关__Go__调试吧"></a><a href="https://zshipu.com/t?url=https://www.debug8.com/golang/t_49440.html">几种部署GokuAPI_Gateway_的方式,最快一分钟可使用上网关__Go__调试吧</a></h3><p> 2020年5月22日 - Goku API <em>Gateway</em> (中文名:悟空 API 网关)是一个基于 <em>Golang</em> 开发的运行在企业系统服务边界上的微服务网关。当您构建网站、App、IOT甚至是开放API交易…</p>
+<h3 id="prometheus-client-golang-使用-园荐-博客园"><a href="#prometheus-client-golang-使用-园荐-博客园" class="headerlink" title="prometheus client__golang_使用_园荐_博客园"></a><a href="https://zshipu.com/t?url=https://recomm.cnblogs.com/blogpost/12924087">prometheus client__golang_使用_园荐_博客园</a></h3><p> 2020年5月20日 - 2017-11-04 11:07 − 针对_golang_的 kafka client 有很多开源package,例如sarama…子包(promhttp)允许通过HTTP来暴露注册的metric或将注册的metric推…</p>
+<h3 id="求职-Golang-Python-DevOps-运维-网络-4-年经验-求职远程兼职…"><a href="#求职-Golang-Python-DevOps-运维-网络-4-年经验-求职远程兼职…" class="headerlink" title="[求职] Golang/ Python /DevOps/运维/网络 4 年经验 求职远程兼职…"></a><a href="https://zshipu.com/t?url=https://www.v2ex.com/t/673427">[求职] <em>Golang</em>/ Python /DevOps/运维/网络 4 年经验 求职远程兼职…</a></h3><p> 2020年5月19日 - 使用<em>golang</em>,python 等语言进行不同组件的开发; 使用Grpc,NATS 等技术进行组件间的调度联动,使用 grpc-<em>gateway</em> 进行 restapi 的接口实现; * 产品基于 k…</p>
+<h3 id="micro-gateway-core-简单试用-荣锋亮-博客园"><a href="#micro-gateway-core-简单试用-荣锋亮-博客园" class="headerlink" title="micro_gateway_-core 简单试用 - 荣锋亮 - 博客园"></a><a href="https://zshipu.com/t?url=https://www.cnblogs.com/rongfengliang/p/12991939.html">micro_gateway_-core 简单试用 - 荣锋亮 - 博客园</a></h3><p> 2020年5月30日 - micro_gateway_-core 是micro_gateway_ 的一个组件,主要…7.基于_golang_的一些表达式引擎 8._golang_几个不错…@ 鱼络您好,从官方文档的配置说明了解到的,…</p>
+<h3 id="Gateway-全局异常-编程客栈"><a href="#Gateway-全局异常-编程客栈" class="headerlink" title="_Gateway_全局异常 - 编程客栈"></a><a href="https://zshipu.com/t?url=http://www.cppcns.com/tags-Gateway%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8.html">_Gateway_全局异常 - 编程客栈</a></h3><p> 2020年5月28日 - <em>Golang</em> Erlang 其它脚本 网页制作 HTML/Xhtml html5 CSS XML/XSLT Dreamweaver…这篇文章主要介绍了Spring Cloud _Gateway_全局通用异常处理的实现,文…</p>
+<h3 id="php-Gateway-Worker-使用大佬写的-global-timer-包做进程间创建…"><a href="#php-Gateway-Worker-使用大佬写的-global-timer-包做进程间创建…" class="headerlink" title="php-_Gateway_Worker 使用大佬写的 global-timer 包做进程间创建…"></a><a href="https://zshipu.com/t?url=https://ask.csdn.net/questions/1078683">php-_Gateway_Worker 使用大佬写的 global-timer 包做进程间创建…</a></h3><p> 2020年5月29日 - 从00:00:00开始要求有start stop和reset功能使用timer类解决![图片说明](http:…//_golang_.org/doc/go1.6#runtime, 4th paragraph), where the Window…</p>
+<h3 id="使用云效将-Golang-、Node-js、Python和PHP应用部署至EDAS-使用常见…"><a href="#使用云效将-Golang-、Node-js、Python和PHP应用部署至EDAS-使用常见…" class="headerlink" title="使用云效将_Golang_、Node.js、Python和PHP应用部署至EDAS_使用常见…"></a><a href="https://zshipu.com/t?url=http://help.aliyun.com/knowledge_detail/157223.html">使用云效将_Golang_、Node.js、Python和PHP应用部署至EDAS_使用常见…</a></h3><p> 2020年5月14日 - {“channelstr”:”从安全型到内存型、从进阶型到入门型的云服务器”,”tce_rule…api_gateway_”,”title”:”api网关”},{“channelstr”:”从代码到应用的持续集…</p>
+<h3 id="Golang-消费-Restful-Api-neweastsun的专栏-CSDN博客"><a href="#Golang-消费-Restful-Api-neweastsun的专栏-CSDN博客" class="headerlink" title="Golang 消费 Restful Api_neweastsun的专栏-CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/neweastsun/article/details/106212824"><em>Golang</em> 消费 Restful Api_neweastsun的专栏-CSDN博客</a></h3><p> 2020年5月19日 - _Golang_使用http包调用Restful API,http给服务器发送请求并获得响应,响应格式可能为JSON、XML。我们这里使用json类型作为返回值。为了演示这里使用http…</p>
+<h3 id="通过Nginx请求到api服务器-Golang-失败并返回404错误-问答-阿里云…"><a href="#通过Nginx请求到api服务器-Golang-失败并返回404错误-问答-阿里云…" class="headerlink" title="通过Nginx请求到api服务器(Golang)失败并返回404错误-问答-阿里云…"></a><a href="https://zshipu.com/t?url=http://developer.aliyun.com/ask/288993?scm=20140722.184.2.173">通过Nginx请求到api服务器(<em>Golang</em>)失败并返回404错误-问答-阿里云…</a></h3><p> 2020年5月23日 - ・client: react/axios ・api: <em>golang</em>/gin ・web server: nginx ・db…Also when accessing to actual deployed url, it returns 502 Bad <em>Gateway</em> 遇…</p>
+<h3 id="初入golang-gRPC-wanmei002的博客-CSDN博客"><a href="#初入golang-gRPC-wanmei002的博客-CSDN博客" class="headerlink" title="初入golang gRPC_wanmei002的博客-CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/wanmei002/article/details/106248047">初入<em>golang</em> gRPC_wanmei002的博客-CSDN博客</a></h3><p> 2020年5月21日 - <em>gateway</em>/protoc-gen-grpc-<em>gateway_go get -u github…_golang</em> GRPC文档(1) go语言小白,最近开始接触grpc…我原以为从学校出来之后,除了找工作有测试…</p>
+<h3 id="golang-weichuangxxb的博客-BGBiao-CSDN博客"><a href="#golang-weichuangxxb的博客-BGBiao-CSDN博客" class="headerlink" title="_golang__weichuangxxb的博客_BGBiao-CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/weichuangxxb/category_10058385.html">_golang__weichuangxxb的博客_BGBiao-CSDN博客</a></h3><p> 2020年5月30日 - AUBREY_CR7:请问下 自定义 exporter 和 push_gateway_ 应该如何选型?感谢感谢 kefu…CloudNative,Kubernetes,DevOps,SRE,热衷于使用_Golang_语言在整个工…</p>
+<h3 id="SpringCloud项目从零开始-六-—msc-consumer调用msc-p…-CSDN博客"><a href="#SpringCloud项目从零开始-六-—msc-consumer调用msc-p…-CSDN博客" class="headerlink" title="SpringCloud项目从零开始(六)—msc-consumer调用msc-p…_CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/lankk1/article/details/106118571/">SpringCloud项目<em>从零开始</em>(六)—msc-consumer调用msc-p…_CSDN博客</a></h3><p> 2020年5月14日 - 以后_Gateway_要向server拉取消费者实例 register-with-eureka: true #从eureka …_Golang_之消息队列——RabbitMQ的使用 消息队列的使用场景异步处理 …</p>
+<h3 id="Grpc-Gateway-Grpc兼容HTTP协议文档自动生成网关-HTTP-好机友"><a href="#Grpc-Gateway-Grpc兼容HTTP协议文档自动生成网关-HTTP-好机友" class="headerlink" title="Grpc-Gateway - Grpc兼容HTTP协议文档自动生成网关 _HTTP_好机友"></a><a href="https://zshipu.com/t?url=https://www.7j3.net/t/aid_1435754.html">Grpc-<em>Gateway</em> - Grpc兼容HTTP协议文档自动生成网关 _HTTP_好机友</a></h3><p> 2020年5月15日 - 编写_gateway_服务 vim grpc__gateway_.go package main import ( “flag” “net/http” “log” “github.com/<em>golang</em>/glog” “<em>golang</em>.org/x/net/context” “githu…</p>
+<h3 id="“study-golang-com”的360移动权重查询结果-站长工具"><a href="#“study-golang-com”的360移动权重查询结果-站长工具" class="headerlink" title="“study_golang_.com”的360移动权重查询结果 - 站长工具"></a><a href="https://zshipu.com/t?url=http://rank.chinaz.com/rank360/studygolang.com-1--p--1">“study_golang_.com”的360移动权重查询结果 - 站长工具</a></h3><p> 2020年5月13日 - Macaron首页、文档和下载 Web 框架 Go语言中文网 <em>Golang_中文… macaron 4 第10 Macaron首页、文档和下载 Web 框架 Go语言中文网 _Golang_中文… _gatew</em>…</p>
+<h3 id="分别以google-golang-org-grpc和net-rpc简单理解RPC"><a href="#分别以google-golang-org-grpc和net-rpc简单理解RPC" class="headerlink" title="分别以google.golang.org/grpc和net/rpc简单理解RPC"></a><a href="https://zshipu.com/t?url=https://lan6193.blog.csdn.net/article/details/106466755">分别以google.<em>golang</em>.org/grpc和net/rpc简单理解RPC</a></h3><p> 2020年6月1日 - 特别提醒(踩坑后可以返回来再看):如果没有用go module模式,那么需要在src下手动创建google.<em>golang</em>.org目录并进入该目录手动执行git clone <a target="_blank" rel="noopener" href="https://e.c/">https://e.c</a>…</p>
+<h3 id="使用go-micro-的时候-etcd-grpc-gateway-产生冲突-Go-技术论坛"><a href="#使用go-micro-的时候-etcd-grpc-gateway-产生冲突-Go-技术论坛" class="headerlink" title="使用go-micro 的时候 etcd,grpc-gateway 产生冲突 | Go 技术论坛"></a><a href="https://zshipu.com/t?url=https://laravel-china.org/articles/44883">使用<em>go</em>-micro 的时候 etcd,grpc-<em>gateway</em> 产生冲突 | <em>Go</em> 技术论坛</a></h3><p> 2020年5月23日 - <em>golang</em>.org/grpc@v1.27.0 运行grpc-<em>gateway</em> (http) 服务端,没问题。眼看…protoc –grpc-_gateway__out= 生成出来的 pb.go 代码需要 grpc 1.27.0,而 …</p>
+<h3 id="Golang-中Context包深入浅出-golang-混血王子的博客-CSDN博客"><a href="#Golang-中Context包深入浅出-golang-混血王子的博客-CSDN博客" class="headerlink" title="_Golang_中Context包深入浅出__golang__混血王子的博客-CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/m0_37645820/article/details/106144342">_Golang_中Context包深入浅出__golang__混血王子的博客-CSDN博客</a></h3><p> 2020年5月15日 - <em>golang</em> 中想要并发运行业务时会直接开goroutine,关键…方式访问,v3则也可以通过部署一个grpc-_gateway_实现…_从0开始_写前端UI框架:概述 缘起经常听说…</p>
+<h3 id="求职贴-Golang-Python-DevOps-运维-网络-4年经验-求职远程兼职-…"><a href="#求职贴-Golang-Python-DevOps-运维-网络-4年经验-求职远程兼职-…" class="headerlink" title="[求职贴] Golang/Python/DevOps/运维/网络 4年经验 求职远程兼职/…"></a><a href="https://zshipu.com/t?url=https://eleduck.com/posts/82fZgb">[求职贴] <em>Golang</em>/Python/DevOps/运维/网络 4年经验 求职远程兼职/…</a></h3><p> 2020年5月20日 - 使用java,<em>golang</em>,python等语言进行不同组件的开发; 使用Grpc,NATS等技术进行组件间的调度联动,使用grpc-_gateway_进行restapi的接口实现; * 产品基于kub…</p>
+<h3 id="golang-swagger注解说明-golang-mctlilac的博客-CSDN博客"><a href="#golang-swagger注解说明-golang-mctlilac的博客-CSDN博客" class="headerlink" title="golang swagger注解说明__golang__mctlilac的博客-CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/mctlilac/article/details/106198915"><em>golang</em> swagger注解说明__golang__mctlilac的博客-CSDN博客</a></h3><p> 2020年5月18日 - <em>golang_上传excel文件api实例 _golang</em> post json数据…_gateway_和 swagger -ui界面 文章目录本文目的:集成…好了我的青春痘——这玩意从高一下半学期就开始…</p>
+<h3 id="springcloud项目优雅重启-一-问题和gateway-ribbon流程-JAVA…"><a href="#springcloud项目优雅重启-一-问题和gateway-ribbon流程-JAVA…" class="headerlink" title="springcloud项目优雅重启(一):问题和gateway-ribbon流程_JAVA…"></a><a href="https://zshipu.com/t?url=https://www.debug8.com/java/t_51466.html">springcloud项目优雅重启(一):问题和<em>gateway</em>-ribbon流程_JAVA…</a></h3><p> 7天前 - spring.cloud.<em>gateway</em>.discovery.locator.enabled: …·_从零开始_实现一个消息提示框 ·学习笔记之Lambda表达式…·_golang_数据结构 ·#_golang_数据结…</p>
+<h3 id="关于-golang-在字符串中替换网址的实现-400-报错-问答-阿里云开发…"><a href="#关于-golang-在字符串中替换网址的实现-400-报错-问答-阿里云开发…" class="headerlink" title="关于_golang_在字符串中替换网址的实现? 400 报错-问答-阿里云开发…"></a><a href="https://zshipu.com/t?url=http://developer.aliyun.com/ask/294432">关于_golang_在字符串中替换网址的实现? 400 报错-问答-阿里云开发…</a></h3><p> 2020年6月2日 - {“channelstr”:”从安全型到内存型、从进阶型到入门型的云服务器”,”tce_rule…api_gateway_”,”title”:”api网关”},{“channelstr”:”从代码到应用的持续集…</p>
+<h3 id="Golang-下的unicode与字符编码-golang-unicode-weichuan…-CSDN博客"><a href="#Golang-下的unicode与字符编码-golang-unicode-weichuan…-CSDN博客" class="headerlink" title="_Golang_下的unicode与字符编码__golang_,unicode_weichuan…_CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/weichuangxxb/article/details/106441884">_Golang_下的unicode与字符编码__golang_,unicode_weichuan…_CSDN博客</a></h3><p> 2020年5月30日 - 请问下 自定义 exporter 和 push_gateway_ 应该如何…背景: 在我们使用_Golang_进行开发过程中,总是绕不开…而 Go 语言从 1.10 版本开始,已经对 Unicode 的…</p>
+<h3 id="golang-路由拦截器-向宪章的博客-CSDN博客"><a href="#golang-路由拦截器-向宪章的博客-CSDN博客" class="headerlink" title="_golang_路由拦截器_向宪章的博客-CSDN博客"></a><a href="https://zshipu.com/t?url=http://blog.csdn.net/qq_41768400/article/details/106635546?%3E">_golang_路由拦截器_向宪章的博客-CSDN博客</a></h3><p> 1天前 - 在<em>golang_中实现路由拦截有多种方法,比如一般来说…双十一大考蚂蚁金服很早开始关注 service mesh,并在…615 grpc开发(9)-grpc服务开发-grpc-_gateway</em>…</p>
+<h3 id="spring-boot-API-Gateway-for-gRpc-services-Stack-Overflow"><a href="#spring-boot-API-Gateway-for-gRpc-services-Stack-Overflow" class="headerlink" title="spring boot - API Gateway for gRpc services - Stack Overflow"></a><a href="https://zshipu.com/t?url=https://stackoverflow.com/questions/60207729/api-for-grpc-services">spring boot - API <em>Gateway</em> for gRpc services - Stack Overflow</a></h3><p> 2020年5月27日 - 1How to access request headers in grpc service proxied by. grpc-<em>gateway</em> in <em>golang</em> _0_GRPC REST channel implementationHot Network Questions Ho…</p>
+<h3 id="通过grpc-gateway-对外提供基于grpc的http接口API-Go-调试吧"><a href="#通过grpc-gateway-对外提供基于grpc的http接口API-Go-调试吧" class="headerlink" title="通过grpc-_gateway_对外提供基于grpc的http接口API__Go__调试吧"></a><a href="https://zshipu.com/t?url=https://www.debug8.com/golang/t_50701.html">通过grpc-_gateway_对外提供基于grpc的http接口API__Go__调试吧</a></h3><p> 2020年5月29日 - grpc优点不再多叙述,但如何对外提供Restful接口的,而又不希望重复开发相同的功能可以使用grpc-<em>gateway_将grpc转换为对外的Restful API。 安装 _go</em> get -…</p>
+<h3 id="KongAPI-gateway-的部署及使用-Go-调试吧"><a href="#KongAPI-gateway-的部署及使用-Go-调试吧" class="headerlink" title="KongAPI_gateway_的部署及使用__Go__调试吧"></a><a href="https://zshipu.com/t?url=https://www.debug8.com/golang/t_50929.html">KongAPI_gateway_的部署及使用__Go__调试吧</a></h3><p> 2020年6月2日 - 我实践了一下这个API <em>gateway</em>,然后发现确实是不错的…·GOVSCODE环境搭建 ·野子数据分析概述 ·_Golang_中</p>
+<h3 id="Golang-toml完全解析示例-布史之铭-CSDN博客-golang-tomlmap类型"><a href="#Golang-toml完全解析示例-布史之铭-CSDN博客-golang-tomlmap类型" class="headerlink" title="_Golang_toml完全解析示例_布史之铭-CSDN博客__golang_tomlmap类型"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/Gusand/article/details/106094535">_Golang_toml完全解析示例_布史之铭-CSDN博客__golang_tomlmap类型</a></h3><p> 2020年5月13日 - _Golang_实现简化版解析TOML格式 TOML的由来配置文件的使用由来已久,从.ini、XML…源码地址loraserver lorawan netserver,和 _gateway_通信 与app serve…</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-06-09T09:11:25.000Z" title="2020-06-09T09:11:25.000Z">2020-06-09</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.432Z" title="2020-09-08T14:03:00.432Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">12 分钟读完 (大约1837个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/06/09/springboot%20+%20spring%20security%E9%AA%8C%E8%AF%81token%E8%BF%9B%E8%A1%8C%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/">springboot + spring security验证token进行用户认证</a></h1><div class="content"><h2 id="核心组件"><a href="#核心组件" class="headerlink" title="核心组件"></a><a name="t0"></a><a name="t0"></a>核心组件</h2><h3 id="SecurityContextHolder"><a href="#SecurityContextHolder" class="headerlink" title="SecurityContextHolder"></a><a name="t1"></a><a name="t1"></a>SecurityContextHolder</h3><p>SecurityContextHolder是spring security最基本的组件。用于存储安全上下文（security context）的信息。当前操作的用户是谁，该用户是否已经被认证，他拥有哪些角色权限等这些都被保存在SecurityContextHolder中。SecurityContextHolder默认是使用ThreadLocal实现的，这样就保证了本线程内所有的方法都可以获得SecurityContext对象。</p>
+<p>可以通此方法过来获取当前操作用户信息：</p>
+<p><code>SecurityContextHolder.getContext().getAuthentication().getPrincipal();</code> </p>
+<p>默认返回的对象是UserDetails实例，其中包含了username，password和权限等信息，当然，我们也可以通过实现这个接口自定义我们自己的UserDetails实例，给我们自己的应用使用，以符合需要的业务逻辑。比如下面只对token进行操作就可以吧token作为属性放入UserDetails实现类中。</p>
+<h3 id="Authentication"><a href="#Authentication" class="headerlink" title="Authentication"></a><a name="t2"></a><a name="t2"></a>Authentication</h3><p>Authentication是Spring Security方式的认证主体。</p>
+<p>&lt;1&gt; Authentication是spring security包中的接口，直接继承自Principal类，而Principal是位于java.security包中的。可以见得，Authentication在spring security中是最高级别的身份/认证的抽象。<br>&lt;2&gt; 由这个顶级接口，我们可以得到用户拥有的权限信息列表，密码，用户细节信息，用户身份信息，认证信息。<br>authentication.getPrincipal()返回了一个Object，我们将Principal强转成了Spring Security中最常用的UserDetails，这在Spring Security中非常常见，接口返回Object，使用instanceof判断类型，强转成对应的具体实现类。接口详细解读如下：</p>
+<ul>
+<li>getAuthorities()，权限信息列表，默认是GrantedAuthority接口的一些实现类，通常是代表权限信息的一系列字符串。</li>
+<li>getCredentials()，密码信息，用户输入的密码字符串，在认证过后通常会被移除，用于保障安全。</li>
+<li>getDetails()，细节信息，web应用中的实现接口通常为 WebAuthenticationDetails，它记录了访问者的ip地址和sessionId的值。</li>
+<li>getPrincipal()，最重要的身份信息，大部分情况下返回的是UserDetails接口的实现类，也是框架中的常用接口之一。</li>
+</ul>
+<h3 id="AuthenticationManager"><a href="#AuthenticationManager" class="headerlink" title="AuthenticationManager"></a><a name="t3"></a><a name="t3"></a>AuthenticationManager</h3><p>AuthenticationManager（接口）是认证相关的核心接口，也是发起认证的出发点，因为在实际需求中身份认证的方式有多种，一般不使用AuthenticationManager，而是使用AuthenticationManager的实现类ProviderManager ,ProviderManager内部会维护一个List<AuthenticationProvider>列表，存放多种认证方式，实际上这是委托者模式的应用（Delegate）。也就是说，核心的认证入口始终只有一个：AuthenticationManager，不同的认证方式对应不同的AuthenticationProvider。</p>
+<p>总结：</p>
+<p>SecurityContextHolder：存放身份信息的容器</p>
+<p>Authentication：用户信息的抽象</p>
+<p>AuthenticationManager：身份认证器</p>
+<h2 id="认证流程"><a href="#认证流程" class="headerlink" title="认证流程"></a><a name="t4"></a><a name="t4"></a>认证流程</h2><p>1、通过过滤器过滤到用户请求的接口，获取身份信息（假如有多个认证方式会配置provider的顺序）</p>
+<p>2、一般将身份信息封装到封装成Authentication下的实现类UsernamePasswordAuthenticationToken中</p>
+<p>3、通过AuthenticationManager 身份管理器（通过配置找到对应的provider）负责验证这个UsernamePasswordAuthenticationToken</p>
+<p>4、认证成功后（认证逻辑一般在service中），AuthenticationManager身份管理器返回一个被填充满了信息的（包括上面提到的权限信息，身份信息，细节信息，但密码通常会被移除）Authentication实例。</p>
+<p>5、SecurityContextHolder安全上下文容器将第2步填充了信息的UsernamePasswordAuthenticationToken，通过SecurityContextHolder.getContext().setAuthentication(…)方法，设置到其中来建立安全上下文（security context)。</p>
+<h2 id="结合springboot实现对token验证"><a href="#结合springboot实现对token验证" class="headerlink" title="结合springboot实现对token验证"></a><a name="t5"></a><a name="t5"></a>结合springboot实现对token验证</h2><h3 id="1、场景"><a href="#1、场景" class="headerlink" title="1、场景"></a><a name="t6"></a><a name="t6"></a>1、场景</h3><p>拦截api/的所有接口进行验证，验证token用户与id用户是否一致，不一致或token过期则没有权限访问</p>
+<h3 id="2、实现"><a href="#2、实现" class="headerlink" title="2、实现"></a><a name="t7"></a><a name="t7"></a>2、实现</h3><p>1、添加security相关依赖：spring-boot-starter-security   spring-security-oauth2</p>
+<p>2、全局配置类，根据不同需求配置不同的过滤器和provider（代码片段）</p>
+<pre><code class="1.">
+2.  @EnableWebSecurity
+
+3.  public class SecurityConfiguration extends WebSecurityConfigurerAdapter &#123;
+
+6.  @Autowired
+
+7.  private RedisTemplate redisTemplate;
+
+9.  @Autowired
+
+10.  private SecurityOrgPeopleMapper securityOrgPeopleMapper;
+
+12.  @Autowired
+
+13.  private ImCheckTokenFactory imCheckTokenFactory;
+
+16.  // oauth2 server
+
+18.  @Override
+
+19.  protected void configure(AuthenticationManagerBuilder auth) &#123;
+
+20.  addProvider(auth);
+
+21.  &#125;
+
+23.  //指定provider
+
+24.  private void addProvider(AuthenticationManagerBuilder auth) &#123;
+
+25.  auth.authenticationProvider(imAuthenticationProvider());  
+
+26.  &#125;
+
+28.  @Override
+
+29.  protected void configure(HttpSecurity http) throws Exception &#123;
+
+30.  // 请求过滤 对api/对所有接口都验证
+
+31.  http
+
+32.  .authorizeRequests()
+
+33.  .antMatchers(&quot;/api/**&quot;).access(&quot;@permissionChecker.hasPermission(authentication,request)&quot;)
+
+34.  .anyRequest().authenticated();
+
+36.  registerFilter(http);
+
+37.  &#125;
+
+39.  //指定filter过滤器
+
+40.  private void registerFilter(HttpSecurity http) throws Exception &#123;
+
+41.  http
+
+42.  .addFilterBefore(new ImAuthenticationFilter(authenticationManager()), UsernamePasswordAuthenticationFilter.class); 
+
+43.  &#125;
+
+46.  private ImAuthenticationProvider imAuthenticationProvider() &#123;
+
+47.  return new ImAuthenticationProvider(imCheckTokenFactory, securityOrgPeopleMapper);
+
+48.  &#125;
+
+51.  &#125;``` 
+
+过滤器：
+
+```1.  public class ImAuthenticationFilter extends GenericFilterBean &#123;
+
+3.  private AuthenticationManager authenticationManager;
+
+5.  public ImAuthenticationFilter(AuthenticationManager authenticationManager) &#123;
+
+6.  this.authenticationManager = authenticationManager;
+
+7.  &#125;
+
+9.  @Override
+
+10.  public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException &#123;
+
+12.  // 其他过滤器已经认证通过了
+
+13.  Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+14.  if (authentication != null &amp;&amp; authentication.isAuthenticated()) &#123;
+
+15.  chain.doFilter(request, response);
+
+16.  return;
+
+17.  &#125;
+
+18.  HttpServletRequest httpRequest = asHttp(request);
+
+19.  HttpServletResponse httpResponse = asHttp(response);
+
+21.  //获取接口中都用户信息
+
+22.  String userId = obtainUserId(httpRequest);
+
+23.  String token = obtainToken(httpRequest);
+
+24.  String client = obtainClient(httpRequest);
+
+26.  try &#123;
+
+27.  checkToken(token);
+
+28.  imProcessTokenAuthentication(Integer.parseInt(userId), token, client);
+
+29.  chain.doFilter(request, response);
+
+30.  &#125; catch (UserAuthenticationException userAuthenticationException) &#123;
+
+31.  logger.warn(userAuthenticationException.getMessage());
+
+32.  httpResponse.setStatus(userAuthenticationException.getStatus());
+
+33.  &#125; catch (AuthenticationException authenticationException) &#123;
+
+34.  chain.doFilter(request, response);
+
+35.  &#125;
+
+37.  &#125;
+
+39.  private String obtainToken(HttpServletRequest request) &#123;
+
+40.  String tokenParameter = &quot;F-Session&quot;;
+
+41.  String token = request.getHeader(tokenParameter);
+
+42.  if (Objects.isNull(token)) &#123;
+
+43.  token = request.getParameter(tokenParameter);
+
+44.  &#125;
+
+45.  return token;
+
+46.  &#125;
+
+48.  private String obtainUserId(HttpServletRequest request) &#123;
+
+49.  String userIdParameter = &quot;userId&quot;;
+
+50.  return request.getParameter(userIdParameter);
+
+51.  &#125;
+
+53.  private String obtainClient(HttpServletRequest request) &#123;
+
+54.  String clientParameter = &quot;client&quot;;
+
+55.  return request.getParameter(clientParameter);
+
+56.  &#125;
+
+58.  private HttpServletRequest asHttp(ServletRequest request) &#123;
+
+59.  return (HttpServletRequest) request;
+
+60.  &#125;
+
+62.  private HttpServletResponse asHttp(ServletResponse response) &#123;
+
+63.  return (HttpServletResponse) response;
+
+64.  &#125;
+
+66.  private void checkToken(String token) &#123;
+
+67.  if (StringUtils.isEmpty(token)) &#123;
+
+68.  throw new UserAuthenticationException(SecurityHttpServletResponse.TOKEN_INVALID, &quot;authenticate.fail&quot;);
+
+69.  &#125;
+
+70.  &#125;
+
+72.  //im//将用户信息封装到ImTokenAuthentication（自定义用户信息类）中
+
+73.  private void imProcessTokenAuthentication(Integer userId, String token, String client) &#123;
+
+75.  Authentication resultOfAuthentication = imTryToAuthenticateWithToken(userId, token, client);
+
+76.  SecurityContextHolder.getContext().setAuthentication(resultOfAuthentication);
+
+77.  &#125;
+
+79.  private Authentication imTryToAuthenticateWithToken(Integer userId, String token, String client) &#123;
+
+80.  ImTokenAuthentication imTokenAuthentication = new ImTokenAuthentication(userId, token, client);
+
+81.  return tryToAuthenticate(imTokenAuthentication);
+
+82.  &#125;
+
+85.  private Authentication tryToAuthenticate(Authentication requestAuthentication) throws AuthenticationException &#123;
+
+86.  //找到配置的authenticationManager实现类provider进行验证返回充满信息的Authentication
+
+87.  Authentication responseAuthentication = authenticationManager.authenticate(requestAuthentication);
+
+88.  if (responseAuthentication == null || !responseAuthentication.isAuthenticated()) &#123;
+
+89.  throw new InternalAuthenticationServiceException(&quot;Unable to authenticate for provided credentials&quot;);
+
+90.  &#125;
+
+91.  logger.debug(&quot;User successfully authenticated&quot;);
+
+92.  return responseAuthentication;
+
+93.  &#125;
+
+94.  &#125;``` 
+
+自定义authentication（一般继承UsernamePasswordAuthenticationToken，此项目是在前任的项目基础上写的）
+
+```1.  public class ImTokenAuthentication extends TokenAuthenticationToken &#123;
+
+3.  private Integer userId;
+
+4.  private String client;
+
+6.  public ImTokenAuthentication(Integer userId, String token, String client) &#123;
+
+7.  super(token);
+
+8.  this.userId = userId;
+
+9.  this.client = client;
+
+10.  &#125;
+
+12.  public ImTokenAuthentication(Integer userId, String token, String client, SecurityUserDetails details) &#123;
+
+13.  super(token);
+
+14.  this.userId = userId;
+
+15.  this.client = client;
+
+16.  setDetails(details);
+
+17.  &#125;
+
+19.  public Integer getUserId() &#123;
+
+20.  return userId;
+
+21.  &#125;
+
+23.  public String getClient() &#123;
+
+24.  return client;
+
+25.  &#125;
+
+26.  &#125;``` 
+
+provider
+
+```1.  public class ImAuthenticationProvider implements AuthenticationProvider &#123;
+
+3.  private SecurityOrgPeopleMapper securityOrgPeopleMapper;//根据项目需求注入
+
+5.  private ImCheckTokenFactory imCheckTokenFactory;//根据项目需求注入
+
+7.  public ImAuthenticationProvider(ImCheckTokenFactory imCheckTokenFactory, SecurityOrgPeopleMapper securityOrgPeopleMapper) &#123;
+
+8.  this.securityOrgPeopleMapper = securityOrgPeopleMapper;
+
+9.  this.imCheckTokenFactory = imCheckTokenFactory;
+
+10.  &#125;
+
+13.  @Override
+
+14.  public Authentication authenticate(Authentication authentication) throws AuthenticationException &#123;
+
+15.  //自定义的装载用户信息的类
+
+16.  ImTokenAuthentication imTokenAuthentication = (ImTokenAuthentication) authentication;
+
+17.  //获取在过滤器中放入authentication的用户信息
+
+18.  String token = authentication.getPrincipal().toString();
+
+19.  Integer userId = Integer.parseInt(imTokenAuthentication.getUserId().toString());
+
+20.  String client = imTokenAuthentication.getClient();
+
+22.  //获取验证token所在的sevice
+
+23.  ImCheckTokenService imCheckTokenService = imCheckTokenFactory.getService(client);
+
+25.  if (Objects.isNull(imCheckTokenService)) &#123;
+
+26.  authentication.setAuthenticated(false);
+
+27.  throw new UserAuthenticationException(SecurityHttpServletResponse.TOKEN_INVALID, &quot;authenticate.fail&quot;);
+
+28.  &#125;
+
+29.  //验证token逻辑
+
+30.  Object object = imCheckTokenService.checkToken(userId, token);
+
+31.  if (Objects.isNull(object)) &#123;
+
+32.  throw new BadCredentialsException(&quot;&quot;);
+
+33.  &#125;
+
+35.  OrgPeople orgPeople = securityOrgPeopleMapper.getPeopleBySystemUserId(userId);
+
+37.  imTokenAuthentication.setDetails(new SecurityUserDetails((Account) ；
+
+38.  //在servcice中验证不通过就已经抛出异常了，此处正常运行则设置验证通过
+
+39.  authentication.setAuthenticated(true);
+
+40.  return authentication;
+
+41.  &#125;
+
+43.  @Override
+
+44.  public boolean supports(Class&lt;?&gt; authentication) &#123;
+
+45.  return (ImTokenAuthentication.class.isAssignableFrom(authentication));
+
+46.  &#125;
+
+47.  &#125;``` 
+### &lt;a name=&quot;t8&quot;&gt;&lt;/a&gt;&lt;a name=&quot;t8&quot;&gt;&lt;/a&gt;参考：
+
+[spring security架构](https://zshipu.com/t?url=http://www.importnew.com/26712.html)
+
+[https://www.cnblogs.com/shiyu404/p/6530894.html](https://zshipu.com/t?url=https://www.cnblogs.com/shiyu404/p/6530894.html)
+
+[https://blog.csdn.net/ro_wsy/article/details/44341547](https://zshipu.com/t?url=https://blog.csdn.net/ro_wsy/article/details/44341547)
+
+[官方文档](https://zshipu.com/t?url=https://docs.spring.io/spring-security/site/docs/4.2.2.RELEASE/reference/htmlsingle/)</code></pre>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-06-08T05:31:04.000Z" title="2020-06-08T05:31:04.000Z">2020-06-08</time>发表</span><span class="level-item"><time dateTime="2020-09-08T14:03:00.437Z" title="2020-09-08T14:03:00.437Z">2020-09-08</time>更新</span><span class="level-item"> 知识铺 </span><span class="level-item">10 分钟读完 (大约1540个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/06/08/zk%20%E5%90%AF%E5%8A%A8%E5%BC%82%E5%B8%B8%20Unable%20to%20read%20additional%20data%20from%20server%20sessionid%200x0,%20likely%20server%20has/">zk 启动异常 Unable to read additional data from server sessionid 0x0, likely server has</a></h1><div class="content"><p> 在zoo.cfg中配置了3台机器，但是只启动了1台，zookeeper就会认为服务处于不可用状态。<br>zookeeper有个选举算法，当整个集群超过半数机器宕机，zookeeper会认为集群处于不可用状态。</p>
+<h3 id="…read-additional-data-from-server-sessionid-0x0-问…-CSDN博客"><a href="#…read-additional-data-from-server-sessionid-0x0-问…-CSDN博客" class="headerlink" title="…read additional data from server sessionid _0x0_问…_CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/qq_39833418/article/details/78316898">…<em>read</em> <em>additional</em> <em>data</em> <em>from</em> <em>server</em> <em>sessionid</em> _0x0_问…_CSDN博客</a></h3><p> 2017年10月23日 - (localhost:2181):ClientCnxn$SendThread@1183] - <em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> <em>server</em> <em>sessionid</em> <em>0x0,</em> <em>likely</em> <em>server</em> <em>has</em> closed socket, cl…</p>
+<h3 id="…read-additional-data-from-server-sessionid-0x0…-CSDN博客"><a href="#…read-additional-data-from-server-sessionid-0x0…-CSDN博客" class="headerlink" title="…read additional data from server sessionid 0x0…_CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/playadota/article/details/83054617">…<em>read</em> <em>additional</em> <em>data</em> <em>from</em> <em>server</em> <em>sessionid</em> <em>0x0</em>…_CSDN博客</a></h3><p> 2018年10月15日 - 省略若干信息 [2018-06-15 11:33:26,693] INFO <em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> <em>server</em> <em>sessionid</em> <em>0x0,</em> <em>likely</em> <em>server</em> <em>has</em> closed socket, closi…</p>
+<h3 id="…read-additional-data-from-server-sessionid-0x0-li…-博客园"><a href="#…read-additional-data-from-server-sessionid-0x0-li…-博客园" class="headerlink" title="…read additional data from server sessionid 0x0, li…_博客园"></a><a href="https://zshipu.com/t?url=https://www.cnblogs.com/elsonwe/p/6879015.html">…<em>read</em> <em>additional</em> <em>data</em> <em>from</em> <em>server</em> <em>sessionid</em> <em>0x0,</em> li…_博客园</a></h3><p> 2017年5月19日 - <em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> <em>server</em> <em>sessionid</em> <em>0x0,</em> <em>likely</em> <em>server</em> <em>has</em> …(xx)的问题,登录上去也各种错误,zk_Server_.sh …<em>server</em>.1=xx:2888…</p>
+<h3 id="…read-additional-data-from-server-sessionid-0x0…-博客园"><a href="#…read-additional-data-from-server-sessionid-0x0…-博客园" class="headerlink" title="…read additional data from server sessionid 0x0…_博客园"></a><a href="https://zshipu.com/t?url=https://www.cnblogs.com/showxiaxian/p/4528590.html">…<em>read</em> <em>additional</em> <em>data</em> <em>from</em> <em>server</em> <em>sessionid</em> <em>0x0</em>…_博客园</a></h3><p> 2015年5月25日 - (127.0.0.1:4083):ClientCnxn$SendThread@1098] - <em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> <em>server</em> <em>sessionid</em> <em>0x0,</em> <em>likely</em> <em>server</em> <em>has</em> closed socket, cl…</p>
+<h3 id="Unable-to-read-additional-data-from-server-sessionid-云栖社区…"><a href="#Unable-to-read-additional-data-from-server-sessionid-云栖社区…" class="headerlink" title="Unable to read additional data from server sessionid-云栖社区…"></a><a href="https://zshipu.com/t?url=https://yq.aliyun.com/articles/621173"><em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> <em>server</em> <em>sessionid</em>-云栖社区…</a></h3><p> 2018年8月1日 - (localhost:2181):ClientCnxn$SendThread@1158] - <em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> <em>server</em> <em>sessionid</em> <em>0x0,</em> <em>likely</em> <em>server</em> <em>has</em> closed socket, cl…</p>
+<h3 id="…Unable-to-read-additional-data-from-client-sessionid-0x-00…"><a href="#…Unable-to-read-additional-data-from-client-sessionid-0x-00…" class="headerlink" title="…Unable to read additional data from client sessionid _0x_00…"></a><a href="https://zshipu.com/t?url=https://www.jianshu.com/p/76835052e645">…<em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> client <em>sessionid</em> _0x_00…</a></h3><p> 2018年4月18日 - - caught end of stream exception EndOfStreamException: <em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> client <em>sessionid</em> <em>0x_6362257b44e5068d_,</em> <em>likely</em> clien…</p>
+<h3 id="…连接报错-Unable-to-read-additional-data-from-client-百度知道"><a href="#…连接报错-Unable-to-read-additional-data-from-client-百度知道" class="headerlink" title="…连接报错:Unable to read additional data from client_百度知道"></a><a href="https://zshipu.com/t?url=https://zhidao.baidu.com/question/984903841972234939.html">…连接报错:<em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> client_百度知道</a></h3><p> 2015年11月9日 - 回答：zookeeper服务端和客户端的jar版本不一致导致的 从zookeeper服务端安装目录的根目录复制zookeeper-xxx.jar到客户端即可</p>
+<h3 id="Unable-to-read-additional-data-from-client-sessionid-0x0…"><a href="#Unable-to-read-additional-data-from-client-sessionid-0x0…" class="headerlink" title="Unable to read additional data from client sessionid 0x0…"></a><a href="https://zshipu.com/t?url=http://www.voidcn.com/relative/p-wcrjbsit-bkb.html"><em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> client <em>sessionid</em> <em>0x0</em>…</a></h3><p> 2017年9月28日 - <em>read</em> <em>additional</em> <em>data</em> <em>from</em> client <em>sessionid</em> <em>0x0,</em> <em>likely</em> client <em>has</em> closed …zook 报错 <em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> <em>server</em> <em>sessionid</em> 0…</p>
+<style>.c-group-top{margin-bottom:0!important;padding:10px 10px 11px;border-top:1px solid #E3E3E3;border-left:1px solid #E3E3E3;border-right:1px solid #E3E3E3}.c-group-middle{margin-bottom:0!important;padding:0 10px 11px;border-left:1px solid #E3E3E3;border-right:1px solid #E3E3E3}.c-group-bottom{padding:0 10px 10px;border-left:1px solid #E3E3E3;border-right:1px solid #E3E3E3;border-bottom:1px solid #E3E3E3}.c-group-title{margin-bottom:5px;font-size:16px}.c-group{width:516px!important}</style>
+
+<h3 id="…Unable-to-read-additional-data-from-server-sessionid-0x0"><a href="#…Unable-to-read-additional-data-from-server-sessionid-0x0" class="headerlink" title="…Unable to read additional data from server sessionid 0x0"></a><a href="https://zshipu.com/t?url=http://www.mamicode.com/info-detail-2025443.html">…<em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> <em>server</em> <em>sessionid</em> <em>0x0</em></a></h3><p> 2017年9月29日 - (localhost:2181):ClientCnxn$SendThread@1183] - <em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> <em>server</em> <em>sessionid</em> <em>0x0,</em> <em>likely</em> <em>server</em> <em>has</em> closed socket, cl…</p>
+<h3 id="…Unable-to-read-additional-data-from-server-sessionid-0x0…"><a href="#…Unable-to-read-additional-data-from-server-sessionid-0x0…" class="headerlink" title="…Unable to read additional data from server sessionid 0x0…"></a><a href="https://zshipu.com/t?url=https://wenda.jikexueyuan.com/question/31488/?page=1&listRows=30">…<em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> <em>server</em> <em>sessionid</em> <em>0x0</em>…</a></h3><p> 2016年3月7日 - INFO [main-SendThread(192.168.1.42:2181):ClientCnxn$SendThread@1158] - <em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> <em>server</em> <em>sessionid</em> <em>0x0,</em> <em>likely</em> <em>serv</em>…</p>
+<h3 id="Unable-to-read-additional-data-from-server-sessionid…"><a href="#Unable-to-read-additional-data-from-server-sessionid…" class="headerlink" title="Unable to read additional data from server sessionid…"></a><a href="https://zshipu.com/t?url=http://zookeeper-user.578899.n2.nabble.com/Unable-to-read-additional-data-from-server-sessionid-td7579759.html"><em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> <em>server</em> <em>sessionid</em>…</a></h3><p> 2014年4月9日 - <em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> <em>server</em> <em>sessionid</em>… Hi, I <em>have</em> a problem in zookeeper, after the session <em>has</em> been established, it will l…</p>
+<h3 id="kafka集群-第二节点启动报错-小象问答-hadoop-spark-storm-R…"><a href="#kafka集群-第二节点启动报错-小象问答-hadoop-spark-storm-R…" class="headerlink" title="kafka集群,第二节点启动报错 - 小象问答-hadoop,spark,storm,R…"></a><a href="https://zshipu.com/t?url=http://wenda.chinahadoop.cn/question/3639">kafka集群,第二节点启动报错 - 小象问答-hadoop,spark,storm,R…</a></h3><p> 2016年6月26日 - [2016-06-25 12:25:25,014] INFO <em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> <em>server</em> <em>sessionid</em> <em>0x0,</em> <em>likely</em> <em>server</em> <em>has</em> closed socket, closing socket con…</p>
+<h3 id="Solved-FATAL-ha-ZKFailoverController-Unable-to-start-fai…"><a href="#Solved-FATAL-ha-ZKFailoverController-Unable-to-start-fai…" class="headerlink" title="Solved: FATAL ha.ZKFailoverController: Unable to start fai…"></a><a href="https://zshipu.com/t?url=https://community.cloudera.com/t5/CDH-Manual-Installation/FATAL-ha-ZKFailoverController-Unable-to-start-failover/td-p/16000">Solved: FATAL ha.ZKFailoverController: <em>Unable</em> <em>to</em> start fai…</a></h3><p> 2014年7月29日 - <em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> <em>server</em> <em>sessionid</em> <em>0x0,</em> <em>likely</em> <em>server</em> <em>has</em> closed socket, closing socket connection and attempting reconnec…</p>
+<h3 id="2016-11-21-14-50-22-326-info-nio-server-cxn-factory-0-0-0-0-…"><a href="#2016-11-21-14-50-22-326-info-nio-server-cxn-factory-0-0-0-0-…" class="headerlink" title="[2016-11-21 14:50:22,326 - info nio_server_cxn.factory:0.0.0.0/…"></a>[2016-11-21 14:50:22,326 - info <a href="https://zshipu.com/t?url=https://ask.csdn.net/questions/346999">nio_server_cxn.factory:<em>0</em>.<em>0</em>.<em>0</em>.<em>0</em>/…</a></h3><p> 2016年11月21日 - EndOfStreamException: <em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> client <em>sessionid</em> <em>0x0,</em> <em>likely</em> client <em>has</em> closed socket at org.apache.zookeeper.<em>serv</em>…</p>
+<h3 id="EndOfStreamException-Unable-to-read-additional-data-from…"><a href="#EndOfStreamException-Unable-to-read-additional-data-from…" class="headerlink" title="EndOfStreamException: Unable to read additional data from…"></a><a href="https://zshipu.com/t?url=https://issues.apache.org/jira/browse/ZOOKEEPER-1582">EndOfStreamException: <em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em>…</a></h3><p> EndOfStreamException: <em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> client <em>sessionid</em> <em>0x_13af9131eee0000, _likely</em> client <em>has</em> closed socket at org.apache.zookeeper.<em>server</em>…</p>
+<h3 id="…Unable-to-read-additional-data-from-client-sessionid-0x-00…-1"><a href="#…Unable-to-read-additional-data-from-client-sessionid-0x-00…-1" class="headerlink" title="…Unable to read additional data from client sessionid _0x_00…"></a><a href="https://zshipu.com/t?url=http://ddrv.cn/?p=262860">…<em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> client <em>sessionid</em> _0x_00…</a></h3><p> 2019年6月9日 - <em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> client <em>sessionid</em> <em>0x_6362257b44e5068d, _likely</em> client <em>has</em> closed socket at org.apache.zookeeper.<em>server</em>.NIO_S_…</p>
+<h3 id="…to-read-additional-data-from-server-sessionid-0x0-likely…"><a href="#…to-read-additional-data-from-server-sessionid-0x0-likely…" class="headerlink" title="…to read additional data from server sessionid 0x0, likely…"></a><a href="https://zshipu.com/t?url=https://recomm.cnblogs.com/blogpost/6879015">…<em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> <em>server</em> <em>sessionid</em> <em>0x0,</em> <em>likely</em>…</a></h3><p> zookeeper报<em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> <em>server</em> <em>sessionid</em> <em>0x0,</em> <em>likely</em> <em>server</em> <em>has</em> closed socket, closing socket connection and attempting reconnect的解决…</p>
+<h3 id="…Unable-to-read-additional-data-from-server-sessionid-0x0…-1"><a href="#…Unable-to-read-additional-data-from-server-sessionid-0x0…-1" class="headerlink" title="…Unable to read additional data from server sessionid 0x0…"></a><a href="https://zshipu.com/t?url=https://www.icode9.com/content-4-550623.html">…<em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> <em>server</em> <em>sessionid</em> <em>0x0</em>…</a></h3><p> 2019年11月7日 - 0.1:2181):ClientCnxn$SendThread@1158] - <em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> <em>server</em> <em>sessionid</em> <em>0x0,</em> <em>likely</em> <em>server</em> <em>has</em> closed socket, closing s…</p>
+<h3 id="…Unable-to-read-additional-data-from-client-sessionid-0x…"><a href="#…Unable-to-read-additional-data-from-client-sessionid-0x…" class="headerlink" title="…Unable to read additional data from client sessionid 0x…"></a><a href="https://zshipu.com/t?url=http://m.bubuko.com/infodetail-2112751.html">…<em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> client <em>sessionid</em> <em>0x</em>…</a></h3><p> 2017年6月10日 - 查看zk日志,发现<em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> client <em>sessionid</em> <em>0x_15c92bd1fca0003_,</em> <em>likely</em> client <em>has</em> closed socket 原文:<a target="_blank" rel="noopener" href="http://www.cnblo/">http://www.cnblo</a>…</p>
+<h3 id="…Unable-to-read-additional-data-from-client-sessionid-0x…-1"><a href="#…Unable-to-read-additional-data-from-client-sessionid-0x…-1" class="headerlink" title="…Unable to read additional data from client sessionid 0x…"></a><a href="https://zshipu.com/t?url=http://m.mamicode.com/info-detail-1848297.html">…<em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> client <em>sessionid</em> <em>0x</em>…</a></h3><p> 2017年6月10日 - Master is initializing 查看zk日志,发现<em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> client <em>sessionid</em> <em>0x_15c92bd1fca0003_,</em> <em>likely</em> client <em>has</em> closed socke…</p>
+<h3 id="…to-read-additional-data-from-server-sessionid-0x…-CSDN博客"><a href="#…to-read-additional-data-from-server-sessionid-0x…-CSDN博客" class="headerlink" title="…to read additional data from server sessionid 0x…_CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/weixin_44388193/article/details/102797296">…<em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> <em>server</em> <em>sessionid</em> <em>0x</em>…_CSDN博客</a></h3><p> 2019年10月29日 - (127.0.0.1:4083):ClientCnxn$SendThread@1098] - <em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> <em>server</em> <em>sessionid</em> <em>0x0,</em> <em>likely</em> <em>server</em> <em>has</em> closed socket, cl…</p>
+<h3 id="…read-additional-data-from-server-sessionid-0x0-问题的解决…"><a href="#…read-additional-data-from-server-sessionid-0x0-问题的解决…" class="headerlink" title="…read additional data from server sessionid _0x0_问题的解决…"></a><a href="https://zshipu.com/t?url=https://www.cnblogs.com/stone1989/p/11814207.html">…<em>read</em> <em>additional</em> <em>data</em> <em>from</em> <em>server</em> <em>sessionid</em> _0x0_问题的解决…</a></h3><p> 2019年11月7日 - (172.0.0.1:2181):ClientCnxn$SendThread@1158] - <em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> <em>server</em> <em>sessionid</em> <em>0x0,</em> <em>likely</em> <em>server</em> <em>has</em> closed socket, cl…</p>
+<h3 id="Unable-to-read-additional-data-from-client-sessionid-0x0…-1"><a href="#Unable-to-read-additional-data-from-client-sessionid-0x0…-1" class="headerlink" title="Unable to read additional data from client sessionid 0x0…"></a><a href="https://zshipu.com/t?url=http://www.voidcn.com/article/p-wcrjbsit-bkb.html"><em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> client <em>sessionid</em> <em>0x0</em>…</a></h3><p> 2015年5月8日 - EndOfStreamException: <em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> client <em>sessionid</em> <em>0x0,</em> <em>likely</em> client <em>has</em> closed socket (org.apache.zookeeper.<em>server</em>…</p>
+<h3 id="…to-read-additional-data-from-server-sessionid-0x0-likely…-1"><a href="#…to-read-additional-data-from-server-sessionid-0x0-likely…-1" class="headerlink" title="…to read additional data from server sessionid 0x0, likely…"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/weixin_30512089/article/details/99958179">…<em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> <em>server</em> <em>sessionid</em> <em>0x0,</em> <em>likely</em>…</a></h3><p> 2017年5月19日 - 【Linux-zookeeper】<em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> client <em>sessionid</em> <em>0x_00_,</em> <em>likely</em> client <em>has</em> closed 阅读数 282 内部维护一个zookeeper集群…</p>
+<h3 id="…to-read-additional-data-from-server-sessionid-0x…-博客园"><a href="#…to-read-additional-data-from-server-sessionid-0x…-博客园" class="headerlink" title="…to read additional data from server sessionid 0x…_博客园"></a><a href="https://zshipu.com/t?url=https://www.cnblogs.com/liuzhilong/p/8303180.html">…<em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> <em>server</em> <em>sessionid</em> <em>0x</em>…_博客园</a></h3><p> 2018年1月17日 - (10.10.16.151:2181):ClientCnxn$SendThread@1161] - <em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> <em>server</em> <em>sessionid</em> <em>0x0,</em> <em>likely</em> <em>server</em> <em>has</em> closed socket,…</p>
+<h3 id="Unable-to-read-additional-data-from-client-sessionid-0x0-l…"><a href="#Unable-to-read-additional-data-from-client-sessionid-0x0-l…" class="headerlink" title="Unable to read additional data from client sessionid 0x0, l…"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/zhenzi_PeppaPig/article/details/86575788"><em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> client <em>sessionid</em> <em>0x0,</em> l…</a></h3><p> 2019年1月21日 - EndOfStreamException: <em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> client <em>sessionid</em> <em>0x_167e90bd7b1000b, _likely</em> client <em>has</em> closed socket at org.apache…</p>
+<h3 id="Unable-to-read-additional-data-from-client-sessionid-0x0-l…-1"><a href="#Unable-to-read-additional-data-from-client-sessionid-0x0-l…-1" class="headerlink" title="Unable to read additional data from client sessionid 0x0, l…"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/ssdy654321/article/details/88870110"><em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> client <em>sessionid</em> <em>0x0,</em> l…</a></h3><p> 2019年3月28日 - <em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> client <em>sessionid</em> <em>0x0,</em> <em>likely</em> client <em>has</em> closed socket 1.有可能是因为zoo.cfg 中设置2000太小,设置成10000 …</p>
+<h3 id="报错-Unable-to-read-additional-data-from-client-sessi…-博客园"><a href="#报错-Unable-to-read-additional-data-from-client-sessi…-博客园" class="headerlink" title="报错:Unable to read additional data from client sessi…_博客园"></a><a href="https://zshipu.com/t?url=https://www.cnblogs.com/chuijingjing/p/10869807.html">报错:<em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> client sessi…_博客园</a></h3><p> 2019年5月21日 - <em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> client <em>sessionid</em> <em>0x_36ab52d38c20b20, _likely</em> client <em>has</em> closed socket at org.apache.zookeeper.<em>server</em>.NIO_Se_…</p>
+<h3 id="Unabletoreadadditionaldatafrom-client-sessionid0x0-li…-CSDN博客"><a href="#Unabletoreadadditionaldatafrom-client-sessionid0x0-li…-CSDN博客" class="headerlink" title="_Unabletoreadadditionaldatafrom_client_sessionid0x0,_li…_CSDN博客"></a><a href="https://zshipu.com/t?url=https://blog.csdn.net/lzm1340458776/article/details/45576965">_Unabletoreadadditionaldatafrom_client_sessionid0x0,_li…_CSDN博客</a></h3><p> 2015年5月8日 - EndOfStreamException: <em>Unable</em> <em>to</em> <em>read</em> <em>additional</em> <em>data</em> <em>from</em> client <em>sessionid</em> <em>0x0,</em> <em>likely</em> client <em>has</em> closed socket (org.apache.zookeeper.<em>server</em>…</p>
+</div></article></div><nav class="pagination is-centered mt-4" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/4/">上一页</a></div><div class="pagination-next"><a href="/page/6/">下一页</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/4/">4</a></li><li><a class="pagination-link is-current" href="/page/5/">5</a></li><li><a class="pagination-link" href="/page/6/">6</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/19/">19</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="https://www.gravatar.com/avatar/2396bdfe5aadb513e676094004dde830?s=128" alt="edwin"></figure><p class="title is-size-4 is-block line-height-inherit">edwin</p><p class="is-size-6 is-block">知识铺</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国 杭州</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">189</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">2</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/liliang8858" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/liliang8858"><i class="Github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="社区"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="设计"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/go/"><span class="level-start"><span class="level-item">go</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:43:02.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Spring%20Cloud%20Gateway+Nacos%EF%BC%8Cyml+properties%E4%B8%A4%E7%A7%8D%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%96%B9%E5%BC%8F%E6%90%AD%E5%BB%BA%E7%BD%91%E5%85%B3%E6%9C%8D%E5%8A%A1/">Spring Cloud Gateway+Nacos，yml+properties两种配置文件方式搭建网关服务</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:39:59.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Spring%20Cloud+nacos+Feign%EF%BC%8C%E5%AE%9E%E7%8E%B0%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%E5%8F%8A%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">Spring Cloud+nacos+Feign，实现注册中心及配置中心</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T10:32:26.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E6%97%B6%EF%BC%8C%E5%A4%9A%E4%B8%AA%E6%9C%8D%E5%8A%A1%E5%85%B1%E7%94%A8%E4%B8%80%E4%B8%AAdataId%E7%9A%84%E9%85%8D%E7%BD%AE/">Nacos作为配置中心时，多个服务共用一个dataId的配置</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T09:34:29.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/SpringCloudAlibaba(%E4%B8%89)%EF%BC%9A%E4%BD%BF%E7%94%A8Nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">SpringCloudAlibaba(三)：使用Nacos作为配置中心</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-16T09:31:53.000Z">2020-07-16</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/16/Nacos%20%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/">Nacos 集群部署</a></p><p class="is-uppercase"></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2020/07/"><span class="level-start"><span class="level-item">七月 2020</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/06/"><span class="level-start"><span class="level-item">六月 2020</span></span><span class="level-end"><span class="level-item tag">37</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/05/"><span class="level-start"><span class="level-item">五月 2020</span></span><span class="level-end"><span class="level-item tag">29</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/04/"><span class="level-start"><span class="level-item">四月 2020</span></span><span class="level-end"><span class="level-item tag">62</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/03/"><span class="level-start"><span class="level-item">三月 2020</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/12/"><span class="level-start"><span class="level-item">十二月 2019</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/11/"><span class="level-start"><span class="level-item">十一月 2019</span></span><span class="level-end"><span class="level-item tag">24</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/go/"><span class="tag">go</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/web/"><span class="tag">web</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button is-primary" type="submit" value="订阅"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="2183476622" data-ad-slot="pub-2874221941555456" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="知识铺" height="28"></a><p class="size-small"><span>&copy; 2020 edwin</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            site: {
+                url: 'https://zshipu.com',
+                external_link: {"enable":true,"exclude":[]}
+            },
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
