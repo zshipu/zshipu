@@ -15,14 +15,13 @@
 <div class="row cf">
     <div class="col">
         <div class="header">
-<<<<<<< HEAD
-            Title:<input type="text" id="articleTitle">
-=======
+
             Title:<input type="text" id="articleTitle" style="width:500px">
             Tag:<input type="text" id="tag">
             Top:
             <select id="top">
                 <option value="geek" selected>geek</option>
+                 <option value="ai" >ai</option>
                 <option value="top">top</option>
                 <option value="topcsdn">topcsdn</option>
                 <option value="topgoforum">topgoforum</option>
@@ -33,7 +32,6 @@
                 <option value="topopencn">topopencn</option>
                 <option value="topsegmentfault">topsegmentfault</option>
             </select>
->>>>>>> 9e23b3ce56dbb08155b670ec15e47ca67afe6c20
         </div>
         <textarea id="input"></textarea>
     </div>
@@ -52,8 +50,7 @@
 
 <script>
     function setContent(content) {
-<<<<<<< HEAD
-=======
+
         content = content.replace(/反应/g,"React");
         content = content.replace(/图形QL/g,"Graphql");
         content = content.replace(/戈朗/g,"Golang");
@@ -69,7 +66,6 @@
         content = content.replace(/秘密/g,"Secret");
         content = content.replace(/配置图/g,"ConfigMap");
         content = content.replace(/爪哇/g,"Java");
->>>>>>> 9e23b3ce56dbb08155b670ec15e47ca67afe6c20
         var md = toMarkdown(content, {
             gfm: true,
             converters: [{
@@ -122,15 +118,7 @@
     }
   });
 
-<<<<<<< HEAD
 
-    function saveArtcile () {
-        var Title = $('#articleTitle').val()
-        var Content = $("#output").val();
-        var JsonData = {
-            Title:Title,
-            Content:Content
-=======
     
     function saveArtcile () {
         var Title = $('#articleTitle').val()
@@ -142,18 +130,14 @@
             Content:Content,
             Tag:Tag,
             Top:Top
->>>>>>> 9e23b3ce56dbb08155b670ec15e47ca67afe6c20
         };
 
         let jsonstr = JSON.stringify(JsonData);
 
         $.ajax({
             type: "POST",
-<<<<<<< HEAD
-            url: "https://zshipu.com/createArticle",
-=======
+
             url: "http://127.0.0.1:5051/createArticle",
->>>>>>> 9e23b3ce56dbb08155b670ec15e47ca67afe6c20
             data:jsonstr,
             dataType: "json",
             success:function (message) {
@@ -165,8 +149,5 @@
         });
     }
 </script>
-<<<<<<< HEAD
+
 </html>
-=======
-</html>
->>>>>>> 9e23b3ce56dbb08155b670ec15e47ca67afe6c20
