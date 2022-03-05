@@ -1,7 +1,0 @@
-options:
-  imagePath: /images
-  imgRoot: 'https:\/\/blog.zshipu.com/media'
-  imgUpMsg: 知识铺-
-  lineNumbers: false
-editor:
-  lineNumbers: false
